@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60A76480-B123-4365-959C-06E429AB4EF3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>LavenderControl.My.MyApplication</StartupObject>
+    <RootNamespace>LavenderControl</RootNamespace>
+    <AssemblyName>Lavender Control</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Lavender Control.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DocumentationFile>Lavender Control.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\computer.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaxMind.Db, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaxMind.Db.1.1.0\lib\net40\MaxMind.Db.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaxMind.GeoIP2, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaxMind.GeoIP2.2.3.1\lib\net40\MaxMind.GeoIP2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Open.Nat, Version=2.0.13.0, Culture=neutral, PublicKeyToken=f22a6a4582336c76, processorArchitecture=MSIL">
+      <HintPath>..\packages\Open.NAT.2.0.13.0\lib\net45\Open.Nat.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.Designer.vb">
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ListViewColumnSorter.vb" />
+    <Compile Include="Controls\NSTheme.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ThemeBase154.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\VerticalProgressBar.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Crypt\AES.vb" />
+    <Compile Include="Crypt\Aes256Base64Encrypter.vb" />
+    <Compile Include="Crypt\HMACSHA512Hasher.vb" />
+    <Compile Include="Crypt\Keypair.vb" />
+    <Compile Include="Crypt\RC4.vb" />
+    <Compile Include="Crypt\RSA.vb" />
+    <Compile Include="Crypt\RSAresult.vb" />
+    <Compile Include="Controls\Keyboard.Designer.vb">
+      <DependentUpon>Keyboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Keyboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profiles.Designer.vb">
+      <DependentUpon>Profiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Profiles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ListViewEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Remote.Designer.vb">
+      <DependentUpon>Remote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Remote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileManager.Designer.vb">
+      <DependentUpon>FileManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Builder.Designer.vb">
+      <DependentUpon>Builder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Builder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Passwords.Designer.vb">
+      <DependentUpon>Passwords.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Passwords.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandShell.Designer.vb">
+      <DependentUpon>CommandShell.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CommandShell.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities.Designer.vb">
+      <DependentUpon>Utilities.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyLogger.Designer.vb">
+      <DependentUpon>KeyLogger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KeyLogger.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Func.vb" />
+    <Compile Include="SocketServer.vb" />
+    <Compile Include="TaskMan.Designer.vb">
+      <DependentUpon>TaskMan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TaskMan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="About.de.resx">
+      <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileManager.de.resx">
+      <DependentUpon>FileManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Keyboard.resx">
+      <DependentUpon>Keyboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyLogger.de.resx">
+      <DependentUpon>KeyLogger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profiles.resx">
+      <DependentUpon>Profiles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.de.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Passwords.de.resx">
+      <DependentUpon>Passwords.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remote.de.resx">
+      <DependentUpon>Remote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Remote.resx">
+      <DependentUpon>Remote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileManager.resx">
+      <DependentUpon>FileManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Builder.resx">
+      <DependentUpon>Builder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Passwords.resx">
+      <DependentUpon>Passwords.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandShell.resx">
+      <DependentUpon>CommandShell.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskMan.de.resx">
+      <DependentUpon>TaskMan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities.resx">
+      <DependentUpon>Utilities.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyLogger.resx">
+      <DependentUpon>KeyLogger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskMan.resx">
+      <DependentUpon>TaskMan.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GeoLite2-Country.mmdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Resources\explorer2.ico" />
+    <None Include="Resources\lock.ico" />
+    <None Include="Resources\logout.ico" />
+    <None Include="Resources\power.ico" />
+    <None Include="Resources\power2.ico" />
+    <None Include="Resources\run.ico" />
+    <None Include="Resources\run2.ico" />
+    <None Include="Resources\seguisym.ttf" />
+    <None Include="Resources\suspend.ico" />
+    <None Include="Resources\taskman.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer.ico" />
+    <None Include="Resources\control-270-small.png" />
+    <None Include="Resources\control-090-small.png" />
+    <None Include="Resources\memory.png" />
+    <None Include="Resources\processor.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\globe--arrow.png" />
+    <None Include="Resources\cross-script.png" />
+    <None Include="Resources\cross.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\drivewin.ico" />
+    <None Include="Resources\drive.ico" />
+    <None Include="Resources\diskdrive.ico" />
+    <None Include="Resources\folder.ico" />
+    <None Include="Resources\lock.png" />
+    <None Include="Resources\key--arrow.png" />
+    <None Include="Resources\monitor-screensaver.png" />
+    <None Include="Resources\control-power1.png" />
+    <None Include="Resources\control-power.png" />
+    <None Include="Resources\cross-circle.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\exclamation.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\light-bulb.png" />
+    <None Include="Resources\keyboard.png" />
+    <None Include="Resources\terminal.gif" />
+    <None Include="Resources\key.png" />
+    <None Include="Resources\monitor.png" />
+    <None Include="Resources\system-monitor.png" />
+    <None Include="License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\clipboard.ico" />
+    <None Include="Resources\arrow-circle-double-135.png" />
+    <None Include="Resources\application.ico" />
+    <None Include="Resources\arrow-090-medium.png" />
+    <None Include="Resources\arrow-270-medium.png" />
+    <None Include="Resources\bin-metal-full.png" />
+    <None Include="Resources\clipboard.png" />
+    <None Include="Resources\restart.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
