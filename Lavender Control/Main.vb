@@ -30,67 +30,17 @@ Public Class Main
     Public Shared Function SetWindowTheme(hWnd As IntPtr, textSubAppName As [String], textSubIdList As [String]) As Int32 ''unthemed controls
     End Function
 
-    'Private Sub ConnectButton_Click(sender As Object, e As EventArgs) Handles ListenButton.Click
-    '    Sp(True)
-    '    If IPTextbox.Text = "" Or PortTextbox.Text = "" Then
-    '        ErrorLabel.Text = "Fill in Host and Port to proceed"
-    '    Else
-    '        ip = IPAddress.Parse(IPTextbox.Text)
-    '        port = PortTextbox.Text
-    '        If sock.Connected = True Then
-    '            InfoLabel.Text = "Sent terminate signal"
-    '            Terminate()
-    '            ListenButton.Text = "Connect"
-    '            ListenButton.BackColor = Color.Green
-    '            IPTextbox.Enabled = True
-    '            PortTextbox.Enabled = True
-    '            Tabs.Enabled = False
-    '        Else
-    '            Try
-    '                sock = New TcpClient()
-    '                sock.Connect(ip, port)
-    '                ListenButton.Text = "Disconnect"
-    '                ListenButton.BackColor = Color.FromArgb(64, 0, 0)
-    '                IPTextbox.Enabled = False
-    '                PortTextbox.Enabled = False
-    '                Tabs.Enabled = True
-    '                InfoLabel.Text = "Connected to " & IPTextbox.Text ''& "@" & dbr.Find(IPTextbox.Text).ToString
-    '            Catch ex As Exception
-    '                MsgBox("Cannot connect!" & vbNewLine & ex.Message.ToString, MsgBoxStyle.Critical, "Lavender Error")
-    '            End Try
-    '        End If
-    '    End If
-    '    Sp(False)
-    'End Sub
-
-    'Sub Dat(ByVal id As Integer, ByVal dat As String) ''Send Data (0=Process, 1=MsgBox)
-    '    Dim ec As String
-    '    ec = id & "*" & Xord(dat, My.Settings.Key)
-    '    ''MsgBox(ec & " | " & dat)
-    '    Dim nstream As NetworkStream = sock.GetStream()
-    '    Dim bit As [Byte]() = System.Text.Encoding.ASCII.GetBytes(ec)
-    '    nstream.Write(bit, 0, bit.Length)
-    'End Sub
-
     Function Xord(ByVal str As String, ByVal key As String)
         Dim i As Short
         Xord = ""
         Dim KeyChar As Integer
         KeyChar = Asc(key)
         For i = 1 To Len(str)
-            Xord &= _
-               Chr(KeyChar Xor _
+            Xord &=
+               Chr(KeyChar Xor
                Asc(Mid(str, i, 1)))
         Next
     End Function
-
-    Sub Sp(ByVal s As Boolean)
-        Me.UseWaitCursor = s
-        ''CanClose = Not (s) removed cause annoting
-        If s = True Then
-            ErrorLabel.Text = ""
-        End If
-    End Sub
 
     'Sub Terminate()
     '    If sock.Connected = True Then
@@ -118,7 +68,7 @@ Public Class Main
         Second.Enabled = True
         Second.Interval = 100
         Second.Start()
-        Sp(True)
+        ErrorLabel.Text = ""
         Tabs.Visible = False
         PasswordTextbox.Text = pw
         ShowPasswordButton.BringToFront()
@@ -140,14 +90,13 @@ Public Class Main
     Private Sub Second_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Second.Tick
         ''Get port from settings
         If Spinner.Visible = True Then
-            MainInfoLabel.Text = " " & My.Settings.Port & " | " & L1.Items.Count & " Client(s) online"
+            MainInfoLabel.Text = L1.Items.Count & " Client(s) online"
         Else
             MainInfoLabel.Text = ""
         End If
     End Sub
 
     Private Sub Main_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        Sp(False)
     End Sub
 
 #Region "Server Events"
@@ -764,33 +713,33 @@ Public Class Main
 
     End Sub
 #Region "Power Buttons"
-    Private Sub ShutdownButton_Click(sender As Object, e As EventArgs)
+    Private Sub ShutdownButton_Click(sender As Object, e As EventArgs) Handles ShutdownButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, "Shutdown")
+            S.Send(x.ToolTipText, "SHD")
         Next
     End Sub
 
-    Private Sub RestartButton_Click(sender As Object, e As EventArgs)
+    Private Sub RestartButton_Click(sender As Object, e As EventArgs) Handles RestartButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, "Restart")
+            S.Send(x.ToolTipText, "RST")
         Next
     End Sub
 
-    Private Sub SleepButton_Click(sender As Object, e As EventArgs)
+    Private Sub SleepButton_Click(sender As Object, e As EventArgs) Handles SleepButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, "Sleep")
+            S.Send(x.ToolTipText, "SLP")
         Next
     End Sub
 
-    Private Sub LockButton_Click(sender As Object, e As EventArgs)
+    Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, "Lockscreen")
+            S.Send(x.ToolTipText, "LGF")
         Next
     End Sub
 
-    Private Sub LogoutButton_Click(sender As Object, e As EventArgs)
+    Private Sub LockButton_Click(sender As Object, e As EventArgs) Handles LockButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, "Logoff")
+            S.Send(x.ToolTipText, "LCK")
         Next
     End Sub
 #End Region
@@ -799,7 +748,7 @@ Public Class Main
         TaskMan.Show()
     End Sub
 
-    Private Sub MsgSendButton_Click(sender As Object, e As EventArgs)  ''Send messagebox
+    Private Sub MsgSendButton_Click(sender As Object, e As EventArgs) Handles MsgSendButton.Click  ''Send messagebox
         Dim mbmsg As String = MsgTextbox.Text
         Dim mbtp As Integer ''MsgBoxStyle
         If InfoRadio.Checked Then mbtp = 64 Else If ExclaRadio.Checked Then mbtp = 48 Else If QuestRadio.Checked Then mbtp = 32 Else If CritRadio.Checked Then mbtp = 16

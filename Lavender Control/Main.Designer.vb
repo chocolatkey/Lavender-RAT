@@ -73,6 +73,14 @@ Partial Class Main
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LockTab = New MetroFramework.Controls.MetroTabPage()
+        Me.L1 = New LavenderControl.ListViewEx()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlagImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -99,14 +107,7 @@ Partial Class Main
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.L1 = New LavenderControl.ListViewEx()
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.MainSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplit.Panel1.SuspendLayout()
         Me.MainSplit.Panel2.SuspendLayout()
@@ -126,6 +127,7 @@ Partial Class Main
         Me.PowerPanel.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.MessageTab.SuspendLayout()
+        Me.LockTab.SuspendLayout()
         Me.ListContextMenu.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -228,7 +230,7 @@ Partial Class Main
         Me.Tabs.HotTrack = True
         Me.Tabs.Multiline = True
         Me.Tabs.Name = "Tabs"
-        Me.Tabs.SelectedIndex = 0
+        Me.Tabs.SelectedIndex = 3
         Me.Tabs.Style = MetroFramework.MetroColorStyle.Green
         Me.Tabs.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.Tabs.UseStyleColors = True
@@ -619,11 +621,54 @@ Partial Class Main
         '
         'LockTab
         '
+        Me.LockTab.Controls.Add(Me.Label1)
         Me.LockTab.HorizontalScrollbarBarColor = True
         resources.ApplyResources(Me.LockTab, "LockTab")
         Me.LockTab.Name = "LockTab"
         Me.LockTab.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.LockTab.VerticalScrollbarBarColor = True
+        '
+        'L1
+        '
+        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.L1.ContextMenuStrip = Me.ListContextMenu
+        resources.ApplyResources(Me.L1, "L1")
+        Me.L1.FullRowSelect = True
+        Me.L1.GridLines = True
+        Me.L1.HideSelection = False
+        Me.L1.LargeImageList = Me.FlagImageList
+        Me.L1.Name = "L1"
+        Me.L1.SmallImageList = Me.FlagImageList
+        Me.L1.UseCompatibleStateImageBehavior = False
+        Me.L1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
+        '
+        'ColumnHeader11
+        '
+        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
+        '
+        'ColumnHeader12
+        '
+        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
+        '
+        'ColumnHeader13
+        '
+        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
+        '
+        'ColumnHeader14
+        '
+        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
+        '
+        'ColumnHeader15
+        '
+        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
+        '
+        'ColumnHeader16
+        '
+        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
         '
         'ListContextMenu
         '
@@ -1050,47 +1095,12 @@ Partial Class Main
         '
         resources.ApplyResources(Me.ColumnHeader5, "ColumnHeader5")
         '
-        'L1
+        'Label1
         '
-        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
-        Me.L1.ContextMenuStrip = Me.ListContextMenu
-        resources.ApplyResources(Me.L1, "L1")
-        Me.L1.FullRowSelect = True
-        Me.L1.GridLines = True
-        Me.L1.HideSelection = False
-        Me.L1.LargeImageList = Me.FlagImageList
-        Me.L1.Name = "L1"
-        Me.L1.SmallImageList = Me.FlagImageList
-        Me.L1.UseCompatibleStateImageBehavior = False
-        Me.L1.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader10
-        '
-        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
-        '
-        'ColumnHeader11
-        '
-        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
-        '
-        'ColumnHeader12
-        '
-        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
-        '
-        'ColumnHeader13
-        '
-        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
-        '
-        'ColumnHeader14
-        '
-        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
-        '
-        'ColumnHeader15
-        '
-        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
-        '
-        'ColumnHeader16
-        '
-        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.Color.Black
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Name = "Label1"
         '
         'Main
         '
@@ -1130,6 +1140,8 @@ Partial Class Main
         Me.GroupBox2.PerformLayout()
         Me.MessageTab.ResumeLayout(False)
         Me.MessageTab.PerformLayout()
+        Me.LockTab.ResumeLayout(False)
+        Me.LockTab.PerformLayout()
         Me.ListContextMenu.ResumeLayout(False)
         Me.TrayContextMenu.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -1220,4 +1232,5 @@ Partial Class Main
     Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader15 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader16 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label1 As Label
 End Class

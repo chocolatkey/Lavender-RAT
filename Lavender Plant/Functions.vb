@@ -218,4 +218,28 @@ Module Func
             Return ms.ToArray()
         End Using
     End Function
+
+    Private is64BitProcess As Boolean = (IntPtr.Size = 8)
+    Public is64BitOperatingSystem As Boolean = is64BitProcess OrElse InternalCheckIsWow64()
+
+    <DllImport("Kernel32.dll", SetLastError:=True, CallingConvention:=CallingConvention.Winapi)>
+    Public Function IsWow64Process(
+    ByVal hProcess As IntPtr,
+    ByRef wow64Process As Boolean) As <MarshalAs(UnmanagedType.Bool)> Boolean
+
+    End Function
+
+    Public Function InternalCheckIsWow64() As Boolean
+        If (Environment.OSVersion.Version.Major = 5 AndAlso Environment.OSVersion.Version.Minor >= 1) OrElse Environment.OSVersion.Version.Major >= 6 Then
+            Using p As Process = Process.GetCurrentProcess()
+                Dim retVal As Boolean
+                If Not IsWow64Process(p.Handle, retVal) Then
+                    Return False
+                End If
+                Return retVal
+            End Using
+        Else
+            Return False
+        End If
+    End Function
 End Module
