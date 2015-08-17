@@ -24,37 +24,56 @@ Partial Class Passwords
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Passwords))
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.ApplicationImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.ListView1 = New LavenderControl.ListViewEx()
+        Me.Application = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Username = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Password = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
-        'ImageList1
+        'ApplicationImageList
         '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "FileZilla.ico")
-        Me.ImageList1.Images.SetKeyName(1, "No-IP.ico")
-        Me.ImageList1.Images.SetKeyName(2, "dyn-orb.ico")
-        Me.ImageList1.Images.SetKeyName(3, "key.ico")
-        Me.ImageList1.Images.SetKeyName(4, "firefox.ico")
-        Me.ImageList1.Images.SetKeyName(5, "chrome.ico")
-        Me.ImageList1.Images.SetKeyName(6, "msn.ico")
-        Me.ImageList1.Images.SetKeyName(7, "key.ico")
-        Me.ImageList1.Images.SetKeyName(8, "opera.ico")
-        Me.ImageList1.Images.SetKeyName(9, "iexplore.ico")
+        Me.ApplicationImageList.ImageStream = CType(resources.GetObject("ApplicationImageList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ApplicationImageList.TransparentColor = System.Drawing.Color.Transparent
+        Me.ApplicationImageList.Images.SetKeyName(0, "FileZilla.ico")
+        Me.ApplicationImageList.Images.SetKeyName(1, "No-IP.ico")
+        Me.ApplicationImageList.Images.SetKeyName(2, "dyn-orb.ico")
+        Me.ApplicationImageList.Images.SetKeyName(3, "key.ico")
+        Me.ApplicationImageList.Images.SetKeyName(4, "firefox.ico")
+        Me.ApplicationImageList.Images.SetKeyName(5, "chrome.ico")
+        Me.ApplicationImageList.Images.SetKeyName(6, "msn.ico")
+        Me.ApplicationImageList.Images.SetKeyName(7, "key.ico")
+        Me.ApplicationImageList.Images.SetKeyName(8, "opera.ico")
+        Me.ApplicationImageList.Images.SetKeyName(9, "iexplore.ico")
         '
         'ListView1
         '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Application, Me.Username, Me.Password})
         resources.ApplyResources(Me.ListView1, "ListView1")
+        Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
+        Me.ListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView1.HideSelection = False
+        Me.ListView1.LabelEdit = True
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.SmallImageList = Me.ImageList1
+        Me.ListView1.SmallImageList = Me.ApplicationImageList
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'Application
+        '
+        resources.ApplyResources(Me.Application, "Application")
+        '
+        'Username
+        '
+        resources.ApplyResources(Me.Username, "Username")
+        '
+        'Password
+        '
+        resources.ApplyResources(Me.Password, "Password")
         '
         'ColumnHeader1
         '
@@ -84,5 +103,8 @@ Partial Class Passwords
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
+    Friend WithEvents ApplicationImageList As System.Windows.Forms.ImageList
+    Friend WithEvents Application As ColumnHeader
+    Friend WithEvents Username As ColumnHeader
+    Friend WithEvents Password As ColumnHeader
 End Class

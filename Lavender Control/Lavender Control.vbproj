@@ -133,6 +133,13 @@
     <Compile Include="Controls\Keyboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Names.vb" />
+    <Compile Include="Shell.Designer.vb">
+      <DependentUpon>Shell.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shell.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Profiles.Designer.vb">
       <DependentUpon>Profiles.vb</DependentUpon>
     </Compile>
@@ -231,6 +238,12 @@
     <EmbeddedResource Include="KeyLogger.de.resx">
       <DependentUpon>KeyLogger.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Shell.de.resx">
+      <DependentUpon>Shell.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shell.resx">
+      <DependentUpon>Shell.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Profiles.resx">
       <DependentUpon>Profiles.vb</DependentUpon>
     </EmbeddedResource>
@@ -304,7 +317,6 @@
     <None Include="Resources\power2.ico" />
     <None Include="Resources\run.ico" />
     <None Include="Resources\run2.ico" />
-    <None Include="Resources\seguisym.ttf" />
     <None Include="Resources\suspend.ico" />
     <None Include="Resources\taskman.ico" />
   </ItemGroup>

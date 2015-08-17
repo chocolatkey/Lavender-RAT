@@ -27,7 +27,7 @@ Partial Class Main
         Me.MainSplit = New System.Windows.Forms.SplitContainer()
         Me.ControlSplitContainer = New System.Windows.Forms.SplitContainer()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PasswordPanel = New System.Windows.Forms.Panel()
         Me.PasswordTextbox = New System.Windows.Forms.TextBox()
         Me.ShowPasswordButton = New System.Windows.Forms.Button()
         Me.PortValue = New System.Windows.Forms.NumericUpDown()
@@ -73,14 +73,8 @@ Partial Class Main
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LockTab = New MetroFramework.Controls.MetroTabPage()
-        Me.L1 = New LavenderControl.ListViewEx()
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LogTextBox = New MetroFramework.Controls.MetroTextBox()
         Me.ListContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlagImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -91,11 +85,11 @@ Partial Class Main
         Me.MainInfoLabel = New MetroFramework.Controls.MetroLabel()
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.TrayContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.SdfghToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InfoTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ControlBoxPanel = New System.Windows.Forms.Panel()
         Me.KeysButton = New System.Windows.Forms.Button()
         Me.BuilderButton = New System.Windows.Forms.Button()
         Me.AboutButton = New System.Windows.Forms.Button()
@@ -107,7 +101,14 @@ Partial Class Main
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.L1 = New LavenderControl.ListViewEx()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.MainSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplit.Panel1.SuspendLayout()
         Me.MainSplit.Panel2.SuspendLayout()
@@ -117,7 +118,7 @@ Partial Class Main
         Me.ControlSplitContainer.Panel2.SuspendLayout()
         Me.ControlSplitContainer.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
+        Me.PasswordPanel.SuspendLayout()
         CType(Me.PortValue, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tabs.SuspendLayout()
         Me.ManageTab.SuspendLayout()
@@ -130,7 +131,7 @@ Partial Class Main
         Me.LockTab.SuspendLayout()
         Me.ListContextMenu.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.ControlBoxPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainSplit
@@ -145,6 +146,7 @@ Partial Class Main
         '
         'MainSplit.Panel2
         '
+        Me.MainSplit.Panel2.Controls.Add(Me.LogTextBox)
         Me.MainSplit.Panel2.Controls.Add(Me.L1)
         '
         'ControlSplitContainer
@@ -162,18 +164,18 @@ Partial Class Main
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.Panel2)
+        Me.FlowLayoutPanel1.Controls.Add(Me.PasswordPanel)
         Me.FlowLayoutPanel1.Controls.Add(Me.PortValue)
         Me.FlowLayoutPanel1.Controls.Add(Me.ListenButton)
         resources.ApplyResources(Me.FlowLayoutPanel1, "FlowLayoutPanel1")
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         '
-        'Panel2
+        'PasswordPanel
         '
-        Me.Panel2.Controls.Add(Me.PasswordTextbox)
-        Me.Panel2.Controls.Add(Me.ShowPasswordButton)
-        resources.ApplyResources(Me.Panel2, "Panel2")
-        Me.Panel2.Name = "Panel2"
+        Me.PasswordPanel.Controls.Add(Me.PasswordTextbox)
+        Me.PasswordPanel.Controls.Add(Me.ShowPasswordButton)
+        resources.ApplyResources(Me.PasswordPanel, "PasswordPanel")
+        Me.PasswordPanel.Name = "PasswordPanel"
         '
         'PasswordTextbox
         '
@@ -628,47 +630,22 @@ Partial Class Main
         Me.LockTab.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.LockTab.VerticalScrollbarBarColor = True
         '
-        'L1
+        'Label1
         '
-        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
-        Me.L1.ContextMenuStrip = Me.ListContextMenu
-        resources.ApplyResources(Me.L1, "L1")
-        Me.L1.FullRowSelect = True
-        Me.L1.GridLines = True
-        Me.L1.HideSelection = False
-        Me.L1.LargeImageList = Me.FlagImageList
-        Me.L1.Name = "L1"
-        Me.L1.SmallImageList = Me.FlagImageList
-        Me.L1.UseCompatibleStateImageBehavior = False
-        Me.L1.View = System.Windows.Forms.View.Details
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.BackColor = System.Drawing.Color.Black
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Name = "Label1"
         '
-        'ColumnHeader10
+        'LogTextBox
         '
-        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
-        '
-        'ColumnHeader11
-        '
-        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
-        '
-        'ColumnHeader12
-        '
-        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
-        '
-        'ColumnHeader13
-        '
-        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
-        '
-        'ColumnHeader14
-        '
-        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
-        '
-        'ColumnHeader15
-        '
-        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
-        '
-        'ColumnHeader16
-        '
-        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
+        resources.ApplyResources(Me.LogTextBox, "LogTextBox")
+        Me.LogTextBox.Multiline = True
+        Me.LogTextBox.Name = "LogTextBox"
+        Me.LogTextBox.ReadOnly = True
+        Me.LogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.LogTextBox.Style = MetroFramework.MetroColorStyle.Purple
+        Me.LogTextBox.Theme = MetroFramework.MetroThemeStyle.Dark
         '
         'ListContextMenu
         '
@@ -996,14 +973,14 @@ Partial Class Main
         '
         'TrayContextMenu
         '
-        Me.TrayContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SdfghToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
+        Me.TrayContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowToolStripMenuItem, Me.ToolStripMenuItem1, Me.ExitToolStripMenuItem})
         Me.TrayContextMenu.Name = "ContextMenuStrip2"
         resources.ApplyResources(Me.TrayContextMenu, "TrayContextMenu")
         '
-        'SdfghToolStripMenuItem
+        'ShowToolStripMenuItem
         '
-        Me.SdfghToolStripMenuItem.Name = "SdfghToolStripMenuItem"
-        resources.ApplyResources(Me.SdfghToolStripMenuItem, "SdfghToolStripMenuItem")
+        Me.ShowToolStripMenuItem.Name = "ShowToolStripMenuItem"
+        resources.ApplyResources(Me.ShowToolStripMenuItem, "ShowToolStripMenuItem")
         '
         'ToolStripMenuItem1
         '
@@ -1020,13 +997,13 @@ Partial Class Main
         Me.InfoTimer.Enabled = True
         Me.InfoTimer.Interval = 3000
         '
-        'Panel1
+        'ControlBoxPanel
         '
-        resources.ApplyResources(Me.Panel1, "Panel1")
-        Me.Panel1.Controls.Add(Me.KeysButton)
-        Me.Panel1.Controls.Add(Me.BuilderButton)
-        Me.Panel1.Controls.Add(Me.AboutButton)
-        Me.Panel1.Name = "Panel1"
+        resources.ApplyResources(Me.ControlBoxPanel, "ControlBoxPanel")
+        Me.ControlBoxPanel.Controls.Add(Me.KeysButton)
+        Me.ControlBoxPanel.Controls.Add(Me.BuilderButton)
+        Me.ControlBoxPanel.Controls.Add(Me.AboutButton)
+        Me.ControlBoxPanel.Name = "ControlBoxPanel"
         '
         'KeysButton
         '
@@ -1095,18 +1072,53 @@ Partial Class Main
         '
         resources.ApplyResources(Me.ColumnHeader5, "ColumnHeader5")
         '
-        'Label1
+        'L1
         '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.BackColor = System.Drawing.Color.Black
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Name = "Label1"
+        resources.ApplyResources(Me.L1, "L1")
+        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.L1.ContextMenuStrip = Me.ListContextMenu
+        Me.L1.FullRowSelect = True
+        Me.L1.GridLines = True
+        Me.L1.HideSelection = False
+        Me.L1.LargeImageList = Me.FlagImageList
+        Me.L1.Name = "L1"
+        Me.L1.SmallImageList = Me.FlagImageList
+        Me.L1.UseCompatibleStateImageBehavior = False
+        Me.L1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
+        '
+        'ColumnHeader11
+        '
+        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
+        '
+        'ColumnHeader12
+        '
+        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
+        '
+        'ColumnHeader13
+        '
+        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
+        '
+        'ColumnHeader14
+        '
+        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
+        '
+        'ColumnHeader15
+        '
+        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
+        '
+        'ColumnHeader16
+        '
+        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
         '
         'Main
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.ControlBoxPanel)
         Me.Controls.Add(Me.VersionLabel)
         Me.Controls.Add(Me.MainInfoLabel)
         Me.Controls.Add(Me.MainSplit)
@@ -1126,8 +1138,8 @@ Partial Class Main
         CType(Me.ControlSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ControlSplitContainer.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
+        Me.PasswordPanel.ResumeLayout(False)
+        Me.PasswordPanel.PerformLayout()
         CType(Me.PortValue, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tabs.ResumeLayout(False)
         Me.ManageTab.ResumeLayout(False)
@@ -1144,7 +1156,7 @@ Partial Class Main
         Me.LockTab.PerformLayout()
         Me.ListContextMenu.ResumeLayout(False)
         Me.TrayContextMenu.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
+        Me.ControlBoxPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1173,17 +1185,17 @@ Partial Class Main
     Friend WithEvents PasswordTextbox As System.Windows.Forms.TextBox
     Friend WithEvents InfoTimer As System.Windows.Forms.Timer
     Friend WithEvents TrayContextMenu As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents SdfghToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ShowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MainSplit As System.Windows.Forms.SplitContainer
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents ControlSplitContainer As System.Windows.Forms.SplitContainer
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents ControlBoxPanel As System.Windows.Forms.Panel
     Friend WithEvents BuilderButton As System.Windows.Forms.Button
     Friend WithEvents AboutButton As System.Windows.Forms.Button
     Friend WithEvents InfoToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents PasswordPanel As System.Windows.Forms.Panel
     Friend WithEvents ShowPasswordButton As System.Windows.Forms.Button
     Friend WithEvents ListContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents CopyToClipboardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1233,4 +1245,5 @@ Partial Class Main
     Friend WithEvents ColumnHeader15 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader16 As System.Windows.Forms.ColumnHeader
     Friend WithEvents Label1 As Label
+    Friend WithEvents LogTextBox As MetroFramework.Controls.MetroTextBox
 End Class

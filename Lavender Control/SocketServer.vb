@@ -21,7 +21,11 @@ Public Class SocketServer
     End Sub
     Sub Send(ByVal sock As Integer, ByVal s As String)
         Try
-            Send(sock, SB(Crypt.RC4.rc4(s, Main.pw)))
+            If Main.trust.Contains(sock) = True Then
+                Send(sock, SB(Crypt.RC4.rc4(s, Main.pw)))
+            Else
+                Send(sock, SB(s))
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
             Dim st As New StackTrace(True)
@@ -48,7 +52,7 @@ Public Class SocketServer
     Public Event Data(ByVal sock As Integer, ByVal B As Byte())
     Public Event DisConnected(ByVal sock As Integer)
     Public Event Connected(ByVal sock As Integer)
-    Private SPL As String = Crypt.RC4.rc4("=0-0=", Main.pw) ' split packets by this word
+    Private SPL As String = "=0-0=" ' split packets by this word
     Private Function NEWSKT() As Integer
 re:
         Thread.Sleep(1)
@@ -200,7 +204,8 @@ End Class
         Return bytes
     End Function
 End Class
-Public Class DownloadContainer
+
+Public Class DownloadContainer ''todo: work on this
     Public identification As Integer = 0
     Public nextPart As Boolean = False
     Public cancel As Boolean = False

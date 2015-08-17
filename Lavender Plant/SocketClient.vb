@@ -45,7 +45,7 @@ Public Class SocketClient
             RaiseEvent Disconnected()
         End Try
     End Sub
-    Private SPL As String = Crypt.RC4.rc4("=0-0=", Main.pw) ' split packets by this word
+    Private SPL As String = "=0-0=" ' split packets by this word
     Sub DisConnect()
         ''MsgBox("Discon")
         Try
@@ -58,7 +58,11 @@ Public Class SocketClient
     End Sub
     Sub Send(ByVal s As String)
         Try
-            Send(SB(Crypt.RC4.rc4(s, Main.pw)))
+            If Main.trust Then
+                Send(SB(Crypt.RC4.rc4(s, Main.pw)))
+            Else
+                Send(SB(s))
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: ABSOLUTELY REMOVE!
         End Try

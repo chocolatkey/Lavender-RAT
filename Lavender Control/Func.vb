@@ -11,49 +11,18 @@
         Next
     End Function
     Public Function siz(ByVal Size As String) As String
-        If Size.Length < 4 Then
-            Return Size & " Bytes"
-            Exit Function
+        If Long.Parse(Size) > 1073741824 Then
+            Dim sz As Double = Long.Parse(Size) / 1073741824
+            Return Math.Round(sz, 1).ToString & " GB"
+        ElseIf Long.Parse(Size) > 1048576 Then
+            Dim sz As Double = Long.Parse(Size) / 1048576
+            Return Math.Round(sz, 1).ToString & " MB"
+        ElseIf Long.Parse(Size) > 1024 Then
+            Dim sz As Double = Long.Parse(Size) / 1024
+            Return Math.Round(sz, 1).ToString & " KB"
+        Else
+            Return Math.Round(Long.Parse(Size), 1).ToString & " B"
         End If
-        Dim s As String = Size / 1024
-        Dim F As String = " KB"
-        Dim ss As Integer
-        If InStr(s, ".") > 0 Then
-            Dim j As Array = Split(s, ".")
-            s = j(0)
-            If j(1).ToString.Length > 3 Then
-                ss = Mid(j(1), 1, 3)
-            Else
-                ss = j(1)
-            End If
-        End If
-        If s.Length > 3 Then
-            s = s / 1024
-            F = " MB"
-            If InStr(s, ".") > 0 Then
-                Dim j As Array = Split(s, ".")
-                s = j(0)
-                If j(1).ToString.Length > 3 Then
-                    ss = Mid(j(1), 1, 3)
-                Else
-                    ss = j(1)
-                End If
-            End If
-        End If
-        If s.Length > 3 Then
-            s = s / 1024
-            F = " GB"
-            If InStr(s, ".") > 0 Then
-                Dim j As Array = Split(s, ".")
-                s = j(0)
-                If j(1).ToString.Length > 3 Then
-                    ss = Mid(j(1), 1, 3)
-                Else
-                    ss = j(1)
-                End If
-            End If
-        End If
-        Return s & "." & ss & F
     End Function
     Function SB(ByVal s As String) As Byte() ' string to byte()
         Return System.Text.Encoding.Default.GetBytes(s)

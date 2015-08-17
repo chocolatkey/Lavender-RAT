@@ -10,7 +10,7 @@ Public Class Profiles
     Private trd As Thread
 
     Private Sub Keys_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ''CreateNewKeys()
+        MsgBox(Main.pf)
     End Sub
 
     Private Sub CreateNewKeys()
@@ -41,7 +41,6 @@ Public Class Profiles
 
         CreateNewKeys()
 
-        MsgBox("Finished!")
 
         ProgressBarReset(0)
         ''ProgressBar.Invalidate()

