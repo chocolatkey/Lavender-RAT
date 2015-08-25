@@ -354,7 +354,6 @@
     <None Include="License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="MetroFramework.txt" />
     <None Include="Resources\clipboard.ico" />
     <None Include="Resources\arrow-circle-double-135.png" />
     <None Include="Resources\application.ico" />
@@ -364,7 +363,39 @@
     <None Include="Resources\clipboard.png" />
     <None Include="Resources\restart.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Builder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information-italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse--arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse-select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse-select-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mouse-select-wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keyboard--arrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

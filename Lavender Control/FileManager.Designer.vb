@@ -25,7 +25,7 @@ Partial Class FileManager
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FileManager))
         Me.DirTextBox = New System.Windows.Forms.TextBox()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.FileContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExecuteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,7 +50,7 @@ Partial Class FileManager
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.InfoToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ContextMenuStrip1.SuspendLayout()
+        Me.FileContextMenuStrip.SuspendLayout()
         Me.NavigationPanel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -60,11 +60,11 @@ Partial Class FileManager
         Me.DirTextBox.Name = "DirTextBox"
         Me.InfoToolTip.SetToolTip(Me.DirTextBox, resources.GetString("DirTextBox.ToolTip"))
         '
-        'ContextMenuStrip1
+        'FileContextMenuStrip
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExecuteToolStripMenuItem, Me.RenameToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ToolStripSeparator1, Me.ViewToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        resources.ApplyResources(Me.ContextMenuStrip1, "ContextMenuStrip1")
+        Me.FileContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExecuteToolStripMenuItem, Me.RenameToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ToolStripSeparator1, Me.ViewToolStripMenuItem})
+        Me.FileContextMenuStrip.Name = "ContextMenuStrip1"
+        resources.ApplyResources(Me.FileContextMenuStrip, "FileContextMenuStrip")
         '
         'ExecuteToolStripMenuItem
         '
@@ -245,7 +245,7 @@ Partial Class FileManager
         resources.ApplyResources(Me.FileListView, "FileListView")
         Me.FileListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FileListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.FileListView.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.FileListView.ContextMenuStrip = Me.FileContextMenuStrip
         Me.FileListView.FullRowSelect = True
         Me.FileListView.GridLines = True
         Me.FileListView.LargeImageList = Me.ImgListL
@@ -276,7 +276,7 @@ Partial Class FileManager
         Me.Name = "FileManager"
         Me.Style = MetroFramework.MetroColorStyle.Red
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.FileContextMenuStrip.ResumeLayout(False)
         Me.NavigationPanel.ResumeLayout(False)
         Me.NavigationPanel.PerformLayout()
         Me.ResumeLayout(False)
@@ -287,7 +287,7 @@ Partial Class FileManager
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents SmallImageList As System.Windows.Forms.ImageList
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents FileContextMenuStrip As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ExecuteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RenameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

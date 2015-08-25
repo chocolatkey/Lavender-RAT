@@ -22,7 +22,7 @@ Public Class SocketServer
     Sub Send(ByVal sock As Integer, ByVal s As String)
         Try
             If Main.trust.Contains(sock) = True Then
-                Send(sock, SB(Crypt.RC4.rc4(s, Main.pw)))
+                Send(sock, SB(Crypt.RC4.rc4(s, Main.pw(sock))))
             Else
                 Send(sock, SB(s))
             End If

@@ -274,7 +274,7 @@
     <value>1</value>
   </data>
   <data name="ListenButton.Text" xml:space="preserve">
-    <value>Start</value>
+    <value>&amp;Start</value>
   </data>
   <data name="&gt;&gt;ListenButton.Name" xml:space="preserve">
     <value>ListenButton</value>
@@ -328,7 +328,7 @@
     <value>45</value>
   </data>
   <data name="Tabs.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
-    <value>FlatButtons</value>
+    <value>Buttons</value>
   </data>
   <data name="ShellButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -352,7 +352,7 @@
     <value>13</value>
   </data>
   <data name="ShellButton.Text" xml:space="preserve">
-    <value>Shell</value>
+    <value>S&amp;hell</value>
   </data>
   <data name="ShellButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -391,7 +391,7 @@
     <value>12</value>
   </data>
   <data name="TaskmanButton.Text" xml:space="preserve">
-    <value>Task Manager</value>
+    <value>&amp;Task Manager</value>
   </data>
   <data name="TaskmanButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -408,10 +408,10 @@
   <data name="&gt;&gt;TaskmanButton.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="GroupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="ClientGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="GroupBox1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ClientGroupBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="ReconnectButton.Location" type="System.Drawing.Point, System.Drawing">
@@ -424,7 +424,7 @@
     <value>10</value>
   </data>
   <data name="ReconnectButton.Text" xml:space="preserve">
-    <value>Reconnect</value>
+    <value>Re&amp;connect</value>
   </data>
   <data name="ReconnectButton.ToolTip" xml:space="preserve">
     <value>Force client to disconnect the current session</value>
@@ -451,7 +451,7 @@
     <value>7</value>
   </data>
   <data name="ExitButton.Text" xml:space="preserve">
-    <value>Exit Instance</value>
+    <value>Exit &amp;Instance</value>
   </data>
   <data name="ExitButton.ToolTip" xml:space="preserve">
     <value>Kill running client (does not affect installation)</value>
@@ -478,7 +478,7 @@
     <value>8</value>
   </data>
   <data name="UninstallButton.Text" xml:space="preserve">
-    <value>Uninstall</value>
+    <value>&amp;Uninstall</value>
   </data>
   <data name="UninstallButton.ToolTip" xml:space="preserve">
     <value>Completely remove client from host</value>
@@ -508,7 +508,7 @@
     <value>9</value>
   </data>
   <data name="ScrambleButton.Text" xml:space="preserve">
-    <value>Scramble</value>
+    <value>Sc&amp;ramble</value>
   </data>
   <data name="ScrambleButton.ToolTip" xml:space="preserve">
     <value>Randomize client location/values on host</value>
@@ -544,33 +544,33 @@
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;FlowLayoutPanel2.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+    <value>ClientGroupBox</value>
   </data>
   <data name="&gt;&gt;FlowLayoutPanel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ClientGroupBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>246, 14</value>
   </data>
-  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ClientGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 162</value>
   </data>
-  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="ClientGroupBox.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>Server</value>
+  <data name="ClientGroupBox.Text" xml:space="preserve">
+    <value>Client</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="&gt;&gt;ClientGroupBox.Name" xml:space="preserve">
+    <value>ClientGroupBox</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;ClientGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ClientGroupBox.Parent" xml:space="preserve">
     <value>ManageTab</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ClientGroupBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="RemoteButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -595,7 +595,7 @@
     <value>7</value>
   </data>
   <data name="RemoteButton.Text" xml:space="preserve">
-    <value>Remote Desktop</value>
+    <value>&amp;Remote Desktop</value>
   </data>
   <data name="RemoteButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -631,7 +631,7 @@
     <value>6</value>
   </data>
   <data name="PasswordsButton.Text" xml:space="preserve">
-    <value>Passwords</value>
+    <value>&amp;Passwords</value>
   </data>
   <data name="PasswordsButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -667,7 +667,7 @@
     <value>5</value>
   </data>
   <data name="UtilitiesButton.Text" xml:space="preserve">
-    <value>Utilities</value>
+    <value>&amp;Utilities</value>
   </data>
   <data name="UtilitiesButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -703,7 +703,7 @@
     <value>4</value>
   </data>
   <data name="FileButton.Text" xml:space="preserve">
-    <value>Filesystem</value>
+    <value>&amp;Filesystem</value>
   </data>
   <data name="FileButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -742,7 +742,7 @@
     <value>3</value>
   </data>
   <data name="ShowKeyloggerButton.Text" xml:space="preserve">
-    <value>Keylogger</value>
+    <value>&amp;Keylogger</value>
   </data>
   <data name="ShowKeyloggerButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -805,7 +805,7 @@
     <value>7</value>
   </data>
   <data name="LogoutButton.Text" xml:space="preserve">
-    <value>Log Off</value>
+    <value>Lo&amp;g Off</value>
   </data>
   <data name="LogoutButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -844,7 +844,7 @@
     <value>6</value>
   </data>
   <data name="LockButton.Text" xml:space="preserve">
-    <value>Lock</value>
+    <value>&amp;Lock</value>
   </data>
   <data name="LockButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -883,7 +883,7 @@
     <value>5</value>
   </data>
   <data name="SleepButton.Text" xml:space="preserve">
-    <value>Sleep</value>
+    <value>Slee&amp;p</value>
   </data>
   <data name="SleepButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -922,7 +922,7 @@
     <value>4</value>
   </data>
   <data name="RestartButton.Text" xml:space="preserve">
-    <value>Restart</value>
+    <value>&amp;Restart</value>
   </data>
   <data name="RestartButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -961,7 +961,7 @@
     <value>3</value>
   </data>
   <data name="ShutdownButton.Text" xml:space="preserve">
-    <value>Shutdown</value>
+    <value>Shu&amp;tdown</value>
   </data>
   <data name="ShutdownButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -1006,7 +1006,7 @@
     <value>7</value>
   </data>
   <data name="PowerPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 40</value>
+    <value>0, 9</value>
   </data>
   <data name="PowerPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 252</value>
@@ -1045,7 +1045,7 @@
     <value>6, 51</value>
   </data>
   <data name="InfoListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 191</value>
+    <value>219, 195</value>
   </data>
   <data name="InfoListView.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1087,7 +1087,7 @@
     <value>8</value>
   </data>
   <data name="RetrieveButton.Text" xml:space="preserve">
-    <value>Retrieve Specifications</value>
+    <value>Retrieve S&amp;pecifications</value>
   </data>
   <data name="&gt;&gt;RetrieveButton.Name" xml:space="preserve">
     <value>RetrieveButton</value>
@@ -1102,10 +1102,10 @@
     <value>1</value>
   </data>
   <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 40</value>
+    <value>134, 9</value>
   </data>
   <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 248</value>
+    <value>231, 252</value>
   </data>
   <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1186,7 +1186,7 @@
     <value>27</value>
   </data>
   <data name="QuestRadio.Text" xml:space="preserve">
-    <value>Question</value>
+    <value>&amp;Question</value>
   </data>
   <data name="&gt;&gt;QuestRadio.Name" xml:space="preserve">
     <value>QuestRadio</value>
@@ -1216,7 +1216,7 @@
     <value>26</value>
   </data>
   <data name="ExclaRadio.Text" xml:space="preserve">
-    <value>Exclamation</value>
+    <value>&amp;Exclamation</value>
   </data>
   <data name="&gt;&gt;ExclaRadio.Name" xml:space="preserve">
     <value>ExclaRadio</value>
@@ -1246,7 +1246,7 @@
     <value>25</value>
   </data>
   <data name="CritRadio.Text" xml:space="preserve">
-    <value>Critical</value>
+    <value>&amp;Critical</value>
   </data>
   <data name="&gt;&gt;CritRadio.Name" xml:space="preserve">
     <value>CritRadio</value>
@@ -1279,7 +1279,13 @@
     <value>22</value>
   </data>
   <data name="MsgSendButton.Text" xml:space="preserve">
-    <value>Send</value>
+    <value>&amp;Send</value>
+  </data>
+  <data name="MsgSendButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="MsgSendButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>TextBeforeImage</value>
   </data>
   <data name="&gt;&gt;MsgSendButton.Name" xml:space="preserve">
     <value>MsgSendButton</value>
@@ -1336,7 +1342,7 @@
     <value>23</value>
   </data>
   <data name="InfoRadio.Text" xml:space="preserve">
-    <value>Information</value>
+    <value>&amp;Information</value>
   </data>
   <data name="&gt;&gt;InfoRadio.Name" xml:space="preserve">
     <value>InfoRadio</value>
@@ -1700,7 +1706,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACg
-        ogcAAk1TRnQBSQFMAgEBAgEBAagBBAGoAQQBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        ogcAAk1TRnQBSQFMAgEBAgEBATABBQEwAQUBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABGAEGAgABAQEAASAGAAEkAQn/AP8A/wD/AP8A/wD/AJ0AAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEA
         AaQBAAH/AQABpAEAAf8BAAGkAQAB/wEAAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEAAaQBAAH/AQABpAEA
         Af8BAAGkAQAB/wEAAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEAAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEA
@@ -10046,7 +10052,7 @@
     <value>0, 0</value>
   </data>
   <data name="L1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>737, 348</value>
+    <value>731, 348</value>
   </data>
   <data name="L1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -13189,9 +13195,6 @@
   <data name="KeysButton.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="KeysButton.Text" xml:space="preserve">
-    <value></value>
-  </data>
   <data name="KeysButton.ToolTip" xml:space="preserve">
     <value>Manage Encryption Keys</value>
   </data>
@@ -13231,9 +13234,6 @@
   <data name="BuilderButton.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="BuilderButton.Text" xml:space="preserve">
-    <value></value>
-  </data>
   <data name="BuilderButton.ToolTip" xml:space="preserve">
     <value>Build Payload</value>
   </data>
@@ -13272,9 +13272,6 @@
   </data>
   <data name="AboutButton.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
-  </data>
-  <data name="AboutButton.Text" xml:space="preserve">
-    <value></value>
   </data>
   <data name="AboutButton.ToolTip" xml:space="preserve">
     <value>About</value>
@@ -14242,6 +14239,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACL/AAAj////Jf/wD2z//n8AAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAANYAAABX/AAAW/wAAF////xj/
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>600, 500</value>

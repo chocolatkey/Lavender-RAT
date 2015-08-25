@@ -1,15 +1,26 @@
 ﻿Module Func
+    ''' <summary>
+    ''' XOR Function [Deprecated]
+    ''' </summary>
+    ''' <param name="str">String</param>
+    ''' <param name="key">Key</param>
+    ''' <returns></returns>
     Public Function Xord(ByVal str As String, ByVal key As String)
         Dim i As Short
         Xord = ""
         Dim KeyChar As Integer
         KeyChar = Asc(key)
         For i = 1 To Len(str)
-            Xord &= _
-               Chr(KeyChar Xor _
+            Xord &=
+               Chr(KeyChar Xor
                Asc(Mid(str, i, 1)))
         Next
     End Function
+    ''' <summary>
+    ''' Convert size in bytes to conventional, readable format
+    ''' </summary>
+    ''' <param name="Size">Raw size</param>
+    ''' <returns></returns>
     Public Function siz(ByVal Size As String) As String
         If Long.Parse(Size) > 1073741824 Then
             Dim sz As Double = Long.Parse(Size) / 1073741824
@@ -24,13 +35,29 @@
             Return Math.Round(Long.Parse(Size), 1).ToString & " B"
         End If
     End Function
+    ''' <summary>
+    ''' String to bytes
+    ''' </summary>
+    ''' <param name="s">String</param>
+    ''' <returns></returns>
     Function SB(ByVal s As String) As Byte() ' string to byte()
         Return System.Text.Encoding.Default.GetBytes(s)
     End Function
+    ''' <summary>
+    ''' Bytes to string
+    ''' </summary>
+    ''' <param name="b">Bytes</param>
+    ''' <returns></returns>
     Function BS(ByVal b As Byte()) As String ' byte() to string
         Return System.Text.Encoding.Default.GetString(b)
     End Function
-    Function fx(ByVal b As Byte(), ByVal WRD As String) As Array ' split bytes by word
+    ''' <summary>
+    ''' Split bytes by word
+    ''' </summary>
+    ''' <param name="b">Bytes</param>
+    ''' <param name="WRD">Word</param>
+    ''' <returns></returns>
+    Function fx(ByVal b As Byte(), ByVal WRD As String) As Array
         Dim a As New List(Of Byte())
         Dim M As New IO.MemoryStream
         Dim MM As New IO.MemoryStream
@@ -43,491 +70,567 @@
         MM.Dispose()
         Return a.ToArray
     End Function
+    ''' <summary>
+    ''' Get Antivirus software product name from process name
+    ''' </summary>
+    ''' <param name="pname">Process name</param>
+    ''' <returns></returns>
+    Public Function GetAV(ByVal pname As String) As String
+        If pname = "ekrn" Then
+            Return "NOD32"
+        ElseIf pname = "avgcc" Then
+            Return "AVG"
+        ElseIf pname = "avgnt" Then
+            Return "Avira"
+        ElseIf pname = "ahnsd" Then
+            Return "AhnLab-V3"
+        ElseIf pname = "bdss" Then
+            Return "BitDefender"
+        ElseIf pname = "bdv" Then
+            Return "ByteHero"
+        ElseIf pname = "clamav" Then
+            Return "ClamAV"
+        ElseIf pname = "fpavserver" Then
+            Return "F-Prot"
+        ElseIf pname = "fssm32" Then
+            Return "F-Secure"
+        ElseIf pname = "avkcl" Then
+            Return "GData"
+        ElseIf pname = "engface" Then
+            Return "Jiangmin"
+        ElseIf pname = "avp" Then
+            Return "Kaspersky"
+        ElseIf pname = "updaterui" Then
+            Return "McAfee"
+        ElseIf pname = "msmpeng" Then
+            Return "MSE/Defender"
+        ElseIf pname = "zanda" Then
+            Return "Norman"
+        ElseIf pname = "npupdate" Then
+            Return "nProtect"
+        ElseIf pname = "inicio" Then
+            Return "Panda"
+        ElseIf pname = "sagui" Then
+            Return "Prevx"
+        ElseIf pname = "Norman" Then
+            Return "Sophos"
+        ElseIf pname = "savservice" Then
+            Return "Sophos"
+        ElseIf pname = "saswinlo" Then
+            Return "SUPERAntiSpyware"
+        ElseIf pname = "spbbcsvc" Then
+            Return "Symantec"
+        ElseIf pname = "thd32" Then
+            Return "TheHacker"
+        ElseIf pname = "ufseagnt" Then
+            Return "TrendMicro"
+        ElseIf pname = "dllhook" Then
+            Return "VBA32"
+        ElseIf pname = "sbamtray" Then
+            Return "VIPRE"
+        ElseIf pname = "vrmonsvc" Then
+            Return "ViRobot"
+        ElseIf pname = "vbcalrt" Then
+            Return "VirusBuster"
+        ElseIf pname = "mbam" Then
+            Return "Malwarebytes Anti-Malware GUI"
+        ElseIf pname = "mbamresearch" Then
+            Return "Malwarebytes Anti-Malware"
+        ElseIf pname = "mbamservice" Then
+            Return "Malwarebytes Anti-Malware Service"
+        Else
+            Return ""
+        End If
+    End Function
+    ''' <summary>
+    ''' Get number for country
+    ''' </summary>
+    ''' <param name="queryCountry">Country name</param>
+    ''' <returns></returns>
     Public Function GetCountryNumber(ByVal queryCountry As String) As Integer
-
         Select Case queryCountry
             Case UCase("Afghanistan")
-                GetCountryNumber = 1
+                Return 1
             Case UCase("Albania")
-                GetCountryNumber = 2
+                Return 2
             Case UCase("Algeria")
-                GetCountryNumber = 3
+                Return 3
             Case UCase("American Samoa")
-                GetCountryNumber = 4
+                Return 4
             Case UCase("Andorra")
-                GetCountryNumber = 5
+                Return "ad"
             Case UCase("Angola")
-                GetCountryNumber = 6
+                Return 6
             Case UCase("Anguilla")
-                GetCountryNumber = 7
+                Return 7
             Case UCase("Antigua and Barbuda")
-                GetCountryNumber = 8
+                Return 8
             Case UCase("Argentina")
-                GetCountryNumber = 9
+                Return 9
             Case UCase("Armenia")
-                GetCountryNumber = 10
+                Return 10
             Case UCase("Aruba")
-                GetCountryNumber = 11
+                Return 11
             Case UCase("Australia")
-                GetCountryNumber = 12
+                Return 12
             Case UCase("Austria")
-                GetCountryNumber = 13
+                Return 13
             Case UCase("Azerbaijan")
-                GetCountryNumber = 14
+                Return 14
             Case UCase("Bahamas")
-                GetCountryNumber = 15
+                Return 15
             Case UCase("Bahrain")
-                GetCountryNumber = 16
+                Return 16
             Case UCase("Bangladesh")
-                GetCountryNumber = 17
+                Return 17
             Case UCase("Barbados")
-                GetCountryNumber = 18
+                Return 18
             Case UCase("Belarus")
-                GetCountryNumber = 19
+                Return 19
             Case UCase("Belgium")
-                GetCountryNumber = 20
+                Return 20
             Case UCase("Belize")
-                GetCountryNumber = 21
+                Return 21
             Case UCase("Benin")
-                GetCountryNumber = 22
+                Return 22
             Case UCase("Bermuda")
-                GetCountryNumber = 23
+                Return 23
             Case UCase("Bhutan")
-                GetCountryNumber = 24
+                Return 24
             Case UCase("Bolivia")
-                GetCountryNumber = 25
+                Return 25
             Case UCase("Bosnia & Herzegovina")
-                GetCountryNumber = 26
+                Return 26
             Case UCase("Botswana")
-                GetCountryNumber = 27
+                Return 27
             Case UCase("Bouvet Island")
-                GetCountryNumber = 28
+                Return 28
             Case UCase("Brazil")
-                GetCountryNumber = 29
+                Return 29
             Case UCase("British Indian Ocean Territory")
-                GetCountryNumber = 30
+                Return 30
             Case UCase("British Virgin Islands")
-                GetCountryNumber = 31
+                Return 31
             Case UCase("Brunei")
-                GetCountryNumber = 32
+                Return 32
             Case UCase("Bulgaria")
-                GetCountryNumber = 33
+                Return 33
             Case UCase("Burkina Faso")
-                GetCountryNumber = 34
+                Return 34
             Case UCase("Burundi")
-                GetCountryNumber = 35
+                Return 35
             Case UCase("Cambodia")
-                GetCountryNumber = 36
+                Return 36
             Case UCase("Cameroon")
-                GetCountryNumber = 37
+                Return 37
             Case UCase("Canada")
-                GetCountryNumber = 38
+                Return 38
             Case UCase("Cape Verde")
-                GetCountryNumber = 39
+                Return 39
             Case UCase("catalonia")
-                GetCountryNumber = 40
+                Return 40
             Case UCase("Cayman Islands")
-                GetCountryNumber = 41
+                Return 41
             Case UCase("Central African Republic")
-                GetCountryNumber = 42
+                Return 42
             Case UCase("Chad")
-                GetCountryNumber = 43
+                Return 43
             Case UCase("Chile")
-                GetCountryNumber = 44
+                Return 44
             Case UCase("China")
-                GetCountryNumber = 45
+                Return 45
             Case UCase("Christmas Islands")
-                GetCountryNumber = 46
+                Return 46
             Case UCase("Cocos (Keeling) Islands")
-                GetCountryNumber = 47
+                Return 47
             Case UCase("Colombia")
-                GetCountryNumber = 48
+                Return 48
             Case UCase("Comoras")
-                GetCountryNumber = 49
+                Return 49
             Case UCase("Congo, the Democratic Republic of the")
-                GetCountryNumber = 50
+                Return 50
             Case UCase("Costa Rica")
-                GetCountryNumber = 51
+                Return 51
             Case UCase("Croatia")
-                GetCountryNumber = 52
+                Return 52
             Case UCase("Cuba")
-                GetCountryNumber = 53
+                Return 53
             Case UCase("Cyprus")
-                GetCountryNumber = 54
+                Return 54
             Case UCase("Czech Republic")
-                GetCountryNumber = 55
+                Return 55
             Case UCase("Denmark")
-                GetCountryNumber = 56
+                Return 56
             Case UCase("Djibouti")
-                GetCountryNumber = 57
+                Return 57
             Case UCase("Dominica")
-                GetCountryNumber = 58
+                Return 58
             Case UCase("Dominican Republic")
-                GetCountryNumber = 59
+                Return 59
             Case UCase("Ecuador")
-                GetCountryNumber = 60
+                Return 60
             Case UCase("Egypt")
-                GetCountryNumber = 61
+                Return 61
             Case UCase("El Salvador")
-                GetCountryNumber = 62
+                Return 62
             Case UCase("England")
-                GetCountryNumber = 63
+                Return 63
             Case UCase("Equatorial Guinea")
-                GetCountryNumber = 64
+                Return 64
             Case UCase("Eritrea")
-                GetCountryNumber = 65
+                Return 65
             Case UCase("Estonia")
-                GetCountryNumber = 66
+                Return 66
             Case UCase("Ethiopia")
-                GetCountryNumber = 67
+                Return 67
             Case UCase("europeanunion")
-                GetCountryNumber = 68
+                Return 68
             Case UCase("Falkland Islands (Malvinas)")
-                GetCountryNumber = 69
+                Return 69
             Case UCase("Faroe Islands")
-                GetCountryNumber = 70
+                Return 70
             Case UCase("Fiji")
-                GetCountryNumber = 71
+                Return 71
             Case UCase("Finland")
-                GetCountryNumber = 72
+                Return 72
             Case UCase("France")
-                GetCountryNumber = 73
+                Return 73
             Case UCase("French Guiana")
-                GetCountryNumber = 74
+                Return 74
             Case UCase("French Polynesia")
-                GetCountryNumber = 75
+                Return 75
             Case UCase("French Southern Territories")
-                GetCountryNumber = 76
+                Return 76
             Case UCase("Gabon")
-                GetCountryNumber = 77
+                Return 77
             Case UCase("Gambia")
-                GetCountryNumber = 78
+                Return 78
             Case UCase("Georgia")
-                GetCountryNumber = 79
+                Return 79
             Case UCase("Germany")
-                GetCountryNumber = 80
+                Return 80
             Case UCase("Ghana")
-                GetCountryNumber = 81
+                Return 81
             Case UCase("Gibraltar")
-                GetCountryNumber = 82
+                Return 82
             Case UCase("Greece")
-                GetCountryNumber = 83
+                Return 83
             Case UCase("Greenland")
-                GetCountryNumber = 84
+                Return 84
             Case UCase("Grenada")
-                GetCountryNumber = 85
+                Return 85
             Case UCase("Guadeloupe")
-                GetCountryNumber = 86
+                Return 86
             Case UCase("Guam")
-                GetCountryNumber = 87
+                Return 87
             Case UCase("Guatemala")
-                GetCountryNumber = 88
+                Return 88
             Case UCase("Guinea")
-                GetCountryNumber = 89
+                Return 89
             Case UCase("Guinea-Bissau")
-                GetCountryNumber = 90
+                Return 90
             Case UCase("Guyana")
-                GetCountryNumber = 91
+                Return 91
             Case UCase("Haiti")
-                GetCountryNumber = 92
+                Return 92
             Case UCase("Heard Island and McDonald Islands")
-                GetCountryNumber = 93
+                Return 93
             Case UCase("Honduras")
-                GetCountryNumber = 94
+                Return 94
             Case UCase("Hong Kong")
-                GetCountryNumber = 95
+                Return 95
             Case UCase("Hungary")
-                GetCountryNumber = 96
+                Return 96
             Case UCase("Iceland")
-                GetCountryNumber = 97
+                Return 97
             Case UCase("India")
-                GetCountryNumber = 98
+                Return 98
             Case UCase("Indonesia")
-                GetCountryNumber = 99
+                Return 99
             Case UCase("Iran, Islamic Republic of")
-                GetCountryNumber = 100
+                Return 100
             Case UCase("Iraq")
-                GetCountryNumber = 101
+                Return 101
             Case UCase("Ireland")
-                GetCountryNumber = 102
+                Return 102
             Case UCase("Israel")
-                GetCountryNumber = 103
+                Return 103
             Case UCase("Italy")
-                GetCountryNumber = 104
+                Return 104
             Case UCase("Jamaica")
-                GetCountryNumber = 105
+                Return 105
             Case UCase("Japan")
-                GetCountryNumber = 106
+                Return 106
             Case UCase("Jordan")
-                GetCountryNumber = 107
+                Return 107
             Case UCase("Kazakhstan")
-                GetCountryNumber = 108
+                Return 108
             Case UCase("Kenya")
-                GetCountryNumber = 109
+                Return 109
             Case UCase("Kiribati")
-                GetCountryNumber = 110
+                Return 110
             Case UCase("Korea, Democratic People's Republic of")
-                GetCountryNumber = 111
+                Return 111
             Case UCase("Korea, Republic of")
-                GetCountryNumber = 112
+                Return 112
             Case UCase("Kuwait")
-                GetCountryNumber = 113
+                Return 113
             Case UCase("Kyrgyzstan")
-                GetCountryNumber = 114
+                Return 114
             Case UCase("Laos")
-                GetCountryNumber = 115
+                Return 115
             Case UCase("Latvia")
-                GetCountryNumber = 116
+                Return 116
             Case UCase("Lebanon")
-                GetCountryNumber = 117
+                Return 117
             Case UCase("Lesotho")
-                GetCountryNumber = 118
+                Return 118
             Case UCase("Liberia")
-                GetCountryNumber = 119
+                Return 119
             Case UCase("Libya")
-                GetCountryNumber = 120
+                Return 120
             Case UCase("Liechtenstein")
-                GetCountryNumber = 121
+                Return 121
             Case UCase("Lithuania")
-                GetCountryNumber = 122
+                Return 122
             Case UCase("Luxembourg")
-                GetCountryNumber = 123
+                Return 123
             Case UCase("Macao")
-                GetCountryNumber = 124
+                Return 124
             Case UCase("Macedonia")
-                GetCountryNumber = 125
+                Return 125
             Case UCase("Madagascar")
-                GetCountryNumber = 126
+                Return 126
             Case UCase("Malawi")
-                GetCountryNumber = 127
+                Return 127
             Case UCase("Malaysia")
-                GetCountryNumber = 128
+                Return 128
             Case UCase("Maldives")
-                GetCountryNumber = 129
+                Return 129
             Case UCase("Mali")
-                GetCountryNumber = 130
+                Return 130
             Case UCase("Malta")
-                GetCountryNumber = 131
+                Return 131
             Case UCase("Marshall Islands")
-                GetCountryNumber = 132
+                Return 132
             Case UCase("Martinique")
-                GetCountryNumber = 133
+                Return 133
             Case UCase("Mauritania")
-                GetCountryNumber = 134
+                Return 134
             Case UCase("Mauritius")
-                GetCountryNumber = 135
+                Return 135
             Case UCase("Mayotte")
-                GetCountryNumber = 136
+                Return 136
             Case UCase("Mexico")
-                GetCountryNumber = 137
+                Return 137
             Case UCase("Micronesia, Federated States of")
-                GetCountryNumber = 138
+                Return 138
             Case UCase("Moldava")
-                GetCountryNumber = 139
+                Return 139
             Case UCase("Monaco")
-                GetCountryNumber = 140
+                Return 140
             Case UCase("Mongolia")
-                GetCountryNumber = 141
+                Return 141
             Case UCase("Montenegro")
-                GetCountryNumber = 142
+                Return 142
             Case UCase("Montserrat")
-                GetCountryNumber = 143
+                Return 143
             Case UCase("Morocco")
-                GetCountryNumber = 144
+                Return 144
             Case UCase("Mozambique")
-                GetCountryNumber = 145
+                Return 145
             Case UCase("Myanmar")
-                GetCountryNumber = 146
+                Return 146
             Case UCase("Namibia")
-                GetCountryNumber = 147
+                Return 147
             Case UCase("Nauru")
-                GetCountryNumber = 148
+                Return 148
             Case UCase("Nepal")
-                GetCountryNumber = 149
+                Return 149
             Case UCase("Netherlands Antilles")
-                GetCountryNumber = 150
+                Return 150
             Case UCase("Netherlands, The")
-                GetCountryNumber = 151
+                Return 151
             Case UCase("New Caledonia")
-                GetCountryNumber = 152
+                Return 152
             Case UCase("New Zealand")
-                GetCountryNumber = 153
+                Return 153
             Case UCase("Nicaragua")
-                GetCountryNumber = 154
+                Return 154
             Case UCase("Niger")
-                GetCountryNumber = 155
+                Return 155
             Case UCase("Nigeria")
-                GetCountryNumber = 156
+                Return 156
             Case UCase("Niue")
-                GetCountryNumber = 157
+                Return 157
             Case UCase("Norfolk Island")
-                GetCountryNumber = 158
+                Return 158
             Case UCase("Northern Mariana Islands")
-                GetCountryNumber = 159
+                Return 159
             Case UCase("Norway")
-                GetCountryNumber = 160
+                Return 160
             Case UCase("Oman")
-                GetCountryNumber = 161
+                Return 161
             Case UCase("Pakistan")
-                GetCountryNumber = 162
+                Return 162
             Case UCase("Palau")
-                GetCountryNumber = 163
+                Return 163
             Case UCase("Panama")
-                GetCountryNumber = 164
+                Return 164
             Case UCase("Papua New Guinea")
-                GetCountryNumber = 165
+                Return 165
             Case UCase("Paraguay")
-                GetCountryNumber = 166
+                Return 166
             Case UCase("Peru")
-                GetCountryNumber = 167
+                Return 167
             Case UCase("Phillipines")
-                GetCountryNumber = 168
+                Return 168
             Case UCase("Pitcairn Islands")
-                GetCountryNumber = 169
+                Return 169
             Case UCase("Poland")
-                GetCountryNumber = 170
+                Return 170
             Case UCase("Portugal")
-                GetCountryNumber = 171
+                Return 171
             Case UCase("ps")
-                GetCountryNumber = 172
+                Return 172
             Case UCase("Puerto Rico")
-                GetCountryNumber = 173
+                Return 173
             Case UCase("Qatar")
-                GetCountryNumber = 174
+                Return 174
             Case UCase("Reunion")
-                GetCountryNumber = 175
+                Return 175
             Case UCase("Romania")
-                GetCountryNumber = 176
+                Return 176
             Case UCase("rs")
-                GetCountryNumber = 177
+                Return 177
             Case UCase("Russian Federation")
-                GetCountryNumber = 178
+                Return 178
             Case UCase("Rwanda")
-                GetCountryNumber = 179
+                Return 179
             Case UCase("Saint Helena")
-                GetCountryNumber = 180
+                Return 180
             Case UCase("Saint Kitts and Nevis")
-                GetCountryNumber = 181
+                Return 181
             Case UCase("Saint Lucia")
-                GetCountryNumber = 182
+                Return 182
             Case UCase("Saint Pierre")
-                GetCountryNumber = 183
+                Return 183
             Case UCase("Saint Vincent and the Grenadines")
-                GetCountryNumber = 184
+                Return 184
             Case UCase("Samoa")
-                GetCountryNumber = 185
+                Return 185
             Case UCase("San Marino")
-                GetCountryNumber = 186
+                Return 186
             Case UCase("Sao Tome and Principe")
-                GetCountryNumber = 187
+                Return 187
             Case UCase("Saudi Arabia")
-                GetCountryNumber = 188
+                Return 188
             Case UCase("scotland")
-                GetCountryNumber = 189
+                Return 189
             Case UCase("Senegal")
-                GetCountryNumber = 190
+                Return 190
             Case UCase("Seychelles")
-                GetCountryNumber = 191
+                Return 191
             Case UCase("Sierra Leone")
-                GetCountryNumber = 192
+                Return 192
             Case UCase("Singapore")
-                GetCountryNumber = 193
+                Return 193
             Case UCase("Slovakia")
-                GetCountryNumber = 194
+                Return 194
             Case UCase("Slovenia")
-                GetCountryNumber = 195
+                Return 195
             Case UCase("Solomon Islands")
-                GetCountryNumber = 196
+                Return 196
             Case UCase("Somalia")
-                GetCountryNumber = 197
+                Return 197
             Case UCase("South Africa")
-                GetCountryNumber = 198
+                Return 198
             Case UCase("South Georgia and the South Sandwich Islands")
-                GetCountryNumber = 199
+                Return 199
             Case UCase("Spain")
-                GetCountryNumber = 200
+                Return 200
             Case UCase("Sri Lanka")
-                GetCountryNumber = 201
+                Return 201
             Case UCase("Sudan")
-                GetCountryNumber = 202
+                Return 202
             Case UCase("Suriname")
-                GetCountryNumber = 203
+                Return 203
             Case UCase("Svalbard & Jan Mayen Islands")
-                GetCountryNumber = 204
+                Return 204
             Case UCase("Swaziland")
-                GetCountryNumber = 205
+                Return 205
             Case UCase("Sweden")
-                GetCountryNumber = 206
+                Return 206
             Case UCase("Switzerland")
-                GetCountryNumber = 207
+                Return 207
             Case UCase("Syrian Arab Republic")
-                GetCountryNumber = 208
+                Return 208
             Case UCase("Taiwan")
-                GetCountryNumber = 209
+                Return 209
             Case UCase("Tajikistan")
-                GetCountryNumber = 210
+                Return 210
             Case UCase("Tanzania, United Republic of")
-                GetCountryNumber = 211
+                Return 211
             Case UCase("Thailand")
-                GetCountryNumber = 212
+                Return 212
             Case UCase("Togo")
-                GetCountryNumber = 213
+                Return 213
             Case UCase("Tokelau")
-                GetCountryNumber = 214
+                Return 214
             Case UCase("Tonga")
-                GetCountryNumber = 215
+                Return 215
             Case UCase("Trinidad and Tobago")
-                GetCountryNumber = 216
+                Return 216
             Case UCase("Tunisia")
-                GetCountryNumber = 217
+                Return 217
             Case UCase("Turkey")
-                GetCountryNumber = 218
+                Return 218
             Case UCase("Turkmenistan")
-                GetCountryNumber = 219
+                Return 219
             Case UCase("Turks")
-                GetCountryNumber = 220
+                Return 220
             Case UCase("Tuvalu")
-                GetCountryNumber = 221
+                Return 221
             Case UCase("Uganda")
-                GetCountryNumber = 222
+                Return 222
             Case UCase("Ukraine")
-                GetCountryNumber = 223
+                Return 223
             Case UCase("United Arab Emirates")
-                GetCountryNumber = 224
+                Return 224
             Case UCase("United Kingdom")
-                GetCountryNumber = 225
+                Return 225
             Case UCase("United States Minor Outlying Islands")
-                GetCountryNumber = 226
+                Return 226
             Case UCase("United States")
-                GetCountryNumber = 227
+                Return 227
             Case UCase("Uruguay")
-                GetCountryNumber = 228
+                Return 228
             Case UCase("Uzbekistan")
-                GetCountryNumber = 229
+                Return 229
             Case UCase("Wales")
-                GetCountryNumber = 230
+                Return 230
             Case UCase("Wallis and Futuna")
-                GetCountryNumber = 231
+                Return 231
             Case UCase("Vanuatu")
-                GetCountryNumber = 232
+                Return 232
             Case UCase("Vatican City State")
-                GetCountryNumber = 233
+                Return 233
             Case UCase("Venezuela")
-                GetCountryNumber = 234
+                Return 234
             Case UCase("Western Sahara")
-                GetCountryNumber = 235
+                Return 235
             Case UCase("Viet Nam")
-                GetCountryNumber = 236
+                Return 236
             Case UCase("Virgin Islands, U.S")
-                GetCountryNumber = 237
+                Return 237
             Case UCase("Yemen")
-                GetCountryNumber = 238
+                Return 238
             Case UCase("Zambia")
-                GetCountryNumber = 229
+                Return 229
             Case UCase("Zimbabwe")
-                GetCountryNumber = 240
+                Return 240
             Case Else
-                GetCountryNumber = 241
+                Return "zz"
         End Select
     End Function
 End Module

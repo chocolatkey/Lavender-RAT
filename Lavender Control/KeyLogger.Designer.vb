@@ -79,7 +79,6 @@ Partial Class KeyLogger
         '
         Me.WebBrowser.AllowWebBrowserDrop = False
         resources.ApplyResources(Me.WebBrowser, "WebBrowser")
-        Me.WebBrowser.IsWebBrowserContextMenuEnabled = False
         Me.WebBrowser.Name = "WebBrowser"
         Me.WebBrowser.ScriptErrorsSuppressed = True
         Me.WebBrowser.Url = New System.Uri("", System.UriKind.Relative)

@@ -43,7 +43,12 @@ Module Func
         Catch : End Try
     End Sub
     ''==========================================================================
-    Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Integer, ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, ByVal dwExtraInfo As Integer)
+    <DllImport("user32.dll")>
+    Public Sub mouse_event(dwFlags As UInteger, dx As UInteger, dy As UInteger, dwData As UInteger, dwExtraInfo As Integer)
+    End Sub
+    <DllImport("user32.dll")>
+    Function keybd_event(bVk As Byte, bScan As Byte, dwFlags As UInteger, dwExtraInfo As UIntPtr) As Boolean
+    End Function
     Function SB(ByVal s As String) As Byte() ' string to byte()
         Return System.Text.Encoding.Default.GetBytes(s)
     End Function

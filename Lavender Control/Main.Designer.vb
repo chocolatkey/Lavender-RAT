@@ -36,7 +36,7 @@ Partial Class Main
         Me.ManageTab = New MetroFramework.Controls.MetroTabPage()
         Me.ShellButton = New System.Windows.Forms.Button()
         Me.TaskmanButton = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ClientGroupBox = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ReconnectButton = New MetroFramework.Controls.MetroButton()
         Me.ExitButton = New MetroFramework.Controls.MetroButton()
@@ -122,7 +122,7 @@ Partial Class Main
         CType(Me.PortValue, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tabs.SuspendLayout()
         Me.ManageTab.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.ClientGroupBox.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.SystemTab.SuspendLayout()
         Me.PowerPanel.SuspendLayout()
@@ -232,7 +232,7 @@ Partial Class Main
         Me.Tabs.HotTrack = True
         Me.Tabs.Multiline = True
         Me.Tabs.Name = "Tabs"
-        Me.Tabs.SelectedIndex = 3
+        Me.Tabs.SelectedIndex = 0
         Me.Tabs.Style = MetroFramework.MetroColorStyle.Green
         Me.Tabs.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.Tabs.UseStyleColors = True
@@ -241,7 +241,7 @@ Partial Class Main
         '
         Me.ManageTab.Controls.Add(Me.ShellButton)
         Me.ManageTab.Controls.Add(Me.TaskmanButton)
-        Me.ManageTab.Controls.Add(Me.GroupBox1)
+        Me.ManageTab.Controls.Add(Me.ClientGroupBox)
         Me.ManageTab.Controls.Add(Me.RemoteButton)
         Me.ManageTab.Controls.Add(Me.PasswordsButton)
         Me.ManageTab.Controls.Add(Me.UtilitiesButton)
@@ -279,15 +279,15 @@ Partial Class Main
         Me.TaskmanButton.Name = "TaskmanButton"
         Me.TaskmanButton.UseVisualStyleBackColor = False
         '
-        'GroupBox1
+        'ClientGroupBox
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.GroupBox1.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Control
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.TabStop = False
+        resources.ApplyResources(Me.ClientGroupBox, "ClientGroupBox")
+        Me.ClientGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.ClientGroupBox.Controls.Add(Me.FlowLayoutPanel2)
+        Me.ClientGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClientGroupBox.ForeColor = System.Drawing.SystemColors.Control
+        Me.ClientGroupBox.Name = "ClientGroupBox"
+        Me.ClientGroupBox.TabStop = False
         '
         'FlowLayoutPanel2
         '
@@ -572,6 +572,7 @@ Partial Class Main
         Me.MsgSendButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue
         resources.ApplyResources(Me.MsgSendButton, "MsgSendButton")
         Me.MsgSendButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.MsgSendButton.Image = Global.LavenderControl.My.Resources.Resources.arrow
         Me.MsgSendButton.Name = "MsgSendButton"
         Me.MsgSendButton.UseVisualStyleBackColor = False
         '
@@ -1011,6 +1012,7 @@ Partial Class Main
         resources.ApplyResources(Me.KeysButton, "KeysButton")
         Me.KeysButton.FlatAppearance.BorderSize = 0
         Me.KeysButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
+        Me.KeysButton.Image = Global.LavenderControl.My.Resources.Resources.key
         Me.KeysButton.Name = "KeysButton"
         Me.InfoToolTip.SetToolTip(Me.KeysButton, resources.GetString("KeysButton.ToolTip"))
         Me.KeysButton.UseVisualStyleBackColor = False
@@ -1021,6 +1023,7 @@ Partial Class Main
         resources.ApplyResources(Me.BuilderButton, "BuilderButton")
         Me.BuilderButton.FlatAppearance.BorderSize = 0
         Me.BuilderButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
+        Me.BuilderButton.Image = Global.LavenderControl.My.Resources.Resources.wrench
         Me.BuilderButton.Name = "BuilderButton"
         Me.InfoToolTip.SetToolTip(Me.BuilderButton, resources.GetString("BuilderButton.ToolTip"))
         Me.BuilderButton.UseVisualStyleBackColor = False
@@ -1031,6 +1034,7 @@ Partial Class Main
         resources.ApplyResources(Me.AboutButton, "AboutButton")
         Me.AboutButton.FlatAppearance.BorderSize = 0
         Me.AboutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
+        Me.AboutButton.Image = Global.LavenderControl.My.Resources.Resources.information_italic
         Me.AboutButton.Name = "AboutButton"
         Me.InfoToolTip.SetToolTip(Me.AboutButton, resources.GetString("AboutButton.ToolTip"))
         Me.AboutButton.UseVisualStyleBackColor = False
@@ -1144,7 +1148,7 @@ Partial Class Main
         Me.Tabs.ResumeLayout(False)
         Me.ManageTab.ResumeLayout(False)
         Me.ManageTab.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
+        Me.ClientGroupBox.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.SystemTab.ResumeLayout(False)
         Me.PowerPanel.ResumeLayout(False)
@@ -1200,7 +1204,7 @@ Partial Class Main
     Friend WithEvents ListContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents CopyToClipboardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TaskmanButton As System.Windows.Forms.Button
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents ClientGroupBox As System.Windows.Forms.GroupBox
     Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents ExitButton As MetroFramework.Controls.MetroButton
     Friend WithEvents UninstallButton As MetroFramework.Controls.MetroButton

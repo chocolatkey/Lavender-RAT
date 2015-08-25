@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property arrow() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("arrow", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property arrow_090_medium() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("arrow_090_medium", resourceCulture)
@@ -303,6 +313,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property information_italic() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("information-italic", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property key() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("key", resourceCulture)
@@ -326,6 +346,26 @@ Namespace My.Resources
         Friend ReadOnly Property keyboard() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("keyboard", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property keyboard__arrow() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("keyboard--arrow", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property keyboard1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("keyboard1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -386,6 +426,56 @@ Namespace My.Resources
         Friend ReadOnly Property monitor_screensaver() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("monitor-screensaver", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property mouse() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mouse", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property mouse__arrow() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mouse--arrow", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property mouse_select() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mouse-select", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property mouse_select_right() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mouse-select-right", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property mouse_select_wheel() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mouse-select-wheel", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -466,6 +556,16 @@ Namespace My.Resources
         Friend ReadOnly Property terminal() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("terminal", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property wrench() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("wrench", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

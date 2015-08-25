@@ -195,7 +195,7 @@
     <value>True</value>
   </data>
   <data name="ToggleButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>831, 3</value>
+    <value>769, 3</value>
   </data>
   <data name="ToggleButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 24</value>
@@ -216,7 +216,7 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;ToggleButton.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="C.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -247,7 +247,7 @@
     <value>7</value>
   </data>
   <data name="MouseCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 3</value>
+    <value>605, 3</value>
   </data>
   <data name="MouseCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 24</value>
@@ -268,10 +268,7 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;MouseCheckBox.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="ControlFlowLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>9</value>
   </data>
   <data name="MetroLabel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
@@ -405,35 +402,8 @@
   <data name="&gt;&gt;MetroLabel3.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="StatsCheckBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="StatsCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>605, 3</value>
-  </data>
-  <data name="StatsCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 24</value>
-  </data>
-  <data name="StatsCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="StatsCheckBox.Text" xml:space="preserve">
-    <value>Stats</value>
-  </data>
-  <data name="&gt;&gt;StatsCheckBox.Name" xml:space="preserve">
-    <value>StatsCheckBox</value>
-  </data>
-  <data name="&gt;&gt;StatsCheckBox.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;StatsCheckBox.Parent" xml:space="preserve">
-    <value>ControlFlowLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;StatsCheckBox.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
   <data name="KeyboardCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>742, 3</value>
+    <value>680, 3</value>
   </data>
   <data name="KeyboardCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>83, 24</value>
@@ -454,16 +424,13 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;KeyboardCheckBox.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="ControlFlowLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+    <value>10</value>
   </data>
   <data name="ControlFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 60</value>
+    <value>21, 30</value>
   </data>
   <data name="ControlFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>880, 31</value>
+    <value>881, 31</value>
   </data>
   <data name="ControlFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -478,16 +445,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ControlFlowLayoutPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="P1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="P1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 91</value>
+    <value>8, 30</value>
   </data>
   <data name="P1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>880, 495</value>
+    <value>904, 549</value>
   </data>
   <data name="P1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -505,7 +472,82 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;P1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <metadata name="InfoStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="InfoStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 582</value>
+  </data>
+  <data name="InfoStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>900, 22</value>
+  </data>
+  <data name="InfoStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="InfoStrip.Text" xml:space="preserve">
+    <value>StatusStrip1</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Name" xml:space="preserve">
+    <value>InfoStrip</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="MouseLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="MouseLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 17</value>
+  </data>
+  <data name="KeyboardLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="KeyboardLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 17</value>
+  </data>
+  <data name="FPSLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="FPSLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
+  </data>
+  <data name="FPSLabel.Text" xml:space="preserve">
+    <value>FPS: ??</value>
+  </data>
+  <data name="FPSLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="ChangesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ChangesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="ChangesLabel.Text" xml:space="preserve">
+    <value>Changes: ??</value>
+  </data>
+  <data name="ChangesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="SizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="SizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 17</value>
+  </data>
+  <data name="SizeLabel.Text" xml:space="preserve">
+    <value>Size: ??</value>
+  </data>
+  <data name="SizeLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3317,10 +3359,43 @@
 </value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
+    <value>500, 400</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 30, 10, 5</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Remote Desktop</value>
+  </data>
+  <data name="&gt;&gt;MouseLabel.Name" xml:space="preserve">
+    <value>MouseLabel</value>
+  </data>
+  <data name="&gt;&gt;MouseLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;KeyboardLabel.Name" xml:space="preserve">
+    <value>KeyboardLabel</value>
+  </data>
+  <data name="&gt;&gt;KeyboardLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FPSLabel.Name" xml:space="preserve">
+    <value>FPSLabel</value>
+  </data>
+  <data name="&gt;&gt;FPSLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangesLabel.Name" xml:space="preserve">
+    <value>ChangesLabel</value>
+  </data>
+  <data name="&gt;&gt;ChangesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SizeLabel.Name" xml:space="preserve">
+    <value>SizeLabel</value>
+  </data>
+  <data name="&gt;&gt;SizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Remote</value>

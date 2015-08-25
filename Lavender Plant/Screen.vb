@@ -78,7 +78,9 @@ Public Class CRDP
     Private Shared Function md5(ByVal bB As Byte()) As String
         Dim md5Obj As New Security.Cryptography.MD5CryptoServiceProvider
         bB = md5Obj.ComputeHash(bB)
+        md5Obj.Clear()
         Return Convert.ToBase64String(bB)
+
     End Function
     Private Shared Function GetEncoderInfo(ByVal M As String) As ImageCodecInfo
         Dim j As Integer

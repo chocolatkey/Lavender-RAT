@@ -10,6 +10,7 @@
     End Sub
 
     Private Sub OpenButton_Click(sender As Object, e As EventArgs) Handles OpenButton.Click
+        Main.CurrentClientChange(Main.L1.Items(sock.ToString).SubItems.Item(0).Text)
         Process.Start(Main.klf)
     End Sub
 

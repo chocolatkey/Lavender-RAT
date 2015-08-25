@@ -43,6 +43,8 @@ Partial Class Profiles
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProgressBar = New System.Windows.Forms.ToolStripProgressBar()
         Me.StatusLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.RenameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripContainer1.ContentPanel.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
         Me.ToolStripContainer1.SuspendLayout()
@@ -141,7 +143,7 @@ Partial Class Profiles
         'ToolStripDropDownButton1
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.DeleteCurrentToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ExportToolStripMenuItem})
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.DeleteCurrentToolStripMenuItem, Me.RenameToolStripMenuItem, Me.ToolStripSeparator1, Me.ImportToolStripMenuItem, Me.ExportToolStripMenuItem})
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
         Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(54, 22)
@@ -190,13 +192,13 @@ Partial Class Profiles
         'PublicKeyToolStripMenuItem
         '
         Me.PublicKeyToolStripMenuItem.Name = "PublicKeyToolStripMenuItem"
-        Me.PublicKeyToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.PublicKeyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PublicKeyToolStripMenuItem.Text = "Public Key"
         '
         'PrivateKeyToolStripMenuItem
         '
         Me.PrivateKeyToolStripMenuItem.Name = "PrivateKeyToolStripMenuItem"
-        Me.PrivateKeyToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.PrivateKeyToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PrivateKeyToolStripMenuItem.Text = "Private Key"
         '
         'GenerateToolStripMenuItem
@@ -207,6 +209,7 @@ Partial Class Profiles
         '
         'ChangePasswordToolStripMenuItem
         '
+        Me.ChangePasswordToolStripMenuItem.Enabled = False
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
         Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
@@ -225,7 +228,18 @@ Partial Class Profiles
         Me.StatusLabel.Name = "StatusLabel"
         Me.StatusLabel.Size = New System.Drawing.Size(0, 22)
         '
-        'Keys
+        'RenameToolStripMenuItem
+        '
+        Me.RenameToolStripMenuItem.Name = "RenameToolStripMenuItem"
+        Me.RenameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RenameToolStripMenuItem.Text = "Rename"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        '
+        'Profiles
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -234,7 +248,7 @@ Partial Class Profiles
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "Keys"
+        Me.Name = "Profiles"
         Me.Resizable = False
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Style = MetroFramework.MetroColorStyle.Yellow
@@ -270,4 +284,6 @@ Partial Class Profiles
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents ProgressBar As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents StatusLabel As System.Windows.Forms.ToolStripLabel
+    Friend WithEvents RenameToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
 End Class

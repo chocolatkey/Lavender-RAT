@@ -35,12 +35,18 @@ Partial Class Remote
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
-        Me.StatsCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.KeyboardCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.P1 = New System.Windows.Forms.PictureBox()
+        Me.InfoStrip = New System.Windows.Forms.StatusStrip()
+        Me.MouseLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.KeyboardLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.FPSLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ChangesLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.SizeLabel = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.C, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ControlFlowLayoutPanel.SuspendLayout()
         CType(Me.P1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.InfoStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'C1
@@ -96,7 +102,6 @@ Partial Class Remote
         '
         'ControlFlowLayoutPanel
         '
-        resources.ApplyResources(Me.ControlFlowLayoutPanel, "ControlFlowLayoutPanel")
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel4)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.M)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel1)
@@ -106,10 +111,10 @@ Partial Class Remote
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel3)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.C)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.LinesCheckBox)
-        Me.ControlFlowLayoutPanel.Controls.Add(Me.StatsCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MouseCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.KeyboardCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.ToggleButton)
+        resources.ApplyResources(Me.ControlFlowLayoutPanel, "ControlFlowLayoutPanel")
         Me.ControlFlowLayoutPanel.Name = "ControlFlowLayoutPanel"
         '
         'MetroLabel4
@@ -145,15 +150,6 @@ Partial Class Remote
         Me.MetroLabel3.Name = "MetroLabel3"
         Me.MetroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark
         '
-        'StatsCheckBox
-        '
-        Me.StatsCheckBox.FontSize = MetroFramework.MetroLinkSize.Medium
-        Me.StatsCheckBox.ForeColor = System.Drawing.SystemColors.Control
-        resources.ApplyResources(Me.StatsCheckBox, "StatsCheckBox")
-        Me.StatsCheckBox.Name = "StatsCheckBox"
-        Me.StatsCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.StatsCheckBox.UseVisualStyleBackColor = True
-        '
         'KeyboardCheckBox
         '
         Me.KeyboardCheckBox.FontSize = MetroFramework.MetroLinkSize.Medium
@@ -170,19 +166,66 @@ Partial Class Remote
         Me.P1.Name = "P1"
         Me.P1.TabStop = False
         '
+        'InfoStrip
+        '
+        Me.InfoStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MouseLabel, Me.KeyboardLabel, Me.FPSLabel, Me.ChangesLabel, Me.SizeLabel})
+        resources.ApplyResources(Me.InfoStrip, "InfoStrip")
+        Me.InfoStrip.Name = "InfoStrip"
+        Me.InfoStrip.SizingGrip = False
+        '
+        'MouseLabel
+        '
+        resources.ApplyResources(Me.MouseLabel, "MouseLabel")
+        Me.MouseLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.MouseLabel.Image = Global.LavenderControl.My.Resources.Resources.mouse
+        Me.MouseLabel.Name = "MouseLabel"
+        Me.MouseLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        '
+        'KeyboardLabel
+        '
+        resources.ApplyResources(Me.KeyboardLabel, "KeyboardLabel")
+        Me.KeyboardLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.KeyboardLabel.Image = Global.LavenderControl.My.Resources.Resources.keyboard1
+        Me.KeyboardLabel.Name = "KeyboardLabel"
+        Me.KeyboardLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
+        '
+        'FPSLabel
+        '
+        resources.ApplyResources(Me.FPSLabel, "FPSLabel")
+        Me.FPSLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.FPSLabel.Name = "FPSLabel"
+        '
+        'ChangesLabel
+        '
+        resources.ApplyResources(Me.ChangesLabel, "ChangesLabel")
+        Me.ChangesLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.ChangesLabel.Name = "ChangesLabel"
+        '
+        'SizeLabel
+        '
+        resources.ApplyResources(Me.SizeLabel, "SizeLabel")
+        Me.SizeLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.SizeLabel.Name = "SizeLabel"
+        '
         'Remote
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.InfoStrip)
         Me.Controls.Add(Me.ControlFlowLayoutPanel)
         Me.Controls.Add(Me.P1)
+        Me.DisplayHeader = False
+        Me.KeyPreview = True
         Me.Name = "Remote"
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Style = MetroFramework.MetroColorStyle.White
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
         CType(Me.C, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ControlFlowLayoutPanel.ResumeLayout(False)
         Me.ControlFlowLayoutPanel.PerformLayout()
         CType(Me.P1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.InfoStrip.ResumeLayout(False)
+        Me.InfoStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -200,6 +243,11 @@ Partial Class Remote
     Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
     Friend WithEvents KeyboardCheckBox As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents M As MetroFramework.Controls.MetroComboBox
-    Friend WithEvents StatsCheckBox As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents MetroLabel4 As MetroFramework.Controls.MetroLabel
+    Friend WithEvents InfoStrip As StatusStrip
+    Friend WithEvents FPSLabel As ToolStripStatusLabel
+    Friend WithEvents ChangesLabel As ToolStripStatusLabel
+    Friend WithEvents SizeLabel As ToolStripStatusLabel
+    Friend WithEvents MouseLabel As ToolStripStatusLabel
+    Friend WithEvents KeyboardLabel As ToolStripStatusLabel
 End Class

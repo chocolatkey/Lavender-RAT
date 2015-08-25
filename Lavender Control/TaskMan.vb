@@ -2,8 +2,15 @@
 
 Public Class TaskMan
     Public sock As Integer
-    <DllImport("uxtheme", ExactSpelling:=True, CharSet:=CharSet.Unicode)> _
-    Public Shared Function SetWindowTheme(hWnd As IntPtr, textSubAppName As [String], textSubIdList As [String]) As Int32 ''unthemed controls
+    ''' <summary>
+    ''' Import for control theming
+    ''' </summary>
+    ''' <param name="hWnd">Control Handle</param>
+    ''' <param name="textSubAppName"></param>
+    ''' <param name="textSubIdList"></param>
+    ''' <returns></returns>
+    <DllImport("uxtheme", ExactSpelling:=True, CharSet:=CharSet.Unicode)>
+    Public Shared Function SetWindowTheme(hWnd As IntPtr, textSubAppName As [String], textSubIdList As [String]) As Int32
     End Function
 
     Private Sub KillProcesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles KillProcesToolStripMenuItem.Click
