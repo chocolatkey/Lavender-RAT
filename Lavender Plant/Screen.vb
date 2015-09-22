@@ -103,6 +103,13 @@ Public Class CRDP
     Private Shared oQ As Integer = 0
     Private Shared oCo As Integer = 0
     Private Shared oQu As Integer = 0
+    ''' <summary>
+    ''' Capture screen
+    ''' </summary>
+    ''' <param name="q">Size</param>
+    ''' <param name="co">Split Pieces</param>
+    ''' <param name="Qu">Quality</param>
+    ''' <returns></returns>
     Shared Function Cap(ByVal q As Integer, ByVal co As Integer, ByVal Qu As Integer) As Byte()
 ee:
         Dim ZS As New Size(QZ(q))
@@ -159,7 +166,11 @@ ee:
                 b2 = MM.ToArray
 
                 MM.Dispose()
-                If md5(b1) = md5(b2) Then
+
+                'If md5(b1) = md5(b2) Then
+                '    Mj.Dispose()
+                'Else
+                If Crc32.ComputeChecksum(b1) = Crc32.ComputeChecksum(b2) Then
                     Mj.Dispose()
                 Else
                     A.Add(Mj)

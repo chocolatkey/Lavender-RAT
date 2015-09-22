@@ -27,6 +27,10 @@ Public Class Remote
     ''' </summary>
     Public overlayarea As Bitmap
     ''' <summary>
+    ''' Control Panel Visible
+    ''' </summary>
+    Dim sPanel As Boolean = True
+    ''' <summary>
     ''' Mouse and Keyboard action timers
     ''' </summary>
     Public mTimer, kTimer As Timers.Timer
@@ -341,6 +345,23 @@ Public Class Remote
         Public right As Integer
         Public bottom As Integer
     End Structure
+
+    Private Sub HideLabel_Click(sender As Object, e As EventArgs) Handles HideLabel.Click
+        If sPanel Then ''hide
+            ControlFlowLayoutPanel.Visible = False
+            HideLabel.Top = 10
+            HideLabel.Image = My.Resources.arrow_270_medium
+        Else ''show
+            ControlFlowLayoutPanel.Visible = True
+            HideLabel.Top = ControlFlowLayoutPanel.Bottom
+            HideLabel.Image = My.Resources.arrow_090_medium
+        End If
+        sPanel = Not sPanel
+    End Sub
+
+    Private Sub Remote_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        HideLabel.Left = Me.Width / 2 - HideLabel.Width / 2
+    End Sub
 
     Private Sub KeyboardCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles KeyboardCheckBox.CheckedChanged
         P1.Focus()

@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="C1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>248, 3</value>
+    <value>527, 3</value>
   </data>
   <data name="C1.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 25</value>
@@ -141,13 +141,13 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;C1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="C2.ItemHeight" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="C2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 3</value>
+    <value>654, 3</value>
   </data>
   <data name="C2.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 25</value>
@@ -165,10 +165,10 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;C2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="LinesCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>542, 3</value>
+    <value>219, 3</value>
   </data>
   <data name="LinesCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 24</value>
@@ -189,13 +189,13 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;LinesCheckBox.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>3</value>
   </data>
   <data name="ToggleButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="ToggleButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>769, 3</value>
+    <value>3, 3</value>
   </data>
   <data name="ToggleButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 24</value>
@@ -216,13 +216,13 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;ToggleButton.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>0</value>
   </data>
   <data name="C.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="C.Location" type="System.Drawing.Point, System.Drawing">
-    <value>493, 3</value>
+    <value>772, 3</value>
   </data>
   <data name="C.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 25</value>
@@ -244,10 +244,10 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;C.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="MouseCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>605, 3</value>
+    <value>144, 3</value>
   </data>
   <data name="MouseCheckBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 24</value>
@@ -268,10 +268,37 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;MouseCheckBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>2</value>
+  </data>
+  <data name="ControlFlowLayoutPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="KeyboardCheckBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 3</value>
+  </data>
+  <data name="KeyboardCheckBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 24</value>
+  </data>
+  <data name="KeyboardCheckBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="KeyboardCheckBox.Text" xml:space="preserve">
+    <value>Keyboard</value>
+  </data>
+  <data name="&gt;&gt;KeyboardCheckBox.Name" xml:space="preserve">
+    <value>KeyboardCheckBox</value>
+  </data>
+  <data name="&gt;&gt;KeyboardCheckBox.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;KeyboardCheckBox.Parent" xml:space="preserve">
+    <value>ControlFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;KeyboardCheckBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="MetroLabel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
+    <value>282, 0</value>
   </data>
   <data name="MetroLabel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 28</value>
@@ -295,13 +322,13 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;MetroLabel4.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="M.ItemHeight" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="M.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 3</value>
+    <value>344, 3</value>
   </data>
   <data name="M.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 25</value>
@@ -319,10 +346,10 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;M.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="MetroLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 0</value>
+    <value>451, 0</value>
   </data>
   <data name="MetroLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 28</value>
@@ -346,10 +373,10 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;MetroLabel1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="MetroLabel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>333, 0</value>
+    <value>612, 0</value>
   </data>
   <data name="MetroLabel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 28</value>
@@ -373,10 +400,10 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;MetroLabel2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="MetroLabel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 0</value>
+    <value>701, 0</value>
   </data>
   <data name="MetroLabel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 28</value>
@@ -400,37 +427,13 @@
     <value>ControlFlowLayoutPanel</value>
   </data>
   <data name="&gt;&gt;MetroLabel3.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="KeyboardCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>680, 3</value>
-  </data>
-  <data name="KeyboardCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 24</value>
-  </data>
-  <data name="KeyboardCheckBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="KeyboardCheckBox.Text" xml:space="preserve">
-    <value>Keyboard</value>
-  </data>
-  <data name="&gt;&gt;KeyboardCheckBox.Name" xml:space="preserve">
-    <value>KeyboardCheckBox</value>
-  </data>
-  <data name="&gt;&gt;KeyboardCheckBox.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroCheckBox, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;KeyboardCheckBox.Parent" xml:space="preserve">
-    <value>ControlFlowLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;KeyboardCheckBox.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="ControlFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 30</value>
+    <value>8, 30</value>
   </data>
   <data name="ControlFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>881, 31</value>
+    <value>904, 31</value>
   </data>
   <data name="ControlFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -445,7 +448,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ControlFlowLayoutPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="P1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -472,35 +475,11 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;P1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="InfoStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="InfoStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 582</value>
-  </data>
-  <data name="InfoStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>900, 22</value>
-  </data>
-  <data name="InfoStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="InfoStrip.Text" xml:space="preserve">
-    <value>StatusStrip1</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.Name" xml:space="preserve">
-    <value>InfoStrip</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="MouseLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -548,6 +527,51 @@
   </data>
   <data name="SizeLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="InfoStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 582</value>
+  </data>
+  <data name="InfoStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>900, 22</value>
+  </data>
+  <data name="InfoStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="InfoStrip.Text" xml:space="preserve">
+    <value>StatusStrip1</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Name" xml:space="preserve">
+    <value>InfoStrip</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="HideLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>454, 60</value>
+  </data>
+  <data name="HideLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 20</value>
+  </data>
+  <data name="HideLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;HideLabel.Name" xml:space="preserve">
+    <value>HideLabel</value>
+  </data>
+  <data name="&gt;&gt;HideLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HideLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;HideLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -136,22 +136,25 @@
   <data name="ColumnHeader3.Width" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OutputTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="OutputTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 8.25pt</value>
   </data>
   <data name="OutputTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 63</value>
+    <value>20, 63</value>
   </data>
   <data name="OutputTextBox.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="OutputTextBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
   <data name="OutputTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 256</value>
+    <value>454, 260</value>
   </data>
   <data name="OutputTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -168,11 +171,14 @@
   <data name="&gt;&gt;OutputTextBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="CommandTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
   <data name="CommandTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 319</value>
+    <value>20, 322</value>
   </data>
   <data name="CommandTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>448, 20</value>
+    <value>454, 20</value>
   </data>
   <data name="CommandTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>

@@ -30,12 +30,12 @@ Partial Class Remote
         Me.C = New System.Windows.Forms.NumericUpDown()
         Me.MouseCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.ControlFlowLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
+        Me.KeyboardCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.M = New MetroFramework.Controls.MetroComboBox()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
-        Me.KeyboardCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.P1 = New System.Windows.Forms.PictureBox()
         Me.InfoStrip = New System.Windows.Forms.StatusStrip()
         Me.MouseLabel = New System.Windows.Forms.ToolStripStatusLabel()
@@ -43,6 +43,7 @@ Partial Class Remote
         Me.FPSLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ChangesLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.SizeLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.HideLabel = New System.Windows.Forms.Label()
         CType(Me.C, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ControlFlowLayoutPanel.SuspendLayout()
         CType(Me.P1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +103,12 @@ Partial Class Remote
         '
         'ControlFlowLayoutPanel
         '
+        resources.ApplyResources(Me.ControlFlowLayoutPanel, "ControlFlowLayoutPanel")
+        Me.ControlFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ControlFlowLayoutPanel.Controls.Add(Me.ToggleButton)
+        Me.ControlFlowLayoutPanel.Controls.Add(Me.KeyboardCheckBox)
+        Me.ControlFlowLayoutPanel.Controls.Add(Me.MouseCheckBox)
+        Me.ControlFlowLayoutPanel.Controls.Add(Me.LinesCheckBox)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel4)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.M)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel1)
@@ -110,12 +117,16 @@ Partial Class Remote
         Me.ControlFlowLayoutPanel.Controls.Add(Me.C2)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.MetroLabel3)
         Me.ControlFlowLayoutPanel.Controls.Add(Me.C)
-        Me.ControlFlowLayoutPanel.Controls.Add(Me.LinesCheckBox)
-        Me.ControlFlowLayoutPanel.Controls.Add(Me.MouseCheckBox)
-        Me.ControlFlowLayoutPanel.Controls.Add(Me.KeyboardCheckBox)
-        Me.ControlFlowLayoutPanel.Controls.Add(Me.ToggleButton)
-        resources.ApplyResources(Me.ControlFlowLayoutPanel, "ControlFlowLayoutPanel")
         Me.ControlFlowLayoutPanel.Name = "ControlFlowLayoutPanel"
+        '
+        'KeyboardCheckBox
+        '
+        Me.KeyboardCheckBox.FontSize = MetroFramework.MetroLinkSize.Medium
+        Me.KeyboardCheckBox.ForeColor = System.Drawing.SystemColors.Control
+        resources.ApplyResources(Me.KeyboardCheckBox, "KeyboardCheckBox")
+        Me.KeyboardCheckBox.Name = "KeyboardCheckBox"
+        Me.KeyboardCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.KeyboardCheckBox.UseVisualStyleBackColor = True
         '
         'MetroLabel4
         '
@@ -149,15 +160,6 @@ Partial Class Remote
         resources.ApplyResources(Me.MetroLabel3, "MetroLabel3")
         Me.MetroLabel3.Name = "MetroLabel3"
         Me.MetroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark
-        '
-        'KeyboardCheckBox
-        '
-        Me.KeyboardCheckBox.FontSize = MetroFramework.MetroLinkSize.Medium
-        Me.KeyboardCheckBox.ForeColor = System.Drawing.SystemColors.Control
-        resources.ApplyResources(Me.KeyboardCheckBox, "KeyboardCheckBox")
-        Me.KeyboardCheckBox.Name = "KeyboardCheckBox"
-        Me.KeyboardCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.KeyboardCheckBox.UseVisualStyleBackColor = True
         '
         'P1
         '
@@ -207,10 +209,17 @@ Partial Class Remote
         Me.SizeLabel.ForeColor = System.Drawing.SystemColors.Control
         Me.SizeLabel.Name = "SizeLabel"
         '
+        'HideLabel
+        '
+        Me.HideLabel.Image = Global.LavenderControl.My.Resources.Resources.arrow_090_medium
+        resources.ApplyResources(Me.HideLabel, "HideLabel")
+        Me.HideLabel.Name = "HideLabel"
+        '
         'Remote
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.HideLabel)
         Me.Controls.Add(Me.InfoStrip)
         Me.Controls.Add(Me.ControlFlowLayoutPanel)
         Me.Controls.Add(Me.P1)
@@ -250,4 +259,5 @@ Partial Class Remote
     Friend WithEvents SizeLabel As ToolStripStatusLabel
     Friend WithEvents MouseLabel As ToolStripStatusLabel
     Friend WithEvents KeyboardLabel As ToolStripStatusLabel
+    Friend WithEvents HideLabel As Label
 End Class

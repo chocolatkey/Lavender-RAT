@@ -30,6 +30,9 @@ Partial Class FileManager
         Me.RenameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.UploadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DownloadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,11 +48,11 @@ Partial Class FileManager
         Me.GoButton = New System.Windows.Forms.Button()
         Me.ImgListL = New System.Windows.Forms.ImageList(Me.components)
         Me.ImgListS = New System.Windows.Forms.ImageList(Me.components)
+        Me.InfoToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.FileListView = New LavenderControl.ListViewEx()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.InfoToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.FileContextMenuStrip.SuspendLayout()
         Me.NavigationPanel.SuspendLayout()
         Me.SuspendLayout()
@@ -62,22 +65,25 @@ Partial Class FileManager
         '
         'FileContextMenuStrip
         '
-        Me.FileContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExecuteToolStripMenuItem, Me.RenameToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ToolStripSeparator1, Me.ViewToolStripMenuItem})
+        Me.FileContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExecuteToolStripMenuItem, Me.RenameToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ToolStripSeparator1, Me.UploadToolStripMenuItem, Me.DownloadToolStripMenuItem, Me.ToolStripSeparator2, Me.ViewToolStripMenuItem})
         Me.FileContextMenuStrip.Name = "ContextMenuStrip1"
         resources.ApplyResources(Me.FileContextMenuStrip, "FileContextMenuStrip")
         '
         'ExecuteToolStripMenuItem
         '
+        Me.ExecuteToolStripMenuItem.Image = Global.LavenderControl.My.Resources.Resources.run2
         Me.ExecuteToolStripMenuItem.Name = "ExecuteToolStripMenuItem"
         resources.ApplyResources(Me.ExecuteToolStripMenuItem, "ExecuteToolStripMenuItem")
         '
         'RenameToolStripMenuItem
         '
+        Me.RenameToolStripMenuItem.Image = Global.LavenderControl.My.Resources.Resources.ui_text_field_select
         Me.RenameToolStripMenuItem.Name = "RenameToolStripMenuItem"
         resources.ApplyResources(Me.RenameToolStripMenuItem, "RenameToolStripMenuItem")
         '
         'DeleteToolStripMenuItem
         '
+        Me.DeleteToolStripMenuItem.Image = Global.LavenderControl.My.Resources.Resources.cross
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
         resources.ApplyResources(Me.DeleteToolStripMenuItem, "DeleteToolStripMenuItem")
         '
@@ -86,9 +92,27 @@ Partial Class FileManager
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
         '
+        'UploadToolStripMenuItem
+        '
+        resources.ApplyResources(Me.UploadToolStripMenuItem, "UploadToolStripMenuItem")
+        Me.UploadToolStripMenuItem.Image = Global.LavenderControl.My.Resources.Resources.arrow_090_medium
+        Me.UploadToolStripMenuItem.Name = "UploadToolStripMenuItem"
+        '
+        'DownloadToolStripMenuItem
+        '
+        resources.ApplyResources(Me.DownloadToolStripMenuItem, "DownloadToolStripMenuItem")
+        Me.DownloadToolStripMenuItem.Image = Global.LavenderControl.My.Resources.Resources.arrow_270_medium
+        Me.DownloadToolStripMenuItem.Name = "DownloadToolStripMenuItem"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
+        '
         'ViewToolStripMenuItem
         '
         Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DetailsToolStripMenuItem, Me.ListToolStripMenuItem, Me.TilesToolStripMenuItem, Me.SmallIconsToolStripMenuItem, Me.LargeIconsToolStripMenuItem})
+        Me.ViewToolStripMenuItem.Image = Global.LavenderControl.My.Resources.Resources.document_view_thumbnail
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         resources.ApplyResources(Me.ViewToolStripMenuItem, "ViewToolStripMenuItem")
         '
@@ -224,6 +248,7 @@ Partial Class FileManager
         Me.GoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
         resources.ApplyResources(Me.GoButton, "GoButton")
         Me.GoButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.GoButton.Image = Global.LavenderControl.My.Resources.Resources.arrow
         Me.GoButton.Name = "GoButton"
         Me.InfoToolTip.SetToolTip(Me.GoButton, resources.GetString("GoButton.ToolTip"))
         Me.GoButton.UseVisualStyleBackColor = False
@@ -308,4 +333,7 @@ Partial Class FileManager
     Friend WithEvents ImgListL As System.Windows.Forms.ImageList
     Friend WithEvents ImgListS As System.Windows.Forms.ImageList
     Friend WithEvents InfoToolTip As System.Windows.Forms.ToolTip
+    Friend WithEvents UploadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DownloadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

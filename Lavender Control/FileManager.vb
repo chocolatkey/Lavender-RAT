@@ -52,14 +52,23 @@ Public Class FileManager
     End Sub
 
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
-        Select Case FileListView.FocusedItem.ImageIndex
-            Case 0 To 1
-            Case 2
-                Main.S.Send(sock, Main.n.delete & Main.Sep & Main.n.folder & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+        Select Case FileListView.FocusedItem.SubItems(2).Text.ToString
+            Case "Windows Disk", "Local Disk", "Removable Disk", "Disk Drive"
+                MsgBox("Drives and removable media cannot be deleted!")
+            Case "DIR"
+                Dim mr As MsgBoxResult = MsgBox("Are you sure you want to delete the folder """ & FileListView.FocusedItem.Text & """?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo)
+                If mr = MsgBoxResult.Yes Then
+                    Main.S.Send(sock, Main.n.delete & Main.Sep & Main.n.folder & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+                    FileListView.FocusedItem.BackColor = Color.Gray
+
+                End If
             Case Else
-                Main.S.Send(sock, Main.n.delete & Main.Sep & Main.n.file & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+                Dim mr As MsgBoxResult = MsgBox("Are you sure you want to delete the file """ & FileListView.FocusedItem.Text & """?", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo)
+                If mr = MsgBoxResult.Yes Then
+                    Main.S.Send(sock, Main.n.delete & Main.Sep & Main.n.file & Main.Sep & assumeddir & FileListView.FocusedItem.Text)
+                    FileListView.FocusedItem.BackColor = Color.Gray
+                End If
         End Select
-        RefreshList()
     End Sub
 
     Private Sub DownloadToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -169,11 +178,17 @@ Public Class FileManager
         FileListView.View = View.LargeIcon
     End Sub
 
-    Private Sub FileListView_ColumnClick(sender As Object, e As ColumnClickEventArgs)
-
-    End Sub
-
-    Private Sub FileListView_SelectedIndexChanged(sender As Object, e As EventArgs)
-
+    Private Sub FileListView_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FileListView.KeyPress
+        If e.KeyChar = ChrW(Keys.Return) Then
+            FileListView_DoubleClick(sender, e)
+        ElseIf e.KeyChar = ChrW(Keys.Back)
+            UpButton.PerformClick()
+        ElseIf e.KeyChar = ChrW(Keys.F5)
+            RefreshButton.PerformClick()
+        ElseIf e.KeyChar = ChrW(Keys.F2)
+            RenameToolStripMenuItem.PerformClick()
+        ElseIf e.KeyChar = ChrW(Keys.Delete)
+            DeleteToolStripMenuItem.PerformClick()
+        End If
     End Sub
 End Class

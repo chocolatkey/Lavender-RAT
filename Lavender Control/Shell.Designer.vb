@@ -44,9 +44,9 @@ Partial Class Shell
         '
         'OutputTextBox
         '
+        resources.ApplyResources(Me.OutputTextBox, "OutputTextBox")
         Me.OutputTextBox.BackColor = System.Drawing.SystemColors.Desktop
         Me.OutputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        resources.ApplyResources(Me.OutputTextBox, "OutputTextBox")
         Me.OutputTextBox.ForeColor = System.Drawing.SystemColors.Window
         Me.OutputTextBox.Name = "OutputTextBox"
         Me.OutputTextBox.ReadOnly = True
@@ -55,8 +55,8 @@ Partial Class Shell
         '
         Me.CommandTextBox.BackColor = System.Drawing.SystemColors.Desktop
         Me.CommandTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CommandTextBox.ForeColor = System.Drawing.SystemColors.Window
         resources.ApplyResources(Me.CommandTextBox, "CommandTextBox")
+        Me.CommandTextBox.ForeColor = System.Drawing.SystemColors.Window
         Me.CommandTextBox.Name = "CommandTextBox"
         '
         'Shell

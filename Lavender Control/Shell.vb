@@ -11,4 +11,8 @@
     Private Sub Shell_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Main.S.Send(sock, Main.n.endshell)
     End Sub
+
+    Private Sub Shell_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        CommandTextBox.Focus()
+    End Sub
 End Class

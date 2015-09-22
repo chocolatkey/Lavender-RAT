@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Crypt\AES.vb" />
     <Compile Include="Crypt\HMACSHA512Hasher.vb" />
+    <Compile Include="Crypt\Crc32.vb" />
     <Compile Include="Crypt\RandomKeyGenerator.vb" />
     <Compile Include="Crypt\RC4.vb" />
     <Compile Include="Crypt\RSA.vb" />
@@ -100,7 +101,6 @@
     <Compile Include="Names.vb" />
     <Compile Include="Passwords.vb" />
     <Compile Include="RunPE.vb" />
-    <Compile Include="Shell.vb" />
     <Compile Include="SocketClient.vb" />
     <Compile Include="Screen.vb" />
   </ItemGroup>

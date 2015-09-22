@@ -221,6 +221,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property document_view_thumbnail() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("document-view-thumbnail", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
         Friend ReadOnly Property drive() As System.Drawing.Icon
@@ -366,6 +376,16 @@ Namespace My.Resources
         Friend ReadOnly Property keyboard1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("keyboard1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property lavender_small() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("lavender-small", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -556,6 +576,16 @@ Namespace My.Resources
         Friend ReadOnly Property terminal() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("terminal", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ui_text_field_select() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ui-text-field-select", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

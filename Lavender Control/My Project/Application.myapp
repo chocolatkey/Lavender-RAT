@@ -7,4 +7,9 @@
   <EnableVisualStyles>true</EnableVisualStyles>
   <AuthenticationMode>0</AuthenticationMode>
   <SaveMySettingsOnExit>true</SaveMySettingsOnExit>
+  <Target
+    AfterTargets="AfterBuild;NonWinFodyTarget"
+    Name="CleanReferenceCopyLocalPaths" >
+    <Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
+  </Target>
 </MyApplicationData>
