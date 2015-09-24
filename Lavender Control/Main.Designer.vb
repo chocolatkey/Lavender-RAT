@@ -81,14 +81,6 @@ Partial Class Main
         Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.LogTextBox = New MetroFramework.Controls.MetroTextBox()
-        Me.L1 = New LavenderControl.ListViewEx()
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlagImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -110,6 +102,14 @@ Partial Class Main
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.L1 = New LavenderControl.ListViewEx()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.MainSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplit.Panel1.SuspendLayout()
         Me.MainSplit.Panel2.SuspendLayout()
@@ -396,10 +396,10 @@ Partial Class Main
         'Button2
         '
         Me.Button2.BackColor = System.Drawing.Color.Teal
+        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.ForeColor = System.Drawing.SystemColors.Control
         Me.Button2.Image = Global.LavenderControl.My.Resources.Resources.block
         Me.Button2.Name = "Button2"
@@ -679,48 +679,6 @@ Partial Class Main
         Me.LogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.LogTextBox.Style = MetroFramework.MetroColorStyle.Purple
         Me.LogTextBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        '
-        'L1
-        '
-        resources.ApplyResources(Me.L1, "L1")
-        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
-        Me.L1.ContextMenuStrip = Me.ListContextMenu
-        Me.L1.FullRowSelect = True
-        Me.L1.GridLines = True
-        Me.L1.HideSelection = False
-        Me.L1.LargeImageList = Me.FlagImageList
-        Me.L1.Name = "L1"
-        Me.L1.SmallImageList = Me.FlagImageList
-        Me.L1.UseCompatibleStateImageBehavior = False
-        Me.L1.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader10
-        '
-        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
-        '
-        'ColumnHeader11
-        '
-        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
-        '
-        'ColumnHeader12
-        '
-        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
-        '
-        'ColumnHeader13
-        '
-        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
-        '
-        'ColumnHeader14
-        '
-        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
-        '
-        'ColumnHeader15
-        '
-        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
-        '
-        'ColumnHeader16
-        '
-        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
         '
         'ListContextMenu
         '
@@ -1104,6 +1062,48 @@ Partial Class Main
         'ColumnHeader5
         '
         resources.ApplyResources(Me.ColumnHeader5, "ColumnHeader5")
+        '
+        'L1
+        '
+        resources.ApplyResources(Me.L1, "L1")
+        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.L1.ContextMenuStrip = Me.ListContextMenu
+        Me.L1.FullRowSelect = True
+        Me.L1.GridLines = True
+        Me.L1.HideSelection = False
+        Me.L1.LargeImageList = Me.FlagImageList
+        Me.L1.Name = "L1"
+        Me.L1.SmallImageList = Me.FlagImageList
+        Me.L1.UseCompatibleStateImageBehavior = False
+        Me.L1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
+        '
+        'ColumnHeader11
+        '
+        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
+        '
+        'ColumnHeader12
+        '
+        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
+        '
+        'ColumnHeader13
+        '
+        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
+        '
+        'ColumnHeader14
+        '
+        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
+        '
+        'ColumnHeader15
+        '
+        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
+        '
+        'ColumnHeader16
+        '
+        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
         '
         'Main
         '

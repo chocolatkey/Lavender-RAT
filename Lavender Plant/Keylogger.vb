@@ -54,7 +54,8 @@ Public Class KLogger
             Else
                 LastAV = o.ToInt32
                 LastAS = p.MainWindowTitle.ToString
-                Return "<br><br><b>[" & LastAS & "] " & HM() & "</b><br>"
+                ''Return "<br><br><b>[" & LastAS & "] " & HM() & "</b><br>"
+                Return vbNewLine & vbNewLine & "<b>[" & LastAS & "] " & HM() & "</b>" & vbNewLine
             End If
         Catch ex As Exception
             Return ""
