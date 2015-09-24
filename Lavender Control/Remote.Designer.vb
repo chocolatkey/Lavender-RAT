@@ -179,7 +179,7 @@ Partial Class Remote
         '
         resources.ApplyResources(Me.MouseLabel, "MouseLabel")
         Me.MouseLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.MouseLabel.Image = Global.LavenderControl.My.Resources.Resources.mouse
+        Me.MouseLabel.Image = Global.LavenderControl.My.Resources.Resources.mouse__minus
         Me.MouseLabel.Name = "MouseLabel"
         Me.MouseLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
         '
@@ -187,7 +187,6 @@ Partial Class Remote
         '
         resources.ApplyResources(Me.KeyboardLabel, "KeyboardLabel")
         Me.KeyboardLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.KeyboardLabel.Image = Global.LavenderControl.My.Resources.Resources.keyboard1
         Me.KeyboardLabel.Name = "KeyboardLabel"
         Me.KeyboardLabel.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never
         '
@@ -211,7 +210,6 @@ Partial Class Remote
         '
         'HideLabel
         '
-        Me.HideLabel.Image = Global.LavenderControl.My.Resources.Resources.arrow_090_medium
         resources.ApplyResources(Me.HideLabel, "HideLabel")
         Me.HideLabel.Name = "HideLabel"
         '

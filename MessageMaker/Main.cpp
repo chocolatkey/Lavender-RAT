@@ -8,6 +8,20 @@
 
 using namespace std;
 
+BOOLEAN
+WINAPI
+WinStationSendMessageW(
+	_In_opt_ HANDLE hServer,
+	_In_ ULONG SessionId,
+	_In_ PWSTR Title,
+	_In_ ULONG TitleLength,
+	_In_ PWSTR Message,
+	_In_ ULONG MessageLength,
+	_In_ ULONG Style,
+	_In_ ULONG Timeout,
+	_Out_ PULONG Response,
+	_In_ BOOLEAN DoNotWait
+	);
 
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, char* cl, int show)
 {
@@ -44,5 +58,4 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, char* cl, int show)
 
 	/*Show MessageBox*/
 	MessageBoxA(NULL, msg, "", mt);
-	return 0;
 }

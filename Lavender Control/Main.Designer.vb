@@ -29,56 +29,57 @@ Partial Class Main
         Me.Spinner = New MetroFramework.Controls.MetroProgressSpinner()
         Me.InfoLabel = New MetroFramework.Controls.MetroLabel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.PasswordPanel = New System.Windows.Forms.Panel()
-        Me.PasswordTextbox = New System.Windows.Forms.TextBox()
-        Me.ShowPasswordButton = New System.Windows.Forms.Button()
+        Me.ProfileComboBox = New MetroFramework.Controls.MetroComboBox()
         Me.PortValue = New System.Windows.Forms.NumericUpDown()
         Me.ListenButton = New System.Windows.Forms.Button()
         Me.LogoLabel = New System.Windows.Forms.Label()
         Me.VersionLabel = New MetroFramework.Controls.MetroLabel()
         Me.ErrorLabel = New MetroFramework.Controls.MetroLabel()
         Me.Tabs = New MetroFramework.Controls.MetroTabControl()
-        Me.ManageTab = New MetroFramework.Controls.MetroTabPage()
-        Me.ShellButton = New System.Windows.Forms.Button()
-        Me.TaskmanButton = New System.Windows.Forms.Button()
+        Me.CoreTab = New MetroFramework.Controls.MetroTabPage()
+        Me.PowerButton = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.QuestRadio = New MetroFramework.Controls.MetroRadioButton()
+        Me.ExclaRadio = New MetroFramework.Controls.MetroRadioButton()
+        Me.CritRadio = New MetroFramework.Controls.MetroRadioButton()
+        Me.InfoRadio = New MetroFramework.Controls.MetroRadioButton()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.MsgTextbox = New MetroFramework.Controls.MetroTextBox()
+        Me.MsgSendButton = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.ClientGroupBox = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ReconnectButton = New MetroFramework.Controls.MetroButton()
         Me.ExitButton = New MetroFramework.Controls.MetroButton()
         Me.UninstallButton = New MetroFramework.Controls.MetroButton()
         Me.ScrambleButton = New MetroFramework.Controls.MetroButton()
-        Me.RemoteButton = New System.Windows.Forms.Button()
-        Me.PasswordsButton = New System.Windows.Forms.Button()
+        Me.UpdateButton = New MetroFramework.Controls.MetroButton()
+        Me.ShellButton = New System.Windows.Forms.Button()
+        Me.TaskmanButton = New System.Windows.Forms.Button()
         Me.UtilitiesButton = New System.Windows.Forms.Button()
         Me.FileButton = New System.Windows.Forms.Button()
+        Me.PluginTab = New MetroFramework.Controls.MetroTabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PluginListView = New System.Windows.Forms.ListView()
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PluginImageList = New System.Windows.Forms.ImageList(Me.components)
+        Me.RemoteButton = New System.Windows.Forms.Button()
+        Me.PasswordsButton = New System.Windows.Forms.Button()
         Me.KeyloggerButton = New System.Windows.Forms.Button()
-        Me.SystemTab = New MetroFramework.Controls.MetroTabPage()
-        Me.PowerPanel = New MetroFramework.Controls.MetroPanel()
-        Me.LogoutButton = New System.Windows.Forms.Button()
-        Me.LockButton = New System.Windows.Forms.Button()
-        Me.SleepButton = New System.Windows.Forms.Button()
-        Me.RestartButton = New System.Windows.Forms.Button()
-        Me.ShutdownButton = New System.Windows.Forms.Button()
-        Me.PowerLabel = New MetroFramework.Controls.MetroLabel()
+        Me.InfoTab = New MetroFramework.Controls.MetroTabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.RetrieveButton = New System.Windows.Forms.Button()
         Me.InfoListView = New System.Windows.Forms.ListView()
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.RetrieveButton = New System.Windows.Forms.Button()
-        Me.MessageTab = New MetroFramework.Controls.MetroTabPage()
-        Me.MsgTextbox = New MetroFramework.Controls.MetroTextBox()
-        Me.QuestRadio = New MetroFramework.Controls.MetroRadioButton()
-        Me.ExclaRadio = New MetroFramework.Controls.MetroRadioButton()
-        Me.CritRadio = New MetroFramework.Controls.MetroRadioButton()
-        Me.MsgSendButton = New System.Windows.Forms.Button()
-        Me.MsgStyleLabel = New MetroFramework.Controls.MetroLabel()
-        Me.InfoRadio = New MetroFramework.Controls.MetroRadioButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.LockTab = New MetroFramework.Controls.MetroTabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.HostInfoListView = New System.Windows.Forms.ListView()
+        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.LogTextBox = New MetroFramework.Controls.MetroTextBox()
         Me.L1 = New LavenderControl.ListViewEx()
         Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -118,17 +119,16 @@ Partial Class Main
         Me.ControlSplitContainer.Panel2.SuspendLayout()
         Me.ControlSplitContainer.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
-        Me.PasswordPanel.SuspendLayout()
         CType(Me.PortValue, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tabs.SuspendLayout()
-        Me.ManageTab.SuspendLayout()
+        Me.CoreTab.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.ClientGroupBox.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
-        Me.SystemTab.SuspendLayout()
-        Me.PowerPanel.SuspendLayout()
+        Me.PluginTab.SuspendLayout()
+        Me.InfoTab.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.MessageTab.SuspendLayout()
-        Me.LockTab.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.ListContextMenu.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
         Me.ControlBoxPanel.SuspendLayout()
@@ -185,40 +185,17 @@ Partial Class Main
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.PasswordPanel)
+        Me.FlowLayoutPanel1.Controls.Add(Me.ProfileComboBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.PortValue)
         Me.FlowLayoutPanel1.Controls.Add(Me.ListenButton)
         resources.ApplyResources(Me.FlowLayoutPanel1, "FlowLayoutPanel1")
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         '
-        'PasswordPanel
+        'ProfileComboBox
         '
-        Me.PasswordPanel.Controls.Add(Me.PasswordTextbox)
-        Me.PasswordPanel.Controls.Add(Me.ShowPasswordButton)
-        resources.ApplyResources(Me.PasswordPanel, "PasswordPanel")
-        Me.PasswordPanel.Name = "PasswordPanel"
-        '
-        'PasswordTextbox
-        '
-        resources.ApplyResources(Me.PasswordTextbox, "PasswordTextbox")
-        Me.PasswordTextbox.BackColor = System.Drawing.Color.Black
-        Me.PasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PasswordTextbox.ForeColor = System.Drawing.SystemColors.Control
-        Me.PasswordTextbox.Name = "PasswordTextbox"
-        Me.InfoToolTip.SetToolTip(Me.PasswordTextbox, resources.GetString("PasswordTextbox.ToolTip"))
-        Me.PasswordTextbox.UseSystemPasswordChar = True
-        '
-        'ShowPasswordButton
-        '
-        Me.ShowPasswordButton.BackColor = System.Drawing.Color.Black
-        Me.ShowPasswordButton.FlatAppearance.BorderSize = 0
-        Me.ShowPasswordButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray
-        Me.ShowPasswordButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
-        resources.ApplyResources(Me.ShowPasswordButton, "ShowPasswordButton")
-        Me.ShowPasswordButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.ShowPasswordButton.Name = "ShowPasswordButton"
-        Me.InfoToolTip.SetToolTip(Me.ShowPasswordButton, resources.GetString("ShowPasswordButton.ToolTip"))
-        Me.ShowPasswordButton.UseVisualStyleBackColor = False
+        Me.ProfileComboBox.FormattingEnabled = True
+        resources.ApplyResources(Me.ProfileComboBox, "ProfileComboBox")
+        Me.ProfileComboBox.Name = "ProfileComboBox"
         '
         'PortValue
         '
@@ -267,315 +244,63 @@ Partial Class Main
         'Tabs
         '
         resources.ApplyResources(Me.Tabs, "Tabs")
-        Me.Tabs.Controls.Add(Me.ManageTab)
-        Me.Tabs.Controls.Add(Me.SystemTab)
-        Me.Tabs.Controls.Add(Me.MessageTab)
-        Me.Tabs.Controls.Add(Me.LockTab)
+        Me.Tabs.Controls.Add(Me.CoreTab)
+        Me.Tabs.Controls.Add(Me.InfoTab)
+        Me.Tabs.Controls.Add(Me.PluginTab)
         Me.Tabs.FontWeight = MetroFramework.MetroTabControlWeight.Bold
         Me.Tabs.HotTrack = True
         Me.Tabs.Multiline = True
         Me.Tabs.Name = "Tabs"
-        Me.Tabs.SelectedIndex = 3
+        Me.Tabs.SelectedIndex = 0
         Me.Tabs.Style = MetroFramework.MetroColorStyle.Green
         Me.Tabs.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.Tabs.UseStyleColors = True
         '
-        'ManageTab
+        'CoreTab
         '
-        Me.ManageTab.Controls.Add(Me.ShellButton)
-        Me.ManageTab.Controls.Add(Me.TaskmanButton)
-        Me.ManageTab.Controls.Add(Me.ClientGroupBox)
-        Me.ManageTab.Controls.Add(Me.RemoteButton)
-        Me.ManageTab.Controls.Add(Me.PasswordsButton)
-        Me.ManageTab.Controls.Add(Me.UtilitiesButton)
-        Me.ManageTab.Controls.Add(Me.FileButton)
-        Me.ManageTab.Controls.Add(Me.KeyloggerButton)
-        Me.ManageTab.HorizontalScrollbarBarColor = True
-        resources.ApplyResources(Me.ManageTab, "ManageTab")
-        Me.ManageTab.Name = "ManageTab"
-        Me.ManageTab.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.ManageTab.VerticalScrollbarBarColor = True
+        Me.CoreTab.Controls.Add(Me.PowerButton)
+        Me.CoreTab.Controls.Add(Me.GroupBox3)
+        Me.CoreTab.Controls.Add(Me.Button2)
+        Me.CoreTab.Controls.Add(Me.ClientGroupBox)
+        Me.CoreTab.Controls.Add(Me.ShellButton)
+        Me.CoreTab.Controls.Add(Me.TaskmanButton)
+        Me.CoreTab.Controls.Add(Me.UtilitiesButton)
+        Me.CoreTab.Controls.Add(Me.FileButton)
+        Me.CoreTab.HorizontalScrollbarBarColor = True
+        resources.ApplyResources(Me.CoreTab, "CoreTab")
+        Me.CoreTab.Name = "CoreTab"
+        Me.CoreTab.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.CoreTab.VerticalScrollbarBarColor = True
         '
-        'ShellButton
+        'PowerButton
         '
-        Me.ShellButton.BackColor = System.Drawing.Color.Black
-        Me.ShellButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.ShellButton.FlatAppearance.BorderSize = 0
-        Me.ShellButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ShellButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray
-        resources.ApplyResources(Me.ShellButton, "ShellButton")
-        Me.ShellButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.ShellButton.Image = Global.LavenderControl.My.Resources.Resources.terminal
-        Me.ShellButton.Name = "ShellButton"
-        Me.ShellButton.UseVisualStyleBackColor = False
+        Me.PowerButton.BackColor = System.Drawing.Color.Purple
+        Me.PowerButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.PowerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.PowerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        resources.ApplyResources(Me.PowerButton, "PowerButton")
+        Me.PowerButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.PowerButton.Image = Global.LavenderControl.My.Resources.Resources.control_power
+        Me.PowerButton.Name = "PowerButton"
+        Me.PowerButton.UseVisualStyleBackColor = False
         '
-        'TaskmanButton
+        'GroupBox3
         '
-        Me.TaskmanButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.TaskmanButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.TaskmanButton.FlatAppearance.BorderSize = 0
-        Me.TaskmanButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.TaskmanButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
-        resources.ApplyResources(Me.TaskmanButton, "TaskmanButton")
-        Me.TaskmanButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.TaskmanButton.Image = Global.LavenderControl.My.Resources.Resources.system_monitor
-        Me.TaskmanButton.Name = "TaskmanButton"
-        Me.TaskmanButton.UseVisualStyleBackColor = False
-        '
-        'ClientGroupBox
-        '
-        resources.ApplyResources(Me.ClientGroupBox, "ClientGroupBox")
-        Me.ClientGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.ClientGroupBox.Controls.Add(Me.FlowLayoutPanel2)
-        Me.ClientGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ClientGroupBox.ForeColor = System.Drawing.SystemColors.Control
-        Me.ClientGroupBox.Name = "ClientGroupBox"
-        Me.ClientGroupBox.TabStop = False
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        Me.FlowLayoutPanel2.Controls.Add(Me.ReconnectButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.ExitButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.UninstallButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.ScrambleButton)
-        resources.ApplyResources(Me.FlowLayoutPanel2, "FlowLayoutPanel2")
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        '
-        'ReconnectButton
-        '
-        resources.ApplyResources(Me.ReconnectButton, "ReconnectButton")
-        Me.ReconnectButton.Name = "ReconnectButton"
-        Me.ReconnectButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.InfoToolTip.SetToolTip(Me.ReconnectButton, resources.GetString("ReconnectButton.ToolTip"))
-        '
-        'ExitButton
-        '
-        resources.ApplyResources(Me.ExitButton, "ExitButton")
-        Me.ExitButton.Name = "ExitButton"
-        Me.ExitButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.InfoToolTip.SetToolTip(Me.ExitButton, resources.GetString("ExitButton.ToolTip"))
-        '
-        'UninstallButton
-        '
-        resources.ApplyResources(Me.UninstallButton, "UninstallButton")
-        Me.UninstallButton.Name = "UninstallButton"
-        Me.UninstallButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.InfoToolTip.SetToolTip(Me.UninstallButton, resources.GetString("UninstallButton.ToolTip"))
-        '
-        'ScrambleButton
-        '
-        resources.ApplyResources(Me.ScrambleButton, "ScrambleButton")
-        Me.ScrambleButton.Name = "ScrambleButton"
-        Me.ScrambleButton.Theme = MetroFramework.MetroThemeStyle.Light
-        Me.InfoToolTip.SetToolTip(Me.ScrambleButton, resources.GetString("ScrambleButton.ToolTip"))
-        '
-        'RemoteButton
-        '
-        Me.RemoteButton.BackColor = System.Drawing.Color.LightGray
-        Me.RemoteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.RemoteButton.FlatAppearance.BorderSize = 0
-        Me.RemoteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.RemoteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
-        resources.ApplyResources(Me.RemoteButton, "RemoteButton")
-        Me.RemoteButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.RemoteButton.Image = Global.LavenderControl.My.Resources.Resources.monitor
-        Me.RemoteButton.Name = "RemoteButton"
-        Me.RemoteButton.UseVisualStyleBackColor = False
-        '
-        'PasswordsButton
-        '
-        Me.PasswordsButton.BackColor = System.Drawing.Color.Purple
-        Me.PasswordsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.PasswordsButton.FlatAppearance.BorderSize = 0
-        Me.PasswordsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.PasswordsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        resources.ApplyResources(Me.PasswordsButton, "PasswordsButton")
-        Me.PasswordsButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.PasswordsButton.Image = Global.LavenderControl.My.Resources.Resources.key
-        Me.PasswordsButton.Name = "PasswordsButton"
-        Me.PasswordsButton.UseVisualStyleBackColor = False
-        '
-        'UtilitiesButton
-        '
-        Me.UtilitiesButton.BackColor = System.Drawing.Color.DimGray
-        Me.UtilitiesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.UtilitiesButton.FlatAppearance.BorderSize = 0
-        Me.UtilitiesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.UtilitiesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray
-        resources.ApplyResources(Me.UtilitiesButton, "UtilitiesButton")
-        Me.UtilitiesButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.UtilitiesButton.Image = Global.LavenderControl.My.Resources.Resources.light_bulb
-        Me.UtilitiesButton.Name = "UtilitiesButton"
-        Me.UtilitiesButton.UseVisualStyleBackColor = False
-        '
-        'FileButton
-        '
-        Me.FileButton.BackColor = System.Drawing.Color.Crimson
-        Me.FileButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.FileButton.FlatAppearance.BorderSize = 0
-        Me.FileButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkMagenta
-        Me.FileButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed
-        resources.ApplyResources(Me.FileButton, "FileButton")
-        Me.FileButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.FileButton.Image = Global.LavenderControl.My.Resources.Resources.folder_i
-        Me.FileButton.Name = "FileButton"
-        Me.FileButton.UseVisualStyleBackColor = False
-        '
-        'KeyloggerButton
-        '
-        Me.KeyloggerButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.KeyloggerButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.KeyloggerButton.FlatAppearance.BorderSize = 0
-        Me.KeyloggerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.KeyloggerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        resources.ApplyResources(Me.KeyloggerButton, "KeyloggerButton")
-        Me.KeyloggerButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.KeyloggerButton.Image = Global.LavenderControl.My.Resources.Resources.keyboard
-        Me.KeyloggerButton.Name = "KeyloggerButton"
-        Me.KeyloggerButton.UseVisualStyleBackColor = False
-        '
-        'SystemTab
-        '
-        Me.SystemTab.Controls.Add(Me.PowerPanel)
-        Me.SystemTab.Controls.Add(Me.GroupBox2)
-        Me.SystemTab.HorizontalScrollbarBarColor = True
-        resources.ApplyResources(Me.SystemTab, "SystemTab")
-        Me.SystemTab.Name = "SystemTab"
-        Me.SystemTab.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.SystemTab.VerticalScrollbarBarColor = True
-        '
-        'PowerPanel
-        '
-        Me.PowerPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.PowerPanel.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle
-        Me.PowerPanel.Controls.Add(Me.LogoutButton)
-        Me.PowerPanel.Controls.Add(Me.LockButton)
-        Me.PowerPanel.Controls.Add(Me.SleepButton)
-        Me.PowerPanel.Controls.Add(Me.RestartButton)
-        Me.PowerPanel.Controls.Add(Me.ShutdownButton)
-        Me.PowerPanel.Controls.Add(Me.PowerLabel)
-        Me.PowerPanel.CustomBackground = True
-        Me.PowerPanel.HorizontalScrollbarBarColor = True
-        Me.PowerPanel.HorizontalScrollbarHighlightOnWheel = False
-        Me.PowerPanel.HorizontalScrollbarSize = 10
-        resources.ApplyResources(Me.PowerPanel, "PowerPanel")
-        Me.PowerPanel.Name = "PowerPanel"
-        Me.PowerPanel.VerticalScrollbarBarColor = True
-        Me.PowerPanel.VerticalScrollbarHighlightOnWheel = False
-        Me.PowerPanel.VerticalScrollbarSize = 10
-        '
-        'LogoutButton
-        '
-        resources.ApplyResources(Me.LogoutButton, "LogoutButton")
-        Me.LogoutButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.LogoutButton.Image = Global.LavenderControl.My.Resources.Resources.key__arrow
-        Me.LogoutButton.Name = "LogoutButton"
-        '
-        'LockButton
-        '
-        resources.ApplyResources(Me.LockButton, "LockButton")
-        Me.LockButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.LockButton.Image = Global.LavenderControl.My.Resources.Resources.lock1
-        Me.LockButton.Name = "LockButton"
-        '
-        'SleepButton
-        '
-        resources.ApplyResources(Me.SleepButton, "SleepButton")
-        Me.SleepButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.SleepButton.Image = Global.LavenderControl.My.Resources.Resources.monitor_screensaver
-        Me.SleepButton.Name = "SleepButton"
-        '
-        'RestartButton
-        '
-        resources.ApplyResources(Me.RestartButton, "RestartButton")
-        Me.RestartButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.RestartButton.Image = Global.LavenderControl.My.Resources.Resources.arrow_circle_double_135
-        Me.RestartButton.Name = "RestartButton"
-        '
-        'ShutdownButton
-        '
-        resources.ApplyResources(Me.ShutdownButton, "ShutdownButton")
-        Me.ShutdownButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.ShutdownButton.Image = Global.LavenderControl.My.Resources.Resources.control_power1
-        Me.ShutdownButton.Name = "ShutdownButton"
-        '
-        'PowerLabel
-        '
-        Me.PowerLabel.CustomBackground = True
-        Me.PowerLabel.FontSize = MetroFramework.MetroLabelSize.Tall
-        resources.ApplyResources(Me.PowerLabel, "PowerLabel")
-        Me.PowerLabel.Name = "PowerLabel"
-        Me.PowerLabel.Style = MetroFramework.MetroColorStyle.Red
-        Me.PowerLabel.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.PowerLabel.UseStyleColors = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.InfoListView)
-        Me.GroupBox2.Controls.Add(Me.RetrieveButton)
-        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.Control
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.TabStop = False
-        '
-        'InfoListView
-        '
-        resources.ApplyResources(Me.InfoListView, "InfoListView")
-        Me.InfoListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader8, Me.ColumnHeader9})
-        Me.InfoListView.FullRowSelect = True
-        Me.InfoListView.GridLines = True
-        Me.InfoListView.Name = "InfoListView"
-        Me.InfoListView.UseCompatibleStateImageBehavior = False
-        Me.InfoListView.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader8
-        '
-        resources.ApplyResources(Me.ColumnHeader8, "ColumnHeader8")
-        '
-        'ColumnHeader9
-        '
-        resources.ApplyResources(Me.ColumnHeader9, "ColumnHeader9")
-        '
-        'RetrieveButton
-        '
-        resources.ApplyResources(Me.RetrieveButton, "RetrieveButton")
-        Me.RetrieveButton.BackColor = System.Drawing.Color.MidnightBlue
-        Me.RetrieveButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.RetrieveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.RetrieveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue
-        Me.RetrieveButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.RetrieveButton.Name = "RetrieveButton"
-        Me.RetrieveButton.UseVisualStyleBackColor = False
-        '
-        'MessageTab
-        '
-        Me.MessageTab.Controls.Add(Me.MsgTextbox)
-        Me.MessageTab.Controls.Add(Me.QuestRadio)
-        Me.MessageTab.Controls.Add(Me.ExclaRadio)
-        Me.MessageTab.Controls.Add(Me.CritRadio)
-        Me.MessageTab.Controls.Add(Me.MsgSendButton)
-        Me.MessageTab.Controls.Add(Me.MsgStyleLabel)
-        Me.MessageTab.Controls.Add(Me.InfoRadio)
-        Me.MessageTab.Controls.Add(Me.Label3)
-        Me.MessageTab.Controls.Add(Me.Label4)
-        Me.MessageTab.Controls.Add(Me.Label5)
-        Me.MessageTab.Controls.Add(Me.Label6)
-        Me.MessageTab.HorizontalScrollbarBarColor = True
-        resources.ApplyResources(Me.MessageTab, "MessageTab")
-        Me.MessageTab.Name = "MessageTab"
-        Me.MessageTab.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.MessageTab.VerticalScrollbarBarColor = True
-        '
-        'MsgTextbox
-        '
-        Me.MsgTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall
-        resources.ApplyResources(Me.MsgTextbox, "MsgTextbox")
-        Me.MsgTextbox.Name = "MsgTextbox"
-        Me.MsgTextbox.PromptText = "Message"
-        Me.MsgTextbox.Style = MetroFramework.MetroColorStyle.Blue
-        Me.MsgTextbox.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.MsgTextbox.UseStyleColors = True
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
+        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        Me.GroupBox3.Controls.Add(Me.QuestRadio)
+        Me.GroupBox3.Controls.Add(Me.ExclaRadio)
+        Me.GroupBox3.Controls.Add(Me.CritRadio)
+        Me.GroupBox3.Controls.Add(Me.InfoRadio)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.Label6)
+        Me.GroupBox3.Controls.Add(Me.MsgTextbox)
+        Me.GroupBox3.Controls.Add(Me.MsgSendButton)
+        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.Control
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.TabStop = False
         '
         'QuestRadio
         '
@@ -607,24 +332,6 @@ Partial Class Main
         Me.CritRadio.UseStyleColors = True
         Me.CritRadio.UseVisualStyleBackColor = True
         '
-        'MsgSendButton
-        '
-        Me.MsgSendButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.MsgSendButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.MsgSendButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy
-        Me.MsgSendButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue
-        resources.ApplyResources(Me.MsgSendButton, "MsgSendButton")
-        Me.MsgSendButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.MsgSendButton.Image = Global.LavenderControl.My.Resources.Resources.arrow
-        Me.MsgSendButton.Name = "MsgSendButton"
-        Me.MsgSendButton.UseVisualStyleBackColor = False
-        '
-        'MsgStyleLabel
-        '
-        resources.ApplyResources(Me.MsgStyleLabel, "MsgStyleLabel")
-        Me.MsgStyleLabel.Name = "MsgStyleLabel"
-        Me.MsgStyleLabel.Theme = MetroFramework.MetroThemeStyle.Dark
-        '
         'InfoRadio
         '
         resources.ApplyResources(Me.InfoRadio, "InfoRadio")
@@ -639,47 +346,329 @@ Partial Class Main
         '
         'Label3
         '
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         Me.Label3.Image = Global.LavenderControl.My.Resources.Resources.information
         resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.Name = "Label3"
         '
         'Label4
         '
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         Me.Label4.Image = Global.LavenderControl.My.Resources.Resources.exclamation
         resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
         '
         'Label5
         '
-        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         Me.Label5.Image = Global.LavenderControl.My.Resources.Resources.question
         resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.Name = "Label5"
         '
         'Label6
         '
-        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.Label6.Image = Global.LavenderControl.My.Resources.Resources.cross_circle
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.Name = "Label6"
         '
-        'LockTab
+        'MsgTextbox
         '
-        Me.LockTab.Controls.Add(Me.Label1)
-        Me.LockTab.HorizontalScrollbarBarColor = True
-        resources.ApplyResources(Me.LockTab, "LockTab")
-        Me.LockTab.Name = "LockTab"
-        Me.LockTab.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.LockTab.VerticalScrollbarBarColor = True
+        Me.MsgTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall
+        resources.ApplyResources(Me.MsgTextbox, "MsgTextbox")
+        Me.MsgTextbox.Name = "MsgTextbox"
+        Me.MsgTextbox.PromptText = "Message"
+        Me.MsgTextbox.Style = MetroFramework.MetroColorStyle.Blue
+        Me.MsgTextbox.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.MsgTextbox.UseStyleColors = True
+        '
+        'MsgSendButton
+        '
+        Me.MsgSendButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.MsgSendButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.MsgSendButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy
+        Me.MsgSendButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue
+        resources.ApplyResources(Me.MsgSendButton, "MsgSendButton")
+        Me.MsgSendButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.MsgSendButton.Image = Global.LavenderControl.My.Resources.Resources.arrow
+        Me.MsgSendButton.Name = "MsgSendButton"
+        Me.MsgSendButton.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Teal
+        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        resources.ApplyResources(Me.Button2, "Button2")
+        Me.Button2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button2.Image = Global.LavenderControl.My.Resources.Resources.block
+        Me.Button2.Name = "Button2"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'ClientGroupBox
+        '
+        resources.ApplyResources(Me.ClientGroupBox, "ClientGroupBox")
+        Me.ClientGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.ClientGroupBox.Controls.Add(Me.FlowLayoutPanel2)
+        Me.ClientGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ClientGroupBox.ForeColor = System.Drawing.SystemColors.Control
+        Me.ClientGroupBox.Name = "ClientGroupBox"
+        Me.ClientGroupBox.TabStop = False
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        Me.FlowLayoutPanel2.Controls.Add(Me.ReconnectButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.ExitButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.UninstallButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.ScrambleButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.UpdateButton)
+        resources.ApplyResources(Me.FlowLayoutPanel2, "FlowLayoutPanel2")
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        '
+        'ReconnectButton
+        '
+        resources.ApplyResources(Me.ReconnectButton, "ReconnectButton")
+        Me.ReconnectButton.Name = "ReconnectButton"
+        Me.ReconnectButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.InfoToolTip.SetToolTip(Me.ReconnectButton, resources.GetString("ReconnectButton.ToolTip"))
+        '
+        'ExitButton
+        '
+        resources.ApplyResources(Me.ExitButton, "ExitButton")
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.InfoToolTip.SetToolTip(Me.ExitButton, resources.GetString("ExitButton.ToolTip"))
+        '
+        'UninstallButton
+        '
+        resources.ApplyResources(Me.UninstallButton, "UninstallButton")
+        Me.UninstallButton.Name = "UninstallButton"
+        Me.UninstallButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.InfoToolTip.SetToolTip(Me.UninstallButton, resources.GetString("UninstallButton.ToolTip"))
+        '
+        'ScrambleButton
+        '
+        resources.ApplyResources(Me.ScrambleButton, "ScrambleButton")
+        Me.ScrambleButton.Name = "ScrambleButton"
+        Me.ScrambleButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.InfoToolTip.SetToolTip(Me.ScrambleButton, resources.GetString("ScrambleButton.ToolTip"))
+        '
+        'UpdateButton
+        '
+        resources.ApplyResources(Me.UpdateButton, "UpdateButton")
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.InfoToolTip.SetToolTip(Me.UpdateButton, resources.GetString("UpdateButton.ToolTip"))
+        '
+        'ShellButton
+        '
+        Me.ShellButton.BackColor = System.Drawing.Color.Black
+        Me.ShellButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.ShellButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.ShellButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray
+        resources.ApplyResources(Me.ShellButton, "ShellButton")
+        Me.ShellButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.ShellButton.Image = Global.LavenderControl.My.Resources.Resources.terminal
+        Me.ShellButton.Name = "ShellButton"
+        Me.ShellButton.UseVisualStyleBackColor = False
+        '
+        'TaskmanButton
+        '
+        Me.TaskmanButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.TaskmanButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.TaskmanButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.TaskmanButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green
+        resources.ApplyResources(Me.TaskmanButton, "TaskmanButton")
+        Me.TaskmanButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.TaskmanButton.Name = "TaskmanButton"
+        Me.TaskmanButton.UseVisualStyleBackColor = False
+        '
+        'UtilitiesButton
+        '
+        Me.UtilitiesButton.BackColor = System.Drawing.Color.DimGray
+        Me.UtilitiesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.UtilitiesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.UtilitiesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray
+        resources.ApplyResources(Me.UtilitiesButton, "UtilitiesButton")
+        Me.UtilitiesButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.UtilitiesButton.Name = "UtilitiesButton"
+        Me.UtilitiesButton.UseVisualStyleBackColor = False
+        '
+        'FileButton
+        '
+        Me.FileButton.BackColor = System.Drawing.Color.Crimson
+        Me.FileButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.FileButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkMagenta
+        Me.FileButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed
+        resources.ApplyResources(Me.FileButton, "FileButton")
+        Me.FileButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.FileButton.Name = "FileButton"
+        Me.FileButton.UseVisualStyleBackColor = False
+        '
+        'PluginTab
+        '
+        Me.PluginTab.Controls.Add(Me.Label1)
+        Me.PluginTab.Controls.Add(Me.PluginListView)
+        Me.PluginTab.Controls.Add(Me.RemoteButton)
+        Me.PluginTab.Controls.Add(Me.PasswordsButton)
+        Me.PluginTab.Controls.Add(Me.KeyloggerButton)
+        Me.PluginTab.HorizontalScrollbarBarColor = True
+        resources.ApplyResources(Me.PluginTab, "PluginTab")
+        Me.PluginTab.Name = "PluginTab"
+        Me.PluginTab.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.PluginTab.VerticalScrollbarBarColor = True
         '
         'Label1
         '
         resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.BackColor = System.Drawing.Color.Black
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
         Me.Label1.Name = "Label1"
+        '
+        'PluginListView
+        '
+        resources.ApplyResources(Me.PluginListView, "PluginListView")
+        Me.PluginListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader19, Me.ColumnHeader20})
+        Me.PluginListView.FullRowSelect = True
+        Me.PluginListView.GridLines = True
+        Me.PluginListView.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {CType(resources.GetObject("PluginListView.Groups"), System.Windows.Forms.ListViewGroup), CType(resources.GetObject("PluginListView.Groups1"), System.Windows.Forms.ListViewGroup)})
+        Me.PluginListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.PluginListView.Items.AddRange(New System.Windows.Forms.ListViewItem() {CType(resources.GetObject("PluginListView.Items"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items1"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items2"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items3"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items4"), System.Windows.Forms.ListViewItem)})
+        Me.PluginListView.LargeImageList = Me.PluginImageList
+        Me.PluginListView.Name = "PluginListView"
+        Me.PluginListView.SmallImageList = Me.PluginImageList
+        Me.PluginListView.UseCompatibleStateImageBehavior = False
+        Me.PluginListView.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader19
+        '
+        resources.ApplyResources(Me.ColumnHeader19, "ColumnHeader19")
+        '
+        'ColumnHeader20
+        '
+        resources.ApplyResources(Me.ColumnHeader20, "ColumnHeader20")
+        '
+        'PluginImageList
+        '
+        Me.PluginImageList.ImageStream = CType(resources.GetObject("PluginImageList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.PluginImageList.TransparentColor = System.Drawing.Color.Transparent
+        Me.PluginImageList.Images.SetKeyName(0, "key.png")
+        Me.PluginImageList.Images.SetKeyName(1, "keyboard.png")
+        Me.PluginImageList.Images.SetKeyName(2, "monitor.png")
+        Me.PluginImageList.Images.SetKeyName(3, "lock.png")
+        '
+        'RemoteButton
+        '
+        Me.RemoteButton.BackColor = System.Drawing.Color.LightGray
+        Me.RemoteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.RemoteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.RemoteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        resources.ApplyResources(Me.RemoteButton, "RemoteButton")
+        Me.RemoteButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.RemoteButton.Image = Global.LavenderControl.My.Resources.Resources.monitor
+        Me.RemoteButton.Name = "RemoteButton"
+        Me.RemoteButton.UseVisualStyleBackColor = False
+        '
+        'PasswordsButton
+        '
+        Me.PasswordsButton.BackColor = System.Drawing.Color.Purple
+        Me.PasswordsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.PasswordsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.PasswordsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        resources.ApplyResources(Me.PasswordsButton, "PasswordsButton")
+        Me.PasswordsButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.PasswordsButton.Image = Global.LavenderControl.My.Resources.Resources.key
+        Me.PasswordsButton.Name = "PasswordsButton"
+        Me.PasswordsButton.UseVisualStyleBackColor = False
+        '
+        'KeyloggerButton
+        '
+        Me.KeyloggerButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.KeyloggerButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.KeyloggerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.KeyloggerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        resources.ApplyResources(Me.KeyloggerButton, "KeyloggerButton")
+        Me.KeyloggerButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.KeyloggerButton.Image = Global.LavenderControl.My.Resources.Resources.keyboard_l
+        Me.KeyloggerButton.Name = "KeyloggerButton"
+        Me.KeyloggerButton.UseVisualStyleBackColor = False
+        '
+        'InfoTab
+        '
+        Me.InfoTab.Controls.Add(Me.GroupBox2)
+        Me.InfoTab.Controls.Add(Me.GroupBox1)
+        Me.InfoTab.HorizontalScrollbarBarColor = True
+        resources.ApplyResources(Me.InfoTab, "InfoTab")
+        Me.InfoTab.Name = "InfoTab"
+        Me.InfoTab.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.InfoTab.VerticalScrollbarBarColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.RetrieveButton)
+        Me.GroupBox2.Controls.Add(Me.InfoListView)
+        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.Control
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.TabStop = False
+        '
+        'RetrieveButton
+        '
+        resources.ApplyResources(Me.RetrieveButton, "RetrieveButton")
+        Me.RetrieveButton.BackColor = System.Drawing.Color.MidnightBlue
+        Me.RetrieveButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.RetrieveButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.RetrieveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue
+        Me.RetrieveButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.RetrieveButton.Name = "RetrieveButton"
+        Me.RetrieveButton.UseVisualStyleBackColor = False
+        '
+        'InfoListView
+        '
+        resources.ApplyResources(Me.InfoListView, "InfoListView")
+        Me.InfoListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader8, Me.ColumnHeader9})
+        Me.InfoListView.FullRowSelect = True
+        Me.InfoListView.GridLines = True
+        Me.InfoListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.InfoListView.Name = "InfoListView"
+        Me.InfoListView.UseCompatibleStateImageBehavior = False
+        Me.InfoListView.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader8
+        '
+        resources.ApplyResources(Me.ColumnHeader8, "ColumnHeader8")
+        '
+        'ColumnHeader9
+        '
+        resources.ApplyResources(Me.ColumnHeader9, "ColumnHeader9")
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        Me.GroupBox1.Controls.Add(Me.HostInfoListView)
+        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Control
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.TabStop = False
+        '
+        'HostInfoListView
+        '
+        resources.ApplyResources(Me.HostInfoListView, "HostInfoListView")
+        Me.HostInfoListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader17, Me.ColumnHeader18})
+        Me.HostInfoListView.FullRowSelect = True
+        Me.HostInfoListView.GridLines = True
+        Me.HostInfoListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.HostInfoListView.Name = "HostInfoListView"
+        Me.HostInfoListView.UseCompatibleStateImageBehavior = False
+        Me.HostInfoListView.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader17
+        '
+        resources.ApplyResources(Me.ColumnHeader17, "ColumnHeader17")
+        '
+        'ColumnHeader18
+        '
+        resources.ApplyResources(Me.ColumnHeader18, "ColumnHeader18")
         '
         'LogTextBox
         '
@@ -1075,7 +1064,6 @@ Partial Class Main
         resources.ApplyResources(Me.AboutButton, "AboutButton")
         Me.AboutButton.FlatAppearance.BorderSize = 0
         Me.AboutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
-        Me.AboutButton.Image = Global.LavenderControl.My.Resources.Resources.information_italic
         Me.AboutButton.Name = "AboutButton"
         Me.InfoToolTip.SetToolTip(Me.AboutButton, resources.GetString("AboutButton.ToolTip"))
         Me.AboutButton.UseVisualStyleBackColor = False
@@ -1137,22 +1125,20 @@ Partial Class Main
         CType(Me.ControlSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ControlSplitContainer.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.PasswordPanel.ResumeLayout(False)
-        Me.PasswordPanel.PerformLayout()
         CType(Me.PortValue, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tabs.ResumeLayout(False)
-        Me.ManageTab.ResumeLayout(False)
-        Me.ManageTab.PerformLayout()
+        Me.CoreTab.ResumeLayout(False)
+        Me.CoreTab.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ClientGroupBox.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.SystemTab.ResumeLayout(False)
-        Me.PowerPanel.ResumeLayout(False)
+        Me.PluginTab.ResumeLayout(False)
+        Me.PluginTab.PerformLayout()
+        Me.InfoTab.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.MessageTab.ResumeLayout(False)
-        Me.MessageTab.PerformLayout()
-        Me.LockTab.ResumeLayout(False)
-        Me.LockTab.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ListContextMenu.ResumeLayout(False)
         Me.TrayContextMenu.ResumeLayout(False)
         Me.ControlBoxPanel.ResumeLayout(False)
@@ -1164,11 +1150,10 @@ Partial Class Main
     Friend WithEvents ErrorLabel As MetroFramework.Controls.MetroLabel
     Friend WithEvents VersionLabel As MetroFramework.Controls.MetroLabel
     Friend WithEvents Tabs As MetroFramework.Controls.MetroTabControl
-    Friend WithEvents SystemTab As MetroFramework.Controls.MetroTabPage
-    Friend WithEvents MessageTab As MetroFramework.Controls.MetroTabPage
-    Friend WithEvents LockTab As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents PluginTab As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents InfoTab As MetroFramework.Controls.MetroTabPage
     Friend WithEvents InfoLabel As MetroFramework.Controls.MetroLabel
-    Friend WithEvents ManageTab As MetroFramework.Controls.MetroTabPage
+    Friend WithEvents CoreTab As MetroFramework.Controls.MetroTabPage
     Friend WithEvents L1 As ListViewEx
     Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
@@ -1192,42 +1177,10 @@ Partial Class Main
     Friend WithEvents ListContextMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents CopyToClipboardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TaskmanButton As System.Windows.Forms.Button
-    Friend WithEvents ClientGroupBox As System.Windows.Forms.GroupBox
-    Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents ExitButton As MetroFramework.Controls.MetroButton
-    Friend WithEvents UninstallButton As MetroFramework.Controls.MetroButton
-    Friend WithEvents ScrambleButton As MetroFramework.Controls.MetroButton
-    Friend WithEvents RemoteButton As System.Windows.Forms.Button
-    Friend WithEvents PasswordsButton As System.Windows.Forms.Button
     Friend WithEvents UtilitiesButton As System.Windows.Forms.Button
     Friend WithEvents FileButton As System.Windows.Forms.Button
-    Friend WithEvents KeyloggerButton As System.Windows.Forms.Button
     Friend WithEvents KeysButton As System.Windows.Forms.Button
-    Friend WithEvents PowerPanel As MetroFramework.Controls.MetroPanel
-    Friend WithEvents LogoutButton As System.Windows.Forms.Button
-    Friend WithEvents LockButton As System.Windows.Forms.Button
-    Friend WithEvents SleepButton As System.Windows.Forms.Button
-    Friend WithEvents RestartButton As System.Windows.Forms.Button
-    Friend WithEvents ShutdownButton As System.Windows.Forms.Button
-    Friend WithEvents PowerLabel As MetroFramework.Controls.MetroLabel
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents InfoListView As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents RetrieveButton As System.Windows.Forms.Button
-    Friend WithEvents MsgTextbox As MetroFramework.Controls.MetroTextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents QuestRadio As MetroFramework.Controls.MetroRadioButton
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents ExclaRadio As MetroFramework.Controls.MetroRadioButton
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents CritRadio As MetroFramework.Controls.MetroRadioButton
-    Friend WithEvents MsgSendButton As System.Windows.Forms.Button
-    Friend WithEvents MsgStyleLabel As MetroFramework.Controls.MetroLabel
-    Friend WithEvents InfoRadio As MetroFramework.Controls.MetroRadioButton
     Friend WithEvents ShellButton As System.Windows.Forms.Button
-    Friend WithEvents ReconnectButton As MetroFramework.Controls.MetroButton
     Friend WithEvents FlagImageList As System.Windows.Forms.ImageList
     Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
@@ -1236,13 +1189,47 @@ Partial Class Main
     Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader15 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader16 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents Label1 As Label
     Friend WithEvents LogTextBox As MetroFramework.Controls.MetroTextBox
     Friend WithEvents LogoLabel As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents PasswordPanel As Panel
-    Friend WithEvents PasswordTextbox As TextBox
-    Friend WithEvents ShowPasswordButton As Button
     Friend WithEvents PortValue As NumericUpDown
     Friend WithEvents ListenButton As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents HostInfoListView As ListView
+    Friend WithEvents ColumnHeader17 As ColumnHeader
+    Friend WithEvents ColumnHeader18 As ColumnHeader
+    Friend WithEvents ClientGroupBox As GroupBox
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
+    Friend WithEvents ReconnectButton As MetroFramework.Controls.MetroButton
+    Friend WithEvents ExitButton As MetroFramework.Controls.MetroButton
+    Friend WithEvents UninstallButton As MetroFramework.Controls.MetroButton
+    Friend WithEvents ScrambleButton As MetroFramework.Controls.MetroButton
+    Friend WithEvents KeyloggerButton As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents PasswordsButton As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents RemoteButton As Button
+    Friend WithEvents QuestRadio As MetroFramework.Controls.MetroRadioButton
+    Friend WithEvents ExclaRadio As MetroFramework.Controls.MetroRadioButton
+    Friend WithEvents CritRadio As MetroFramework.Controls.MetroRadioButton
+    Friend WithEvents InfoRadio As MetroFramework.Controls.MetroRadioButton
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents MsgTextbox As MetroFramework.Controls.MetroTextBox
+    Friend WithEvents MsgSendButton As Button
+    Friend WithEvents UpdateButton As MetroFramework.Controls.MetroButton
+    Friend WithEvents PluginListView As ListView
+    Friend WithEvents ColumnHeader19 As ColumnHeader
+    Friend WithEvents ColumnHeader20 As ColumnHeader
+    Friend WithEvents PluginImageList As ImageList
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ProfileComboBox As MetroFramework.Controls.MetroComboBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents RetrieveButton As Button
+    Friend WithEvents InfoListView As ListView
+    Friend WithEvents ColumnHeader8 As ColumnHeader
+    Friend WithEvents ColumnHeader9 As ColumnHeader
+    Friend WithEvents PowerButton As Button
 End Class

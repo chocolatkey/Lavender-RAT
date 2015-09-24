@@ -76,7 +76,7 @@ Namespace Crypt
                 '' THE NUMBER '111' WAS RANDOMLY CHOSEN. ANY NUMBER
                 '' WILL DO, WE JUST NEED TO BRING THE VALUE
                 '' ABOVE '0'     - LAITH - 27/07/2005 18:40:48 -
-                If (CType(Random1 * 111, Integer)) Mod 2 = 0 Then
+                If (CType(Random1 * 77, Integer)) Mod 2 = 0 Then
                     '' GENERATE A RANDOM INDEX IN THE LETTERS
                     '' CHARACTER ARRAY   - LAITH - 27/07/2005 18:47:44 -
                     Do While arrIndex < 0

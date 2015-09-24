@@ -100,7 +100,6 @@
     </Compile>
     <Compile Include="Names.vb" />
     <Compile Include="Passwords.vb" />
-    <Compile Include="RunPE.vb" />
     <Compile Include="SocketClient.vb" />
     <Compile Include="Screen.vb" />
   </ItemGroup>

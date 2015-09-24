@@ -480,6 +480,30 @@
   <metadata name="InfoStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="InfoStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 582</value>
+  </data>
+  <data name="InfoStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>900, 22</value>
+  </data>
+  <data name="InfoStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="InfoStrip.Text" xml:space="preserve">
+    <value>StatusStrip1</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Name" xml:space="preserve">
+    <value>InfoStrip</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;InfoStrip.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="MouseLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -488,6 +512,21 @@
   </data>
   <data name="KeyboardLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="KeyboardLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAB/UlEQVQ4T6WQO2haYRiGPwgB
+        A04dOhiyBJLBZDmDi4ODUAeJIKhDO2RwKLQkpCWk5UxOtkPdXHqBokv3dKiIIDg4iBcUES9FEOoFEbzf
+        b1//9++YDpYeePjhnOf5zncOMfN/QU6nk1wu17HgqeD5jsA9RksOhwM8y2Qy+Xq9zrsAFw1astvt4EU6
+        neZms7kTcNGgJZvNBl6mUimORqM8Ho95sVjwer0Wn/jn2mw28h6ewYGLBi1ZrVZwJdbiWCzG0+lUSn6/
+        n5PJJG+3WxkPh0OezWbSgYsGLVksFnCdzWY5Ho/zZDJhr9crZQzB2+fzOff7fTkcDlw0aMlsNoObfD7P
+        iURCrunxeDgYDLLP5+PVaiXDbrcrn8GBiwYtmUwm8LpQKMifg1VVVZUnNlkulzLsdDo8Go2kAxcNWjIa
+        jeC2VCpxLpfjwWDArVZLnlgdYFi73Zb34MBFg5YMBgO4q1QqcjK+tdFocK/Xk/8B4B6G4oQDF83N4SGR
+        oijgbbVa5XK5zMViUb4J3431Qdzt5h+Kwvfn53x/dsbfxfllf7/+jegT6fV6oNZqNQ6FQn/l68kJzy4v
+        H/CRKEUajYZ0Ot2rQCDwMxKJcDgcfsDniwv+IIYA3+kpvzs6mr/Z2/vlxgbieiSGPNFqtarg/Y6oaNBi
+        wIHgsUD3j4iGDn4DbcdrlDQ94SkAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="KeyboardLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 17</value>
@@ -528,32 +567,22 @@
   <data name="SizeLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="InfoStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 582</value>
-  </data>
-  <data name="InfoStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>900, 22</value>
-  </data>
-  <data name="InfoStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="InfoStrip.Text" xml:space="preserve">
-    <value>StatusStrip1</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.Name" xml:space="preserve">
-    <value>InfoStrip</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;InfoStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="HideLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHJSURBVDhPpY1PSNNhHMZf1qwwEcw1zYNiYmQRDRZE
+        wsKDdBA8eJAFNSIWXaTTiNU81am8bEWbOqKDg2oOGRq52SGiMbu8HaLokNua2g4S8xAMQ9we32f4G1ub
+        KfSFz16eP79nAsB/Ufw5/eCTMD36Ks57lsRF37Kw+DOi7/naNYXkS02fOXvs7zXAj+RkBuBLvf8Bb5pl
+        Ob4KjH78A98KQE1/7wH3d5akd7mA2wu/SzxO5kGf+a4D5x5+YSifpPK4Nbdexdi3TTBnr2qg576kKd1L
+        W3At5nAvnsNIJAtr4AeuvkzBHk7jeigJZ+wX2GO/YuDk6OJktysuy7kxk0S/R8IWTODvjP2KAWWKrrux
+        IiecH0SH4528Ekrh0tPPGA4mQU1f67Bfc6DzzntxfGSeyIGZDEz+BC5P/wQ1fea7Dqh/EYabYQ15YXYd
+        7YE1mMNZUGsZe1UDzRa7OGwaFo22Vxqy+80GGkM5dL5Wr9Japm89I3gVA9odMPaIeusUkcZoAbrZAo5G
+        CqCmz1y7mgM83bFTom7omTS+BRrmgaYoQE2//GoNHFKwZdb1Ol7oBidkCaXpK84qjihqDugVBkXbP2hR
+        HFTsDEBsA+DL/+xB8T2EAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="HideLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>454, 60</value>
+    <value>454, 61</value>
   </data>
   <data name="HideLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>18, 20</value>

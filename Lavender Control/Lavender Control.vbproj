@@ -135,7 +135,25 @@
     <Compile Include="Controls\Keyboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DevTools.Designer.vb">
+      <DependentUpon>DevTools.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DevTools.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Names.vb" />
+    <Compile Include="Power.Designer.vb">
+      <DependentUpon>Power.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Power.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registry.Designer.vb">
+      <DependentUpon>Registry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Shell.Designer.vb">
       <DependentUpon>Shell.vb</DependentUpon>
     </Compile>
@@ -231,6 +249,9 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DevTools.resx">
+      <DependentUpon>DevTools.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileManager.de.resx">
       <DependentUpon>FileManager.vb</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KeyLogger.de.resx">
       <DependentUpon>KeyLogger.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Power.resx">
+      <DependentUpon>Power.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registry.resx">
+      <DependentUpon>Registry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Shell.de.resx">
       <DependentUpon>Shell.vb</DependentUpon>
@@ -400,6 +427,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+    <None Include="Resources\cross-circle-frame.png" />
+    <None Include="Resources\control-power2.png" />
+    <None Include="Resources\block.png" />
+    <None Include="Resources\arrow-270.png" />
+    <None Include="Resources\arrow-transition-270.png" />
+    <None Include="Resources\arrow-transition-090.png" />
+    <None Include="Resources\arrow-090.png" />
+    <None Include="Resources\keyboard--minus.png" />
+    <None Include="Resources\mouse--minus.png" />
     <None Include="Resources\lavender-small2.png" />
     <None Include="Resources\lavender-small1.png" />
     <None Include="Resources\lavender-small.png" />

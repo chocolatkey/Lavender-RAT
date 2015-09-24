@@ -3,6 +3,7 @@
     Public splitalt = "^||^"
     Public splitspare = "^&&^"
 
+    Public exception As String = "^"
     Public connect As String = "0"
     Public response As String = "1"
     Public getinfo As String = "i"
@@ -27,11 +28,13 @@
     Public getshell As String = "shP"
     Public endshell As String = "shK"
     Public putshell As String = "shW"
+    Public openpower As String = "pwr"
     Public shutdown As String = "SHD"
     Public restart As String = "RST"
     Public sleep As String = "SLP"
     Public logoff As String = "LGF"
     Public lock As String = "LCK"
+    Public abort As String = "ABT"
     Public message As String = "m"
     Public close As String = "x"
     Public tosleep As String = "z" ''todo: implement

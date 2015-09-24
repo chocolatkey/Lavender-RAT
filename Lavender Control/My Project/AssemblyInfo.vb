@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Lavender C&C")> 
-<Assembly: AssemblyDescription("Lavender RAT C&C")> 
-<Assembly: AssemblyCompany("Yours Truly")> 
+<Assembly: AssemblyDescription("Lavender RAT C&C")>
+<Assembly: AssemblyCompany("Chocolatkey")>
 <Assembly: AssemblyProduct("Lavender C&C")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014-2015")> 
 <Assembly: AssemblyTrademark("")> 

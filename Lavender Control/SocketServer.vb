@@ -1,8 +1,12 @@
 ﻿Imports System.Net
 Imports System.Net.Sockets, System.IO, System.Threading, System.Runtime.Serialization.Formatters.Binary, System.Runtime.Serialization, System.Runtime.InteropServices, Microsoft.Win32
+Imports System.Runtime.CompilerServices
 
 Public Class SocketServer
     Private S As TcpListener
+    Private _T As Windows.Forms.Timer
+    Public Ping As Integer = 0
+
     Sub stops()
         Try
             S.Stop()
@@ -177,6 +181,27 @@ e:
         End Try
 
     End Function
+
+    Private Sub T_Tick(ByVal sender As Object, ByVal e As EventArgs)
+        Ping += 1
+    End Sub
+
+    Public Overridable Property T As System.Windows.Forms.Timer
+        Get
+            Return _T
+        End Get
+        <MethodImpl(MethodImplOptions.Synchronized)>
+        Set(ByVal WithEventsValue As System.Windows.Forms.Timer)
+            Dim handler As EventHandler = New EventHandler(AddressOf Me.T_Tick)
+            If (Not _T Is Nothing) Then
+                RemoveHandler Me._T.Tick, handler
+            End If
+            _T = WithEventsValue
+            If (Not _T Is Nothing) Then
+                AddHandler _T.Tick, handler
+            End If
+        End Set
+    End Property
 End Class
 <Serializable()> Public Class Data
     Implements ISerializable

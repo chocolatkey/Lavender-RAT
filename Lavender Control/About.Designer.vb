@@ -40,6 +40,7 @@ Partial Class About
         Me.LabelCompanyName = New System.Windows.Forms.Label()
         Me.TextBoxDescription = New System.Windows.Forms.TextBox()
         Me.OKButton = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton2 = New MetroFramework.Controls.MetroButton()
         Me.TableLayoutPanel.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -100,12 +101,19 @@ Partial Class About
         Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.OKButton.Name = "OKButton"
         '
+        'MetroButton2
+        '
+        resources.ApplyResources(Me.MetroButton2, "MetroButton2")
+        Me.MetroButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.MetroButton2.Name = "MetroButton2"
+        '
         'About
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.OKButton
         Me.ControlBox = False
+        Me.Controls.Add(Me.MetroButton2)
         Me.Controls.Add(Me.TableLayoutPanel)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -121,5 +129,5 @@ Partial Class About
         Me.ResumeLayout(False)
 
     End Sub
-
+    Friend WithEvents MetroButton2 As MetroFramework.Controls.MetroButton
 End Class

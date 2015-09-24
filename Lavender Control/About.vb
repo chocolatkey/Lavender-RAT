@@ -30,4 +30,7 @@ Public NotInheritable Class About
         Me.Close()
     End Sub
 
+    Private Sub MetroButton2_Click(sender As Object, e As EventArgs) Handles MetroButton2.Click
+        DevTools.Show()
+    End Sub
 End Class
