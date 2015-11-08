@@ -9,8 +9,8 @@ __This project is under construction! It will probably NOT work properly for now
 ##Features (current)
 * Typical info including OS, User, Antivirus process detection (out of date for now!), active window, IP, country by IP (falls back on system country setting)
 * Shut down, restart, sleep, log off and lock computer
-* RC4 password encryption for data
-* Keylogger with formatted HTML output
+* AES-256 encryption for data
+* Keylogger (keylogs stored XOR'd) with formatted HTML output
 * Saved passwords for Chrome, Firefox, IE, FileZilla, No-IP, DynDNS, Opera (old version), MSN, Yahoo, Paltalk (credits: Black-Blood, KingCobra, RockingWithTheBest, DarkSel, pr0t0fag, njq8)
 * Typical utility features: Enable/Disable Mouse, Keyboard, Taskbar, Monitor, System Restore, CMD, Task Manager, Regedit, and of course, open and close the disk drive
 * File Explorer with execute, rename and delete functions. File icons are retrieved from client!
@@ -33,9 +33,9 @@ __This project is under construction! It will probably NOT work properly for now
 * Webcam view/record
 * Reduce CPU usage for remote desktop
 * Empty RAM usage
-* RunPE any exe (Thanks AeonHack for the RunPE)
 * Registry Editor
 * Plugin System
+* Saved DB of clients for C&C
 
 
 ##What took a long time to make?
