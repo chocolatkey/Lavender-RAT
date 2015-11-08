@@ -20,7 +20,7 @@ Partial Class Main
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.InfoLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -32,7 +32,6 @@ Partial Class Main
         Me.InfoLabel.Location = New System.Drawing.Point(89, 107)
         Me.InfoLabel.Name = "InfoLabel"
         Me.InfoLabel.Size = New System.Drawing.Size(474, 133)
-        Me.InfoLabel.TabIndex = 0
         Me.InfoLabel.Text = "INFO"
         '
         'Main

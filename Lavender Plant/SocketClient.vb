@@ -26,7 +26,9 @@ Public Class SocketClient
                     C = Nothing
                 End If
             Catch ex As Exception
-                ''MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: REMOVE!
+#If DEBUG Then
+                MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
             End Try
             Do Until IsBusy = False
                 Threading.Thread.Sleep(1)
@@ -38,33 +40,41 @@ Public Class SocketClient
                 t.Start()
                 RaiseEvent Connected()
             Catch ex As Exception
-                ''MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: REMOVE!
+#If DEBUG Then
+                ''MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
             End Try
         Catch ex As Exception
-            MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: REMOVE!
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
             RaiseEvent Disconnected()
         End Try
     End Sub
     Private SPL As String = "=0-0=" ' split packets by this word
     Sub DisConnect()
-        ''MsgBox("Discon")
         Try
             C.Close()
         Catch ex As Exception
-            ''MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: REMOVE!
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
         End Try
         C = Nothing
         RaiseEvent Disconnected()
     End Sub
     Sub Send(ByVal s As String)
+        ''MsgBox(s & "::" & Main.trust)
         Try
             If Main.trust Then
-                Send(SB(Crypt.RC4.rc4(s, Main.pw)))
+                Send(SB(Main.cryptor.Encrypt(s, Main.pw)))
             Else
                 Send(SB(s))
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: ABSOLUTELY REMOVE!
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
         End Try
 
     End Sub
@@ -75,7 +85,9 @@ Public Class SocketClient
             m.Write(SB(SPL), 0, SPL.Length)
             C.Client.Send(m.ToArray, 0, m.Length, SocketFlags.None)
         Catch ex As Exception
-            MsgBox(ex.Message & vbNewLine & ex.ToString) ''TODO: REMOVE!
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
             DisConnect()
         End Try
     End Sub
@@ -101,7 +113,9 @@ re:
                                 GoTo co
                             End If
                         Catch ex As Exception
-                            ''MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: REMOVE!
+#If DEBUG Then
+                            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
                             GoTo co
                         End Try
                     End If
@@ -126,7 +140,9 @@ rr:
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: REMOVE!
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
             GoTo co
         End Try
         GoTo re

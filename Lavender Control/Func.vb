@@ -1,4 +1,8 @@
-﻿Module Func
+﻿Imports System.IO
+Imports System.Net
+Imports System.Text
+
+Module Func
     ''' <summary>
     ''' XOR Function [Deprecated]
     ''' </summary>
@@ -634,3 +638,70 @@
         End Select
     End Function
 End Module
+
+' Written by SQLi
+' http://gaming-and-security.blogspot.com/
+Public Class Pastebin
+    Public Function NewPaste(ByVal Content As String)
+        Dim api_dev_key As String = "0cd7d52d4c25498c0d1dd8b0d498a8ed" '<-- Your API key here
+        Dim api_paste_code As String = URLEncode(Content)
+        Dim api_paste_private As String = "2"
+        'Dim api_paste_name As String = URLEncode(Name)
+        Dim api_paste_expire_date As String = "10M"
+        Dim api_paste_format As String = "php"
+        Dim api_user_key As String = ""
+        Dim Response As String = HttpPost("http://pastebin.com/api/api_post.php", "api_option=paste&api_dev_key=" & api_dev_key & "&api_paste_code=" & api_paste_code)
+        If Response.Contains("Bad API request") = False Then
+            Return Raw(Response)
+        Else
+            Return "Error"
+        End If
+    End Function
+    Private Function URLEncode(ByVal EncodeStr As String) As String
+        Dim i As Integer
+        Dim erg As String
+        erg = EncodeStr
+        erg = Replace(erg, "%", Chr(1))
+        erg = Replace(erg, "+", Chr(2))
+        For i = 0 To 255
+            Select Case i
+                Case 37, 43, 48 To 57, 65 To 90, 97 To 122
+                Case 1
+                    erg = Replace(erg, Chr(i), "%25")
+                Case 2
+                    erg = Replace(erg, Chr(i), "%2B")
+                Case 32
+                    erg = Replace(erg, Chr(i), "+")
+                Case 3 To 15
+                    erg = Replace(erg, Chr(i), "%0" & Hex(i))
+                Case Else
+                    erg = Replace(erg, Chr(i), "%" & Hex(i))
+            End Select
+        Next
+        Return erg
+    End Function
+    Public Function Raw(ByVal URL As String)
+        Dim ID As String = URL.Substring(URL.LastIndexOf("/") + 1)
+        ID = "http://pastebin.com/raw.php?i=" & ID
+        Return ID
+    End Function
+    Private Function HttpPost(ByVal URL As String, ByVal Data As String)
+        Dim request As WebRequest = WebRequest.Create(URL)
+        request.Method = "POST"
+        Dim byteArray As Byte() = Encoding.UTF8.GetBytes(Data)
+        request.ContentType = "application/x-www-form-urlencoded"
+        request.ContentLength = byteArray.Length
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(byteArray, 0, byteArray.Length)
+        dataStream.Close()
+        Dim response As WebResponse = request.GetResponse()
+        'Console.WriteLine(CType(response, HttpWebResponse).StatusDescription)
+        dataStream = response.GetResponseStream()
+        Dim reader As New StreamReader(dataStream)
+        Dim responseFromServer As String = reader.ReadToEnd()
+        reader.Close()
+        dataStream.Close()
+        response.Close()
+        Return responseFromServer
+    End Function
+End Class

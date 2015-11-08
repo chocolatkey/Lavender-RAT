@@ -6,8 +6,9 @@
     Public exception As String = "^"
     Public connect As String = "0"
     Public response As String = "1"
-    Public getinfo As String = "i"
+    Public status As String = "a"
     Public activewindow As String = "!"
+    Public getinfo As String = "i"
     Public opentaskman As String = "|"
     Public gettaskman As String = "||"
     Public openklog As String = "Ko"
@@ -56,6 +57,7 @@
     Public uploadcontinue As String = "*uc"
     Public uploadcancel As String = "*us"
     Public download As String = "*d" ''todo expand download system
+    Public plugin As String = "()"
 
     Public util_opencd As String = "uoc"
     Public util_closecd As String = "ucc"

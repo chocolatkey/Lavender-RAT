@@ -438,7 +438,6 @@ Partial Class Utilities
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Utilities"
         Me.Resizable = False
-        Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow
         Me.Style = MetroFramework.MetroColorStyle.Silver
         Me.Text = "Utilities - "
         Me.Theme = MetroFramework.MetroThemeStyle.Dark

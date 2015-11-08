@@ -1,11 +1,17 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
+Imports System.Runtime.InteropServices
+Imports Lavender_Plant.ScreenShot
 
 Public Class CRDP
     Private Shared OA As New List(Of Bitmap)
     Private Shared OAA As New List(Of Point)
     Private Shared OM As New Bitmap(1, 1) ' OLD IMAGE
     Public Shared cscreen As Screen = Screen.PrimaryScreen ''current screen
+    Public Shared sc As ScreenCapture = New ScreenCapture
+
+    Shared _prevBitmap As Bitmap
+    Shared _newBitmap As Bitmap
     Private Shared Function QZ(ByVal q As Integer) As Size '  Lower size of image
         Dim zs As New Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
         Select Case q
@@ -61,7 +67,12 @@ Public Class CRDP
         Dim B As New Bitmap(W, H)
         Dim g As Graphics = Graphics.FromImage(B)
         g.CompositingQuality = CompositingQuality.HighSpeed
-        g.CopyFromScreen(cscreen.Bounds.X, cscreen.Bounds.Y, 0, 0, New Size(cscreen.Bounds.Width, cscreen.Bounds.Height), CopyPixelOperation.SourceCopy)
+        g.DrawImage(sc.CaptureDeskTopRectangle(cscreen.Bounds, cscreen.Bounds.Width, cscreen.Bounds.Height), 0, 0)
+        'g.CopyFromScreen(cscreen.Bounds.X, cscreen.Bounds.Y, 0, 0, New Size(cscreen.Bounds.Width, cscreen.Bounds.Height), CopyPixelOperation.SourceCopy)
+
+        Dim c As Bitmap = CaptureCursor(0, 0)
+        Dim r As Rectangle = New Rectangle(0, 0, c.Width, c.Height)
+        g.DrawImage(c, r)
         If Sh Then
             Try
                 Cursors.Default.Draw(g, New Rectangle(Cursor.Position, New Size(32, 32)))
@@ -69,19 +80,16 @@ Public Class CRDP
             End Try
         End If
         g.Dispose()
+
+        B = sc.CaptureDeskTopRectangle(cscreen.Bounds, cscreen.Bounds.Width, cscreen.Bounds.Height)
         If Wi = 0 And He = 0 Then
+            ''Return B
             Return B
         Else
             Return B.GetThumbnailImage(Wi, He, Nothing, Nothing)
         End If
     End Function
-    Private Shared Function md5(ByVal bB As Byte()) As String
-        Dim md5Obj As New Security.Cryptography.MD5CryptoServiceProvider
-        bB = md5Obj.ComputeHash(bB)
-        md5Obj.Clear()
-        Return Convert.ToBase64String(bB)
 
-    End Function
     Private Shared Function GetEncoderInfo(ByVal M As String) As ImageCodecInfo
         Dim j As Integer
         Dim encoders As ImageCodecInfo()
@@ -170,7 +178,7 @@ ee:
                 'If md5(b1) = md5(b2) Then
                 '    Mj.Dispose()
                 'Else
-                If Crc32.ComputeChecksum(b1) = Crc32.ComputeChecksum(b2) Then
+                If Crypt.Crc32.ComputeChecksum(b1) = Crypt.Crc32.ComputeChecksum(b2) Then
                     Mj.Dispose()
                 Else
                     A.Add(Mj)
@@ -221,4 +229,92 @@ e:
         xx.Dispose()
         Return J2.ToArray
     End Function
+
+
+    Public Shared Function CaptureCursor(ByRef x As Integer, ByRef y As Integer) As Bitmap
+        Dim bmp As Bitmap = Nothing
+        If True Then
+            Dim ci As New CURSORINFO()
+            Dim icInfo As ICONINFO
+            ci.cbSize = Marshal.SizeOf(ci)
+            If GetCursorInfo(ci) Then
+                If ci.flags = CURSOR_SHOWING Then
+                    Dim hicon As IntPtr = CopyIcon(ci.hCursor)
+                    If GetIconInfo(hicon, icInfo) Then
+                        If icInfo.hbmMask <> IntPtr.Zero Then
+                            DeleteObject(icInfo.hbmMask)
+                        End If
+                        If icInfo.hbmColor <> IntPtr.Zero Then
+                            DeleteObject(icInfo.hbmColor)
+                        End If
+                        x = ci.ptScreenPos.X - icInfo.xHotspot
+                        y = ci.ptScreenPos.Y - icInfo.yHotspot
+
+                        Dim ic As Icon = Icon.FromHandle(hicon)
+                        If ic.Width > 0 AndAlso ic.Height > 0 Then
+                            bmp = ic.ToBitmap()
+                        End If
+                        DestroyIcon(hicon)
+                    End If
+                End If
+            End If
+        End If
+
+        Return bmp
+    End Function
+
+#Region "Class Functions"
+    Public Const SM_CXSCREEN As Integer = 0
+    Public Const SM_CYSCREEN As Integer = 1
+
+    Public Const CURSOR_SHOWING As Int32 = &H1
+
+    <StructLayout(LayoutKind.Sequential)>
+    Public Structure ICONINFO
+        Public fIcon As Boolean
+        ' Specifies whether this structure defines an icon or a cursor. A value of TRUE specifies 
+        Public xHotspot As Int32
+        ' Specifies the x-coordinate of a cursor's hot spot. If this structure defines an icon, the hot 
+        Public yHotspot As Int32
+        ' Specifies the y-coordinate of the cursor's hot spot. If this structure defines an icon, the hot 
+        Public hbmMask As IntPtr
+        ' (HBITMAP) Specifies the icon bitmask bitmap. If this structure defines a black and white icon, 
+        Public hbmColor As IntPtr
+        ' (HBITMAP) Handle to the icon color bitmap. This member can be optional if this 
+    End Structure
+
+    <StructLayout(LayoutKind.Sequential)>
+    Public Structure CURSORINFO
+        Public cbSize As Int32
+        ' Specifies the size, in bytes, of the structure. 
+        Public flags As Int32
+        ' Specifies the cursor state. This parameter can be one of the following values:
+        Public hCursor As IntPtr
+        ' Handle to the cursor. 
+        Public ptScreenPos As Point
+        ' A POINT structure that receives the screen coordinates of the cursor. 
+    End Structure
+
+
+
+    <DllImport("user32.dll", EntryPoint:="GetCursorInfo")>
+    Public Shared Function GetCursorInfo(ByRef pci As CURSORINFO) As Boolean
+    End Function
+
+    <DllImport("user32.dll", EntryPoint:="CopyIcon")>
+    Public Shared Function CopyIcon(hIcon As IntPtr) As IntPtr
+    End Function
+
+    <DllImport("user32.dll", EntryPoint:="GetIconInfo")>
+    Public Shared Function GetIconInfo(hIcon As IntPtr, ByRef piconinfo As ICONINFO) As Boolean
+    End Function
+
+    <DllImport("gdi32.dll", EntryPoint:="DeleteObject")>
+    Public Shared Function DeleteObject(hDc As IntPtr) As IntPtr
+    End Function
+
+    <DllImport("user32.dll", EntryPoint:="DestroyIcon")>
+    Public Shared Function DestroyIcon(hIcon As IntPtr) As Boolean
+    End Function
+#End Region
 End Class

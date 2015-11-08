@@ -22,6 +22,7 @@ Partial Class Power
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Power))
         Me.PowerPanel = New MetroFramework.Controls.MetroPanel()
         Me.LogoutButton = New System.Windows.Forms.Button()
@@ -31,12 +32,13 @@ Partial Class Power
         Me.ShutdownButton = New System.Windows.Forms.Button()
         Me.DatePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.AbortButton = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SecondsTextBox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ForceCheckBox = New MetroFramework.Controls.MetroCheckBox()
         Me.NowCheckBox = New MetroFramework.Controls.MetroCheckBox()
-        Me.AbortButton = New System.Windows.Forms.Button()
-        Me.SecondsTextBox = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SecondT = New System.Windows.Forms.Timer(Me.components)
         Me.PowerPanel.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -44,13 +46,11 @@ Partial Class Power
         'PowerPanel
         '
         Me.PowerPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.PowerPanel.BorderStyle = MetroFramework.Drawing.MetroBorderStyle.FixedSingle
         Me.PowerPanel.Controls.Add(Me.LogoutButton)
         Me.PowerPanel.Controls.Add(Me.LockButton)
         Me.PowerPanel.Controls.Add(Me.SleepButton)
         Me.PowerPanel.Controls.Add(Me.RestartButton)
         Me.PowerPanel.Controls.Add(Me.ShutdownButton)
-        Me.PowerPanel.CustomBackground = True
         Me.PowerPanel.HorizontalScrollbarBarColor = True
         Me.PowerPanel.HorizontalScrollbarHighlightOnWheel = False
         Me.PowerPanel.HorizontalScrollbarSize = 10
@@ -165,6 +165,38 @@ Partial Class Power
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Options (Shutdown && Restart)"
         '
+        'AbortButton
+        '
+        Me.AbortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.AbortButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.AbortButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.AbortButton.Image = Global.LavenderControl.My.Resources.Resources.cross_circle_frame
+        Me.AbortButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.AbortButton.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.AbortButton.Location = New System.Drawing.Point(6, 138)
+        Me.AbortButton.Name = "AbortButton"
+        Me.AbortButton.Size = New System.Drawing.Size(187, 30)
+        Me.AbortButton.TabIndex = 10
+        Me.AbortButton.Text = "&Abort planned shutdowns"
+        Me.AbortButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(134, 102)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "seconds"
+        '
+        'SecondsTextBox
+        '
+        Me.SecondsTextBox.Enabled = False
+        Me.SecondsTextBox.Location = New System.Drawing.Point(28, 99)
+        Me.SecondsTextBox.Name = "SecondsTextBox"
+        Me.SecondsTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.SecondsTextBox.TabIndex = 13
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -186,8 +218,8 @@ Partial Class Power
         Me.ForceCheckBox.TabIndex = 11
         Me.ForceCheckBox.Text = "&Force"
         Me.ForceCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.ForceCheckBox.UseSelectable = True
         Me.ForceCheckBox.UseStyleColors = True
-        Me.ForceCheckBox.UseVisualStyleBackColor = True
         '
         'NowCheckBox
         '
@@ -201,40 +233,13 @@ Partial Class Power
         Me.NowCheckBox.TabIndex = 10
         Me.NowCheckBox.Text = "&Now"
         Me.NowCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.NowCheckBox.UseSelectable = True
         Me.NowCheckBox.UseStyleColors = True
-        Me.NowCheckBox.UseVisualStyleBackColor = True
         '
-        'AbortButton
+        'SecondT
         '
-        Me.AbortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.AbortButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.AbortButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.AbortButton.Image = Global.LavenderControl.My.Resources.Resources.cross_circle_frame
-        Me.AbortButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.AbortButton.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.AbortButton.Location = New System.Drawing.Point(6, 138)
-        Me.AbortButton.Name = "AbortButton"
-        Me.AbortButton.Size = New System.Drawing.Size(187, 30)
-        Me.AbortButton.TabIndex = 10
-        Me.AbortButton.Text = "&Abort planned shutdowns"
-        Me.AbortButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        '
-        'SecondsTextBox
-        '
-        Me.SecondsTextBox.Enabled = False
-        Me.SecondsTextBox.Location = New System.Drawing.Point(28, 99)
-        Me.SecondsTextBox.Name = "SecondsTextBox"
-        Me.SecondsTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.SecondsTextBox.TabIndex = 13
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(134, 102)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
-        Me.Label2.TabIndex = 14
-        Me.Label2.Text = "seconds"
+        Me.SecondT.Enabled = True
+        Me.SecondT.Interval = 1000
         '
         'Power
         '
@@ -244,7 +249,7 @@ Partial Class Power
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PowerPanel)
         Me.Name = "Power"
-        Me.Style = MetroFramework.MetroColorStyle.Purple
+        Me.Resizable = False
         Me.Text = "Power - "
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.PowerPanel.ResumeLayout(False)
@@ -268,4 +273,5 @@ Partial Class Power
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents SecondsTextBox As TextBox
+    Friend WithEvents SecondT As Timer
 End Class

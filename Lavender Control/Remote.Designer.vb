@@ -75,7 +75,6 @@ Partial Class Remote
         resources.ApplyResources(Me.LinesCheckBox, "LinesCheckBox")
         Me.LinesCheckBox.Name = "LinesCheckBox"
         Me.LinesCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.LinesCheckBox.UseVisualStyleBackColor = True
         '
         'ToggleButton
         '
@@ -99,7 +98,6 @@ Partial Class Remote
         resources.ApplyResources(Me.MouseCheckBox, "MouseCheckBox")
         Me.MouseCheckBox.Name = "MouseCheckBox"
         Me.MouseCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.MouseCheckBox.UseVisualStyleBackColor = True
         '
         'ControlFlowLayoutPanel
         '
@@ -126,7 +124,6 @@ Partial Class Remote
         resources.ApplyResources(Me.KeyboardCheckBox, "KeyboardCheckBox")
         Me.KeyboardCheckBox.Name = "KeyboardCheckBox"
         Me.KeyboardCheckBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.KeyboardCheckBox.UseVisualStyleBackColor = True
         '
         'MetroLabel4
         '

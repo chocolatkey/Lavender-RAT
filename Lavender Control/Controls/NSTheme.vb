@@ -370,7 +370,7 @@ Class NSLabel
 
 End Class
 
-<DefaultEvent("TextChanged")> _
+<DefaultEvent("TextChanged")>
 Class NSTextBox
     Inherits Control
 
@@ -582,7 +582,7 @@ Class NSTextBox
 
 End Class
 
-<DefaultEvent("CheckedChanged")> _
+<DefaultEvent("CheckedChanged")>
 Class NSCheckBox
     Inherits Control
 
@@ -660,7 +660,7 @@ Class NSCheckBox
 
 End Class
 
-<DefaultEvent("CheckedChanged")> _
+<DefaultEvent("CheckedChanged")>
 Class NSRadioButton
     Inherits Control
 
@@ -756,7 +756,7 @@ Class NSComboBox
         SetStyle(DirectCast(139286, ControlStyles), True)
         SetStyle(ControlStyles.Selectable, False)
 
-        DrawMode = Windows.Forms.DrawMode.OwnerDrawFixed
+        DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         DropDownStyle = ComboBoxStyle.DropDownList
 
         BackColor = Color.FromArgb(50, 50, 50)
@@ -962,7 +962,7 @@ Class NSTabControl
 
 End Class
 
-<DefaultEvent("CheckedChanged")> _
+<DefaultEvent("CheckedChanged")>
 Class NSOnOffBox
     Inherits Control
 
@@ -1188,7 +1188,7 @@ Class NSControlButton
     End Sub
 
     Protected Overrides Sub OnMouseClick(ByVal e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left Then
+        If e.Button = System.Windows.Forms.MouseButtons.Left Then
 
             Dim F As Form = FindForm()
 
@@ -1332,7 +1332,7 @@ Class NSSeperator
 
 End Class
 
-<DefaultEvent("Scroll")> _
+<DefaultEvent("Scroll")>
 Class NSTrackBar
     Inherits Control
 
@@ -1457,7 +1457,7 @@ Class NSTrackBar
 
     Private TrackDown As Boolean
     Protected Overrides Sub OnMouseDown(ByVal e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left Then
+        If e.Button = MouseButtons.Left Then
             I1 = CInt((_Value - _Minimum) / (_Maximum - _Minimum) * (Width - 11))
             R2 = New Rectangle(I1, 0, 10, 20)
 
@@ -1482,7 +1482,7 @@ Class NSTrackBar
 
 End Class
 
-<DefaultEvent("ValueChanged")> _
+<DefaultEvent("ValueChanged")>
 Class NSRandomPool
     Inherits Control
 
@@ -1568,10 +1568,10 @@ Class NSRandomPool
     End Sub
 
     Private Sub HandleDraw(e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left OrElse e.Button = Windows.Forms.MouseButtons.Right Then
+        If e.Button = MouseButtons.Left OrElse e.Button = MouseButtons.Right Then
             If Not WA.Contains(e.Location) Then Return
 
-            InvertColors = (e.Button = Windows.Forms.MouseButtons.Right)
+            InvertColors = (e.Button = MouseButtons.Right)
 
             Index1 = GetIndex(e.X, e.Y)
             If Index1 = Index2 Then Return
@@ -1887,7 +1887,7 @@ Class NSKeyboard
 
 End Class
 
-<DefaultEvent("SelectedIndexChanged")> _
+<DefaultEvent("SelectedIndexChanged")>
 Class NSPaginator
     Inherits Control
 
@@ -2037,7 +2037,7 @@ Class NSPaginator
     End Sub
 
     Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left Then
+        If e.Button = MouseButtons.Left Then
             Dim NewIndex As Integer
             Dim OldIndex As Integer = _SelectedIndex
 
@@ -2069,7 +2069,7 @@ Class NSPaginator
 
 End Class
 
-<DefaultEvent("Scroll")> _
+<DefaultEvent("Scroll")>
 Class NSVScrollBar
     Inherits Control
 
@@ -2278,7 +2278,7 @@ Class NSVScrollBar
     End Sub
 
     Protected Overrides Sub OnMouseDown(ByVal e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left AndAlso ShowThumb Then
+        If e.Button = MouseButtons.Left AndAlso ShowThumb Then
             If TSA.Contains(e.Location) Then
                 I1 = _Value - _SmallChange
             ElseIf BSA.Contains(e.Location) Then
@@ -2329,7 +2329,7 @@ Class NSVScrollBar
 
 End Class
 
-<DefaultEvent("Scroll")> _
+<DefaultEvent("Scroll")>
 Class NSHScrollBar
     Inherits Control
 
@@ -2532,7 +2532,7 @@ Class NSHScrollBar
     End Sub
 
     Protected Overrides Sub OnMouseDown(ByVal e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left AndAlso ShowThumb Then
+        If e.Button = MouseButtons.Left AndAlso ShowThumb Then
             If LSA.Contains(e.Location) Then
                 I1 = _Value - _SmallChange
             ElseIf RSA.Contains(e.Location) Then
@@ -2684,7 +2684,7 @@ Class NSListView
 
     Class NSListViewItem
         Property Text As String
-        <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)> _
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)>
         Property SubItems As New List(Of NSListViewSubItem)
 
         Protected UniqueId As Guid
@@ -2725,7 +2725,7 @@ Class NSListView
     End Class
 
     Private _Items As New List(Of NSListViewItem)
-    <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)> _
+    <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)>
     Public Property Items() As NSListViewItem()
         Get
             Return _Items.ToArray()
@@ -2744,7 +2744,7 @@ Class NSListView
     End Property
 
     Private _Columns As New List(Of NSListViewColumnHeader)
-    <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)> _
+    <DesignerSerializationVisibility(DesignerSerializationVisibility.Content)>
     Public Property Columns() As NSListViewColumnHeader()
         Get
             Return _Columns.ToArray()
@@ -2896,7 +2896,7 @@ Class NSListView
     Protected Overrides Sub OnMouseDown(e As MouseEventArgs)
         Focus()
 
-        If e.Button = Windows.Forms.MouseButtons.Left Then
+        If e.Button = MouseButtons.Left Then
             Dim Offset As Integer = CInt(VS.Percent * (VS.Maximum - (Height - (ItemHeight * 2))))
             Dim Index As Integer = ((e.Y + Offset - ItemHeight) \ ItemHeight)
 

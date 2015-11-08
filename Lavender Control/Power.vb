@@ -1,29 +1,29 @@
 ﻿Public Class Power
-    Public sock As Integer
+    Public cli As Client
 
 #Region "Power Buttons"
     Private Sub ShutdownButton_Click(sender As Object, e As EventArgs) Handles ShutdownButton.Click
-        Main.S.Send(sock, Main.n.shutdown & Main.Sep & vars())
+        Main.S.Send(cli, Main.n.shutdown & Main.Sep & vars())
     End Sub
 
     Private Sub RestartButton_Click(sender As Object, e As EventArgs) Handles RestartButton.Click
-        Main.S.Send(sock, Main.n.restart & Main.Sep & vars())
+        Main.S.Send(cli, Main.n.restart & Main.Sep & vars())
     End Sub
 
     Private Sub SleepButton_Click(sender As Object, e As EventArgs) Handles SleepButton.Click
-        Main.S.Send(sock, Main.n.sleep)
+        Main.S.Send(cli, Main.n.sleep)
     End Sub
 
     Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
-        Main.S.Send(sock, Main.n.logoff)
+        Main.S.Send(cli, Main.n.logoff)
     End Sub
 
     Private Sub LockButton_Click(sender As Object, e As EventArgs) Handles LockButton.Click
-        Main.S.Send(sock, Main.n.lock)
+        Main.S.Send(cli, Main.n.lock)
     End Sub
 
     Private Sub AbortButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
-        Main.S.Send(sock, Main.n.abort)
+        Main.S.Send(cli, Main.n.abort)
     End Sub
 #End Region
 
@@ -31,9 +31,15 @@
     ''' Recompute Time
     ''' </summary>
     ''' <param name="t">Dateime for action</param>
-    Sub RecomputeTime(ByVal t As Date)
-        DatePicker.Value = t
-        SecondsTextBox.Text = Math.Round(t.Subtract(Date.Now).TotalSeconds, 0)
+    Sub RecomputeTime(ByVal t As Date, Optional u As Boolean = True)
+        If u Then
+            DatePicker.Value = t
+        End If
+        If Math.Round(t.Subtract(Date.Now).TotalSeconds, 0) < 0 Then
+            RecomputeTime(Date.Now)
+        Else
+            SecondsTextBox.Text = Math.Round(t.Subtract(Date.Now).TotalSeconds, 0)
+        End If
     End Sub
 
     Function vars() As String
@@ -75,5 +81,15 @@
     Private Sub NowCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles NowCheckBox.CheckedChanged
         SecondsTextBox.Enabled = Not NowCheckBox.Checked
         DatePicker.Enabled = Not NowCheckBox.Checked
+    End Sub
+
+    Private Sub SecondT_Tick(sender As Object, e As EventArgs) Handles SecondT.Tick
+        If Not DatePicker.Focused Then
+            If Not SecondsTextBox.Text = "" Then
+                RecomputeTime(Date.Now.AddSeconds(Double.Parse(SecondsTextBox.Text)))
+            End If
+        Else
+            RecomputeTime(DatePicker.Value, False)
+        End If
     End Sub
 End Class

@@ -119,7 +119,6 @@ Partial Class About
         Me.MinimizeBox = False
         Me.Name = "About"
         Me.Resizable = False
-        Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow
         Me.ShowInTaskbar = False
         Me.Style = MetroFramework.MetroColorStyle.Purple
         Me.TopMost = True

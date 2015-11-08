@@ -37,6 +37,9 @@ Partial Class Main
         Me.ErrorLabel = New MetroFramework.Controls.MetroLabel()
         Me.Tabs = New MetroFramework.Controls.MetroTabControl()
         Me.CoreTab = New MetroFramework.Controls.MetroTabPage()
+        Me.RemoteButton = New System.Windows.Forms.Button()
+        Me.PasswordsButton = New System.Windows.Forms.Button()
+        Me.KeyloggerButton = New System.Windows.Forms.Button()
         Me.PowerButton = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.QuestRadio = New MetroFramework.Controls.MetroRadioButton()
@@ -61,15 +64,6 @@ Partial Class Main
         Me.TaskmanButton = New System.Windows.Forms.Button()
         Me.UtilitiesButton = New System.Windows.Forms.Button()
         Me.FileButton = New System.Windows.Forms.Button()
-        Me.PluginTab = New MetroFramework.Controls.MetroTabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.PluginListView = New System.Windows.Forms.ListView()
-        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PluginImageList = New System.Windows.Forms.ImageList(Me.components)
-        Me.RemoteButton = New System.Windows.Forms.Button()
-        Me.PasswordsButton = New System.Windows.Forms.Button()
-        Me.KeyloggerButton = New System.Windows.Forms.Button()
         Me.InfoTab = New MetroFramework.Controls.MetroTabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.RetrieveButton = New System.Windows.Forms.Button()
@@ -80,7 +74,22 @@ Partial Class Main
         Me.HostInfoListView = New System.Windows.Forms.ListView()
         Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PluginTab = New MetroFramework.Controls.MetroTabPage()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PluginListView = New System.Windows.Forms.ListView()
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PluginImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.LogTextBox = New MetroFramework.Controls.MetroTextBox()
+        Me.L1 = New LavenderControl.ListViewEx()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlagImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -102,14 +111,6 @@ Partial Class Main
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.L1 = New LavenderControl.ListViewEx()
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.MainSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplit.Panel1.SuspendLayout()
         Me.MainSplit.Panel2.SuspendLayout()
@@ -125,10 +126,10 @@ Partial Class Main
         Me.GroupBox3.SuspendLayout()
         Me.ClientGroupBox.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
-        Me.PluginTab.SuspendLayout()
         Me.InfoTab.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.PluginTab.SuspendLayout()
         Me.ListContextMenu.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
         Me.ControlBoxPanel.SuspendLayout()
@@ -174,6 +175,7 @@ Partial Class Main
         Me.Spinner.Name = "Spinner"
         Me.Spinner.Style = MetroFramework.MetroColorStyle.Purple
         Me.Spinner.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.Spinner.UseSelectable = True
         '
         'InfoLabel
         '
@@ -196,6 +198,7 @@ Partial Class Main
         Me.ProfileComboBox.FormattingEnabled = True
         resources.ApplyResources(Me.ProfileComboBox, "ProfileComboBox")
         Me.ProfileComboBox.Name = "ProfileComboBox"
+        Me.ProfileComboBox.UseSelectable = True
         '
         'PortValue
         '
@@ -254,10 +257,14 @@ Partial Class Main
         Me.Tabs.SelectedIndex = 0
         Me.Tabs.Style = MetroFramework.MetroColorStyle.Green
         Me.Tabs.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.Tabs.UseSelectable = True
         Me.Tabs.UseStyleColors = True
         '
         'CoreTab
         '
+        Me.CoreTab.Controls.Add(Me.RemoteButton)
+        Me.CoreTab.Controls.Add(Me.PasswordsButton)
+        Me.CoreTab.Controls.Add(Me.KeyloggerButton)
         Me.CoreTab.Controls.Add(Me.PowerButton)
         Me.CoreTab.Controls.Add(Me.GroupBox3)
         Me.CoreTab.Controls.Add(Me.Button2)
@@ -267,17 +274,57 @@ Partial Class Main
         Me.CoreTab.Controls.Add(Me.UtilitiesButton)
         Me.CoreTab.Controls.Add(Me.FileButton)
         Me.CoreTab.HorizontalScrollbarBarColor = True
+        Me.CoreTab.HorizontalScrollbarHighlightOnWheel = False
+        Me.CoreTab.HorizontalScrollbarSize = 10
         resources.ApplyResources(Me.CoreTab, "CoreTab")
         Me.CoreTab.Name = "CoreTab"
         Me.CoreTab.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.CoreTab.VerticalScrollbarBarColor = True
+        Me.CoreTab.VerticalScrollbarHighlightOnWheel = False
+        Me.CoreTab.VerticalScrollbarSize = 10
+        '
+        'RemoteButton
+        '
+        Me.RemoteButton.BackColor = System.Drawing.Color.LightGray
+        Me.RemoteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.RemoteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.RemoteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
+        resources.ApplyResources(Me.RemoteButton, "RemoteButton")
+        Me.RemoteButton.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.RemoteButton.Image = Global.LavenderControl.My.Resources.Resources.monitor
+        Me.RemoteButton.Name = "RemoteButton"
+        Me.RemoteButton.UseVisualStyleBackColor = False
+        '
+        'PasswordsButton
+        '
+        Me.PasswordsButton.BackColor = System.Drawing.Color.Purple
+        Me.PasswordsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.PasswordsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.PasswordsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        resources.ApplyResources(Me.PasswordsButton, "PasswordsButton")
+        Me.PasswordsButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.PasswordsButton.Image = Global.LavenderControl.My.Resources.Resources.key
+        Me.PasswordsButton.Name = "PasswordsButton"
+        Me.PasswordsButton.UseVisualStyleBackColor = False
+        '
+        'KeyloggerButton
+        '
+        Me.KeyloggerButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.KeyloggerButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.KeyloggerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.KeyloggerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
+        resources.ApplyResources(Me.KeyloggerButton, "KeyloggerButton")
+        Me.KeyloggerButton.ForeColor = System.Drawing.SystemColors.Control
+        Me.KeyloggerButton.Image = Global.LavenderControl.My.Resources.Resources.keyboard_l
+        Me.KeyloggerButton.Name = "KeyloggerButton"
+        Me.KeyloggerButton.UseVisualStyleBackColor = False
         '
         'PowerButton
         '
-        Me.PowerButton.BackColor = System.Drawing.Color.Purple
+        Me.PowerButton.BackColor = System.Drawing.SystemColors.HotTrack
         Me.PowerButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.PowerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.PowerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.PowerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue
+        Me.PowerButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight
         resources.ApplyResources(Me.PowerButton, "PowerButton")
         Me.PowerButton.ForeColor = System.Drawing.SystemColors.Control
         Me.PowerButton.Image = Global.LavenderControl.My.Resources.Resources.control_power
@@ -305,44 +352,44 @@ Partial Class Main
         'QuestRadio
         '
         resources.ApplyResources(Me.QuestRadio, "QuestRadio")
-        Me.QuestRadio.FontSize = MetroFramework.MetroLinkSize.Medium
+        Me.QuestRadio.FontSize = MetroFramework.MetroCheckBoxSize.Medium
         Me.QuestRadio.Name = "QuestRadio"
         Me.QuestRadio.Style = MetroFramework.MetroColorStyle.Blue
         Me.QuestRadio.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.QuestRadio.UseSelectable = True
         Me.QuestRadio.UseStyleColors = True
-        Me.QuestRadio.UseVisualStyleBackColor = True
         '
         'ExclaRadio
         '
         resources.ApplyResources(Me.ExclaRadio, "ExclaRadio")
-        Me.ExclaRadio.FontSize = MetroFramework.MetroLinkSize.Medium
+        Me.ExclaRadio.FontSize = MetroFramework.MetroCheckBoxSize.Medium
         Me.ExclaRadio.Name = "ExclaRadio"
         Me.ExclaRadio.Style = MetroFramework.MetroColorStyle.Blue
         Me.ExclaRadio.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.ExclaRadio.UseSelectable = True
         Me.ExclaRadio.UseStyleColors = True
-        Me.ExclaRadio.UseVisualStyleBackColor = True
         '
         'CritRadio
         '
         resources.ApplyResources(Me.CritRadio, "CritRadio")
-        Me.CritRadio.FontSize = MetroFramework.MetroLinkSize.Medium
+        Me.CritRadio.FontSize = MetroFramework.MetroCheckBoxSize.Medium
         Me.CritRadio.Name = "CritRadio"
         Me.CritRadio.Style = MetroFramework.MetroColorStyle.Blue
         Me.CritRadio.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.CritRadio.UseSelectable = True
         Me.CritRadio.UseStyleColors = True
-        Me.CritRadio.UseVisualStyleBackColor = True
         '
         'InfoRadio
         '
         resources.ApplyResources(Me.InfoRadio, "InfoRadio")
         Me.InfoRadio.Checked = True
-        Me.InfoRadio.FontSize = MetroFramework.MetroLinkSize.Medium
+        Me.InfoRadio.FontSize = MetroFramework.MetroCheckBoxSize.Medium
         Me.InfoRadio.Name = "InfoRadio"
         Me.InfoRadio.Style = MetroFramework.MetroColorStyle.Blue
         Me.InfoRadio.TabStop = True
         Me.InfoRadio.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.InfoRadio.UseSelectable = True
         Me.InfoRadio.UseStyleColors = True
-        Me.InfoRadio.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -373,10 +420,12 @@ Partial Class Main
         '
         'MsgTextbox
         '
+        '
+        '
+        '
         Me.MsgTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall
         resources.ApplyResources(Me.MsgTextbox, "MsgTextbox")
         Me.MsgTextbox.Name = "MsgTextbox"
-        Me.MsgTextbox.PromptText = "Message"
         Me.MsgTextbox.Style = MetroFramework.MetroColorStyle.Blue
         Me.MsgTextbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.MsgTextbox.UseStyleColors = True
@@ -432,6 +481,7 @@ Partial Class Main
         Me.ReconnectButton.Name = "ReconnectButton"
         Me.ReconnectButton.Theme = MetroFramework.MetroThemeStyle.Light
         Me.InfoToolTip.SetToolTip(Me.ReconnectButton, resources.GetString("ReconnectButton.ToolTip"))
+        Me.ReconnectButton.UseSelectable = True
         '
         'ExitButton
         '
@@ -439,6 +489,7 @@ Partial Class Main
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Theme = MetroFramework.MetroThemeStyle.Light
         Me.InfoToolTip.SetToolTip(Me.ExitButton, resources.GetString("ExitButton.ToolTip"))
+        Me.ExitButton.UseSelectable = True
         '
         'UninstallButton
         '
@@ -446,6 +497,7 @@ Partial Class Main
         Me.UninstallButton.Name = "UninstallButton"
         Me.UninstallButton.Theme = MetroFramework.MetroThemeStyle.Light
         Me.InfoToolTip.SetToolTip(Me.UninstallButton, resources.GetString("UninstallButton.ToolTip"))
+        Me.UninstallButton.UseSelectable = True
         '
         'ScrambleButton
         '
@@ -453,6 +505,7 @@ Partial Class Main
         Me.ScrambleButton.Name = "ScrambleButton"
         Me.ScrambleButton.Theme = MetroFramework.MetroThemeStyle.Light
         Me.InfoToolTip.SetToolTip(Me.ScrambleButton, resources.GetString("ScrambleButton.ToolTip"))
+        Me.ScrambleButton.UseSelectable = True
         '
         'UpdateButton
         '
@@ -460,6 +513,7 @@ Partial Class Main
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Theme = MetroFramework.MetroThemeStyle.Light
         Me.InfoToolTip.SetToolTip(Me.UpdateButton, resources.GetString("UpdateButton.ToolTip"))
+        Me.UpdateButton.UseSelectable = True
         '
         'ShellButton
         '
@@ -506,101 +560,13 @@ Partial Class Main
         Me.FileButton.Name = "FileButton"
         Me.FileButton.UseVisualStyleBackColor = False
         '
-        'PluginTab
-        '
-        Me.PluginTab.Controls.Add(Me.Label1)
-        Me.PluginTab.Controls.Add(Me.PluginListView)
-        Me.PluginTab.Controls.Add(Me.RemoteButton)
-        Me.PluginTab.Controls.Add(Me.PasswordsButton)
-        Me.PluginTab.Controls.Add(Me.KeyloggerButton)
-        Me.PluginTab.HorizontalScrollbarBarColor = True
-        resources.ApplyResources(Me.PluginTab, "PluginTab")
-        Me.PluginTab.Name = "PluginTab"
-        Me.PluginTab.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.PluginTab.VerticalScrollbarBarColor = True
-        '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
-        'PluginListView
-        '
-        resources.ApplyResources(Me.PluginListView, "PluginListView")
-        Me.PluginListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader19, Me.ColumnHeader20})
-        Me.PluginListView.FullRowSelect = True
-        Me.PluginListView.GridLines = True
-        Me.PluginListView.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {CType(resources.GetObject("PluginListView.Groups"), System.Windows.Forms.ListViewGroup), CType(resources.GetObject("PluginListView.Groups1"), System.Windows.Forms.ListViewGroup)})
-        Me.PluginListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.PluginListView.Items.AddRange(New System.Windows.Forms.ListViewItem() {CType(resources.GetObject("PluginListView.Items"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items1"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items2"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items3"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items4"), System.Windows.Forms.ListViewItem)})
-        Me.PluginListView.LargeImageList = Me.PluginImageList
-        Me.PluginListView.Name = "PluginListView"
-        Me.PluginListView.SmallImageList = Me.PluginImageList
-        Me.PluginListView.UseCompatibleStateImageBehavior = False
-        Me.PluginListView.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader19
-        '
-        resources.ApplyResources(Me.ColumnHeader19, "ColumnHeader19")
-        '
-        'ColumnHeader20
-        '
-        resources.ApplyResources(Me.ColumnHeader20, "ColumnHeader20")
-        '
-        'PluginImageList
-        '
-        Me.PluginImageList.ImageStream = CType(resources.GetObject("PluginImageList.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.PluginImageList.TransparentColor = System.Drawing.Color.Transparent
-        Me.PluginImageList.Images.SetKeyName(0, "key.png")
-        Me.PluginImageList.Images.SetKeyName(1, "keyboard.png")
-        Me.PluginImageList.Images.SetKeyName(2, "monitor.png")
-        Me.PluginImageList.Images.SetKeyName(3, "lock.png")
-        '
-        'RemoteButton
-        '
-        Me.RemoteButton.BackColor = System.Drawing.Color.LightGray
-        Me.RemoteButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.RemoteButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.RemoteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke
-        resources.ApplyResources(Me.RemoteButton, "RemoteButton")
-        Me.RemoteButton.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.RemoteButton.Image = Global.LavenderControl.My.Resources.Resources.monitor
-        Me.RemoteButton.Name = "RemoteButton"
-        Me.RemoteButton.UseVisualStyleBackColor = False
-        '
-        'PasswordsButton
-        '
-        Me.PasswordsButton.BackColor = System.Drawing.Color.Purple
-        Me.PasswordsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.PasswordsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.PasswordsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        resources.ApplyResources(Me.PasswordsButton, "PasswordsButton")
-        Me.PasswordsButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.PasswordsButton.Image = Global.LavenderControl.My.Resources.Resources.key
-        Me.PasswordsButton.Name = "PasswordsButton"
-        Me.PasswordsButton.UseVisualStyleBackColor = False
-        '
-        'KeyloggerButton
-        '
-        Me.KeyloggerButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.KeyloggerButton.FlatAppearance.BorderColor = System.Drawing.Color.Black
-        Me.KeyloggerButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.KeyloggerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gold
-        resources.ApplyResources(Me.KeyloggerButton, "KeyloggerButton")
-        Me.KeyloggerButton.ForeColor = System.Drawing.SystemColors.Control
-        Me.KeyloggerButton.Image = Global.LavenderControl.My.Resources.Resources.keyboard_l
-        Me.KeyloggerButton.Name = "KeyloggerButton"
-        Me.KeyloggerButton.UseVisualStyleBackColor = False
-        '
         'InfoTab
         '
         Me.InfoTab.Controls.Add(Me.GroupBox2)
         Me.InfoTab.Controls.Add(Me.GroupBox1)
-        Me.InfoTab.HorizontalScrollbarBarColor = True
         resources.ApplyResources(Me.InfoTab, "InfoTab")
         Me.InfoTab.Name = "InfoTab"
         Me.InfoTab.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.InfoTab.VerticalScrollbarBarColor = True
         '
         'GroupBox2
         '
@@ -670,7 +636,73 @@ Partial Class Main
         '
         resources.ApplyResources(Me.ColumnHeader18, "ColumnHeader18")
         '
+        'PluginTab
+        '
+        Me.PluginTab.Controls.Add(Me.Button1)
+        Me.PluginTab.Controls.Add(Me.Label1)
+        Me.PluginTab.Controls.Add(Me.PluginListView)
+        Me.PluginTab.HorizontalScrollbarBarColor = True
+        Me.PluginTab.HorizontalScrollbarHighlightOnWheel = False
+        Me.PluginTab.HorizontalScrollbarSize = 10
+        resources.ApplyResources(Me.PluginTab, "PluginTab")
+        Me.PluginTab.Name = "PluginTab"
+        Me.PluginTab.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.PluginTab.VerticalScrollbarBarColor = True
+        Me.PluginTab.VerticalScrollbarHighlightOnWheel = False
+        Me.PluginTab.VerticalScrollbarSize = 10
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Black
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Image = Global.LavenderControl.My.Resources.Resources.network_clouds
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
+        '
+        'PluginListView
+        '
+        resources.ApplyResources(Me.PluginListView, "PluginListView")
+        Me.PluginListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader19, Me.ColumnHeader20})
+        Me.PluginListView.FullRowSelect = True
+        Me.PluginListView.GridLines = True
+        Me.PluginListView.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {CType(resources.GetObject("PluginListView.Groups"), System.Windows.Forms.ListViewGroup), CType(resources.GetObject("PluginListView.Groups1"), System.Windows.Forms.ListViewGroup)})
+        Me.PluginListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.PluginListView.Items.AddRange(New System.Windows.Forms.ListViewItem() {CType(resources.GetObject("PluginListView.Items"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items1"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items2"), System.Windows.Forms.ListViewItem), CType(resources.GetObject("PluginListView.Items3"), System.Windows.Forms.ListViewItem)})
+        Me.PluginListView.LargeImageList = Me.PluginImageList
+        Me.PluginListView.Name = "PluginListView"
+        Me.PluginListView.SmallImageList = Me.PluginImageList
+        Me.PluginListView.UseCompatibleStateImageBehavior = False
+        Me.PluginListView.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader19
+        '
+        resources.ApplyResources(Me.ColumnHeader19, "ColumnHeader19")
+        '
+        'ColumnHeader20
+        '
+        resources.ApplyResources(Me.ColumnHeader20, "ColumnHeader20")
+        '
+        'PluginImageList
+        '
+        Me.PluginImageList.ImageStream = CType(resources.GetObject("PluginImageList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.PluginImageList.TransparentColor = System.Drawing.Color.Transparent
+        Me.PluginImageList.Images.SetKeyName(0, "key.png")
+        Me.PluginImageList.Images.SetKeyName(1, "monitor.png")
+        Me.PluginImageList.Images.SetKeyName(2, "lock.png")
+        '
         'LogTextBox
+        '
+        '
+        '
         '
         resources.ApplyResources(Me.LogTextBox, "LogTextBox")
         Me.LogTextBox.Multiline = True
@@ -679,6 +711,48 @@ Partial Class Main
         Me.LogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.LogTextBox.Style = MetroFramework.MetroColorStyle.Purple
         Me.LogTextBox.Theme = MetroFramework.MetroThemeStyle.Dark
+        '
+        'L1
+        '
+        resources.ApplyResources(Me.L1, "L1")
+        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.L1.ContextMenuStrip = Me.ListContextMenu
+        Me.L1.FullRowSelect = True
+        Me.L1.GridLines = True
+        Me.L1.HideSelection = False
+        Me.L1.LargeImageList = Me.FlagImageList
+        Me.L1.Name = "L1"
+        Me.L1.SmallImageList = Me.FlagImageList
+        Me.L1.UseCompatibleStateImageBehavior = False
+        Me.L1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
+        '
+        'ColumnHeader11
+        '
+        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
+        '
+        'ColumnHeader12
+        '
+        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
+        '
+        'ColumnHeader13
+        '
+        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
+        '
+        'ColumnHeader14
+        '
+        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
+        '
+        'ColumnHeader15
+        '
+        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
+        '
+        'ColumnHeader16
+        '
+        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
         '
         'ListContextMenu
         '
@@ -996,7 +1070,7 @@ Partial Class Main
         '
         'KeysButton
         '
-        Me.KeysButton.BackColor = System.Drawing.Color.White
+        Me.KeysButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         resources.ApplyResources(Me.KeysButton, "KeysButton")
         Me.KeysButton.FlatAppearance.BorderSize = 0
         Me.KeysButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
@@ -1007,7 +1081,7 @@ Partial Class Main
         '
         'BuilderButton
         '
-        Me.BuilderButton.BackColor = System.Drawing.Color.White
+        Me.BuilderButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         resources.ApplyResources(Me.BuilderButton, "BuilderButton")
         Me.BuilderButton.FlatAppearance.BorderSize = 0
         Me.BuilderButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
@@ -1018,7 +1092,7 @@ Partial Class Main
         '
         'AboutButton
         '
-        Me.AboutButton.BackColor = System.Drawing.Color.White
+        Me.AboutButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
         resources.ApplyResources(Me.AboutButton, "AboutButton")
         Me.AboutButton.FlatAppearance.BorderSize = 0
         Me.AboutButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue
@@ -1063,48 +1137,6 @@ Partial Class Main
         '
         resources.ApplyResources(Me.ColumnHeader5, "ColumnHeader5")
         '
-        'L1
-        '
-        resources.ApplyResources(Me.L1, "L1")
-        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
-        Me.L1.ContextMenuStrip = Me.ListContextMenu
-        Me.L1.FullRowSelect = True
-        Me.L1.GridLines = True
-        Me.L1.HideSelection = False
-        Me.L1.LargeImageList = Me.FlagImageList
-        Me.L1.Name = "L1"
-        Me.L1.SmallImageList = Me.FlagImageList
-        Me.L1.UseCompatibleStateImageBehavior = False
-        Me.L1.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader10
-        '
-        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
-        '
-        'ColumnHeader11
-        '
-        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
-        '
-        'ColumnHeader12
-        '
-        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
-        '
-        'ColumnHeader13
-        '
-        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
-        '
-        'ColumnHeader14
-        '
-        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
-        '
-        'ColumnHeader15
-        '
-        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
-        '
-        'ColumnHeader16
-        '
-        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
-        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
@@ -1113,7 +1145,6 @@ Partial Class Main
         Me.Controls.Add(Me.MainSplit)
         Me.DisplayHeader = False
         Me.Name = "Main"
-        Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow
         Me.Style = MetroFramework.MetroColorStyle.Purple
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.MainSplit.Panel1.ResumeLayout(False)
@@ -1133,12 +1164,12 @@ Partial Class Main
         Me.GroupBox3.PerformLayout()
         Me.ClientGroupBox.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.PluginTab.ResumeLayout(False)
-        Me.PluginTab.PerformLayout()
         Me.InfoTab.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        Me.PluginTab.ResumeLayout(False)
+        Me.PluginTab.PerformLayout()
         Me.ListContextMenu.ResumeLayout(False)
         Me.TrayContextMenu.ResumeLayout(False)
         Me.ControlBoxPanel.ResumeLayout(False)
@@ -1204,11 +1235,8 @@ Partial Class Main
     Friend WithEvents ExitButton As MetroFramework.Controls.MetroButton
     Friend WithEvents UninstallButton As MetroFramework.Controls.MetroButton
     Friend WithEvents ScrambleButton As MetroFramework.Controls.MetroButton
-    Friend WithEvents KeyloggerButton As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents PasswordsButton As Button
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents RemoteButton As Button
     Friend WithEvents QuestRadio As MetroFramework.Controls.MetroRadioButton
     Friend WithEvents ExclaRadio As MetroFramework.Controls.MetroRadioButton
     Friend WithEvents CritRadio As MetroFramework.Controls.MetroRadioButton
@@ -1232,4 +1260,8 @@ Partial Class Main
     Friend WithEvents ColumnHeader8 As ColumnHeader
     Friend WithEvents ColumnHeader9 As ColumnHeader
     Friend WithEvents PowerButton As Button
+    Friend WithEvents KeyloggerButton As Button
+    Friend WithEvents RemoteButton As Button
+    Friend WithEvents PasswordsButton As Button
+    Friend WithEvents Button1 As Button
 End Class

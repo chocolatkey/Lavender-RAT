@@ -181,7 +181,7 @@ MustInherit Class ThemeContainer154
     End Sub
 
     Protected Overrides Sub OnMouseDown(ByVal e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left Then SetState(MouseState.Down)
+        If e.Button = MouseButtons.Left Then SetState(MouseState.Down)
 
         If Not (_IsParentForm AndAlso ParentForm.WindowState = FormWindowState.Maximized OrElse _ControlMode) Then
             If _Movable AndAlso Frame.Contains(e.Location) Then
@@ -299,7 +299,7 @@ MustInherit Class ThemeContainer154
     End Property
 
     Private _BackColor As Boolean
-    <Category("Misc")> _
+    <Category("Misc")>
     Overrides Property BackColor() As Color
         Get
             Return MyBase.BackColor
@@ -360,7 +360,7 @@ MustInherit Class ThemeContainer154
         End Set
     End Property
 
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Overrides Property ForeColor() As Color
         Get
             Return Color.Empty
@@ -368,7 +368,7 @@ MustInherit Class ThemeContainer154
         Set(ByVal value As Color)
         End Set
     End Property
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Overrides Property BackgroundImage() As Image
         Get
             Return Nothing
@@ -376,7 +376,7 @@ MustInherit Class ThemeContainer154
         Set(ByVal value As Image)
         End Set
     End Property
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Overrides Property BackgroundImageLayout() As ImageLayout
         Get
             Return ImageLayout.None
@@ -1197,7 +1197,7 @@ MustInherit Class ThemeControl154
     End Sub
 
     Protected Overrides Sub OnMouseDown(ByVal e As MouseEventArgs)
-        If e.Button = Windows.Forms.MouseButtons.Left Then SetState(MouseState.Down)
+        If e.Button = MouseButtons.Left Then SetState(MouseState.Down)
         MyBase.OnMouseDown(e)
     End Sub
 
@@ -1223,7 +1223,7 @@ MustInherit Class ThemeControl154
 
 #Region " Base Properties "
 
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Overrides Property ForeColor() As Color
         Get
             Return Color.Empty
@@ -1231,7 +1231,7 @@ MustInherit Class ThemeControl154
         Set(ByVal value As Color)
         End Set
     End Property
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Overrides Property BackgroundImage() As Image
         Get
             Return Nothing
@@ -1239,7 +1239,7 @@ MustInherit Class ThemeControl154
         Set(ByVal value As Image)
         End Set
     End Property
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
+    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
     Overrides Property BackgroundImageLayout() As ImageLayout
         Get
             Return ImageLayout.None
@@ -1268,7 +1268,7 @@ MustInherit Class ThemeControl154
     End Property
 
     Private _BackColor As Boolean
-    <Category("Misc")> _
+    <Category("Misc")>
     Overrides Property BackColor() As Color
         Get
             Return MyBase.BackColor
@@ -1948,9 +1948,9 @@ Structure Bloom
 
     Property ValueHex() As String
         Get
-            Return String.Concat("#", _
-            _Value.R.ToString("X2", Nothing), _
-            _Value.G.ToString("X2", Nothing), _
+            Return String.Concat("#",
+            _Value.R.ToString("X2", Nothing),
+            _Value.G.ToString("X2", Nothing),
             _Value.B.ToString("X2", Nothing))
         End Get
         Set(ByVal value As String)
@@ -1989,21 +1989,21 @@ Class PrecisionTimer
     Private Handle As IntPtr
     Private TimerCallback As TimerDelegate
 
-    <DllImport("kernel32.dll", EntryPoint:="CreateTimerQueueTimer")> _
-    Private Shared Function CreateTimerQueueTimer( _
-    ByRef handle As IntPtr, _
-    ByVal queue As IntPtr, _
-    ByVal callback As TimerDelegate, _
-    ByVal state As IntPtr, _
-    ByVal dueTime As UInteger, _
-    ByVal period As UInteger, _
+    <DllImport("kernel32.dll", EntryPoint:="CreateTimerQueueTimer")>
+    Private Shared Function CreateTimerQueueTimer(
+    ByRef handle As IntPtr,
+    ByVal queue As IntPtr,
+    ByVal callback As TimerDelegate,
+    ByVal state As IntPtr,
+    ByVal dueTime As UInteger,
+    ByVal period As UInteger,
     ByVal flags As UInteger) As Boolean
     End Function
 
-    <DllImport("kernel32.dll", EntryPoint:="DeleteTimerQueueTimer")> _
-    Private Shared Function DeleteTimerQueueTimer( _
-    ByVal queue As IntPtr, _
-    ByVal handle As IntPtr, _
+    <DllImport("kernel32.dll", EntryPoint:="DeleteTimerQueueTimer")>
+    Private Shared Function DeleteTimerQueueTimer(
+    ByVal queue As IntPtr,
+    ByVal handle As IntPtr,
     ByVal callback As IntPtr) As Boolean
     End Function
 

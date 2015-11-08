@@ -43,11 +43,12 @@ Partial Class Passwords
         Me.ApplicationImageList.Images.SetKeyName(2, "dyn-orb.ico")
         Me.ApplicationImageList.Images.SetKeyName(3, "key.ico")
         Me.ApplicationImageList.Images.SetKeyName(4, "firefox.ico")
-        Me.ApplicationImageList.Images.SetKeyName(5, "chrome.ico")
-        Me.ApplicationImageList.Images.SetKeyName(6, "msn.ico")
-        Me.ApplicationImageList.Images.SetKeyName(7, "key.ico")
-        Me.ApplicationImageList.Images.SetKeyName(8, "opera.ico")
-        Me.ApplicationImageList.Images.SetKeyName(9, "iexplore.ico")
+        Me.ApplicationImageList.Images.SetKeyName(5, "opera.ico")
+        Me.ApplicationImageList.Images.SetKeyName(6, "chrome.ico")
+        Me.ApplicationImageList.Images.SetKeyName(7, "yandex.ico")
+        Me.ApplicationImageList.Images.SetKeyName(8, "msn.ico")
+        Me.ApplicationImageList.Images.SetKeyName(9, "key.ico")
+        Me.ApplicationImageList.Images.SetKeyName(10, "iexplore.ico")
         '
         'ListView1
         '

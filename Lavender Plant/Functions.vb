@@ -1,8 +1,9 @@
 ﻿Imports System.IO
+Imports System.IO.Compression
 Imports System.Runtime.InteropServices
 
 Module Func
-    <DllImport("shell32.dll")> _
+    <DllImport("shell32.dll")>
     Private Function SHGetFileInfo(pszPath As String, dwFileAttributes As UInteger, ByRef psfi As SHFILEINFO, cbSizeFileInfo As UInteger, uFlags As UInteger) As IntPtr
     End Function
 
@@ -10,9 +11,9 @@ Module Func
         Public hIcon As IntPtr
         Public iIcon As Integer
         Public dwAttributes As Integer
-        <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=260)> _
+        <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=260)>
         Public szDisplayName As String
-        <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=80)> _
+        <MarshalAs(UnmanagedType.ByValTStr, SizeConst:=80)>
         Public szTypeName As String
     End Structure
 
@@ -24,14 +25,14 @@ Module Func
 
     End Sub
 
-    Public Function Xord(ByVal str As String, ByVal key As String) ''Is not being used right now remove if never needed todo!
+    Public Function Xord(ByVal str As String, ByVal key As String)
         Dim i As Short
         Xord = ""
         Dim KeyChar As Integer
         KeyChar = Asc(key)
         For i = 1 To Len(str)
-            Xord &= _
-               Chr(KeyChar Xor _
+            Xord &=
+               Chr(KeyChar Xor
                Asc(Mid(str, i, 1)))
         Next
     End Function
@@ -69,6 +70,34 @@ Module Func
         Return a.ToArray
     End Function
     Public GetProcesses() As Process
+
+    Public Function ZIP(ByVal B() As Byte, ByRef CM As Boolean) As Byte()
+        ' compress Bytes With GZIP
+        If CM = True Then
+            Dim M As Object = New IO.MemoryStream()
+            Dim gZip As Object = New IO.Compression.GZipStream(M, CompressionMode.Compress, True)
+            gZip.Write(B, 0, B.Length)
+            gZip.Dispose()
+            M.Position = 0
+            Dim BF(M.Length) As Byte
+            M.Read(BF, 0, BF.Length)
+            M.Dispose()
+            Return BF
+        Else
+            Dim M As Object = New IO.MemoryStream(B)
+            Dim gZip As Object = New GZipStream(M, CompressionMode.Decompress)
+            Dim buffer(3) As Byte
+            M.Position = M.Length - 5
+            M.Read(buffer, 0, 4)
+            Dim size As Integer = BitConverter.ToInt32(buffer, 0)
+            M.Position = 0
+            Dim BF(size - 1) As Byte
+            gZip.Read(BF, 0, size)
+            gZip.Dispose()
+            M.Dispose()
+            Return BF
+        End If
+    End Function
 
     Private Declare Function GetVolumeInformation Lib "kernel32" Alias "GetVolumeInformationA" (ByVal lpRootPathName As String, ByVal lpVolumeNameBuffer As String, ByVal nVolumeNameSize As Integer, ByRef lpVolumeSerialNumber As Integer, ByRef lpMaximumComponentLength As Integer, ByRef lpFileSystemFlags As Integer, ByVal lpFileSystemNameBuffer As String, ByVal nFileSystemNameSize As Integer) As Integer
     Function HWD() As String
@@ -247,4 +276,155 @@ Module Func
             Return False
         End If
     End Function
+
+#Region "Net Scan"
+    Public Declare Unicode Function NetServerEnum Lib "Netapi32.dll" (
+        ByVal Servername As Integer, ByVal Level As Integer, ByRef Buffer As Integer, ByVal PrefMaxLen As Integer,
+        ByRef EntriesRead As Integer, ByRef TotalEntries As Integer, ByVal ServerType As Integer,
+        ByVal DomainName As String, ByRef ResumeHandle As Integer) As Integer
+
+    Public Structure SERVER_INFO_101
+        Public Platform_ID As Integer
+        <MarshalAsAttribute(UnmanagedType.LPWStr)> Public Name As String
+        Public Version_Major As Integer
+        Public Version_Minor As Integer
+        Public Type As Integer
+        <MarshalAsAttribute(UnmanagedType.LPWStr)> Public Comment As String
+    End Structure
+
+    Public Declare Function NetApiBufferFree Lib "Netapi32.dll" (ByVal lpBuffer As Integer) As Integer
+
+    Public Function GetNetworkComputers(Optional ByVal DomainName As String = Nothing) As List(Of String)
+        Dim level As Integer = 101
+        Dim MaxLenPref As Integer = -1
+        Dim ResumeHandle As Integer = 0
+        Dim ServerInfo As SERVER_INFO_101
+        Dim SV_TYPE_ALL As Integer = &HFFFFFFFF
+        Dim ret, EntriesRead, TotalEntries, BufPtr, CurPtr As Integer
+        Dim ReturnList As New List(Of String)
+
+        Try
+            ret = NetServerEnum(0, level, BufPtr, MaxLenPref, EntriesRead, TotalEntries, SV_TYPE_ALL, DomainName, ResumeHandle)
+            If ret = 0 Then
+                CurPtr = BufPtr
+                For i As Integer = 0 To EntriesRead - 1
+                    ServerInfo = CType(Marshal.PtrToStructure(New IntPtr(CurPtr), GetType(SERVER_INFO_101)), SERVER_INFO_101)
+                    CurPtr = CurPtr + Len(ServerInfo)
+                    ReturnList.Add(ServerInfo.Name)
+                Next
+            End If
+            NetApiBufferFree(BufPtr)
+        Catch ex As Exception
+        End Try
+
+        Return ReturnList
+    End Function
+
+    ''---------------------------------------------
+    Public Class NetApi32
+
+        Private Declare Function NetApiBufferFree Lib "netapi32" (ByVal BufPtr As IntPtr) As Integer
+
+        Private Declare Unicode Function NetServerEnum Lib "netapi32" _
+             (ByVal Servername As IntPtr,
+             ByVal Level As Integer,
+             ByRef bufptr As IntPtr,
+             ByVal PrefMaxLen As Integer,
+             ByRef entriesread As Integer,
+             ByRef TotalEntries As Integer,
+             ByVal serverType As Integer,
+             ByVal Domain As IntPtr,
+             ByVal ResumeHandle As Integer) As Integer
+
+        Public Structure SERVER_INFO_101
+            Public Platform_ID As Integer
+            <MarshalAsAttribute(UnmanagedType.LPWStr)> Public Name As String
+            Public Version_Major As Integer
+            Public Version_Minor As Integer
+            Public Type As Integer
+            <MarshalAsAttribute(UnmanagedType.LPWStr)> Public Comment As String
+        End Structure
+
+        Private Declare Function lstrlenW Lib "kernel32" (ByVal lpString As Integer) As Integer
+
+        'Windows type used to call the Net API
+        Private Const MAX_PREFERRED_LENGTH As Integer = -1
+        Private Const NERR_SUCCESS As Integer = 0
+        Private Const ERROR_MORE_DATA As Integer = 234
+        Private Const SV_TYPE_WORKSTATION As Integer = &H1S
+        Private Const SV_TYPE_SERVER As Integer = &H2S
+        Private Const SV_TYPE_SQLSERVER As Integer = &H4S
+        Private Const SV_TYPE_DOMAIN_CTRL As Integer = &H8S
+        Private Const SV_TYPE_DOMAIN_BAKCTRL As Integer = &H10S
+        Private Const SV_TYPE_TIME_SOURCE As Integer = &H20S
+        Private Const SV_TYPE_AFP As Integer = &H40S
+        Private Const SV_TYPE_NOVELL As Integer = &H80S
+        Private Const SV_TYPE_DOMAIN_MEMBER As Integer = &H100S
+        Private Const SV_TYPE_PRINTQ_SERVER As Integer = &H200S
+        Private Const SV_TYPE_DIALIN_SERVER As Integer = &H400S
+        Private Const SV_TYPE_XENIX_SERVER As Integer = &H800S
+        Private Const SV_TYPE_SERVER_UNIX As Integer = SV_TYPE_XENIX_SERVER
+        Private Const SV_TYPE_NT As Integer = &H1000S
+        Private Const SV_TYPE_WFW As Integer = &H2000S
+        Private Const SV_TYPE_SERVER_MFPN As Integer = &H4000S
+        Private Const SV_TYPE_SERVER_NT As Integer = &H8000S
+        Private Const SV_TYPE_POTENTIAL_BROWSER As Integer = &H10000
+        Private Const SV_TYPE_BACKUP_BROWSER As Integer = &H20000
+        Private Const SV_TYPE_MASTER_BROWSER As Integer = &H40000
+        Private Const SV_TYPE_DOMAIN_MASTER As Integer = &H80000
+        Private Const SV_TYPE_SERVER_OSF As Integer = &H100000
+        Private Const SV_TYPE_SERVER_VMS As Integer = &H200000
+        Private Const SV_TYPE_WINDOWS As Integer = &H400000  'Windows95 and above
+        Private Const SV_TYPE_DFS As Integer = &H800000  'Root of a DFS tree
+        Private Const SV_TYPE_CLUSTER_NT As Integer = &H1000000  'NT Cluster
+        Private Const SV_TYPE_TERMINALSERVER As Integer = &H2000000  'TerminalServer
+        Private Const SV_TYPE_DCE As Integer = &H10000000  'IBM DSS
+        Private Const SV_TYPE_ALTERNATE_XPORT As Integer = &H20000000  'rtnalternate transport
+        Private Const SV_TYPE_LOCAL_LIST_ONLY As Integer = &H40000000  'rtn localonly
+        Private Const SV_TYPE_DOMAIN_ENUM As Integer = &H80000000
+        Private Const SV_TYPE_ALL As Integer = &HFFFFFFFF
+        Private Const SV_PLATFORM_ID_OS2 As Integer = 400
+        Private Const SV_PLATFORM_ID_NT As Integer = 500
+
+        'Mask applied to svX_version_major in
+        'order to obtain the major version number.
+        Private Const MAJOR_VERSION_MASK As Integer = &HFS
+
+        <StructLayout(LayoutKind.Sequential)> Public Structure SERVER_INFO_100
+            Dim sv100_platform_id As Integer
+            Dim sv100_name As Integer
+        End Structure
+
+        Public Shared Function GetAllComputersInDomain() As List(Of String)
+            Dim bufptr As IntPtr
+            Dim dwEntriesread As Integer
+            Dim dwTotalentries As Integer
+            Dim dwResumehandle As Integer
+            Dim se101 As SERVER_INFO_101 = New SERVER_INFO_101
+            Dim success As Integer
+            Dim nStructSize As Integer
+            Dim cnt As Integer
+            nStructSize = Marshal.SizeOf(se101)
+
+            success = NetServerEnum(IntPtr.Zero, 101, bufptr, MAX_PREFERRED_LENGTH, dwEntriesread, dwTotalentries, SV_TYPE_NT, IntPtr.Zero, dwResumehandle)
+            'if all goes well
+            Dim resSC As New List(Of String)
+            If success = NERR_SUCCESS And success <> ERROR_MORE_DATA Then
+                'loop through the returned data, adding each
+                'machine to the list
+                For cnt = 0 To dwEntriesread - 1
+                    'get one chunk of data and cast
+                    'into an SERVER_INFO_100 struct
+                    'in order to add the name to a list
+                    se101 = DirectCast(Marshal.PtrToStructure(New IntPtr(bufptr.ToInt32 + (nStructSize * cnt)), GetType(SERVER_INFO_101)), SERVER_INFO_101)
+                    resSC.Add(se101.Name)
+                Next
+            End If
+            'clean up regardless of success
+            Call NetApiBufferFree(bufptr)
+            'return entries as sign of success
+            Return resSC
+        End Function
+    End Class
+#End Region
 End Module

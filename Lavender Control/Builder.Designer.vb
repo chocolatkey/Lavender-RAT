@@ -274,7 +274,6 @@ Partial Class Builder
         Me.MinimizeBox = False
         Me.Name = "Builder"
         Me.Resizable = False
-        Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.Style = MetroFramework.MetroColorStyle.Purple

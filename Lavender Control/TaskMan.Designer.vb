@@ -24,7 +24,7 @@ Partial Class TaskMan
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TaskMan))
-        Me.ContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.KillProcesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -43,15 +43,15 @@ Partial Class TaskMan
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.InfoToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ContextMenu.SuspendLayout()
+        Me.CMenu.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ContextMenu
+        'CMenu
         '
-        Me.ContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KillProcesToolStripMenuItem})
-        Me.ContextMenu.Name = "ContextMenuStrip1"
-        resources.ApplyResources(Me.ContextMenu, "ContextMenu")
+        Me.CMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KillProcesToolStripMenuItem})
+        Me.CMenu.Name = "ContextMenuStrip1"
+        resources.ApplyResources(Me.CMenu, "CMenu")
         '
         'KillProcesToolStripMenuItem
         '
@@ -129,7 +129,7 @@ Partial Class TaskMan
         Me.ListView1.AllowColumnReorder = True
         resources.ApplyResources(Me.ListView1, "ListView1")
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader6, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
-        Me.ListView1.ContextMenuStrip = Me.ContextMenu
+        Me.ListView1.ContextMenuStrip = Me.CMenu
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
         Me.ListView1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {CType(resources.GetObject("ListView1.Groups"), System.Windows.Forms.ListViewGroup), CType(resources.GetObject("ListView1.Groups1"), System.Windows.Forms.ListViewGroup), CType(resources.GetObject("ListView1.Groups2"), System.Windows.Forms.ListViewGroup)})
@@ -190,10 +190,9 @@ Partial Class TaskMan
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.ListView1)
         Me.Name = "TaskMan"
-        Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.SystemShadow
         Me.Style = MetroFramework.MetroColorStyle.Green
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.ContextMenu.ResumeLayout(False)
+        Me.CMenu.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -203,7 +202,7 @@ Partial Class TaskMan
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ContextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CMenu As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents KillProcesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel

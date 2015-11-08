@@ -1,5 +1,5 @@
 ﻿Public Class Passwords
-    Public sock As Integer
+    Public uname As Integer
 
     Public Sub clearwait()
         ListView1.Items.Clear()

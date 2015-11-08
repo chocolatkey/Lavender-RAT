@@ -1,7 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
 
 Public Class TaskMan
-    Public sock As Integer
+    Public cli As Client
     ''' <summary>
     ''' Import for control theming
     ''' </summary>
@@ -18,7 +18,7 @@ Public Class TaskMan
         For Each item As ListViewItem In ListView1.SelectedItems
             allprocess += (item.Text & Main.n.splitalt)
         Next
-        Main.S.Send(sock, Main.n.endprocess & Main.Sep & allprocess)
+        Main.S.Send(cli, Main.n.endprocess & Main.Sep & allprocess)
         RefreshButton.PerformClick()
     End Sub
 
@@ -26,13 +26,13 @@ Public Class TaskMan
         Dim a As String
         a = InputBox("Enter Path", "New Process")
         If a <> "" Then
-            Main.S.Send(sock, Main.n.execute & Main.Sep & a)
+            Main.S.Send(cli, Main.n.execute & Main.Sep & a)
         End If
     End Sub
 
     Private Sub RefreshButton_Click(sender As Object, e As EventArgs) Handles RefreshButton.Click
         clearwait()
-        Main.S.Send(sock, Main.n.getprocess)
+        Main.S.Send(cli, Main.n.getprocess)
     End Sub
 
     Private Sub KillButton_Click(sender As Object, e As EventArgs) Handles KillButton.Click

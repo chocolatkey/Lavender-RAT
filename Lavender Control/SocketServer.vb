@@ -4,8 +4,12 @@ Imports System.Runtime.CompilerServices
 
 Public Class SocketServer
     Private S As TcpListener
-    Private _T As Windows.Forms.Timer
-    Public Ping As Integer = 0
+    Private _T As System.Windows.Forms.Timer
+    ''Public Ping As Integer = 0
+    ''' <summary>
+    ''' Command variable values
+    ''' </summary>
+    Public Shared n As New N
 
     Sub stops()
         Try
@@ -23,12 +27,13 @@ Public Class SocketServer
         Dim T As New Threading.Thread(AddressOf PND, 10)
         T.Start()
     End Sub
-    Sub Send(ByVal sock As Integer, ByVal s As String)
+    Sub Send(ByVal c As Client, ByVal s As String)
+        ''MsgBox(s & "::" & c.Socket)
         Try
-            If Main.trust.Contains(sock) = True Then
-                Send(sock, SB(Crypt.RC4.rc4(s, Main.pw(sock))))
+            If c.Trusted = True And Not s Is N.getscreen Then
+                Send(c, SB(c.Cryptor.Encrypt(s, c.Key)))
             Else
-                Send(sock, SB(s))
+                Send(c, SB(s))
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -37,17 +42,17 @@ Public Class SocketServer
             MessageBox.Show("Line: " & st.GetFrame(0).GetFileLineNumber().ToString, "Error Sending")
         End Try
     End Sub
-    Sub Send(ByVal sock As Integer, ByVal b As Byte())
-
+    Sub Send(ByVal c As Client, ByVal b As Byte())
         Try
+            ''Dim c As Client = Main.Clients.Find(Function(item) item.ID = id)
             Dim m As New IO.MemoryStream
             m.Write(b, 0, b.Length)
             m.Write(SB(SPL), 0, SPL.Length)
-            SK(sock).Send(m.ToArray, 0, m.Length, SocketFlags.None)
+            SK(c.Socket).Send(m.ToArray, 0, m.Length, SocketFlags.None)
             m.Dispose()
         Catch ex As Exception
             MsgBox("Exception. Disconnecting")
-            Disconnect(sock)
+            Disconnect(c.Socket)
         End Try
     End Sub
     Private SKT As Integer = -1
@@ -97,7 +102,6 @@ re:
         Catch : End Try
     End Sub
     Public Sub Disconnect(ByVal Sock As Integer)
-
         Try
             SK(Sock).Disconnect(False)
         Catch ex As Exception
@@ -155,6 +159,7 @@ rr:
                 GoTo e
             End If
         Catch ex As Exception
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
             GoTo e
         End Try
         Thread.Sleep(1)
@@ -170,7 +175,8 @@ e:
     Private oIP(9999) As String
     Public Function IP(ByRef sock As Integer) As String
         Try
-            oIP(sock) = Split(SK(sock).RemoteEndPoint.ToString(), ":")(0)
+            oIP(sock) = Split(SK(sock).RemoteEndPoint.ToString(), ": ")(0)
+            oIP(sock) = SK(sock).RemoteEndPoint.ToString()
             Return oIP(sock)
         Catch ex As Exception
             If oIP(sock) Is Nothing Then
@@ -183,7 +189,7 @@ e:
     End Function
 
     Private Sub T_Tick(ByVal sender As Object, ByVal e As EventArgs)
-        Ping += 1
+        ''Ping += 1
     End Sub
 
     Public Overridable Property T As System.Windows.Forms.Timer

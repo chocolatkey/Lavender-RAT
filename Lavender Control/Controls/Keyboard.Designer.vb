@@ -48,7 +48,6 @@ Partial Class Keyboard
         Me.Name = "Keyboard"
         Me.Padding = New System.Windows.Forms.Padding(20, 30, 20, 20)
         Me.Resizable = False
-        Me.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.None
         Me.ShowInTaskbar = False
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

@@ -41,8 +41,12 @@ Partial Class Main
     ' Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
-        Me.ServiceName = "Service1"
+        '
+        'Main
+        '
+        Me.AutoLog = False
+        Me.ServiceName = "UpdaterService"
+
     End Sub
 
 End Class

