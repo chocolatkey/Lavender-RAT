@@ -29,9 +29,10 @@ Partial Class Main
         '
         Me.InfoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.InfoLabel.ForeColor = System.Drawing.SystemColors.Control
-        Me.InfoLabel.Location = New System.Drawing.Point(89, 107)
+        Me.InfoLabel.Location = New System.Drawing.Point(12, 9)
         Me.InfoLabel.Name = "InfoLabel"
-        Me.InfoLabel.Size = New System.Drawing.Size(474, 133)
+        Me.InfoLabel.Size = New System.Drawing.Size(510, 177)
+        Me.InfoLabel.TabIndex = 0
         Me.InfoLabel.Text = "INFO"
         '
         'Main
@@ -39,9 +40,10 @@ Partial Class Main
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Desktop
-        Me.ClientSize = New System.Drawing.Size(788, 416)
-        Me.ControlBox = False
+        Me.ClientSize = New System.Drawing.Size(534, 195)
         Me.Controls.Add(Me.InfoLabel)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Main"
         Me.ShowIcon = False
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide

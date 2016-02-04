@@ -179,7 +179,6 @@ Partial Class Builder
         Me.CopyCheckBox.Size = New System.Drawing.Size(50, 17)
         Me.CopyCheckBox.TabIndex = 0
         Me.CopyCheckBox.Text = "Copy"
-        Me.CopyCheckBox.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -218,7 +217,6 @@ Partial Class Builder
         Me.RegistryCheckBox.Size = New System.Drawing.Size(45, 17)
         Me.RegistryCheckBox.TabIndex = 8
         Me.RegistryCheckBox.Text = "Add"
-        Me.RegistryCheckBox.UseVisualStyleBackColor = True
         '
         'MeltCheckBox
         '
@@ -228,7 +226,6 @@ Partial Class Builder
         Me.MeltCheckBox.Size = New System.Drawing.Size(77, 17)
         Me.MeltCheckBox.TabIndex = 9
         Me.MeltCheckBox.Text = "Melt (Hide)"
-        Me.MeltCheckBox.UseVisualStyleBackColor = True
         '
         'CheckBox1
         '
@@ -238,7 +235,6 @@ Partial Class Builder
         Me.CheckBox1.Size = New System.Drawing.Size(80, 17)
         Me.CheckBox1.TabIndex = 14
         Me.CheckBox1.Text = "Off"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -247,7 +243,6 @@ Partial Class Builder
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 15
         Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'NsRandomPool1
         '

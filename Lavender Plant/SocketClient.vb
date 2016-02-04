@@ -39,6 +39,7 @@ Public Class SocketClient
                 Dim t As New Threading.Thread(AddressOf RC, 10)
                 t.Start()
                 RaiseEvent Connected()
+                MsgBox("s")
             Catch ex As Exception
 #If DEBUG Then
                 ''MsgBox(ex.Message & vbNewLine & ex.StackTrace)
@@ -57,11 +58,18 @@ Public Class SocketClient
             C.Close()
         Catch ex As Exception
 #If DEBUG Then
+            ''MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
+        End Try
+        Try
+            C = Nothing
+            RaiseEvent Disconnected()
+        Catch ex As Exception
+#If DEBUG Then
             MsgBox(ex.Message & vbNewLine & ex.StackTrace)
 #End If
         End Try
-        C = Nothing
-        RaiseEvent Disconnected()
+
     End Sub
     Sub Send(ByVal s As String)
         ''MsgBox(s & "::" & Main.trust)

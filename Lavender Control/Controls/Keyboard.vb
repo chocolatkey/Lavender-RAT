@@ -5,12 +5,16 @@
         InitializeComponent()
 
         VK.Target = target
-        Dim control As Control = DirectCast(target, Control)
-
-        Show()
-
+        Dim control As Control = target
+        Activate()
     End Sub
     Private Sub Keyboard_Deactivate(sender As Object, e As EventArgs) Handles MyBase.Deactivate
-        Me.Close()
+
+    End Sub
+
+    Private Sub Keyboard_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave
+        If Visible Then
+            Close()
+        End If
     End Sub
 End Class

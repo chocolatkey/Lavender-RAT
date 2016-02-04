@@ -175,8 +175,7 @@ e:
     Private oIP(9999) As String
     Public Function IP(ByRef sock As Integer) As String
         Try
-            oIP(sock) = Split(SK(sock).RemoteEndPoint.ToString(), ": ")(0)
-            oIP(sock) = SK(sock).RemoteEndPoint.ToString()
+            oIP(sock) = Split(SK(sock).RemoteEndPoint.ToString(), ":")(0)
             Return oIP(sock)
         Catch ex As Exception
             If oIP(sock) Is Nothing Then

@@ -11,8 +11,8 @@ Public Class Builder
             vkf = New Keyboard(sender)
             vkf.Top = Me.Location.Y + PasswordTextBox.Location.Y * 2 + PasswordTextBox.Height
             vkf.Left = Me.Location.X + PasswordTextBox.Location.X
+            vkf.Show()
         End If
-
     End Sub
 
     Private Sub PasswordTextBox_Leave(sender As Object, e As EventArgs) Handles PasswordTextBox.Leave

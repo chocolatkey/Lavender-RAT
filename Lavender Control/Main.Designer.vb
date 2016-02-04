@@ -82,14 +82,6 @@ Partial Class Main
         Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PluginImageList = New System.Windows.Forms.ImageList(Me.components)
         Me.LogTextBox = New MetroFramework.Controls.MetroTextBox()
-        Me.L1 = New LavenderControl.ListViewEx()
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ListContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlagImageList = New System.Windows.Forms.ImageList(Me.components)
@@ -111,6 +103,15 @@ Partial Class Main
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.L1 = New LavenderControl.ListViewEx()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.MainDataSet = New LavenderControl.lavenderDataSet()
         CType(Me.MainSplit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainSplit.Panel1.SuspendLayout()
         Me.MainSplit.Panel2.SuspendLayout()
@@ -133,6 +134,7 @@ Partial Class Main
         Me.ListContextMenu.SuspendLayout()
         Me.TrayContextMenu.SuspendLayout()
         Me.ControlBoxPanel.SuspendLayout()
+        CType(Me.MainDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MainSplit
@@ -197,7 +199,9 @@ Partial Class Main
         '
         Me.ProfileComboBox.FormattingEnabled = True
         resources.ApplyResources(Me.ProfileComboBox, "ProfileComboBox")
+        Me.ProfileComboBox.Items.AddRange(New Object() {resources.GetString("ProfileComboBox.Items")})
         Me.ProfileComboBox.Name = "ProfileComboBox"
+        Me.ProfileComboBox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.ProfileComboBox.UseSelectable = True
         '
         'PortValue
@@ -423,12 +427,32 @@ Partial Class Main
         '
         '
         '
+        Me.MsgTextbox.CustomButton.Image = CType(resources.GetObject("resource.Image"), System.Drawing.Image)
+        Me.MsgTextbox.CustomButton.ImeMode = CType(resources.GetObject("resource.ImeMode"), System.Windows.Forms.ImeMode)
+        Me.MsgTextbox.CustomButton.Location = CType(resources.GetObject("resource.Location"), System.Drawing.Point)
+        Me.MsgTextbox.CustomButton.Name = ""
+        Me.MsgTextbox.CustomButton.Size = CType(resources.GetObject("resource.Size"), System.Drawing.Size)
+        Me.MsgTextbox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.MsgTextbox.CustomButton.TabIndex = CType(resources.GetObject("resource.TabIndex"), Integer)
+        Me.MsgTextbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.MsgTextbox.CustomButton.UseSelectable = True
+        Me.MsgTextbox.CustomButton.Visible = CType(resources.GetObject("resource.Visible"), Boolean)
         Me.MsgTextbox.FontSize = MetroFramework.MetroTextBoxSize.Tall
+        Me.MsgTextbox.Lines = New String(-1) {}
         resources.ApplyResources(Me.MsgTextbox, "MsgTextbox")
+        Me.MsgTextbox.MaxLength = 32767
         Me.MsgTextbox.Name = "MsgTextbox"
+        Me.MsgTextbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.MsgTextbox.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.MsgTextbox.SelectedText = ""
+        Me.MsgTextbox.SelectionLength = 0
+        Me.MsgTextbox.SelectionStart = 0
         Me.MsgTextbox.Style = MetroFramework.MetroColorStyle.Blue
         Me.MsgTextbox.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.MsgTextbox.UseSelectable = True
         Me.MsgTextbox.UseStyleColors = True
+        Me.MsgTextbox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.MsgTextbox.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
         'MsgSendButton
         '
@@ -564,9 +588,15 @@ Partial Class Main
         '
         Me.InfoTab.Controls.Add(Me.GroupBox2)
         Me.InfoTab.Controls.Add(Me.GroupBox1)
+        Me.InfoTab.HorizontalScrollbarBarColor = True
+        Me.InfoTab.HorizontalScrollbarHighlightOnWheel = False
+        Me.InfoTab.HorizontalScrollbarSize = 10
         resources.ApplyResources(Me.InfoTab, "InfoTab")
         Me.InfoTab.Name = "InfoTab"
         Me.InfoTab.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.InfoTab.VerticalScrollbarBarColor = True
+        Me.InfoTab.VerticalScrollbarHighlightOnWheel = False
+        Me.InfoTab.VerticalScrollbarSize = 10
         '
         'GroupBox2
         '
@@ -704,55 +734,32 @@ Partial Class Main
         '
         '
         '
+        Me.LogTextBox.CustomButton.Image = CType(resources.GetObject("resource.Image1"), System.Drawing.Image)
+        Me.LogTextBox.CustomButton.ImeMode = CType(resources.GetObject("resource.ImeMode1"), System.Windows.Forms.ImeMode)
+        Me.LogTextBox.CustomButton.Location = CType(resources.GetObject("resource.Location1"), System.Drawing.Point)
+        Me.LogTextBox.CustomButton.Name = ""
+        Me.LogTextBox.CustomButton.Size = CType(resources.GetObject("resource.Size1"), System.Drawing.Size)
+        Me.LogTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue
+        Me.LogTextBox.CustomButton.TabIndex = CType(resources.GetObject("resource.TabIndex1"), Integer)
+        Me.LogTextBox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
+        Me.LogTextBox.CustomButton.UseSelectable = True
+        Me.LogTextBox.CustomButton.Visible = CType(resources.GetObject("resource.Visible1"), Boolean)
         resources.ApplyResources(Me.LogTextBox, "LogTextBox")
+        Me.LogTextBox.Lines = New String(-1) {}
+        Me.LogTextBox.MaxLength = 32767
         Me.LogTextBox.Multiline = True
         Me.LogTextBox.Name = "LogTextBox"
+        Me.LogTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LogTextBox.ReadOnly = True
         Me.LogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.LogTextBox.SelectedText = ""
+        Me.LogTextBox.SelectionLength = 0
+        Me.LogTextBox.SelectionStart = 0
         Me.LogTextBox.Style = MetroFramework.MetroColorStyle.Purple
         Me.LogTextBox.Theme = MetroFramework.MetroThemeStyle.Dark
-        '
-        'L1
-        '
-        resources.ApplyResources(Me.L1, "L1")
-        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
-        Me.L1.ContextMenuStrip = Me.ListContextMenu
-        Me.L1.FullRowSelect = True
-        Me.L1.GridLines = True
-        Me.L1.HideSelection = False
-        Me.L1.LargeImageList = Me.FlagImageList
-        Me.L1.Name = "L1"
-        Me.L1.SmallImageList = Me.FlagImageList
-        Me.L1.UseCompatibleStateImageBehavior = False
-        Me.L1.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader10
-        '
-        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
-        '
-        'ColumnHeader11
-        '
-        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
-        '
-        'ColumnHeader12
-        '
-        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
-        '
-        'ColumnHeader13
-        '
-        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
-        '
-        'ColumnHeader14
-        '
-        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
-        '
-        'ColumnHeader15
-        '
-        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
-        '
-        'ColumnHeader16
-        '
-        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
+        Me.LogTextBox.UseSelectable = True
+        Me.LogTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
+        Me.LogTextBox.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
         'ListContextMenu
         '
@@ -1137,6 +1144,54 @@ Partial Class Main
         '
         resources.ApplyResources(Me.ColumnHeader5, "ColumnHeader5")
         '
+        'L1
+        '
+        resources.ApplyResources(Me.L1, "L1")
+        Me.L1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14, Me.ColumnHeader15, Me.ColumnHeader16})
+        Me.L1.ContextMenuStrip = Me.ListContextMenu
+        Me.L1.FullRowSelect = True
+        Me.L1.GridLines = True
+        Me.L1.Groups.AddRange(New System.Windows.Forms.ListViewGroup() {CType(resources.GetObject("L1.Groups"), System.Windows.Forms.ListViewGroup), CType(resources.GetObject("L1.Groups1"), System.Windows.Forms.ListViewGroup)})
+        Me.L1.HideSelection = False
+        Me.L1.LargeImageList = Me.FlagImageList
+        Me.L1.Name = "L1"
+        Me.L1.SmallImageList = Me.FlagImageList
+        Me.L1.UseCompatibleStateImageBehavior = False
+        Me.L1.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader10
+        '
+        resources.ApplyResources(Me.ColumnHeader10, "ColumnHeader10")
+        '
+        'ColumnHeader11
+        '
+        resources.ApplyResources(Me.ColumnHeader11, "ColumnHeader11")
+        '
+        'ColumnHeader12
+        '
+        resources.ApplyResources(Me.ColumnHeader12, "ColumnHeader12")
+        '
+        'ColumnHeader13
+        '
+        resources.ApplyResources(Me.ColumnHeader13, "ColumnHeader13")
+        '
+        'ColumnHeader14
+        '
+        resources.ApplyResources(Me.ColumnHeader14, "ColumnHeader14")
+        '
+        'ColumnHeader15
+        '
+        resources.ApplyResources(Me.ColumnHeader15, "ColumnHeader15")
+        '
+        'ColumnHeader16
+        '
+        resources.ApplyResources(Me.ColumnHeader16, "ColumnHeader16")
+        '
+        'MainDataSet
+        '
+        Me.MainDataSet.DataSetName = "lavenderDataSet"
+        Me.MainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
@@ -1173,6 +1228,7 @@ Partial Class Main
         Me.ListContextMenu.ResumeLayout(False)
         Me.TrayContextMenu.ResumeLayout(False)
         Me.ControlBoxPanel.ResumeLayout(False)
+        CType(Me.MainDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1264,4 +1320,5 @@ Partial Class Main
     Friend WithEvents RemoteButton As Button
     Friend WithEvents PasswordsButton As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents MainDataSet As lavenderDataSet
 End Class

