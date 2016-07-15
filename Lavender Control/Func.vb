@@ -1,6 +1,8 @@
-﻿Imports System.IO
+﻿Imports System.Globalization
+Imports System.IO
 Imports System.Net
 Imports System.Text
+Imports System.Windows.Data
 
 Module Func
     ''' <summary>
@@ -703,5 +705,43 @@ Public Class Pastebin
         dataStream.Close()
         response.Close()
         Return responseFromServer
+    End Function
+End Class
+
+Public Class CountryImageConverter
+    Implements IValueConverter
+
+    Private Function IValueConverter_Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
+        'Is it in your image folder?
+        If File.Exists("pack://application:,,,/Resources/Flags" + value.ToString() + ".png") Then
+            'your image path
+            Return "pack://application:,,,/Resources/Flags" + value.ToString() + ".png"
+        Else
+            'else return general image
+            Return "pack://application:,,,/Resources/Flags/zz.png"
+        End If
+    End Function
+
+    Private Function IValueConverter_ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
+    End Function
+End Class
+
+Public Class StatusImageConverter
+    Implements IValueConverter
+
+    Private Function IValueConverter_Convert(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.Convert
+        'Is it in your image folder?
+        If File.Exists("pack://application:,,,/Resources/" + value.ToString() + ".png") Then
+            'your image path
+            Return "pack://application:,,,/Resources/" + value.ToString() + ".png"
+        Else
+            'else return general image
+            Return "pack://application:,,,/Resources/" + value.ToString() + ".png"
+        End If
+    End Function
+
+    Private Function IValueConverter_ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
     End Function
 End Class

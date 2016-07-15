@@ -39,7 +39,7 @@ Public Class SocketClient
                 Dim t As New Threading.Thread(AddressOf RC, 10)
                 t.Start()
                 RaiseEvent Connected()
-                MsgBox("s")
+                ''MsgBox("s")
             Catch ex As Exception
 #If DEBUG Then
                 ''MsgBox(ex.Message & vbNewLine & ex.StackTrace)
@@ -74,8 +74,8 @@ Public Class SocketClient
     Sub Send(ByVal s As String)
         ''MsgBox(s & "::" & Main.trust)
         Try
-            If Main.trust Then
-                Send(SB(Main.cryptor.Encrypt(s, Main.pw)))
+            If Main.cctrust Then
+                Send(SB(Main.cryptor.Encrypt(s, Main.ccpw)))
             Else
                 Send(SB(s))
             End If
